@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "webpack-dev-server"
+    "start": "webpack serve",
+    "lint": "eslint --ext js,jsx ."
   },
   "repository": {
     "type": "git",

@@ -16,10 +16,12 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devServer: {
-    static: { 
-    directory: path.resolve(__dirname)
+    static: {
+      directory: path.resolve(__dirname),
     }, //실제로 존재하는 정적 파일들의 경로
-    historyApiFallback: true,
+    historyApiFallback: {
+      index: 'index.html',
+    },
     compress: true,
     port: 8080,
   },
