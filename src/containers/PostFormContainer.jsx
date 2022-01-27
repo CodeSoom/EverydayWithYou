@@ -16,6 +16,7 @@ const HashtagBox = styled.div({
   display: 'flex',
 });
 
+//ToDo 화면에 렌더링해주는 컴포넌트로 각각 따로 분리
 export default function PostFormContainer() {
   return (
     <PostFormBox>

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import PostFormContainer from '../containers/PostFormContainer';
 
-const PageTitle = styled.div({
+const PageTitleBox = styled.div({
   padding: '48px 0',
 });
 
@@ -11,7 +11,7 @@ const PageTitle = styled.div({
 export default function PostFormPage() {
   return (
     <>
-      <PageTitle><h1>나만 알던 맛집을 소개해주세요!</h1></PageTitle>
+      <PageTitleBox><h1>나만 알던 맛집을 소개해주세요!</h1></PageTitleBox>
       <PostFormContainer />
     </>
   )

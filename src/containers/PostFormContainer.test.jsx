@@ -15,10 +15,13 @@ describe('PostFormContainer', () => {
   ));
 
   it('render contents', () => {
-    const { container, getByText } = renderPostFormContainer();
+    const { container, getByLabelText, getByText } = renderPostFormContainer();
 
-    expect(container).toHaveTextContent('가게 이름');
+    expect(getByLabelText('가게 이름')).toBeInTheDocument();
     expect(container).toHaveTextContent('태그');
+    expect(getByText('#혼밥')).toBeInTheDocument();
+    expect(getByText('#서울 송파')).toBeInTheDocument();
+    expect(getByText('#면')).toBeInTheDocument();
     expect(getByText('공유')).toBeInTheDocument();
   });
 });
