@@ -25,9 +25,9 @@ describe('App', () => {
     expect(container).toHaveTextContent('게시판');
   });
 
-  it('renders board page path to "/board/write"', () => {
-    const { container } = renderApp({ path: '/board/write' });
+  it('renders board page path to "/post"', () => {
+    const { container } = renderApp({ path: '/post' });
 
-    expect(container).toHaveTextContent('글쓰기');
+    expect(container).toHaveTextContent('나만 알던 맛집을 소개해주세요!');
   });
 });
