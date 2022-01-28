@@ -1,5 +1,3 @@
-// 관심사: 타이틀표시 및 전체적인 레이아웃
-
 import { render } from '@testing-library/react';
 
 import {
