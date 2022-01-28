@@ -14,11 +14,11 @@ export default function PostInputForm({ onChangeInput }) {
   return (
     <InputBox>
       <label
-        htmlFor='name'>
+        htmlFor='restaurantName'>
         가게 이름
       </label>
       <input
-        id='name'
+        id='restaurantName'
         type='text'
         onChange={handleChange}
       />

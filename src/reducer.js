@@ -4,14 +4,21 @@ const initialState = {
   },
 };
 
-export default function reducer(state = initialState, action) {
-  if (action.type === 'setRestaurantName') {
-    const { value } = action.payload;
+const reducers = {
+  setRestaurantName(state, { payload: { value } }) {
     return {
       ...state,
       restaurant: {
         name: value,
       },
     }
-  } return state;
+  },
+}
+
+function defaultReducer(state) {
+  return state
+}
+
+export default function reducer(state = initialState, action) {
+  return (reducers[action.type] || defaultReducer)(state, action);
 }
