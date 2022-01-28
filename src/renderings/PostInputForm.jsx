@@ -2,6 +2,11 @@ import styled from '@emotion/styled';
 
 const InputBox = styled.div({
   display: 'flex',
+  alignItems: 'center',
+  margin: '12px 0',
+  '& label': {
+    marginRight: '8px',
+  },
 });
 
 // {onChangeInput}는 전역적으로 사용할 수 있는 함수인가?
