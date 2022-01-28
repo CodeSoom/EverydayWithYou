@@ -24,7 +24,7 @@ describe('PostFormPage', () => {
 
     expect(getByLabelText('가게 이름')).toBeInTheDocument();
     expect(getByText('#혼밥')).toBeInTheDocument();
-    expect(getByText('#서울 송파')).toBeInTheDocument();
+    expect(getByText('#서울 송파구')).toBeInTheDocument();
     expect(getByText('#면')).toBeInTheDocument();
     expect(getByText('공유')).toBeInTheDocument();
   });
