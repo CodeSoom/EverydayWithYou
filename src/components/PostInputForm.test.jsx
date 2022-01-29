@@ -26,6 +26,8 @@ describe('PostInputForm', () => {
       target: { value: '멘카야' },
     })
 
-    expect(handleChange).toBeCalled();
+    expect(handleChange).toBeCalledWith(
+      { value: '멘카야' },
+    );
   });
 });

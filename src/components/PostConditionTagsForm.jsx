@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 
 import {
   conditions,
-  regions,
-  categories,
 } from '../data/hashTags';
 
 const HashtagBox = styled.div({
@@ -21,7 +19,7 @@ const HashtagBox = styled.div({
   },
 });
 
-export default function PostTagForm({ onClickTag }) {
+export default function PostConditionTagsForm({ onClickTag }) {
   return (
     <>
       <HashtagBox>
@@ -33,32 +31,6 @@ export default function PostTagForm({ onClickTag }) {
             onClick={() => onClickTag(condition.id)}
           >
             {condition.name}
-          </button>
-        ))}
-      </HashtagBox>
-      <HashtagBox>
-        <p>어디인가요?</p>
-        {regions.map((region) => (
-          <button
-            type='button'
-            key={region.id}
-            onClick={() => onClickTag(
-            )}
-          >
-            {region.name}
-          </button>
-        ))}
-      </HashtagBox>
-      <HashtagBox>
-        <p>무엇을 드셨나요?</p>
-        {categories.map((category) => (
-          <button
-            type='button'
-            key={category.id}
-            onClick={() => onClickTag(
-            )}
-          >
-            {category.name}
           </button>
         ))}
       </HashtagBox>
