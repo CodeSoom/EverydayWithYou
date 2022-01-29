@@ -8,9 +8,6 @@ const initialState = {
   restaurant: {
     name: '',
   },
-  conditions,
-  regions,
-  categories,
 };
 
 const reducers = {

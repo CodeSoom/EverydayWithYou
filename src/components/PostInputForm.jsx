@@ -5,7 +5,13 @@ const InputBox = styled.div({
   alignItems: 'center',
   margin: '12px 0',
   '& label': {
-    marginRight: '8px',
+    marginRight: '12px',
+  },
+  '& input': {
+    background: 'transparent',
+    border: 'none',
+    borderBottom: '1px solid #fff',
+    color: '#fff',
   },
 });
 
