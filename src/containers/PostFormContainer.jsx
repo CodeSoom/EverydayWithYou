@@ -38,9 +38,6 @@ export default function PostFormContainer() {
     dispatch(selectConditionTag(selectedId))
   }
 
-  // ToDo 스타일적용
-  //if(selectedId === true) {
-
   return (
     <PostFormBox>
       <PostInputForm

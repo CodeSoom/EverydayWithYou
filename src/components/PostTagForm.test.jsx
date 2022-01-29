@@ -30,8 +30,12 @@ describe('PostTagForm', () => {
 
     expect(handleClick).toBeCalled();
 
-    // ToDo Refactoring
-    expect(getByText('#서울 송파구')).toBeInTheDocument();
-    expect(getByText('#면')).toBeInTheDocument();
+    fireEvent.click(getByText('#서울 송파구'));
+
+    expect(handleClick).toBeCalled();
+
+    fireEvent.click(getByText('#면'));
+
+    expect(handleClick).toBeCalled();
   });
 });
