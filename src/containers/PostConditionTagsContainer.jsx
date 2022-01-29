@@ -2,11 +2,9 @@ import styled from '@emotion/styled';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import PostInputForm from '../components/PostInputForm';
-import PostTagForm from '../components/PostTagForm';
+import PostConditionTagsForm from '../components/PostConditionTagsForm';
 
 import {
-  setRestaurantName,
   selectConditionTag,
 } from '../actions';
 
@@ -19,20 +17,12 @@ const PostFormBox = styled.div({
 
 export default function PostFormContainer() {
   // ToDoDelete 상태 잘 바뀌는지 확인용
-  useSelector((state) => ({
-    name: state.restaurant.name,
-  }));
-
-  // ToDoDelete 상태 잘 바뀌는지 확인용
-  useSelector((state) => ({
+  const selectedCondition = useSelector((state) => ({
     conditions: state.conditions,
   }));
+  console.log(selectedCondition);
 
   const dispatch = useDispatch();
-
-  function handleChangeInput({ value }) {
-    dispatch(setRestaurantName({ value }))
-  }
 
   function handleClickTag(selectedId) {
     dispatch(selectConditionTag(selectedId))
@@ -40,13 +30,9 @@ export default function PostFormContainer() {
 
   return (
     <PostFormBox>
-      <PostInputForm
-        onChangeInput={handleChangeInput}
-      />
-      <PostTagForm
+      <PostConditionTagsForm
         onClickTag={handleClickTag}
       />
-      <button type='button'>공유</button>
     </PostFormBox>
   )
 }

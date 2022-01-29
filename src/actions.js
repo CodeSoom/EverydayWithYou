@@ -11,3 +11,17 @@ export function selectConditionTag(selectedId) {
     payload: { selectedId },
   }
 }
+
+export function selectRegionTag(selectedId) {
+  return {
+    type: 'selectRegionTag',
+    payload: { selectedId },
+  }
+}
+
+export function selectCategoryTag(selectedId) {
+  return {
+    type: 'selectCategoryTag',
+    payload: { selectedId },
+  }
+}
