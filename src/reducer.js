@@ -1,7 +1,16 @@
+import {
+  conditions,
+  regions,
+  categories,
+} from './data/hashTags';
+
 const initialState = {
   restaurant: {
     name: '',
   },
+  conditions,
+  regions,
+  categories,
 };
 
 const reducers = {
@@ -11,6 +20,14 @@ const reducers = {
       restaurant: {
         name: value,
       },
+    }
+  },
+
+  selectConditionTag(state, { payload: { selectedId } }) {
+    return {
+      ...state,
+      conditions: conditions.find(condition =>
+        condition.id === selectedId),
     }
   },
 }

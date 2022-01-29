@@ -5,13 +5,17 @@ import PostInputForm from './PostInputForm';
 describe('PostInputForm', () => {
   const handleChange = jest.fn();
 
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
   const renderPostInputForm = () => render((
     <PostInputForm
       onChangeInput={handleChange}
     />
   ));
 
-  it('change input value to call onChange event', () => {
+  it('changes input value to call onChange event', () => {
     const { getByLabelText } = renderPostInputForm();
 
     const value = '';

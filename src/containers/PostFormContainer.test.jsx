@@ -17,6 +17,10 @@ describe('PostFormContainer', () => {
 
   useDispatch.mockImplementation(() => dispatch);
 
+  beforeEach(() => {
+    dispatch.mockClear();
+  });
+
   const renderPostFormContainer = () => render((
     <MemoryRouter>
       <PostFormContainer />
@@ -51,6 +55,21 @@ describe('PostFormContainer', () => {
       expect(dispatch).toBeCalledWith({
         type: 'setRestaurantName',
         payload: { value: '멘카야' },
+      });
+    });
+  });
+
+  context('when click condition tag', () => {
+    const selectedId = 1;
+
+    it('calls dispatch with action : selectConditionTag', () => {
+      const { getByText } = renderPostFormContainer();
+
+      fireEvent.click(getByText('#혼밥'))
+
+      expect(dispatch).toBeCalledWith({
+        type: 'selectConditionTag',
+        payload: { selectedId },
       });
     });
   });

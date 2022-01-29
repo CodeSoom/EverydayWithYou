@@ -2,11 +2,12 @@ import styled from '@emotion/styled';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import PostInputForm from '../renderings/PostInputForm';
-import PostTagForm from '../renderings/PostTagForm';
+import PostInputForm from '../components/PostInputForm';
+import PostTagForm from '../components/PostTagForm';
 
 import {
   setRestaurantName,
+  selectConditionTag,
 } from '../actions';
 
 const PostFormBox = styled.div({
@@ -16,10 +17,15 @@ const PostFormBox = styled.div({
   alignItems: 'flex-start',
 });
 
-//ToDo 화면에 렌더링해주는 컴포넌트로 각각 따로 분리
 export default function PostFormContainer() {
+  // ToDoDelete 상태 잘 바뀌는지 확인용
   useSelector((state) => ({
     name: state.restaurant.name,
+  }));
+
+  // ToDoDelete 상태 잘 바뀌는지 확인용
+  useSelector((state) => ({
+    conditions: state.conditions,
   }));
 
   const dispatch = useDispatch();
@@ -28,12 +34,21 @@ export default function PostFormContainer() {
     dispatch(setRestaurantName({ value }))
   }
 
+  function handleClickTag(selectedId) {
+    dispatch(selectConditionTag(selectedId))
+  }
+
+  // ToDo 스타일적용
+  //if(selectedId === true) {
+
   return (
     <PostFormBox>
       <PostInputForm
         onChangeInput={handleChangeInput}
       />
-      <PostTagForm />
+      <PostTagForm
+        onClickTag={handleClickTag}
+      />
       <button type='button'>공유</button>
     </PostFormBox>
   )
