@@ -30,6 +30,22 @@ const reducers = {
         condition.id === selectedId),
     }
   },
+
+  selectRegionTag(state, { payload: { selectedId } }) {
+    return {
+      ...state,
+      regions: regions.find(region =>
+        region.id === selectedId),
+    }
+  },
+
+  selectCategoryTag(state, { payload: { selectedId } }) {
+    return {
+      ...state,
+      categories: categories.find(category =>
+        category.id === selectedId),
+    }
+  },
 }
 
 function defaultReducer(state) {
