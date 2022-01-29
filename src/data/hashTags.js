@@ -1,4 +1,3 @@
-// ToDo: 콜렉션 더 추가 + id를 각각 다르게 해줘야하는 것에 대한 고민
 const conditions = [
   //누구랑?
   { id: 1, name: '#혼밥' },
@@ -36,3 +35,6 @@ export {
   regions,
   categories,
 }
+
+// ToDo 랜덤한 id 부여하기
+// const conditionId = Math.floor(Math.random() * 1000);

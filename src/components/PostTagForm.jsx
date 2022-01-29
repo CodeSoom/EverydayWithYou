@@ -21,7 +21,7 @@ const HashtagBox = styled.div({
   },
 });
 
-export default function PostTagForm() {
+export default function PostTagForm({ onClickTag }) {
   return (
     <>
       <HashtagBox>
@@ -29,7 +29,9 @@ export default function PostTagForm() {
         {conditions.map((condition) => (
           <button
             type='button'
-            key={condition.id}>
+            key={condition.id}
+            onClick={() => onClickTag(condition.id)}
+          >
             {condition.name}
           </button>
         ))}
@@ -39,7 +41,10 @@ export default function PostTagForm() {
         {regions.map((region) => (
           <button
             type='button'
-            key={region.id}>
+            key={region.id}
+            onClick={() => onClickTag(
+            )}
+          >
             {region.name}
           </button>
         ))}
@@ -49,7 +54,10 @@ export default function PostTagForm() {
         {categories.map((category) => (
           <button
             type='button'
-            key={category.id}>
+            key={category.id}
+            onClick={() => onClickTag(
+            )}
+          >
             {category.name}
           </button>
         ))}
