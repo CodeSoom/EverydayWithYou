@@ -5,7 +5,9 @@ export function setRestaurantName({ value }) {
   }
 }
 
-//ToDoDelete
-export function xxx() {
-  return null
+export function selectConditionTag(selectedId) {
+  return {
+    type: 'selectConditionTag',
+    payload: { selectedId },
+  }
 }
