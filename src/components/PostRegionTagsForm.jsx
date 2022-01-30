@@ -1,37 +1,31 @@
-import styled from '@emotion/styled';
-
 import {
   regions,
 } from '../data/hashTags';
 
-const HashtagBox = styled.div({
-  textAlign: 'left',
-  margin: '8px 0',
-  '& button': {
-    border: 'none',
-    padding: '8px',
-    margin: '4px',
-    borderRadius: '4px',
-  },
-  '& button:focus': {
-    backgroundColor: '#000',
-    color: '#fff',
-  },
-});
+import HashtagBox from '../style/HashtagBox';
 
 export default function PostRegionTagsForm({ onClickTag }) {
+  function handleClick(event, regionId) {
+    const { target } = event;
+    if (!target.className) {
+      target.className = 'btn-click'
+    } else {
+      target.classList.remove('btn-click')
+    }
+    onClickTag(regionId);
+  }
+
   return (
     <>
       <HashtagBox>
         <p>어디인가요?</p>
         {regions.map((region) => (
-          <button
+          <input
             type='button'
             key={region.id}
-            onClick={() => onClickTag(region.id)}
-          >
-            {region.name}
-          </button>
+            onClick={(event) => handleClick(event, region.id)}
+            value={region.name}
+          />
         ))}
       </HashtagBox>
     </>

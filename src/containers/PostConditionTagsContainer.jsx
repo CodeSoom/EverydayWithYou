@@ -1,5 +1,3 @@
-import styled from '@emotion/styled';
-
 import { useSelector, useDispatch } from 'react-redux';
 
 import PostConditionTagsForm from '../components/PostConditionTagsForm';
@@ -8,12 +6,7 @@ import {
   selectConditionTag,
 } from '../actions';
 
-const PostFormBox = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'flex-start',
-});
+import PostFormBox from '../style/PostFormBox';
 
 export default function PostFormContainer() {
   // ToDoDelete 상태 잘 바뀌는지 확인용
