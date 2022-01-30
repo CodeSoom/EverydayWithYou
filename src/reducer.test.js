@@ -3,6 +3,8 @@ import reducer from './reducer';
 import {
   setRestaurantName,
   selectConditionTag,
+  selectRegionTag,
+  selectCategoryTag,
 } from './actions';
 
 describe('reducer', () => {
@@ -37,6 +39,40 @@ describe('reducer', () => {
 
       expect(state.conditions).toEqual({
         id: 1, name: '#혼밥',
+      });
+    });
+  });
+
+  describe('selectRegionTag action', () => {
+    it('finds clicked tag with selectedId', () => {
+      const initialState = {
+        regions: [
+          { id: 1, name: '#서울 송파구' },
+          { id: 2, name: '#서울 강남구' },
+        ],
+      }
+
+      const state = reducer(initialState, selectRegionTag(1));
+
+      expect(state.regions).toEqual({
+        id: 1, name: '#서울 송파구',
+      });
+    });
+  });
+
+  describe('selectCategoryTag action', () => {
+    it('finds clicked tag with selectedId', () => {
+      const initialState = {
+        categories: [
+          { id: 1, name: '#면' },
+          { id: 2, name: '#밥' },
+        ],
+      }
+
+      const state = reducer(initialState, selectCategoryTag(1));
+
+      expect(state.categories).toEqual({
+        id: 1, name: '#면',
       });
     });
   });
