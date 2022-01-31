@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/Superduper-India/project-react-6-Superduper-India/issues"
   },
-  "homepage": "https://codesoom.github.io/project-react-6-Superduper-India/",
+  "homepage": "https://codesoom.github.io/project-react-6-Superduper-India",
   "devDependencies": {
     "@babel/cli": "^7.16.8",
     "@babel/core": "^7.16.12",
