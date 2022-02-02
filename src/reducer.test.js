@@ -26,6 +26,7 @@ describe('reducer', () => {
     });
   });
 
+  // ToDo 복수로 추가되는 것으로 수정하기
   describe('selectConditionTag action', () => {
     it('finds clicked tag with selectedId', () => {
       const initialState = {

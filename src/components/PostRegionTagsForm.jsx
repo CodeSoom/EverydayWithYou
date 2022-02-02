@@ -8,11 +8,12 @@ export default function PostRegionTagsForm({ onClickTag }) {
   function handleClick(event, regionId) {
     const { target } = event;
     if (!target.className) {
-      target.className = 'btn-click'
+      target.className = 'btn-click';
+      onClickTag(regionId);
     } else {
-      target.classList.remove('btn-click')
+      target.classList.remove('btn-click');
+      onClickTag();
     }
-    onClickTag(regionId);
   }
 
   return (

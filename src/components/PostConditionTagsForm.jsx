@@ -8,11 +8,12 @@ export default function PostConditionTagsForm({ onClickTag }) {
   function handleClick(event, conditionId) {
     const { target } = event;
     if (!target.className) {
-      target.className = 'btn-click'
+      target.className = 'btn-click';
+      onClickTag(conditionId);
     } else {
-      target.classList.remove('btn-click')
+      target.classList.remove('btn-click');
+      onClickTag();
     }
-    onClickTag(conditionId);
   }
 
   return (

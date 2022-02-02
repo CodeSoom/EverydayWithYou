@@ -8,11 +8,12 @@ export default function PostCategoryTagsForm({ onClickTag }) {
   function handleClick(event, categoryId) {
     const { target } = event;
     if (!target.className) {
-      target.className = 'btn-click'
+      target.className = 'btn-click';
+      onClickTag(categoryId);
     } else {
-      target.classList.remove('btn-click')
+      target.classList.remove('btn-click');
+      onClickTag();
     }
-    onClickTag(categoryId);
   }
 
   return (

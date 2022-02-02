@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import PostConditionTagsForm from '../components/PostConditionTagsForm';
 
@@ -9,12 +9,6 @@ import {
 import PostFormBox from '../style/PostFormBox';
 
 export default function PostFormContainer() {
-  // ToDoDelete 상태 잘 바뀌는지 확인용
-  const selectedCondition = useSelector((state) => ({
-    conditions: state.conditions,
-  }));
-  console.log(selectedCondition);
-
   const dispatch = useDispatch();
 
   function handleClickTag(selectedId) {
