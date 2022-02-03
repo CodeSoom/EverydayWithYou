@@ -15,6 +15,7 @@ export default function PostCategoryTagsContainer() {
   const selectedCategory = useSelector((state) => ({
     selectedCategory: state.selectedCategory,
   }))
+  console.log(selectedCategory)
 
   function handleClickTag(selectedId) {
     dispatch(selectCategoryTag(selectedId));
