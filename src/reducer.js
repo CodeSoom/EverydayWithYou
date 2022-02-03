@@ -8,9 +8,9 @@ const initialState = {
   restaurant: {
     name: '',
   },
-  selectedCondition: {},
-  selectedRegion: {},
-  selectedCategory: {},
+  selectedCondition: null,
+  selectedRegion: null,
+  selectedCategory: null,
 };
 
 const reducers = {

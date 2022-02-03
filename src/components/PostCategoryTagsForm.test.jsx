@@ -4,6 +4,7 @@ import PostCategoryTagsForm from './PostCategoryTagsForm';
 
 describe('PostCategoryTagsForm', () => {
   const handleClick = jest.fn();
+  const selectedCategory = { id: 1, name: "면" };
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -12,10 +13,10 @@ describe('PostCategoryTagsForm', () => {
   const renderPostCategoryTagsForm = () => render((
     <PostCategoryTagsForm
       onClickTag={handleClick}
+      selectedCategory={selectedCategory}
     />
   ));
 
-  // ToDo 조건문에 대한 테스트 추가
   it('renders category tags to call onClick event with id', () => {
     const categories = { id: 1, name: '면' };
 

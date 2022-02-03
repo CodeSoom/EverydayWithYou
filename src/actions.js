@@ -5,6 +5,13 @@ export function setRestaurantName({ value }) {
   }
 }
 
+export function setSelectedCategories() {
+  return {
+    type: 'setSelectedCategories',
+  }
+}
+
+
 export function selectConditionTag(selectedId) {
   return {
     type: 'selectConditionTag',

@@ -2,6 +2,7 @@ import reducer from './reducer';
 
 import {
   setRestaurantName,
+  setSelectedCategories,
   selectConditionTag,
   selectRegionTag,
   selectCategoryTag,
@@ -26,7 +27,20 @@ describe('reducer', () => {
     });
   });
 
-  // ToDo 복수로 추가되는 것으로 수정하기
+  // ToDo revise
+  /* describe('setSelectedCategories action', () => {
+    it('adds selected category object to selectedCategories arr', () => {
+      const initialState = {
+      }
+
+      const state = reducer(initialState, setSelectedCategories());
+
+      expect(state.selectedCategories).toEqual(
+        [{ id: 1, name: '면' }],
+      );
+    });
+  }); */
+
   describe('selectConditionTag action', () => {
     it('finds clicked tag with selectedId', () => {
       const initialState = {

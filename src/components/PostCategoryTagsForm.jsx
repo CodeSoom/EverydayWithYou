@@ -1,23 +1,41 @@
+import styled from '@emotion/styled';
+
 import {
   categories,
 } from '../data/hashTags';
 
-import HashtagBox from '../style/HashtagBox';
+const TagsContainer = styled.div({
+  textAlign: 'left',
+  margin: '8px 0',
+});
 
-export default function PostCategoryTagsForm({ onClickTag }) {
+const Hashtags = styled.input({
+  border: 'none',
+  padding: '8px',
+  margin: '4px',
+  borderRadius: '4px',
+});
+
+export default function PostCategoryTagsForm({ onClickTag, selectedCategory }) {
+  function handleChangeColor() {
+    return selectedCategory === null ?
+      "blue" : null
+  }
+
   return (
     <>
-      <HashtagBox>
+      <TagsContainer>
         <p>무엇을 드셨나요?</p>
         {categories.map((category) => (
-          <input
+          <Hashtags
             type='button'
             key={category.id}
+            className={handleChangeColor()}
             onClick={() => onClickTag(category.id)}
             value={category.name}
           />
         ))}
-      </HashtagBox>
+      </TagsContainer>
     </>
   )
 }

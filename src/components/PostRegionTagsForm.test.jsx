@@ -15,7 +15,6 @@ describe('PostRegionTagsForm', () => {
     />
   ));
 
-  // ToDo 조건문에 대한 테스트 추가
   it('renders region tags to call onClick event with id', () => {
     const regions = { id: 1, name: '서울 송파구' };
 
