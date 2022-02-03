@@ -8,9 +8,9 @@ const initialState = {
   restaurant: {
     name: '',
   },
-  selectedConditions: [],
-  selectedRegions: [],
-  selectedCategories: [],
+  selectedCondition: {},
+  selectedRegion: {},
+  selectedCategory: {},
 };
 
 const reducers = {
@@ -24,32 +24,23 @@ const reducers = {
   },
 
   selectConditionTag(state, { payload: { selectedId } }) {
-    const { selectedConditions } = state;
-    selectedConditions.push(conditions.find(condition =>
-      condition.id === selectedId));
-
     return {
       ...state,
+      selectedCondition: conditions.find(condition => condition.id === selectedId),
     }
   },
 
   selectRegionTag(state, { payload: { selectedId } }) {
-    const { selectedRegions } = state;
-    selectedRegions.push(regions.find(region =>
-      region.id === selectedId));
-
     return {
       ...state,
+      selectedRegion: regions.find(region => region.id === selectedId),
     }
   },
 
   selectCategoryTag(state, { payload: { selectedId } }) {
-    const { selectedCategories } = state;
-    selectedCategories.push(categories.find(category =>
-      category.id === selectedId));
-
     return {
       ...state,
+      selectedCategory: categories.find(category => category.id === selectedId),
     }
   },
 }

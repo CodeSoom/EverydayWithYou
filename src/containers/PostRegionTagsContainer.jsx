@@ -8,7 +8,7 @@ import {
 
 import PostFormBox from '../style/PostFormBox';
 
-export default function PostFormContainer() {
+export default function PostRegionTagsContainer() {
   const dispatch = useDispatch();
 
   function handleClickTag(selectedId) {

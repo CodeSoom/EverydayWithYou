@@ -5,17 +5,6 @@ import {
 import HashtagBox from '../style/HashtagBox';
 
 export default function PostCategoryTagsForm({ onClickTag }) {
-  function handleClick(event, categoryId) {
-    const { target } = event;
-    if (!target.className) {
-      target.className = 'btn-click';
-      onClickTag(categoryId);
-    } else {
-      target.classList.remove('btn-click');
-      onClickTag();
-    }
-  }
-
   return (
     <>
       <HashtagBox>
@@ -24,7 +13,7 @@ export default function PostCategoryTagsForm({ onClickTag }) {
           <input
             type='button'
             key={category.id}
-            onClick={(event) => handleClick(event, category.id)}
+            onClick={() => onClickTag(category.id)}
             value={category.name}
           />
         ))}

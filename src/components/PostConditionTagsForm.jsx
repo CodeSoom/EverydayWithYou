@@ -5,17 +5,6 @@ import {
 import HashtagBox from '../style/HashtagBox';
 
 export default function PostConditionTagsForm({ onClickTag }) {
-  function handleClick(event, conditionId) {
-    const { target } = event;
-    if (!target.className) {
-      target.className = 'btn-click';
-      onClickTag(conditionId);
-    } else {
-      target.classList.remove('btn-click');
-      onClickTag();
-    }
-  }
-
   return (
     <>
       <HashtagBox>
@@ -24,7 +13,7 @@ export default function PostConditionTagsForm({ onClickTag }) {
           <input
             type='button'
             key={condition.id}
-            onClick={(event) => handleClick(event, condition.id)}
+            onClick={() => onClickTag(condition.id)}
             value={condition.name}
           />
         ))}
