@@ -2,7 +2,7 @@ import { fireEvent, render } from '@testing-library/react';
 
 import context from 'jest-plugin-context';
 
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   MemoryRouter,
@@ -15,10 +15,14 @@ jest.mock('react-redux');
 describe('PostCategoryTagsContainer', () => {
   const dispatch = jest.fn();
 
-  useDispatch.mockImplementation(() => dispatch);
-
   beforeEach(() => {
     dispatch.mockClear();
+
+    useDispatch.mockImplementation(() => dispatch);
+
+    useSelector.mockImplementation((selector) => selector({
+      selectedCategory: { color: 'blue', id: 1, name: '면' },
+    }));
   });
 
   const renderPostCategoryTagsContainer = () => render((
@@ -41,6 +45,16 @@ describe('PostCategoryTagsContainer', () => {
       expect(dispatch).toBeCalledWith({
         type: 'selectCategoryTag',
         payload: { selectedId },
+      });
+    });
+
+    it('calls dispatch with action : setCategories', () => {
+      const { getByText } = renderPostCategoryTagsContainer();
+
+      fireEvent.click(getByText('#면'))
+
+      expect(dispatch).toBeCalledWith({
+        type: 'setCategories',
       });
     });
   });

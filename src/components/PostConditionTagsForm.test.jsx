@@ -4,6 +4,7 @@ import PostConditionTagsForm from './PostConditionTagsForm';
 
 describe('PostConditionTagsForm', () => {
   const handleClick = jest.fn();
+  const selectedCondition = { color: 'blue', id: 1, name: "혼밥" };
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -12,6 +13,7 @@ describe('PostConditionTagsForm', () => {
   const renderPostConditionTagsForm = () => render((
     <PostConditionTagsForm
       onClickTag={handleClick}
+      selectedCondition={selectedCondition}
     />
   ));
 

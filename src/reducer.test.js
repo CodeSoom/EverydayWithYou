@@ -2,6 +2,9 @@ import reducer from './reducer';
 
 import {
   setRestaurantName,
+  setConditions,
+  setRegions,
+  setCategories,
   selectConditionTag,
   selectRegionTag,
   selectCategoryTag,
@@ -26,19 +29,53 @@ describe('reducer', () => {
     });
   });
 
+  describe('setConditions action', () => {
+    it('changes state of newConditions with selected conditions', () => {
+      const initialState = {
+        newConditions: [],
+      };
+
+      const state = reducer(initialState, setConditions());
+
+      expect(state.newConditions).toHaveLength(1);
+    });
+  });
+
+  describe('setRegions action', () => {
+    it('changes state of newRegions with selected regions', () => {
+      const initialState = {
+        newRegions: [],
+      };
+
+      const state = reducer(initialState, setRegions());
+
+      expect(state.newRegions).toHaveLength(1);
+    });
+  });
+
+  describe('setCategories action', () => {
+    it('changes state of newCategories with selected categories', () => {
+      const initialState = {
+        newCategories: [],
+      };
+
+      const state = reducer(initialState, setCategories());
+
+      expect(state.newCategories).toHaveLength(1);
+    });
+  });
+
+
   describe('selectConditionTag action', () => {
     it('finds clicked tag with selectedId', () => {
       const initialState = {
-        conditions: [
-          { id: 1, name: '#혼밥' },
-          { id: 2, name: '#데이트' },
-        ],
+        selectedCondition: {},
       }
 
       const state = reducer(initialState, selectConditionTag(1));
 
-      expect(state.conditions).toEqual({
-        id: 1, name: '#혼밥',
+      expect(state.selectedCondition).toEqual({
+        color: 'blue', id: 1, name: '#혼밥',
       });
     });
   });
@@ -46,16 +83,13 @@ describe('reducer', () => {
   describe('selectRegionTag action', () => {
     it('finds clicked tag with selectedId', () => {
       const initialState = {
-        regions: [
-          { id: 1, name: '#서울 송파구' },
-          { id: 2, name: '#서울 강남구' },
-        ],
+        selectedRegion: {},
       }
 
       const state = reducer(initialState, selectRegionTag(1));
 
-      expect(state.regions).toEqual({
-        id: 1, name: '#서울 송파구',
+      expect(state.selectedRegion).toEqual({
+        color: 'blue', id: 1, name: '#서울 송파구',
       });
     });
   });
@@ -63,16 +97,13 @@ describe('reducer', () => {
   describe('selectCategoryTag action', () => {
     it('finds clicked tag with selectedId', () => {
       const initialState = {
-        categories: [
-          { id: 1, name: '#면' },
-          { id: 2, name: '#밥' },
-        ],
+        selectedCategory: {},
       }
 
       const state = reducer(initialState, selectCategoryTag(1));
 
-      expect(state.categories).toEqual({
-        id: 1, name: '#면',
+      expect(state.selectedCategory).toEqual({
+        color: 'blue', id: 1, name: '#면',
       });
     });
   });

@@ -57,11 +57,7 @@ body {
   height: 100%;
 }
 
-.btn-click {
-  border: none;
-  padding: 8px;
-  margin: 4px;
-  border-radius: 4px;
+.blue {
   background-color: #1890ff;
   color: #fff;
 }

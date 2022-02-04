@@ -8,6 +8,13 @@ const initialState = {
   restaurant: {
     name: '',
   },
+  selectedCondition: null,
+  selectedRegion: null,
+  selectedCategory: null,
+  newConditions: [],
+  newRegions: [],
+  newCategories: [],
+  color: "",
 };
 
 const reducers = {
@@ -20,27 +27,58 @@ const reducers = {
     }
   },
 
+  setConditions(state) {
+    const { selectedCondition } = state;
+    return {
+      ...state,
+      newConditions: [selectedCondition],
+    }
+  },
+
+  setRegions(state) {
+    const { selectedRegion } = state;
+    return {
+      ...state,
+      newRegions: [selectedRegion],
+    }
+  },
+
+  // Todo 중복 selectedCategory 들어오는거 해결하기
+  setCategories(state) {
+    const { selectedCategory } = state;
+    return {
+      ...state,
+      newCategories: [selectedCategory],
+    }
+  },
+
   selectConditionTag(state, { payload: { selectedId } }) {
     return {
       ...state,
-      conditions: conditions.find(condition =>
-        condition.id === selectedId),
+      selectedCondition: {
+        color: "blue",
+        ...conditions.find(condition => condition.id === selectedId),
+      },
     }
   },
 
   selectRegionTag(state, { payload: { selectedId } }) {
     return {
       ...state,
-      regions: regions.find(region =>
-        region.id === selectedId),
+      selectedRegion: {
+        color: "blue",
+        ...regions.find(region => region.id === selectedId),
+      },
     }
   },
 
   selectCategoryTag(state, { payload: { selectedId } }) {
     return {
       ...state,
-      categories: categories.find(category =>
-        category.id === selectedId),
+      selectedCategory: {
+        color: "blue",
+        ...categories.find(category => category.id === selectedId),
+      },
     }
   },
 }

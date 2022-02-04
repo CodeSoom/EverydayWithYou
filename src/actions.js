@@ -5,6 +5,24 @@ export function setRestaurantName({ value }) {
   }
 }
 
+export function setConditions() {
+  return {
+    type: 'setConditions',
+  }
+}
+
+export function setRegions() {
+  return {
+    type: 'setRegions',
+  }
+}
+
+export function setCategories() {
+  return {
+    type: 'setCategories',
+  }
+}
+
 export function selectConditionTag(selectedId) {
   return {
     type: 'selectConditionTag',

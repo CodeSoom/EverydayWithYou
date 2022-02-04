@@ -4,6 +4,7 @@ import PostRegionTagsForm from './PostRegionTagsForm';
 
 describe('PostRegionTagsForm', () => {
   const handleClick = jest.fn();
+  const selectedRegion = { color: 'blue', id: 1, name: "서울 송파구" };
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -12,6 +13,7 @@ describe('PostRegionTagsForm', () => {
   const renderPostRegionTagsForm = () => render((
     <PostRegionTagsForm
       onClickTag={handleClick}
+      selectedRegion={selectedRegion}
     />
   ));
 

@@ -4,27 +4,29 @@ import PostConditionTagsForm from '../components/PostConditionTagsForm';
 
 import {
   selectConditionTag,
+  setConditions,
 } from '../actions';
 
 import PostFormBox from '../style/PostFormBox';
 
-export default function PostFormContainer() {
-  // ToDoDelete 상태 잘 바뀌는지 확인용
-  const selectedCondition = useSelector((state) => ({
-    conditions: state.conditions,
-  }));
-  console.log(selectedCondition);
-
+export default function PostConditionTagsContainer() {
   const dispatch = useDispatch();
+
+  const selectedCondition = useSelector((state) => (
+    state.selectedCondition === null ?
+      state : state.selectedCondition
+  ));
 
   function handleClickTag(selectedId) {
     dispatch(selectConditionTag(selectedId))
+    dispatch(setConditions())
   }
 
   return (
     <PostFormBox>
       <PostConditionTagsForm
         onClickTag={handleClickTag}
+        selectedCondition={selectedCondition}
       />
     </PostFormBox>
   )
