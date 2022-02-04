@@ -47,16 +47,5 @@ describe('PostCategoryTagsContainer', () => {
         payload: { selectedId },
       });
     });
-
-    /* it('calls dispatch with action : setSelectedCategories', () => {
-      const { getByText } = renderPostCategoryTagsContainer();
-
-      fireEvent.click(getByText('#면'))
-
-      expect(dispatch).toBeCalledWith({
-        type: 'setSelectedCategories',
-        payload: { id: 1, name: '면' },
-      });
-    }); */
   });
 });

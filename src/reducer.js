@@ -11,6 +11,7 @@ const initialState = {
   selectedCondition: null,
   selectedRegion: null,
   selectedCategory: null,
+  newCategories: [],
 };
 
 const reducers = {
@@ -20,6 +21,15 @@ const reducers = {
       restaurant: {
         name: value,
       },
+    }
+  },
+
+  setCategories(state) {
+    const { selectedCategory, newCategories } = state;
+    const set = new Set(newCategories);
+    return {
+      ...state,
+      newCategories: [...set.add(selectedCategory)],
     }
   },
 

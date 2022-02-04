@@ -25,11 +25,11 @@ export default function PostCategoryTagsForm({ onClickTag, selectedCategory }) {
           <Hashtags
             type='button'
             key={category.id}
-            className={ selectedCategory ? (
+            className={selectedCategory ? (
               <>
-                {category.id === selectedCategory.id ? "blue" : null}
+                {category.id === selectedCategory.id ? "blue" : ""}
               </>
-            ) : null
+            ) : ""
             }
             onClick={() => onClickTag(category.id)}
             value={category.name}

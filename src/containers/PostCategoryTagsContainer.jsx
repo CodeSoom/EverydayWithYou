@@ -4,7 +4,7 @@ import PostCategoryTagsForm from '../components/PostCategoryTagsForm';
 
 import {
   selectCategoryTag,
-  setSelectedCategories,
+  setCategories,
 } from '../actions';
 
 import PostFormBox from '../style/PostFormBox';
@@ -14,12 +14,16 @@ export default function PostCategoryTagsContainer() {
 
   const selectedCategory = useSelector((state) => ({
     selectedCategory: state.selectedCategory,
-  }))
-  console.log(selectedCategory)
+  }));
+
+  const newCategories = useSelector((state) => ({
+    newCategories: state.newCategories,
+  }));
+  console.log(newCategories);
 
   function handleClickTag(selectedId) {
     dispatch(selectCategoryTag(selectedId));
-    dispatch(setSelectedCategories());
+    dispatch(setCategories());
   }
 
   return (
