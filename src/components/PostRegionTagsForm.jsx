@@ -4,7 +4,9 @@ import {
 
 import HashtagBox from '../style/HashtagBox';
 
-export default function PostRegionTagsForm({ onClickTag }) {
+export default function PostRegionTagsForm({ onClickTag, selectedRegion }) {
+  const { color } = selectedRegion;
+
   return (
     <>
       <HashtagBox>
@@ -13,6 +15,10 @@ export default function PostRegionTagsForm({ onClickTag }) {
           <input
             type='button'
             key={region.id}
+            className={
+              region.id === selectedRegion.id ?
+                color : ""
+            }
             onClick={() => onClickTag(region.id)}
             value={region.name}
           />

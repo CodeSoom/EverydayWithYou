@@ -12,14 +12,10 @@ import PostFormBox from '../style/PostFormBox';
 export default function PostCategoryTagsContainer() {
   const dispatch = useDispatch();
 
-  const selectedCategory = useSelector((state) => ({
-    selectedCategory: state.selectedCategory,
-  }));
-
-  const newCategories = useSelector((state) => ({
-    newCategories: state.newCategories,
-  }));
-  console.log(newCategories);
+  const selectedCategory = useSelector((state) => (
+    state.selectedCategory === null ?
+      state : state.selectedCategory
+  ));
 
   function handleClickTag(selectedId) {
     dispatch(selectCategoryTag(selectedId));

@@ -21,7 +21,7 @@ describe('PostCategoryTagsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      selectedCategory: { id: 1, name: '면' },
+      selectedCategory: { color: 'blue', id: 1, name: '면' },
     }));
   });
 
@@ -45,6 +45,16 @@ describe('PostCategoryTagsContainer', () => {
       expect(dispatch).toBeCalledWith({
         type: 'selectCategoryTag',
         payload: { selectedId },
+      });
+    });
+
+    it('calls dispatch with action : setCategories', () => {
+      const { getByText } = renderPostCategoryTagsContainer();
+
+      fireEvent.click(getByText('#면'))
+
+      expect(dispatch).toBeCalledWith({
+        type: 'setCategories',
       });
     });
   });

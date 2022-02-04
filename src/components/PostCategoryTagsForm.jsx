@@ -17,6 +17,8 @@ const Hashtags = styled.input({
 });
 
 export default function PostCategoryTagsForm({ onClickTag, selectedCategory }) {
+  const { color } = selectedCategory;
+
   return (
     <>
       <TagsContainer>
@@ -25,11 +27,9 @@ export default function PostCategoryTagsForm({ onClickTag, selectedCategory }) {
           <Hashtags
             type='button'
             key={category.id}
-            className={selectedCategory ? (
-              <>
-                {category.id === selectedCategory.id ? "blue" : ""}
-              </>
-            ) : ""
+            className={
+              category.id === selectedCategory.id ?
+                color : ""
             }
             onClick={() => onClickTag(category.id)}
             value={category.name}

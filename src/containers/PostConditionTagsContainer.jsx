@@ -1,9 +1,10 @@
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import PostConditionTagsForm from '../components/PostConditionTagsForm';
 
 import {
   selectConditionTag,
+  setConditions,
 } from '../actions';
 
 import PostFormBox from '../style/PostFormBox';
@@ -11,14 +12,21 @@ import PostFormBox from '../style/PostFormBox';
 export default function PostConditionTagsContainer() {
   const dispatch = useDispatch();
 
+  const selectedCondition = useSelector((state) => (
+    state.selectedCondition === null ?
+      state : state.selectedCondition
+  ));
+
   function handleClickTag(selectedId) {
-    dispatch(selectConditionTag(selectedId)) // 선택한 컨디션태그를 id 베이스로 찾아줌
+    dispatch(selectConditionTag(selectedId))
+    dispatch(setConditions())
   }
 
   return (
     <PostFormBox>
       <PostConditionTagsForm
         onClickTag={handleClickTag}
+        selectedCondition={selectedCondition}
       />
     </PostFormBox>
   )

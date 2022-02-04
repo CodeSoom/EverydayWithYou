@@ -4,7 +4,7 @@ import PostCategoryTagsForm from './PostCategoryTagsForm';
 
 describe('PostCategoryTagsForm', () => {
   const handleClick = jest.fn();
-  const selectedCategory = { id: 1, name: "면" };
+  const selectedCategory = { color: 'blue', id: 1, name: "면" };
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -18,7 +18,7 @@ describe('PostCategoryTagsForm', () => {
   ));
 
   it('renders category tags to call onClick event with id', () => {
-    const categories = { id: 1, name: '면' };
+    const categories = { id: 1, name: "면" };
 
     const { getByText } = renderPostCategoryTagsForm();
 

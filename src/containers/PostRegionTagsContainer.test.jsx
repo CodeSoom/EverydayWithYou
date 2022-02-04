@@ -2,7 +2,7 @@ import { fireEvent, render } from '@testing-library/react';
 
 import context from 'jest-plugin-context';
 
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   MemoryRouter,
@@ -15,10 +15,14 @@ jest.mock('react-redux');
 describe('PostRegionTagsContainer', () => {
   const dispatch = jest.fn();
 
-  useDispatch.mockImplementation(() => dispatch);
-
   beforeEach(() => {
     dispatch.mockClear();
+
+    useDispatch.mockImplementation(() => dispatch);
+
+    useSelector.mockImplementation((selector) => selector({
+      selectedRegion: { color: 'blue', id: 1, name: '서울 송파구' },
+    }));
   });
 
   const renderPostRegionTagsContainer = () => render((
@@ -41,6 +45,16 @@ describe('PostRegionTagsContainer', () => {
       expect(dispatch).toBeCalledWith({
         type: 'selectRegionTag',
         payload: { selectedId },
+      });
+    });
+
+    it('calls dispatch with action : setRegions', () => {
+      const { getByText } = renderPostRegionTagsContainer();
+
+      fireEvent.click(getByText('#서울 송파구'))
+
+      expect(dispatch).toBeCalledWith({
+        type: 'setRegions',
       });
     });
   });

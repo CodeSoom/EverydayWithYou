@@ -1,5 +1,7 @@
 import { render } from '@testing-library/react';
 
+import { useSelector } from 'react-redux';
+
 import {
   MemoryRouter,
 } from 'react-router-dom';
@@ -7,6 +9,15 @@ import {
 import PostFormPage from './PostFormPage';
 
 describe('PostFormPage', () => {
+  beforeEach(() => {
+    useSelector.mockImplementation((selector) => selector({
+      selectedCondition: { color: 'blue', id: 1, name: '혼밥' },
+      selectedRegion: { color: 'blue', id: 1, name: '서울 송파구' },
+      selectedCategory: { color: 'blue', id: 1, name: '면' },
+      restaurant: { name: '멘카야' },
+    }));
+  });
+
   const renderPostFormPage = () => render((
     <MemoryRouter>
       <PostFormPage />

@@ -4,7 +4,9 @@ import {
 
 import HashtagBox from '../style/HashtagBox';
 
-export default function PostConditionTagsForm({ onClickTag }) {
+export default function PostConditionTagsForm({ onClickTag, selectedCondition }) {
+  const { color } = selectedCondition;
+
   return (
     <>
       <HashtagBox>
@@ -13,6 +15,10 @@ export default function PostConditionTagsForm({ onClickTag }) {
           <input
             type='button'
             key={condition.id}
+            className={
+              condition.id === selectedCondition.id ?
+                color : ""
+            }
             onClick={() => onClickTag(condition.id)}
             value={condition.name}
           />
