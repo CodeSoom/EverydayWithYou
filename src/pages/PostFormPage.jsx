@@ -4,6 +4,7 @@ import PostInputContainer from '../containers/PostInputContainer';
 import PostConditionTagsContainer from '../containers/PostConditionTagsContainer';
 import PostRegionTagsContainer from '../containers/PostRegionTagsContainer';
 import PostCategoryTagsContainer from '../containers/PostCategoryTagsContainer';
+import PostBtnContainer from '../containers/PostBtnContainer';
 
 const PageTitleBox = styled.div({
   padding: '48px 0',
@@ -18,6 +19,7 @@ export default function PostFormPage() {
       <PostConditionTagsContainer />
       <PostRegionTagsContainer />
       <PostCategoryTagsContainer />
+      <PostBtnContainer />
     </>
   )
 }
