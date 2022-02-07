@@ -32,10 +32,6 @@ export default function HomePage({ restaurants }) {
   });
   const uniqueCategoriesArr = [...new Set(categoriesArr)];
 
-  console.log(uniqueConditionsArr);
-  console.log(uniqueRegionsArr);
-  console.log(uniqueCategoriesArr);
-
   return (
     <HomePageLayout>
       <HomeConditionTagsContainer
