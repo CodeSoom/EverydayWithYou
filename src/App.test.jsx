@@ -27,7 +27,7 @@ describe('App', () => {
   it('renders home page path to "/"', () => {
     const { container } = renderApp({ path: '/' });
 
-    expect(container).toHaveTextContent('home');
+    expect(container).toHaveTextContent('맛집 추천하기');
   });
 
   it('renders board page path to "/board"', () => {
