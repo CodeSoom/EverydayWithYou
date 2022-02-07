@@ -30,13 +30,13 @@ describe('PostFormPage', () => {
     expect(container).toHaveTextContent('나만 알던 맛집을 소개해주세요!');
   });
 
-  it('renders "가게 이름" input, "태그" button, "공유" button', () => {
+  it('renders "가게 이름" input, "태그" buttons, "등록" button', () => {
     const { getByLabelText, getByText } = renderPostFormPage();
 
     expect(getByLabelText('가게 이름')).toBeInTheDocument();
     expect(getByText('#혼밥')).toBeInTheDocument();
     expect(getByText('#서울 송파구')).toBeInTheDocument();
     expect(getByText('#면')).toBeInTheDocument();
-    // expect(getByText('공유')).toBeInTheDocument();
+    expect(getByText('등록')).toBeInTheDocument();
   });
 });
