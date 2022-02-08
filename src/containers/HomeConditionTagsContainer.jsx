@@ -1,15 +1,16 @@
 import styled from '@emotion/styled';
 
-const HomeContainer = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'flex-start',
-});
+import { useEffect } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+  setConditions,
+} from '../actions';
 
 const TagsBox = styled.div({
   textAlign: 'left',
-  margin: '8px 0',
+  marginBottom: '24px',
 });
 
 const Hashtags = styled.button({
@@ -20,19 +21,28 @@ const Hashtags = styled.button({
 });
 
 export default function HomeConditionTagsContainer({ conditionsArr }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setConditions(conditionsArr));
+  }, []);
+
+  // ToDo delete 값잘들어오나 확인용
+  useSelector((state) => ({
+    newConditions: state.newConditions,
+  }));
+
   return (
-    <HomeContainer>
-      <TagsBox>
-        <p>어떤 상황인가요?</p>
-        {conditionsArr.map((obj) => (
-          <Hashtags
-            type="Hashtags"
-            key={obj.id}
-          >
-            {obj.condition}
-          </Hashtags>
-        ))}
-      </TagsBox>
-    </HomeContainer>
+    <TagsBox>
+      <p>어떤 상황인가요?</p>
+      {conditionsArr.map((obj) => (
+        <Hashtags
+          type="Hashtags"
+          key={obj.id}
+        >
+          #{obj.condition}
+        </Hashtags>
+      ))}
+    </TagsBox>
   )
 }

@@ -35,6 +35,3 @@ export {
   regions,
   categories,
 }
-
-// ToDo 랜덤한 id 부여하기
-// const conditionId = Math.floor(Math.random() * 1000);

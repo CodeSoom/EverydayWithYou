@@ -5,21 +5,24 @@ export function setRestaurantName({ value }) {
   }
 }
 
-export function setConditions() {
+export function setConditions(conditionsArr) {
   return {
     type: 'setConditions',
+    payload: { conditionsArr },
   }
 }
 
-export function setRegions() {
+export function setRegions(regionsArr) {
   return {
     type: 'setRegions',
+    payload: { regionsArr },
   }
 }
 
-export function setCategories() {
+export function setCategories(categoriesArr) {
   return {
     type: 'setCategories',
+    payload: { categoriesArr },
   }
 }
 

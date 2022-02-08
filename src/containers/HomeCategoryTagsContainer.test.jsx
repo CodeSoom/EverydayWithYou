@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import context from 'jest-plugin-context';
 
@@ -33,11 +33,11 @@ describe('HomeCategoryTagsContainer', () => {
     </MemoryRouter>
   ));
 
-  context('when click "순대국밥" button', () => {
+  context('with "순대국밥" button', () => {
     it('calls dispatch with action : setCategories', () => {
-      const { getByText } = renderHomeCategoryTagsContainer();
+      const { container } = renderHomeCategoryTagsContainer();
 
-      fireEvent.click(getByText('순대국밥'));
+      expect(container).toHaveTextContent('순대국밥');
 
       expect(dispatch).toBeCalledWith({
         type: 'setCategories',

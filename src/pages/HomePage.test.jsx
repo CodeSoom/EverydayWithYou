@@ -1,12 +1,24 @@
 import { render } from '@testing-library/react';
 
+import { useDispatch } from 'react-redux';
+
 import {
   MemoryRouter,
 } from 'react-router-dom';
 
 import HomePage from './HomePage';
 
+jest.mock('react-redux');
+
 describe('HomePage', () => {
+  const dispatch = jest.fn();
+
+  beforeEach(() => {
+    dispatch.mockClear();
+
+    useDispatch.mockImplementation(() => dispatch);
+  });
+
   const restaurants = [
     {
       "name": "청와옥",

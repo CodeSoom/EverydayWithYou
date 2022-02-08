@@ -21,6 +21,9 @@ const HomePageLayout = styled.div({
 const TagsLayout = styled.div({
   textAlign: 'left',
   marginRight: '48px',
+  "& h2": {
+    marginBottom: '24px',
+  },
 });
 
 const PostLayout = styled.h1({
@@ -49,7 +52,7 @@ export default function HomePage({ restaurants }) {
   return (
     <HomePageLayout>
       <TagsLayout>
-        <h2>어디갈지 모르겠다구요? 👀</h2>
+        <h2>어디 갈지 모르겠다구요? 👀</h2>
         <HomeConditionTagsContainer
           conditionsArr={conditionsArr}
         />

@@ -16,11 +16,6 @@ const PostFormBox = styled.div({
 });
 
 export default function PostInputContainer() {
-  // ToDoDelete 상태 잘 바뀌는지 확인용
-  useSelector((state) => ({
-    name: state.restaurant.name,
-  }));
-
   const dispatch = useDispatch();
 
   function handleChangeInput({ value }) {

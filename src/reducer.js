@@ -9,13 +9,12 @@ const initialState = {
     id: '',
     name: '',
   },
-  selectedCondition: null,
-  selectedRegion: null,
-  selectedCategory: null,
-  newConditions: [],
+  selectedCondition: null, // 활용안됨
+  selectedRegion: null, // 활용안됨
+  selectedCategory: null, // 활용안됨
+  newCondtions: [],
   newRegions: [],
   newCategories: [],
-  newId: 100,
   color: "",
 };
 
@@ -29,30 +28,28 @@ const reducers = {
     }
   },
 
-  setConditions(state) {
-    const { selectedCondition } = state;
+  setConditions(state, { payload: { conditionsArr } }) {
     return {
       ...state,
-      newConditions: [selectedCondition],
+      newConditions: conditionsArr,
     }
   },
 
-  setRegions(state) {
-    const { selectedRegion } = state;
+  setRegions(state, { payload: { regionsArr } }) {
     return {
       ...state,
-      newRegions: [selectedRegion],
+      newRegions: regionsArr,
     }
   },
 
-  setCategories(state) {
-    const { selectedCategory } = state;
+  setCategories(state, { payload: { categoriesArr } }) {
     return {
       ...state,
-      newCategories: [selectedCategory],
+      newCategories: categoriesArr,
     }
   },
 
+  // 보수가 필요하다!!
   selectConditionTag(state, { payload: { selectedId } }) {
     return {
       ...state,
@@ -80,16 +77,6 @@ const reducers = {
         color: "blue",
         ...categories.find(category => category.id === selectedId),
       },
-    }
-  },
-
-  addUniqueId(state, { payload: { uniqueCategoriesArr } }) {
-    const { newId } = state;
-
-    return {
-      ...state,
-      newId: newId + 1,
-      newCategories: [{ id: newId, ...uniqueCategoriesArr }],
     }
   },
 }

@@ -4,7 +4,7 @@ import {
   categories,
 } from '../data/hashTags';
 
-const TagsContainer = styled.div({
+const TagsBox = styled.div({
   textAlign: 'left',
   margin: '8px 0',
 });
@@ -21,7 +21,7 @@ export default function PostCategoryTagsForm({ onClickTag, selectedCategory }) {
 
   return (
     <>
-      <TagsContainer>
+      <TagsBox>
         <p>무엇을 드셨나요?</p>
         {categories.map((category) => (
           <Hashtags
@@ -35,7 +35,7 @@ export default function PostCategoryTagsForm({ onClickTag, selectedCategory }) {
             value={category.name}
           />
         ))}
-      </TagsContainer>
+      </TagsBox>
     </>
   )
 }
