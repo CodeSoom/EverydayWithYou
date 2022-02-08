@@ -18,14 +18,6 @@ const HomePageLayout = styled.div({
   height: '100%',
 });
 
-<<<<<<< HEAD
-export default function HomePage({ restaurants }) {
-  console.log(restaurants);
-  return (
-    <HomePageContainer>
-      <Link to="/post">맛집 추천하기</Link>
-    </HomePageContainer>
-=======
 const TagsLayout = styled.div({
   textAlign: 'left',
   marginRight: '48px',
@@ -75,6 +67,5 @@ export default function HomePage({ restaurants }) {
         <Link to="/post">맛집 추천하기</Link>
       </PostLayout>
     </HomePageLayout>
->>>>>>> render-JSON-data
   )
 }

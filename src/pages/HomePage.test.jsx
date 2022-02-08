@@ -11,8 +11,6 @@ import HomePage from './HomePage';
 jest.mock('react-redux');
 
 describe('HomePage', () => {
-<<<<<<< HEAD
-=======
   const dispatch = jest.fn();
 
   beforeEach(() => {
@@ -21,7 +19,6 @@ describe('HomePage', () => {
     useDispatch.mockImplementation(() => dispatch);
   });
 
->>>>>>> render-JSON-data
   const restaurants = [
     {
       "name": "청와옥",
@@ -48,19 +45,11 @@ describe('HomePage', () => {
 
   const renderHomePage = () => render((
     <MemoryRouter>
-<<<<<<< HEAD
-      <HomePage restaurants={restaurants} />
-    </MemoryRouter>
-  ));
-
-  it('renders "맛집 추천하기" text with link', () => {
-=======
       <HomePage restaurants={restaurants}/>
     </MemoryRouter>
   ));
 
   it('renders "맛집 추천하기" text with link to "/post"', () => {
->>>>>>> render-JSON-data
     const { container } = renderHomePage();
 
     expect(container).toHaveTextContent('맛집 추천하기');
