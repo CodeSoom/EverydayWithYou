@@ -5,21 +5,24 @@ export function setRestaurantName({ value }) {
   }
 }
 
-export function setConditions() {
+export function setConditions(conditionsArr) {
   return {
     type: 'setConditions',
+    payload: { conditionsArr },
   }
 }
 
-export function setRegions() {
+export function setRegions(regionsArr) {
   return {
     type: 'setRegions',
+    payload: { regionsArr },
   }
 }
 
-export function setCategories() {
+export function setCategories(categoriesArr) {
   return {
     type: 'setCategories',
+    payload: { categoriesArr },
   }
 }
 
@@ -43,3 +46,19 @@ export function selectCategoryTag(selectedId) {
     payload: { selectedId },
   }
 }
+
+/* const conditionsArr = restaurants.map((obj) => {
+  return obj.condition;
+});
+
+const uniqueConditionsArr = [...new Set(conditionsArr)];
+
+const regionsArr = restaurants.map((obj) => {
+  return obj.region
+});
+const uniqueRegionsArr = [...new Set(regionsArr)];
+
+const categoriesArr = restaurants.map((obj) => {
+  return obj.category
+});
+const uniqueCategoriesArr = [...new Set(categoriesArr)]; */

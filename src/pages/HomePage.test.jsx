@@ -1,12 +1,24 @@
 import { render } from '@testing-library/react';
 
+import { useDispatch } from 'react-redux';
+
 import {
   MemoryRouter,
 } from 'react-router-dom';
 
 import HomePage from './HomePage';
 
+jest.mock('react-redux');
+
 describe('HomePage', () => {
+  const dispatch = jest.fn();
+
+  beforeEach(() => {
+    dispatch.mockClear();
+
+    useDispatch.mockImplementation(() => dispatch);
+  });
+
   const restaurants = [
     {
       "name": "청와옥",
@@ -33,11 +45,11 @@ describe('HomePage', () => {
 
   const renderHomePage = () => render((
     <MemoryRouter>
-      <HomePage restaurants={restaurants} />
+      <HomePage restaurants={restaurants}/>
     </MemoryRouter>
   ));
 
-  it('renders "맛집 추천하기" text with link', () => {
+  it('renders "맛집 추천하기" text with link to "/post"', () => {
     const { container } = renderHomePage();
 
     expect(container).toHaveTextContent('맛집 추천하기');

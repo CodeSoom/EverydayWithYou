@@ -30,36 +30,48 @@ describe('reducer', () => {
   });
 
   describe('setConditions action', () => {
-    it('changes state of newConditions with selected conditions', () => {
+    it('changes state of newConditions with sorted JSON data', () => {
       const initialState = {
         newConditions: [],
       };
 
-      const state = reducer(initialState, setConditions());
+      const conditionsArr = [
+        { id: 10, name: '청와옥', condition: '과음한 다음 날' },
+      ]
+
+      const state = reducer(initialState, setConditions(conditionsArr));
 
       expect(state.newConditions).toHaveLength(1);
     });
   });
 
   describe('setRegions action', () => {
-    it('changes state of newRegions with selected regions', () => {
+    it('changes state of newRegions with sorted JSON data', () => {
       const initialState = {
         newRegions: [],
       };
 
-      const state = reducer(initialState, setRegions());
+      const regionsArr = [
+        { id: 10, name: '청와옥', region: '서울 송파구' },
+      ]
+
+      const state = reducer(initialState, setRegions(regionsArr));
 
       expect(state.newRegions).toHaveLength(1);
     });
   });
 
   describe('setCategories action', () => {
-    it('changes state of newCategories with selected categories', () => {
+    it('changes state of newCategories with sorted JSON data', () => {
       const initialState = {
         newCategories: [],
       };
 
-      const state = reducer(initialState, setCategories());
+      const categoriesArr = [
+        { id: 10, name: '청와옥', category: '순대국밥' },
+      ]
+
+      const state = reducer(initialState, setCategories(categoriesArr));
 
       expect(state.newCategories).toHaveLength(1);
     });

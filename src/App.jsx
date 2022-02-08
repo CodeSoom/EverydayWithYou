@@ -1,3 +1,5 @@
+import restaurants from '../assets/json/restaurants.json';
+
 import {
   Routes,
   Route,
@@ -6,8 +8,6 @@ import {
 import HomePage from './pages/HomePage';
 import BoardPage from './pages/BoardPage';
 import PostFormPage from './pages/PostFormPage';
-
-import restaurants from '../assets/json/restaurants.json';
 
 export default function App() {
   return (

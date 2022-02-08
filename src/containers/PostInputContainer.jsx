@@ -6,14 +6,16 @@ import {
   setRestaurantName,
 } from '../actions';
 
-import PostFormBox from '../style/PostFormBox';
+import styled from '@emotion/styled';
+
+const PostFormBox = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'flex-start',
+});
 
 export default function PostInputContainer() {
-  // ToDoDelete 상태 잘 바뀌는지 확인용
-  useSelector((state) => ({
-    name: state.restaurant.name,
-  }));
-
   const dispatch = useDispatch();
 
   function handleChangeInput({ value }) {
