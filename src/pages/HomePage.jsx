@@ -1,6 +1,6 @@
 import HomeConditionTagsContainer from '../containers/HomeConditionTagsContainer';
-import HomeRegionTagsContainer from '../containers/HomeRegionTagsContainer';
-import HomeCategoryTagsContainer from '../containers/HomeCategoryTagsContainer';
+/* import HomeRegionTagsContainer from '../containers/HomeRegionTagsContainer'; */
+/* import HomeCategoryTagsContainer from '../containers/HomeCategoryTagsContainer'; */
 
 import styled from '@emotion/styled';
 
@@ -17,32 +17,13 @@ const HomePageLayout = styled.div({
 });
 
 export default function HomePage({ restaurants }) {
-  const conditionsArr = restaurants.map((obj) => {
-    return obj.condition
-  });
-  const uniqueConditionsArr = [...new Set(conditionsArr)];
-
-  const regionsArr = restaurants.map((obj) => {
-    return obj.region
-  });
-  const uniqueRegionsArr = [...new Set(regionsArr)];
-
-  const categoriesArr = restaurants.map((obj) => {
-    return obj.category
-  });
-  const uniqueCategoriesArr = [...new Set(categoriesArr)];
-
   return (
     <HomePageLayout>
       <HomeConditionTagsContainer
-        uniqueConditionsArr={uniqueConditionsArr}
+        restaurants={restaurants}
       />
-      <HomeRegionTagsContainer
-        uniqueRegionsArr={uniqueRegionsArr}
-      />
-      <HomeCategoryTagsContainer
-        uniqueCategoriesArr={uniqueCategoriesArr}
-      />
+      {/* <HomeRegionTagsContainer/>
+      <HomeCategoryTagsContainer /> */}
       <Link to="/post">맛집 추천하기</Link>
     </HomePageLayout>
   )

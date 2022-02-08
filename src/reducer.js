@@ -6,6 +6,7 @@ import {
 
 const initialState = {
   restaurant: {
+    id: '',
     name: '',
   },
   selectedCondition: null,
@@ -14,6 +15,7 @@ const initialState = {
   newConditions: [],
   newRegions: [],
   newCategories: [],
+  newId: 100,
   color: "",
 };
 
@@ -43,7 +45,6 @@ const reducers = {
     }
   },
 
-  // Todo 중복 selectedCategory 들어오는거 해결하기
   setCategories(state) {
     const { selectedCategory } = state;
     return {
@@ -79,6 +80,16 @@ const reducers = {
         color: "blue",
         ...categories.find(category => category.id === selectedId),
       },
+    }
+  },
+
+  addUniqueId(state, { payload: { uniqueCategoriesArr } }) {
+    const { newId } = state;
+
+    return {
+      ...state,
+      newId: newId + 1,
+      newCategories: [{ id: newId, ...uniqueCategoriesArr }],
     }
   },
 }

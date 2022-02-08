@@ -1,30 +1,23 @@
 import styled from '@emotion/styled';
 
-const TagsContainer = styled.div({
-  textAlign: 'left',
-  margin: '8px 0',
+import uniqBy from 'lodash.uniqby';
+
+const PostFormBox = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'flex-start',
 });
 
-const Hashtags = styled.button({
-  border: 'none',
-  padding: '8px',
-  margin: '4px',
-  borderRadius: '4px',
-});
+export default function HomeConditionTagsContainer({ restaurants }) {
+  const sortRepetition = uniqBy(restaurants, 'condition');
+  const conditionsArr = sortRepetition.map((obj) => {
+    const { name, id, condition } = obj;
+    return { id: id, name: name, condition: condition };
+  });
 
-export default function HomeConditionTagsContainer({ uniqueConditionsArr }) {
   return (
-    <TagsContainer>
-      {uniqueConditionsArr.map((uniqueCondition) => (
-        <>
-          <Hashtags
-            type='button'
-            key={uniqueCondition}
-          >
-            {uniqueCondition}
-          </Hashtags>
-        </>
-      ))}
-    </TagsContainer>
+    <PostFormBox>
+    </PostFormBox>
   )
 }
