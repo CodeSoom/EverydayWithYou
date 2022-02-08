@@ -6,12 +6,13 @@ import {
 
 const initialState = {
   restaurant: {
+    id: '',
     name: '',
   },
-  selectedCondition: null,
-  selectedRegion: null,
-  selectedCategory: null,
-  newConditions: [],
+  selectedCondition: null, // 활용안됨
+  selectedRegion: null, // 활용안됨
+  selectedCategory: null, // 활용안됨
+  newCondtions: [],
   newRegions: [],
   newCategories: [],
   color: "",
@@ -27,31 +28,28 @@ const reducers = {
     }
   },
 
-  setConditions(state) {
-    const { selectedCondition } = state;
+  setConditions(state, { payload: { conditionsArr } }) {
     return {
       ...state,
-      newConditions: [selectedCondition],
+      newConditions: conditionsArr,
     }
   },
 
-  setRegions(state) {
-    const { selectedRegion } = state;
+  setRegions(state, { payload: { regionsArr } }) {
     return {
       ...state,
-      newRegions: [selectedRegion],
+      newRegions: regionsArr,
     }
   },
 
-  // Todo 중복 selectedCategory 들어오는거 해결하기
-  setCategories(state) {
-    const { selectedCategory } = state;
+  setCategories(state, { payload: { categoriesArr } }) {
     return {
       ...state,
-      newCategories: [selectedCategory],
+      newCategories: categoriesArr,
     }
   },
 
+  // 보수가 필요하다!!
   selectConditionTag(state, { payload: { selectedId } }) {
     return {
       ...state,

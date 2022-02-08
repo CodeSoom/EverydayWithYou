@@ -53,9 +53,7 @@ describe('PostRegionTagsContainer', () => {
 
       fireEvent.click(getByText('#서울 송파구'))
 
-      expect(dispatch).toBeCalledWith({
-        type: 'setRegions',
-      });
+      expect(dispatch).toBeCalled();
     });
   });
 });

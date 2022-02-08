@@ -53,9 +53,7 @@ describe('PostConditionTagsContainer', () => {
 
       fireEvent.click(getByText('#혼밥'))
 
-      expect(dispatch).toBeCalledWith({
-        type: 'setConditions',
-      });
+      expect(dispatch).toBeCalled();
     });
   });
 });

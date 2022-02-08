@@ -53,9 +53,7 @@ describe('PostCategoryTagsContainer', () => {
 
       fireEvent.click(getByText('#면'))
 
-      expect(dispatch).toBeCalledWith({
-        type: 'setCategories',
-      });
+      expect(dispatch).toBeCalled();
     });
   });
 });

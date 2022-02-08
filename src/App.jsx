@@ -1,3 +1,5 @@
+import restaurants from '../assets/json/restaurants.json';
+
 import {
   Routes,
   Route,
