@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+
 const HomeContainer = styled.div({
   display: 'flex',
   flexDirection: 'column',
@@ -19,17 +20,17 @@ const Hashtags = styled.button({
   borderRadius: '4px',
 });
 
-export default function HomeConditionTagsContainer({ conditionsArr }) {
+export default function HomeRegionTagsContainer({ regionsArr }) {
   return (
     <HomeContainer>
       <TagsBox>
-        <p>어떤 상황인가요?</p>
-        {conditionsArr.map((obj) => (
+        <p>어디로 가고 싶나요?</p>
+        {regionsArr.map((obj) => (
           <Hashtags
             type="Hashtags"
             key={obj.id}
           >
-            {obj.condition}
+            {obj.region}
           </Hashtags>
         ))}
       </TagsBox>
