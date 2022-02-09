@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   setRegions,
+  getRegionTag,
 } from '../actions';
 
 const TagsBox = styled.div({
@@ -27,10 +28,15 @@ export default function HomeRegionTagsContainer({ regionsArr }) {
     dispatch(setRegions(regionsArr));
   }, []);
 
-  // ToDo delete 값잘들어오나 확인용
-  useSelector((state) => ({
-    newRegions: state.newRegions,
-  }));
+  function handleClickTag(regionObj) {
+    dispatch(getRegionTag(regionObj));
+  }
+
+  const getRegion = useSelector((state) => (
+    state.getRegion === null ?
+      state : state.getRegion
+  ));
+  const {color} = getRegion;
 
   return (
     <TagsBox>
@@ -39,6 +45,11 @@ export default function HomeRegionTagsContainer({ regionsArr }) {
         <Hashtags
           type="Hashtags"
           key={obj.id}
+          onClick={() => handleClickTag(obj)}
+          className={
+            obj.id === getRegion.id ?
+              color : ""
+          }
         >
             #{obj.region}
         </Hashtags>

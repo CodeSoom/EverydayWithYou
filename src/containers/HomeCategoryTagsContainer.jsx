@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   setCategories,
+  getCategoryTag,
 } from '../actions';
 
 const TagsBox = styled.div({
@@ -27,10 +28,15 @@ export default function HomeCategoryTagsContainer({ categoriesArr }) {
     dispatch(setCategories(categoriesArr));
   }, []);
 
-  // ToDo delete 값잘들어오나 확인용
-  useSelector((state) => ({
-    newCategories: state.newCategories,
-  }));
+  function handleClickTag(categoryObj) {
+    dispatch(getCategoryTag(categoryObj));
+  }
+
+  const getCategory = useSelector((state) => (
+    state.getCategory === null ?
+      state : state.getCategory
+  ));
+  const {color} = getCategory;
 
   return (
     <TagsBox>
@@ -39,6 +45,11 @@ export default function HomeCategoryTagsContainer({ categoriesArr }) {
         <Hashtags
           type="Hashtags"
           key={obj.id}
+          onClick={() => handleClickTag(obj)}
+          className={
+            obj.id === getCategory.id ?
+              color : ""
+          }
         >
           #{obj.category}
         </Hashtags>

@@ -1,3 +1,5 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const path = require('path');
 
 module.exports = {
@@ -20,9 +22,13 @@ module.exports = {
       directory: path.resolve(__dirname),
     }, //실제로 존재하는 정적 파일들의 경로
     historyApiFallback: {
-      index: 'index.html',
+      index: './public/index.html',
     },
     compress: true,
     port: 8080,
   },
+  output: {
+    path: path.resolve(__dirname, './dist'),
+  },
+  plugins: [new HtmlWebpackPlugin()],
 };

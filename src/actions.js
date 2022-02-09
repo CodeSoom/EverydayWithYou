@@ -47,18 +47,23 @@ export function selectCategoryTag(selectedId) {
   }
 }
 
-/* const conditionsArr = restaurants.map((obj) => {
-  return obj.condition;
-});
+export function getConditionTag(conditionObj) {
+  return {
+    type: 'getConditionTag',
+    payload: { conditionObj },
+  }
+}
 
-const uniqueConditionsArr = [...new Set(conditionsArr)];
+export function getRegionTag(regionObj) {
+  return {
+    type: 'getRegionTag',
+    payload: { regionObj },
+  }
+}
 
-const regionsArr = restaurants.map((obj) => {
-  return obj.region
-});
-const uniqueRegionsArr = [...new Set(regionsArr)];
-
-const categoriesArr = restaurants.map((obj) => {
-  return obj.category
-});
-const uniqueCategoriesArr = [...new Set(categoriesArr)]; */
+export function getCategoryTag(categoryObj) {
+  return {
+    type: 'getCategoryTag',
+    payload: { categoryObj },
+  }
+}

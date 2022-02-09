@@ -22,6 +22,12 @@ describe('App', () => {
       selectedCondition: { color: 'blue', id: 1, name: '혼밥' },
       selectedRegion: { color: 'blue', id: 1, name: '서울 송파구' },
       selectedCategory: { color: 'blue', id: 1, name: '면' },
+      getCondition: 
+      { id: 10, name: '청와옥', condition: '과음한 다음 날', color: 'blue' },
+      getRegion: 
+      { id: 10, name: '청와옥', region: '서울 송파구', color: 'blue' },
+      getCategory: 
+      { id: 10, name: '청와옥', category: '순대국밥', color: 'blue' },
       restaurant: { name: '멘카야' },
     }));
   });

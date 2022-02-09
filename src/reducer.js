@@ -1,3 +1,4 @@
+// ToDo delete
 import {
   conditions,
   regions,
@@ -5,25 +6,35 @@ import {
 } from './data/hashTags';
 
 const initialState = {
+  color: '',
+  newId: 100,
+
   restaurant: {
     id: '',
     name: '',
   },
-  selectedCondition: null, // 활용안됨
-  selectedRegion: null, // 활용안됨
-  selectedCategory: null, // 활용안됨
-  newCondtions: [],
+  selectedCondition: null, 
+  selectedRegion: null, 
+  selectedCategory: null, 
+
+  getCondition: null, 
+  getRegion: null, 
+  getCategory: null, 
+
+  newCondtions: [], // ToDo conditions로 이름 바꾸기
   newRegions: [],
   newCategories: [],
-  color: "",
 };
 
 const reducers = {
   setRestaurantName(state, { payload: { value } }) {
+    const {newId} = state;
     return {
       ...state,
+      newId: newId + 1,
       restaurant: {
-        name: value,
+        id: newId,
+        name: value, // 인풋값이 name으로 설정됨
       },
     }
   },
@@ -49,13 +60,12 @@ const reducers = {
     }
   },
 
-  // 보수가 필요하다!!
   selectConditionTag(state, { payload: { selectedId } }) {
     return {
       ...state,
       selectedCondition: {
-        color: "blue",
         ...conditions.find(condition => condition.id === selectedId),
+        color: "blue",
       },
     }
   },
@@ -64,8 +74,8 @@ const reducers = {
     return {
       ...state,
       selectedRegion: {
-        color: "blue",
         ...regions.find(region => region.id === selectedId),
+        color: "blue",
       },
     }
   },
@@ -74,8 +84,38 @@ const reducers = {
     return {
       ...state,
       selectedCategory: {
-        color: "blue",
         ...categories.find(category => category.id === selectedId),
+        color: "blue",
+      },
+    }
+  },
+
+  getConditionTag(state, { payload: { conditionObj } }) {
+    return {
+      ...state,
+      getCondition: {
+        ...conditionObj,
+        color: "blue",
+      },
+    }
+  },
+
+  getRegionTag(state, { payload: { regionObj } }) {
+    return {
+      ...state,
+      getRegion: {
+        ...regionObj,
+        color: "blue",
+      },
+    }
+  },
+
+  getCategoryTag(state, { payload: { categoryObj } }) {
+    return {
+      ...state,
+      getCategory: {
+        ...categoryObj,
+        color: "blue",
       },
     }
   },
