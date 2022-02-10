@@ -5,9 +5,9 @@ import {
   setConditions,
   setRegions,
   setCategories,
-  selectedConditionTag,
-  selectedRegionTag,
-  selectedCategoryTag,
+  selectConditionTag,
+  selectRegionTag,
+  selectCategoryTag,
   getConditionTag,
   getRegionTag,
   getCategoryTag,
@@ -81,6 +81,48 @@ describe('reducer', () => {
       const state = reducer(initialState, setCategories(categoriesArr));
 
       expect(state.newCategories).toHaveLength(1);
+    });
+  });
+
+  describe('selectConditionTag action', () => {
+    it('set selectedCondition', () => {
+      const initialState = {
+        selectedCondition: null,
+      }
+
+      const state = reducer(initialState, selectConditionTag(1));
+
+      expect(state.selectedCondition).toEqual({
+        id: 1, name: '#혼밥', color: 'blue',
+      });
+    });
+  });
+
+  describe('selectRegionTag action', () => {
+    it('set selectedRegion', () => {
+      const initialState = {
+        selectedRegion: null,
+      }
+
+      const state = reducer(initialState, selectRegionTag(1));
+
+      expect(state.selectedRegion).toEqual({
+        id: 1, name: '#서울 송파구', color: 'blue',
+      });
+    });
+  });
+
+  describe('selectCategoryTag action', () => {
+    it('set selectedCategory', () => {
+      const initialState = {
+        selectedCategory: null,
+      }
+
+      const state = reducer(initialState, selectCategoryTag(1));
+
+      expect(state.selectedCategory).toEqual({
+        id: 1, name: '#면', color: 'blue',
+      });
     });
   });
 
