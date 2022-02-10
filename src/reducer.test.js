@@ -5,15 +5,26 @@ import {
   setConditions,
   setRegions,
   setCategories,
+
   selectConditionTag,
   selectRegionTag,
   selectCategoryTag,
-  getConditionTag,
-  getRegionTag,
-  getCategoryTag,
+  
+  sortByCondition,
+  sortByRegion,
+  sortByCategory,
 } from './actions';
 
+jest.mock('react-redux');
+
 describe('reducer', () => {
+  // find, filter 메서드 모킹하는 방법?
+  const find = jest.fn();
+  const filter = jest.fn();
+
+  find.mockImplementation(() => find());
+  find.mockImplementation(() => filter());
+
   describe('setRestaurantName action', () => {
     it('changes state of restaurantName from "" to "입력값" and update id', () => {
       const initialState = {
@@ -37,9 +48,9 @@ describe('reducer', () => {
   });
 
   describe('setConditions action', () => {
-    it('changes state of newConditions with sorted JSON data', () => {
+    it('changes state of conditions with sorted JSON data', () => {
       const initialState = {
-        newConditions: [],
+        conditions: [],
       };
 
       const conditionsArr = [
@@ -48,14 +59,14 @@ describe('reducer', () => {
 
       const state = reducer(initialState, setConditions(conditionsArr));
 
-      expect(state.newConditions).toHaveLength(1);
+      expect(state.conditions).toHaveLength(1);
     });
   });
 
   describe('setRegions action', () => {
-    it('changes state of newRegions with sorted JSON data', () => {
+    it('changes state of regions with sorted JSON data', () => {
       const initialState = {
-        newRegions: [],
+        regions: [],
       };
 
       const regionsArr = [
@@ -64,14 +75,14 @@ describe('reducer', () => {
 
       const state = reducer(initialState, setRegions(regionsArr));
 
-      expect(state.newRegions).toHaveLength(1);
+      expect(state.regions).toHaveLength(1);
     });
   });
 
   describe('setCategories action', () => {
-    it('changes state of newCategories with sorted JSON data', () => {
+    it('changes state of categories with sorted JSON data', () => {
       const initialState = {
-        newCategories: [],
+        categories: [],
       };
 
       const categoriesArr = [
@@ -80,7 +91,7 @@ describe('reducer', () => {
 
       const state = reducer(initialState, setCategories(categoriesArr));
 
-      expect(state.newCategories).toHaveLength(1);
+      expect(state.categories).toHaveLength(1);
     });
   });
 
@@ -93,7 +104,7 @@ describe('reducer', () => {
       const state = reducer(initialState, selectConditionTag(1));
 
       expect(state.selectedCondition).toEqual({
-        id: 1, name: '#혼밥', color: 'blue',
+        id: 1, name: '청와옥', condition: '혼밥', color: 'blue',
       });
     });
   });
@@ -107,7 +118,7 @@ describe('reducer', () => {
       const state = reducer(initialState, selectRegionTag(1));
 
       expect(state.selectedRegion).toEqual({
-        id: 1, name: '#서울 송파구', color: 'blue',
+        id: 1, name: '청와옥', condition: '서울 송파구', color: 'blue',
       });
     });
   });
@@ -121,59 +132,50 @@ describe('reducer', () => {
       const state = reducer(initialState, selectCategoryTag(1));
 
       expect(state.selectedCategory).toEqual({
-        id: 1, name: '#면', color: 'blue',
+        id: 1, name: '청와옥', condition: '순대국밥', color: 'blue',
       });
     });
   });
 
-  describe('getConditionTag action', () => {
-    it('set getCondtion', () => {
-      const conditionObj = 
-      { id: 10, name: '청와옥', condition: '과음한 다음 날' };
+  describe('sortByCondition action', () => {
+    it('sorts conditions array', () => {
+      const selectedName = '청와옥';
 
       const initialState = {
-        getCondition: null,
+        sortedConditions: [],
       }
 
-      const state = reducer(initialState, getConditionTag(conditionObj));
+      const state = reducer(initialState, sortByCondition(selectedName));
 
-      expect(state.getCondition).toEqual({
-        id: 10, name: '청와옥', condition: '과음한 다음 날', color: 'blue',
-      });
+      expect(state.sortedConditions).toHaveLength(1);
     });
   });
 
-  describe('getRegionTag action', () => {
-    it('set getCondtion', () => {
-    const regionObj = 
-    { id: 10, name: '청와옥', region: '서울 송파구' };
+  describe('sortByRegion action', () => {
+    it('sorts regions array', () => {
+      const selectedName = '청와옥';
 
       const initialState = {
-        getRegion: null,
+        sortedRegions: [],
       }
 
-      const state = reducer(initialState, getRegionTag(regionObj));
+      const state = reducer(initialState, sortByRegion(selectedName));
 
-      expect(state.getRegion).toEqual({
-        id: 10, name: '청와옥', region: '서울 송파구', color: 'blue'
-      });
+      expect(state.sortedRegions).toHaveLength(1);
     });
   });
 
-  describe('getCategoryTag action', () => {
-    it('set getCategory', () => {
-    const categoryObj = 
-    { id: 10, name: '청와옥', category: '순대국밥' };
+  describe('sortByCategory action', () => {
+    it('sorts categories array', () => {
+      const selectedName = '청와옥';
 
       const initialState = {
-        getCategory: null,
+        sortedCategories: [],
       }
 
-      const state = reducer(initialState, getCategoryTag(categoryObj));
+      const state = reducer(initialState, sortByCategory(selectedName));
 
-      expect(state.getCategory).toEqual({
-        id: 10, name: '청와옥', category: '순대국밥', color: 'blue'
-      });
+      expect(state.sortedCategories).toHaveLength(1);
     });
   });
 });

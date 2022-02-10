@@ -19,12 +19,21 @@ describe('HomePage', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      getCondition: 
-      { id: 10, name: '청와옥', condition: '과음한 다음 날', color: 'blue' },
-      getRegion: 
-      { id: 10, name: '청와옥', region: '서울 송파구', color: 'blue' },
-      getCategory: 
-      { id: 10, name: '청와옥', category: '순대국밥', color: 'blue' },
+      sortedConditions: [
+        { id: 1, name: '청와옥', condition: '과음한 다음 날', color: 'blue' }
+      ],
+      sortedRegions: [
+        { id: 1, name: '청와옥', condition: '서울 송파구', color: 'blue' }
+      ],
+      sortedCategories: [
+        { id: 1, name: '청와옥', condition: '순대국밥', color: 'blue' }
+      ],
+      selectedCondition: 
+      { id: 1, name: '청와옥', condition: '과음한 다음 날', color: 'blue'},
+      selectedRegion: 
+      { id: 1, name: '청와옥', condition: '서울 송파구', color: 'blue'},
+      selectedCategory: 
+      { id: 1, name: '청와옥', condition: '순대국밥', color: 'blue'},
     }));
   });
 

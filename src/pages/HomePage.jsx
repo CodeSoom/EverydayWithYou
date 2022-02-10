@@ -4,8 +4,6 @@ import HomeCategoryTagsContainer from '../containers/HomeCategoryTagsContainer';
 
 import styled from '@emotion/styled';
 
-import uniqBy from 'lodash.uniqby';
-
 import {
   Link,
 } from 'react-router-dom';
@@ -31,20 +29,17 @@ const PostLayout = styled.h1({
 });
 
 export default function HomePage({ restaurants }) {
-  const sortCoditions = uniqBy(restaurants, 'condition');
-  const conditionsArr = sortCoditions.map((obj) => {
+  const conditionsArr = restaurants.map((obj) => {
     const { name, id, condition } = obj;
     return { id: id, name: name, condition: condition };
   });
 
-  const sortRegions = uniqBy(restaurants, 'region');
-  const regionsArr = sortRegions.map((obj) => {
+  const regionsArr = restaurants.map((obj) => {
     const { name, id, region } = obj;
     return { id: id, name: name, region: region };
   });
 
-  const sortCategories = uniqBy(restaurants, 'category');
-  const categoriesArr = sortCategories.map((obj) => {
+  const categoriesArr = restaurants.map((obj) => {
     const { name, id, category } = obj;
     return { id: id, name: name, category: category };
   });

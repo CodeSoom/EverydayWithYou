@@ -13,8 +13,9 @@ import HomeRegionTagsContainer from './HomeRegionTagsContainer';
 jest.mock('react-redux');
 
 describe('HomeRegionTagsContainer', () => {
+  // 최초 JSON 데이터
   const regionsArr = [
-    { id: 10, name: '청와옥', region: '서울 송파구' },
+    { id: 1, name: '청와옥', region: '서울 송파구' },
   ]
 
   const dispatch = jest.fn();
@@ -25,8 +26,8 @@ describe('HomeRegionTagsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      getRegion: 
-      { id: 10, name: '청와옥', region: '서울 송파구', color: 'blue' },
+      selectedRegion: 
+      { id: 1, name: '청와옥', region: '서울 송파구', color: 'blue'},
     }));
   });
 
@@ -52,17 +53,29 @@ describe('HomeRegionTagsContainer', () => {
   });
 
   context('when click "#서울 송파구" tag', () => {
-    const regionObj = 
-    { id: 10, name: '청와옥', region: '서울 송파구' };
+    it('calls dispatch with action : sortByRegion', () => {
+      const selectedName = '서울 송파구';
 
-    it('calls dispatch with action : getRegionTag', () => {
       const { getByText } = renderHomeRegionTagsContainer();
 
       fireEvent.click(getByText('#서울 송파구'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'getRegionTag',
-        payload: { regionObj },
+        type: 'sortByRegion',
+        payload: { selectedName },
+      })
+    });
+
+    it('calls dispatch with action : selectRegionTag', () => {
+      const selectedId = 1;
+
+      const { getByText } = renderHomeRegionTagsContainer();
+
+      fireEvent.click(getByText('#서울 송파구'));
+
+      expect(dispatch).toBeCalledWith({
+        type: 'selectRegionTag',
+        payload: { selectedId },
       })
     });
   });

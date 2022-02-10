@@ -13,8 +13,9 @@ import HomeConditionTagsContainer from './HomeConditionTagsContainer';
 jest.mock('react-redux');
 
 describe('HomeConditionTagsContainer', () => {
+  // 최초 JSON 데이터
   const conditionsArr = [
-    { id: 10, name: '청와옥', condition: '과음한 다음 날' },
+    { id: 1, name: '청와옥', condition: '과음한 다음 날' },
   ]
 
   const dispatch = jest.fn();
@@ -25,8 +26,8 @@ describe('HomeConditionTagsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      getCondition: 
-      { id: 10, name: '청와옥', condition: '과음한 다음 날', color: 'blue' },
+      selectedCondition: 
+      { id: 1, name: '청와옥', condition: '과음한 다음 날', color: 'blue'},
     }));
   });
 
@@ -42,7 +43,7 @@ describe('HomeConditionTagsContainer', () => {
     it('calls dispatch with action : setConditions', () => {
       const { container } = renderHomeConditionTagsContainer();
 
-      expect(container).toHaveTextContent('과음한 다음 날');
+      expect(container).toHaveTextContent('#과음한 다음 날');
 
       expect(dispatch).toBeCalledWith({
         type: 'setConditions',
@@ -52,17 +53,16 @@ describe('HomeConditionTagsContainer', () => {
   });
 
   context('when click "#과음한 다음 날" tag', () => {
-    const conditionObj = 
-    { id: 10, name: '청와옥', condition: '과음한 다음 날' };
+    const selectedName = '과음한 다음 날';
 
-    it('calls dispatch with action : getConditionTag', () => {
+    it('calls dispatch with action : sortByCondition', () => {
       const { getByText } = renderHomeConditionTagsContainer();
 
       fireEvent.click(getByText('#과음한 다음 날'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'getConditionTag',
-        payload: { conditionObj },
+        type: 'sortByCondition',
+        payload: { selectedName },
       })
     });
   });

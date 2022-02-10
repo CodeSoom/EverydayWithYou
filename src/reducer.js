@@ -1,10 +1,3 @@
-// ToDo delete
-import {
-  conditions,
-  regions,
-  categories,
-} from './data/hashTags';
-
 const initialState = {
   color: '',
   newId: 100,
@@ -17,13 +10,13 @@ const initialState = {
   selectedRegion: null, 
   selectedCategory: null, 
 
-  getCondition: null, 
-  getRegion: null,
-  getCategory: null,
+  sortedConditions: [],
+  sortedRegions: [],
+  sortedCategories: [],
 
-  newCondtions: [], // ToDo conditions로 이름 바꾸기
-  newRegions: [],
-  newCategories: [],
+  conditions: [],
+  regions: [],
+  categories: [],
 };
 
 const reducers = {
@@ -42,25 +35,27 @@ const reducers = {
   setConditions(state, { payload: { conditionsArr } }) {
     return {
       ...state,
-      newConditions: conditionsArr,
+      conditions: conditionsArr,
     }
   },
 
   setRegions(state, { payload: { regionsArr } }) {
     return {
       ...state,
-      newRegions: regionsArr,
+      regions: regionsArr,
     }
   },
 
   setCategories(state, { payload: { categoriesArr } }) {
     return {
       ...state,
-      newCategories: categoriesArr,
+      categories: categoriesArr,
     }
   },
 
   selectConditionTag(state, { payload: { selectedId } }) {
+    const {conditions} = state;
+
     return {
       ...state,
       selectedCondition: {
@@ -71,6 +66,8 @@ const reducers = {
   },
 
   selectRegionTag(state, { payload: { selectedId } }) {
+    const {regions} = state;
+
     return {
       ...state,
       selectedRegion: {
@@ -81,6 +78,8 @@ const reducers = {
   },
 
   selectCategoryTag(state, { payload: { selectedId } }) {
+    const {categories} = state;
+
     return {
       ...state,
       selectedCategory: {
@@ -90,33 +89,38 @@ const reducers = {
     }
   },
 
-  getConditionTag(state, { payload: { conditionObj } }) {
+  // conditionObject 받아서 conditions 어레이중에 가게이름 일치하는 객체만 남김
+  sortByCondition(state, { payload: { selectedName } }) {
+    const {conditions} = state;
+    console.log(conditions);
+
     return {
       ...state,
-      getCondition: {
-        ...conditionObj,
-        color: "blue",
-      },
+      sortedConditions: [
+        conditions.filter(condition => condition.condition === selectedName)
+      ],
     }
   },
 
-  getRegionTag(state, { payload: { regionObj } }) {
+  sortByRegion(state, { payload: { selectedName } }) {
+    const {regions} = state;
+
     return {
       ...state,
-      getRegion: {
-        ...regionObj,
-        color: "blue",
-      },
+      sortedRegions: [
+        regions.filter(region => region.region === selectedName)
+      ],
     }
   },
 
-  getCategoryTag(state, { payload: { categoryObj } }) {
+  sortByCategory(state, { payload: { selectedName } }) {
+    const {categories} = state;
+
     return {
       ...state,
-      getCategory: {
-        ...categoryObj,
-        color: "blue",
-      },
+      sortedCategories: [
+        categories.filter(category => category.category === selectedName)
+      ],
     }
   },
 }

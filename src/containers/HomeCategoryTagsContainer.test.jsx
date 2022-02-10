@@ -13,8 +13,9 @@ import HomeCategoryTagsContainer from './HomeCategoryTagsContainer';
 jest.mock('react-redux');
 
 describe('HomeCategoryTagsContainer', () => {
+  // 최초 JSON 데이터
   const categoriesArr = [
-    { id: 10, name: '청와옥', category: '순대국밥' },
+    { id: 1, name: '청와옥', category: '순대국밥' },
   ]
 
   const dispatch = jest.fn();
@@ -25,8 +26,8 @@ describe('HomeCategoryTagsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
   
     useSelector.mockImplementation((selector) => selector({
-      getCategory: 
-      { id: 10, name: '청와옥', category: '순대국밥', color: 'blue' },
+      selectedCategory: 
+      { id: 1, name: '청와옥', category: '순대국밥', color: 'blue' },
     }));
   });
 
@@ -52,17 +53,16 @@ describe('HomeCategoryTagsContainer', () => {
   });
 
   context('when click "#순대국밥" tag', () => {
-    const categoryObj = 
-    { id: 10, name: '청와옥', category: '순대국밥' };
+    const selectedName = '순대국밥';
 
-    it('calls dispatch with action : getCategoryTag', () => {
+    it('calls dispatch with action : sortByCategory', () => {
       const { getByText } = renderHomeCategoryTagsContainer();
 
       fireEvent.click(getByText('#순대국밥'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'getCategoryTag',
-        payload: { categoryObj },
+        type: 'sortByCategory',
+        payload: { selectedName },
       })
     });
   });

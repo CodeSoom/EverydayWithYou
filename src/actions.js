@@ -47,23 +47,23 @@ export function selectCategoryTag(selectedId) {
   }
 }
 
-export function getConditionTag(conditionObj) {
+export function sortByCondition(selectedName) {
   return {
-    type: 'getConditionTag',
-    payload: { conditionObj },
+    type: 'sortByCondition',
+    payload: { selectedName },
   }
 }
 
-export function getRegionTag(regionObj) {
+export function sortByRegion(selectedName) {
   return {
-    type: 'getRegionTag',
-    payload: { regionObj },
+    type: 'sortByRegion',
+    payload: { selectedName },
   }
 }
 
-export function getCategoryTag(categoryObj) {
+export function sortByCategory(selectedName) {
   return {
-    type: 'getCategoryTag',
-    payload: { categoryObj },
+    type: 'sortByCategory',
+    payload: { selectedName },
   }
 }

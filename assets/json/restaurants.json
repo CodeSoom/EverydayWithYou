@@ -7,136 +7,136 @@
     "category": "순대국밥"
   },
   {
-    "name": "별미곱창",
+    "name": "청와옥",
     "id": "11",
-    "condition": "회식",
+    "condition": "과음한 다음 날",
     "region": "서울 송파구",
-    "category": "곱창, 막창"
+    "category": "순대국밥"
   },
   {
-    "name": "뱃놈",
+    "name": "행운동조개",
     "id": "12",
-    "condition": "친구들이랑",
-    "region": "서울 광진구",
+    "condition": "퇴근길",
+    "region": "서울 송파구",
     "category": "조개"
   },
   {
-    "name": "봉쥬르스고이",
+    "name": "청와옥",
     "id": "13",
-    "condition": "소개팅",
-    "region": "서울 용산구",
-    "category": "일식"
-  },
-  {
-    "name": "진지아",
-    "id": "14",
-    "condition": "데이트",
+    "condition": "과음한 다음 날",
     "region": "서울 송파구",
-    "category": "중화요리"
+    "category": "순대국밥"
   },
   {
-    "name": "어쩔티비",
+    "name": "봉쥬르스고이",
+    "id": "14",
+    "condition": "퇴근길",
+    "region": "서울 송파구",
+    "category": "일본식라면"
+  },
+  {
+    "name": "청와옥",
     "id": "15",
     "condition": "퇴근길",
     "region": "서울 마포구",
     "category": "일본식라면"
   },
   {
-    "name": "저쩔티비",
+    "name": "봉쥬르스고이",
     "id": "16",
     "condition": "주말",
     "region": "서울 강남구",
-    "category": "한식"
+    "category": "한우"
   },
   {
     "name": "수와래",
     "id": "17",
-    "condition": "데이트",
-    "region": "서울 종로구",
-    "category": "스테이크, 립"
+    "condition": "주말",
+    "region": "서울 강남구",
+    "category": "조개"
   },
   {
-    "name": "한솥",
+    "name": "행운동조개",
     "id": "18",
-    "condition": "혼밥",
-    "region": "서울 광진구",
-    "category": "도시락"
+    "condition": "주말",
+    "region": "서울 강남구",
+    "category": "조개"
   },
   {
-    "name": "크크루삥뽕",
+    "name": "행운동조개",
     "id": "19",
     "condition": "주말",
     "region": "서울 성동구",
-    "category": "참치회"
+    "category": "조개"
   },
   {
     "name": "행운동조개",
     "id": "20",
     "condition": "데이트",
-    "region": "서울 관악구",
-    "category": "조개"
+    "region": "서울 성동구",
+    "category": "일본식라면"
   },
   {
-    "name": "핵인싸공방",
+    "name": "합정광안리",
     "id": "21",
-    "condition": "축하하고싶은 날",
-    "region": "서울 강남구",
+    "condition": "데이트",
+    "region": "서울 성동구",
     "category": "회"
   },
   {
     "name": "합정광안리",
     "id": "22",
     "condition": "친구들이랑",
-    "region": "서울 마포구",
+    "region": "서울 성동구",
     "category": "회"
   },
   {
-    "name": "마틸다",
+    "name": "합정광안리",
     "id": "23",
-    "condition": "우울할 때",
-    "region": "서울 종로구",
+    "condition": "친구들이랑",
+    "region": "서울 성동구",
     "category": "한우"
   },
   {
-    "name": "휘뚜루마뚜루",
+    "name": "합정광안리",
     "id": "24",
-    "condition": "회식",
-    "region": "서울 강남구",
-    "category": "한식"
+    "condition": "친구들이랑",
+    "region": "서울 성동구",
+    "category": "한우"
   },
   {
-    "name": "솔로지옥",
+    "name": "합정광안리",
     "id": "25",
     "condition": "데이트",
-    "region": "서울 용산구",
-    "category": "일식"
+    "region": "서울 성동구",
+    "category": "일본식라면"
   },
   {
-    "name": "시고르자브종",
+    "name": "수와래",
     "id": "26",
     "condition": "혼밥",
     "region": "서울 송파구",
     "category": "일본식라면"
   },
   {
-    "name": "찐맛집",
+    "name": "수와래",
     "id": "27",
-    "condition": "축하하고싶은 날",
-    "region": "서울 관악구",
+    "condition": "데이트",
+    "region": "서울 성동구",
     "category": "한우"
   },
   {
-    "name": "찐찐맛집",
+    "name": "수와래",
     "id": "28",
-    "condition": "소개팅",
+    "condition": "데이트",
     "region": "서울 성동구",
     "category": "참치회"
   },
   {
-    "name": "찐찐찐맛집",
+    "name": "수와래",
     "id": "29",
     "condition": "주말",
-    "region": "서울 종로구",
-    "category": "스테이크, 립"
+    "region": "서울 강남구",
+    "category": "참치회"
   }
 ]

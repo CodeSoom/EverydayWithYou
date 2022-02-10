@@ -1,12 +1,15 @@
 import styled from '@emotion/styled';
 
+import uniqBy from 'lodash.uniqby';
+
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   setRegions,
-  getRegionTag,
+  sortByRegion,
+  selectRegionTag,
 } from '../actions';
 
 const TagsBox = styled.div({
@@ -22,32 +25,41 @@ const Hashtags = styled.button({
 });
 
 export default function HomeRegionTagsContainer({ regionsArr }) {
+  const sortRegions = uniqBy(regionsArr, 'region');
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setRegions(regionsArr));
   }, []);
 
-  function handleClickTag(regionObj) {
-    dispatch(getRegionTag(regionObj));
+  function handleClickTag(selectedName, selectedId) {
+    dispatch(sortByRegion(selectedName));
+    dispatch(selectRegionTag(selectedId));
   }
 
-  const getRegion = useSelector((state) => (
-    state.getRegion === null ?
-      state : state.getRegion
+  const selectedRegion = useSelector((state) => (
+    state.selectedRegion === null ?
+      state : state.selectedRegion
   ));
-  const {color} = getRegion;
+  const {color} = selectedRegion;
+  console.log(selectedRegion);
+
+  const sortedRegions = useSelector((state) => ({
+    sortedRegions: state.sortedRegions,
+  }));
+  console.log(sortedRegions);
 
   return (
     <TagsBox>
       <p>어디로 가고 싶나요?</p>
-      {regionsArr.map((obj) => (
+      {sortRegions.map((obj) => (
         <Hashtags
           type="button"
           key={obj.id}
-          onClick={() => handleClickTag(obj)}
+          onClick={() => handleClickTag(obj.region, obj.id)}
           className={
-            obj.id === getRegion.id ?
+            obj.id === selectedRegion.id ?
               color : ""
           }
         >
