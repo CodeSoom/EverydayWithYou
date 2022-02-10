@@ -38,7 +38,7 @@ describe('HomeRegionTagsContainer', () => {
     </MemoryRouter>
   ));
 
-  context('render home age', () => {
+  context('render home page', () => {
     it('calls dispatch with action : setRegions', () => {
       const { container } = renderHomeRegionTagsContainer();
 

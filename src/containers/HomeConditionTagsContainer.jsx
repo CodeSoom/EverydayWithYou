@@ -43,7 +43,7 @@ export default function HomeConditionTagsContainer({ conditionsArr }) {
       <p>어떤 상황인가요?</p>
       {conditionsArr.map((obj) => (
         <Hashtags
-          type="Hashtags"
+          type="button"
           key={obj.id}
           onClick={() => handleClickTag(obj)}
           className={

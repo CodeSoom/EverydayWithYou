@@ -38,7 +38,7 @@ describe('HomeConditionTagsContainer', () => {
     </MemoryRouter>
   ));
 
-  context('render home age', () => {
+  context('render home page', () => {
     it('calls dispatch with action : setConditions', () => {
       const { container } = renderHomeConditionTagsContainer();
 

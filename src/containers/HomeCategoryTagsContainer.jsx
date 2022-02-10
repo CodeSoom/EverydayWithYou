@@ -43,7 +43,7 @@ export default function HomeCategoryTagsContainer({ categoriesArr }) {
       <p>무엇을 드시고 싶으세요?</p>
       {categoriesArr.map((obj) => (
         <Hashtags
-          type="Hashtags"
+          type="button"
           key={obj.id}
           onClick={() => handleClickTag(obj)}
           className={

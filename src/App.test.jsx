@@ -19,9 +19,9 @@ describe('App', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      selectedCondition: { color: 'blue', id: 1, name: '혼밥' },
-      selectedRegion: { color: 'blue', id: 1, name: '서울 송파구' },
-      selectedCategory: { color: 'blue', id: 1, name: '면' },
+      selectedCondition: { id: 1, name: '혼밥', color: 'blue' },
+      selectedRegion: { id: 1, name: '서울 송파구', color: 'blue' },
+      selectedCategory: { id: 1, name: '면', color: 'blue' },
       getCondition: 
       { id: 10, name: '청와옥', condition: '과음한 다음 날', color: 'blue' },
       getRegion: 

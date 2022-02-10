@@ -18,8 +18,8 @@ const initialState = {
   selectedCategory: null, 
 
   getCondition: null, 
-  getRegion: null, 
-  getCategory: null, 
+  getRegion: null,
+  getCategory: null,
 
   newCondtions: [], // ToDo conditions로 이름 바꾸기
   newRegions: [],

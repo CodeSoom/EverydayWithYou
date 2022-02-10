@@ -43,7 +43,7 @@ export default function HomeRegionTagsContainer({ regionsArr }) {
       <p>어디로 가고 싶나요?</p>
       {regionsArr.map((obj) => (
         <Hashtags
-          type="Hashtags"
+          type="button"
           key={obj.id}
           onClick={() => handleClickTag(obj)}
           className={
