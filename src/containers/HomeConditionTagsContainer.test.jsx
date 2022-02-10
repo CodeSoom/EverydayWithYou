@@ -1,8 +1,8 @@
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 import context from 'jest-plugin-context';
 
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   MemoryRouter,
@@ -23,6 +23,11 @@ describe('HomeConditionTagsContainer', () => {
     dispatch.mockClear();
 
     useDispatch.mockImplementation(() => dispatch);
+
+    useSelector.mockImplementation((selector) => selector({
+      getCondition: 
+      { id: 10, name: '청와옥', condition: '과음한 다음 날', color: 'blue' },
+    }));
   });
 
   const renderHomeConditionTagsContainer = () => render((
@@ -33,7 +38,7 @@ describe('HomeConditionTagsContainer', () => {
     </MemoryRouter>
   ));
 
-  context('with "과음한 다음 날" button', () => {
+  context('render home page', () => {
     it('calls dispatch with action : setConditions', () => {
       const { container } = renderHomeConditionTagsContainer();
 
@@ -42,6 +47,22 @@ describe('HomeConditionTagsContainer', () => {
       expect(dispatch).toBeCalledWith({
         type: 'setConditions',
         payload: { conditionsArr },
+      })
+    });
+  });
+
+  context('when click "#과음한 다음 날" tag', () => {
+    const conditionObj = 
+    { id: 10, name: '청와옥', condition: '과음한 다음 날' };
+
+    it('calls dispatch with action : getConditionTag', () => {
+      const { getByText } = renderHomeConditionTagsContainer();
+
+      fireEvent.click(getByText('#과음한 다음 날'));
+
+      expect(dispatch).toBeCalledWith({
+        type: 'getConditionTag',
+        payload: { conditionObj },
       })
     });
   });

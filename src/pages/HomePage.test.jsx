@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   MemoryRouter,
@@ -17,6 +17,15 @@ describe('HomePage', () => {
     dispatch.mockClear();
 
     useDispatch.mockImplementation(() => dispatch);
+
+    useSelector.mockImplementation((selector) => selector({
+      getCondition: 
+      { id: 10, name: '청와옥', condition: '과음한 다음 날', color: 'blue' },
+      getRegion: 
+      { id: 10, name: '청와옥', region: '서울 송파구', color: 'blue' },
+      getCategory: 
+      { id: 10, name: '청와옥', category: '순대국밥', color: 'blue' },
+    }));
   });
 
   const restaurants = [

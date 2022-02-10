@@ -8,21 +8,28 @@ import {
   selectConditionTag,
   selectRegionTag,
   selectCategoryTag,
+  getConditionTag,
+  getRegionTag,
+  getCategoryTag,
 } from './actions';
 
 describe('reducer', () => {
   describe('setRestaurantName action', () => {
-    it('changes state of restaurantName from "" to "입력값"', () => {
+    it('changes state of restaurantName from "" to "입력값" and update id', () => {
       const initialState = {
+        newId: 100,
         restaurant: {
+          id: '',
           name: '',
         },
       }
-
+      
       const state = reducer(initialState, setRestaurantName({ value: '입력값' }));
 
       expect(state).toEqual({
+        newId: 101,
         restaurant: {
+          id: 100,
           name: '입력값',
         },
       });
@@ -77,45 +84,95 @@ describe('reducer', () => {
     });
   });
 
-
   describe('selectConditionTag action', () => {
-    it('finds clicked tag with selectedId', () => {
+    it('set selectedCondition', () => {
       const initialState = {
-        selectedCondition: {},
+        selectedCondition: null,
       }
 
       const state = reducer(initialState, selectConditionTag(1));
 
       expect(state.selectedCondition).toEqual({
-        color: 'blue', id: 1, name: '#혼밥',
+        id: 1, name: '#혼밥', color: 'blue',
       });
     });
   });
 
   describe('selectRegionTag action', () => {
-    it('finds clicked tag with selectedId', () => {
+    it('set selectedRegion', () => {
       const initialState = {
-        selectedRegion: {},
+        selectedRegion: null,
       }
 
       const state = reducer(initialState, selectRegionTag(1));
 
       expect(state.selectedRegion).toEqual({
-        color: 'blue', id: 1, name: '#서울 송파구',
+        id: 1, name: '#서울 송파구', color: 'blue',
       });
     });
   });
 
   describe('selectCategoryTag action', () => {
-    it('finds clicked tag with selectedId', () => {
+    it('set selectedCategory', () => {
       const initialState = {
-        selectedCategory: {},
+        selectedCategory: null,
       }
 
       const state = reducer(initialState, selectCategoryTag(1));
 
       expect(state.selectedCategory).toEqual({
-        color: 'blue', id: 1, name: '#면',
+        id: 1, name: '#면', color: 'blue',
+      });
+    });
+  });
+
+  describe('getConditionTag action', () => {
+    it('set getCondtion', () => {
+      const conditionObj = 
+      { id: 10, name: '청와옥', condition: '과음한 다음 날' };
+
+      const initialState = {
+        getCondition: null,
+      }
+
+      const state = reducer(initialState, getConditionTag(conditionObj));
+
+      expect(state.getCondition).toEqual({
+        id: 10, name: '청와옥', condition: '과음한 다음 날', color: 'blue',
+      });
+    });
+  });
+
+  describe('getRegionTag action', () => {
+    it('set getCondtion', () => {
+    const regionObj = 
+    { id: 10, name: '청와옥', region: '서울 송파구' };
+
+      const initialState = {
+        getRegion: null,
+      }
+
+      const state = reducer(initialState, getRegionTag(regionObj));
+
+      expect(state.getRegion).toEqual({
+        id: 10, name: '청와옥', region: '서울 송파구', color: 'blue'
+      });
+    });
+  });
+
+  describe('getCategoryTag action', () => {
+    it('set getCategory', () => {
+    const categoryObj = 
+    { id: 10, name: '청와옥', category: '순대국밥' };
+
+      const initialState = {
+        getCategory: null,
+      }
+
+      const state = reducer(initialState, getCategoryTag(categoryObj));
+
+      expect(state.getCategory).toEqual({
+        id: 10, name: '청와옥', category: '순대국밥', color: 'blue'
       });
     });
   });

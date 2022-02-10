@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   setConditions,
+  getConditionTag,
 } from '../actions';
 
 const TagsBox = styled.div({
@@ -27,18 +28,28 @@ export default function HomeConditionTagsContainer({ conditionsArr }) {
     dispatch(setConditions(conditionsArr));
   }, []);
 
-  // ToDo delete 값잘들어오나 확인용
-  useSelector((state) => ({
-    newConditions: state.newConditions,
-  }));
+  function handleClickTag(conditionObj) {
+    dispatch(getConditionTag(conditionObj));
+  }
+
+  const getCondition = useSelector((state) => (
+    state.getCondition === null ?
+      state : state.getCondition
+  ));
+  const {color} = getCondition;
 
   return (
     <TagsBox>
       <p>어떤 상황인가요?</p>
       {conditionsArr.map((obj) => (
         <Hashtags
-          type="Hashtags"
+          type="button"
           key={obj.id}
+          onClick={() => handleClickTag(obj)}
+          className={
+            obj.id === getCondition.id ?
+              color : ""
+          }
         >
           #{obj.condition}
         </Hashtags>
