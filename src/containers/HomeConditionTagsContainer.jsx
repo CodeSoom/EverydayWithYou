@@ -43,7 +43,6 @@ export default function HomeConditionTagsContainer({ conditionsArr }) {
       state : state.selectedCondition
   ));
   const {color} = selectedCondition;
-  console.log(selectedCondition);
 
   const sortedConditions = useSelector((state) => ({
     sortedConditions: state.sortedConditions,

@@ -18,13 +18,6 @@ import {
 jest.mock('react-redux');
 
 describe('reducer', () => {
-  // find, filter 메서드 모킹하는 방법?
-  const find = jest.fn();
-  const filter = jest.fn();
-
-  find.mockImplementation(() => find());
-  find.mockImplementation(() => filter());
-
   describe('setRestaurantName action', () => {
     it('changes state of restaurantName from "" to "입력값" and update id', () => {
       const initialState = {
@@ -96,52 +89,74 @@ describe('reducer', () => {
   });
 
   describe('selectConditionTag action', () => {
-    it('set selectedCondition', () => {
+    const selectedId = 1;
+
+    it('sorts "conditions" array by selected id and sets "selectedCondition" obj', () => {
       const initialState = {
+        conditions: [
+          {id: 1, name: '청와옥', condition: '과음한 다음 날'},
+          {id: 2, name: '멘카야', condition: '혼밥'}
+        ],
         selectedCondition: null,
       }
 
-      const state = reducer(initialState, selectConditionTag(1));
+      const state = reducer(initialState, selectConditionTag(selectedId));
 
       expect(state.selectedCondition).toEqual({
-        id: 1, name: '청와옥', condition: '혼밥', color: 'blue',
+        id: 1, name: '청와옥', condition: '과음한 다음 날', color: 'blue',
       });
     });
   });
 
   describe('selectRegionTag action', () => {
-    it('set selectedRegion', () => {
+    const selectedId = 1;
+
+    it('sorts "regions" array by selected id and sets "selectedRegion" obj', () => {
       const initialState = {
+        regions: [
+          {id: 1, name: '청와옥', region: '서울 송파구'},
+          {id: 2, name: '멘카야', region: '서울 강남구'}
+        ],
         selectedRegion: null,
       }
 
-      const state = reducer(initialState, selectRegionTag(1));
+      const state = reducer(initialState, selectRegionTag(selectedId));
 
       expect(state.selectedRegion).toEqual({
-        id: 1, name: '청와옥', condition: '서울 송파구', color: 'blue',
+        id: 1, name: '청와옥', region: '서울 송파구', color: 'blue',
       });
     });
   });
 
   describe('selectCategoryTag action', () => {
-    it('set selectedCategory', () => {
+    const selectedId = 1;
+
+    it('sorts "categories" array by selected id and sets "selectedCategory" obj', () => {
       const initialState = {
+        categories: [
+          {id: 1, name: '청와옥', category: '순대국밥'},
+          {id: 2, name: '멘카야', category: '라멘'}
+        ],
         selectedCategory: null,
       }
 
-      const state = reducer(initialState, selectCategoryTag(1));
+      const state = reducer(initialState, selectCategoryTag(selectedId));
 
       expect(state.selectedCategory).toEqual({
-        id: 1, name: '청와옥', condition: '순대국밥', color: 'blue',
+        id: 1, name: '청와옥', category: '순대국밥', color: 'blue',
       });
     });
   });
 
   describe('sortByCondition action', () => {
-    it('sorts conditions array', () => {
-      const selectedName = '청와옥';
+    it('sorts "conditions" array by condition keyword and puts data in "sortedConditions" array', () => {
+      const selectedName = '과음한 다음 날';
 
       const initialState = {
+        conditions: [
+          {id: 1, name: '청와옥', condition: '과음한 다음 날'},
+          {id: 2, name: '멘카야', condition: '혼밥'}
+        ],
         sortedConditions: [],
       }
 
@@ -152,10 +167,14 @@ describe('reducer', () => {
   });
 
   describe('sortByRegion action', () => {
-    it('sorts regions array', () => {
-      const selectedName = '청와옥';
+    it('sorts "regions" array by region keyword and puts data in "sortedRegions" array', () => {
+      const selectedName = '서울 송파구';
 
       const initialState = {
+        regions: [
+          {id: 1, name: '청와옥', region: '서울 송파구'},
+          {id: 2, name: '멘카야', region: '서울 강남구'}
+        ],
         sortedRegions: [],
       }
 
@@ -166,10 +185,14 @@ describe('reducer', () => {
   });
 
   describe('sortByCategory action', () => {
-    it('sorts categories array', () => {
-      const selectedName = '청와옥';
+    it('sorts "categories" array by categorie keyword and puts data in "sortedCategories" array', () => {
+      const selectedName = '순대국밥';
 
       const initialState = {
+        categories: [
+          {id: 1, name: '청와옥', categorie: '순대국밥'},
+          {id: 2, name: '멘카야', categorie: '라멘'}
+        ],
         sortedCategories: [],
       }
 

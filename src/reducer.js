@@ -27,7 +27,7 @@ const reducers = {
       newId: newId + 1,
       restaurant: {
         id: newId,
-        name: value, // 인풋값이 name으로 설정됨
+        name: value,
       },
     }
   },
@@ -89,10 +89,8 @@ const reducers = {
     }
   },
 
-  // conditionObject 받아서 conditions 어레이중에 가게이름 일치하는 객체만 남김
   sortByCondition(state, { payload: { selectedName } }) {
     const {conditions} = state;
-    console.log(conditions);
 
     return {
       ...state,

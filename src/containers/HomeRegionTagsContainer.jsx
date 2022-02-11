@@ -43,7 +43,6 @@ export default function HomeRegionTagsContainer({ regionsArr }) {
       state : state.selectedRegion
   ));
   const {color} = selectedRegion;
-  console.log(selectedRegion);
 
   const sortedRegions = useSelector((state) => ({
     sortedRegions: state.sortedRegions,

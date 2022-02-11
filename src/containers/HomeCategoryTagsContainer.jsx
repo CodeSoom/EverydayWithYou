@@ -43,7 +43,6 @@ export default function HomeCategoryTagsContainer({ categoriesArr }) {
       state : state.selectedCategory
   ));
   const {color} = selectedCategory;
-  console.log(selectedCategory);
 
   const sortedCategories = useSelector((state) => ({
     sortedCategories: state.sortedCategories,
