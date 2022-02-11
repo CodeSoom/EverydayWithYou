@@ -2,7 +2,12 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, './src/index.jsx'),
+  entry: './src/index.jsx',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true
+  },
   module: {
     rules: [
       {
@@ -24,8 +29,5 @@ module.exports = {
     },
     compress: true,
     port: 8080,
-  },
-  output: {
-    path: path.resolve(__dirname, './dist'),
   },
 };
