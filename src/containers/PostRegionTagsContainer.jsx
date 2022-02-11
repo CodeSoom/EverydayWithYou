@@ -4,7 +4,7 @@ import PostRegionTagsForm from '../components/PostRegionTagsForm';
 
 import {
   selectRegionTag,
-  setRegions,
+  setRestaurants,
 } from '../actions';
 
 import styled from '@emotion/styled';
@@ -26,7 +26,7 @@ export default function PostRegionTagsContainer() {
 
   function handleClickTag(selectedId) {
     dispatch(selectRegionTag(selectedId));
-    dispatch(setRegions());
+    dispatch(setRestaurants());
   }
 
   return (

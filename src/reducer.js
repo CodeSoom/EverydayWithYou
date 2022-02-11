@@ -6,17 +6,14 @@ const initialState = {
     id: '',
     name: '',
   },
+  
   selectedCondition: null, 
   selectedRegion: null, 
   selectedCategory: null, 
 
-  sortedConditions: [],
-  sortedRegions: [],
-  sortedCategories: [],
+  sortedRestaurants: [],
 
-  conditions: [],
-  regions: [],
-  categories: [],
+  restaurants: [],
 };
 
 const reducers = {
@@ -32,92 +29,78 @@ const reducers = {
     }
   },
 
-  setConditions(state, { payload: { conditionsArr } }) {
+  setRestaurants(state, { payload: { restaurantsData } }) {
     return {
       ...state,
-      conditions: conditionsArr,
-    }
-  },
-
-  setRegions(state, { payload: { regionsArr } }) {
-    return {
-      ...state,
-      regions: regionsArr,
-    }
-  },
-
-  setCategories(state, { payload: { categoriesArr } }) {
-    return {
-      ...state,
-      categories: categoriesArr,
+      restaurants: restaurantsData,
     }
   },
 
   selectConditionTag(state, { payload: { selectedId } }) {
-    const {conditions} = state;
+    const {restaurants} = state;
 
     return {
       ...state,
       selectedCondition: {
-        ...conditions.find(condition => condition.id === selectedId),
+        ...restaurants.find(condition => condition.id === selectedId),
         color: "blue",
       },
     }
   },
 
   selectRegionTag(state, { payload: { selectedId } }) {
-    const {regions} = state;
+    const {restaurants} = state;
 
     return {
       ...state,
       selectedRegion: {
-        ...regions.find(region => region.id === selectedId),
+        ...restaurants.find(region => region.id === selectedId),
         color: "blue",
       },
     }
   },
 
   selectCategoryTag(state, { payload: { selectedId } }) {
-    const {categories} = state;
+    const {restaurants} = state;
 
     return {
       ...state,
       selectedCategory: {
-        ...categories.find(category => category.id === selectedId),
+        ...restaurants.find(category => category.id === selectedId),
         color: "blue",
       },
     }
   },
 
   sortByCondition(state, { payload: { selectedName } }) {
-    const {conditions} = state;
+    const {restaurants} = state;
 
     return {
       ...state,
-      sortedConditions: [
-        conditions.filter(condition => condition.condition === selectedName)
+      sortedRestaurants: [
+        restaurants.filter(condition => condition.condition === selectedName)
       ],
     }
   },
 
   sortByRegion(state, { payload: { selectedName } }) {
-    const {regions} = state;
+    const {restaurants} = state;
 
     return {
       ...state,
-      sortedRegions: [
-        regions.filter(region => region.region === selectedName)
+      sortedRestaurants: [
+        restaurants.filter(region => region.region === selectedName)
       ],
     }
   },
 
   sortByCategory(state, { payload: { selectedName } }) {
-    const {categories} = state;
+    const {restaurants} = state;
 
     return {
       ...state,
-      sortedCategories: [
-        categories.filter(category => category.category === selectedName)
+      sortedRestaurants: [
+        restaurants.filter(category => category.category === selectedName)
       ],
     }
   },

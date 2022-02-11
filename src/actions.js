@@ -5,24 +5,10 @@ export function setRestaurantName({ value }) {
   }
 }
 
-export function setConditions(conditionsArr) {
+export function setRestaurants(restaurantsData) {
   return {
-    type: 'setConditions',
-    payload: { conditionsArr },
-  }
-}
-
-export function setRegions(regionsArr) {
-  return {
-    type: 'setRegions',
-    payload: { regionsArr },
-  }
-}
-
-export function setCategories(categoriesArr) {
-  return {
-    type: 'setCategories',
-    payload: { categoriesArr },
+    type: 'setRestaurants',
+    payload: { restaurantsData },
   }
 }
 

@@ -14,7 +14,7 @@ jest.mock('react-redux');
 
 describe('HomeConditionTagsContainer', () => {
   // 최초 JSON 데이터
-  const conditionsArr = [
+  const restaurantsData = [
     { id: 1, name: '청와옥', condition: '과음한 다음 날' },
   ]
 
@@ -34,20 +34,20 @@ describe('HomeConditionTagsContainer', () => {
   const renderHomeConditionTagsContainer = () => render((
     <MemoryRouter>
       <HomeConditionTagsContainer
-        conditionsArr={conditionsArr}
+        restaurantsData={restaurantsData}
       />
     </MemoryRouter>
   ));
 
   context('render home page', () => {
-    it('calls dispatch with action : setConditions', () => {
+    it('calls dispatch with action : setRestaurants', () => {
       const { container } = renderHomeConditionTagsContainer();
 
       expect(container).toHaveTextContent('#과음한 다음 날');
 
       expect(dispatch).toBeCalledWith({
-        type: 'setConditions',
-        payload: { conditionsArr },
+        type: 'setRestaurants',
+        payload: { restaurantsData },
       })
     });
   });
