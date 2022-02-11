@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  setCategories,
+  setRestaurants,
   sortByCategory,
   selectCategoryTag,
 } from '../actions';
@@ -24,13 +24,13 @@ const Hashtags = styled.button({
   borderRadius: '4px',
 });
 
-export default function HomeCategoryTagsContainer({ categoriesArr }) {
-  const sortCategories = uniqBy(categoriesArr, 'category');
+export default function HomeCategoryTagsContainer({ restaurantsData }) {
+  const uniqCategories = uniqBy(restaurantsData, 'category');
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setCategories(categoriesArr));
+    dispatch(setRestaurants(restaurantsData));
   }, []);
 
   function handleClickTag(selectedName, selectedId) {
@@ -44,15 +44,15 @@ export default function HomeCategoryTagsContainer({ categoriesArr }) {
   ));
   const {color} = selectedCategory;
 
-  const sortedCategories = useSelector((state) => ({
-    sortedCategories: state.sortedCategories,
+  const sortedRestaurants = useSelector((state) => ({
+    sortedRestaurants: state.sortedRestaurants,
   }));
-  console.log(sortedCategories);
+  console.log(sortedRestaurants);
 
   return (
     <TagsBox>
       <p>무엇을 드시고 싶으세요?</p>
-      {sortCategories.map((obj) => (
+      {uniqCategories.map((obj) => (
         <Hashtags
           type="button"
           key={obj.id}

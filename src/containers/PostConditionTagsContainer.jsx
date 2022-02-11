@@ -4,7 +4,7 @@ import PostConditionTagsForm from '../components/PostConditionTagsForm';
 
 import {
   selectConditionTag,
-  setConditions,
+  setRestaurants,
 } from '../actions';
 
 import styled from '@emotion/styled';
@@ -26,7 +26,7 @@ export default function PostConditionTagsContainer() {
 
   function handleClickTag(selectedId) {
     dispatch(selectConditionTag(selectedId))
-    dispatch(setConditions())
+    dispatch(setRestaurants())
   }
 
   return (

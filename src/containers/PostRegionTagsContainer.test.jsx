@@ -48,7 +48,7 @@ describe('PostRegionTagsContainer', () => {
       });
     });
 
-    it('calls dispatch with action : setRegions', () => {
+    it('calls dispatch with action : setRestaurants', () => {
       const { getByText } = renderPostRegionTagsContainer();
 
       fireEvent.click(getByText('#서울 송파구'))

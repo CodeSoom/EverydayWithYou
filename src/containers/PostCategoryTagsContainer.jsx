@@ -4,7 +4,7 @@ import PostCategoryTagsForm from '../components/PostCategoryTagsForm';
 
 import {
   selectCategoryTag,
-  setCategories,
+  setRestaurants,
 } from '../actions';
 
 import styled from '@emotion/styled';
@@ -26,7 +26,7 @@ export default function PostCategoryTagsContainer() {
 
   function handleClickTag(selectedId) {
     dispatch(selectCategoryTag(selectedId));
-    dispatch(setCategories());
+    dispatch(setRestaurants());
   }
 
   return (

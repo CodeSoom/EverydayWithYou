@@ -14,7 +14,7 @@ jest.mock('react-redux');
 
 describe('HomeRegionTagsContainer', () => {
   // 최초 JSON 데이터
-  const regionsArr = [
+  const restaurantsData = [
     { id: 1, name: '청와옥', region: '서울 송파구' },
   ]
 
@@ -34,20 +34,20 @@ describe('HomeRegionTagsContainer', () => {
   const renderHomeRegionTagsContainer = () => render((
     <MemoryRouter>
       <HomeRegionTagsContainer
-        regionsArr={regionsArr}
+        restaurantsData={restaurantsData}
       />
     </MemoryRouter>
   ));
 
   context('render home page', () => {
-    it('calls dispatch with action : setRegions', () => {
+    it('calls dispatch with action : setRestaurants', () => {
       const { container } = renderHomeRegionTagsContainer();
 
       expect(container).toHaveTextContent('#서울 송파구');
 
       expect(dispatch).toBeCalledWith({
-        type: 'setRegions',
-        payload: { regionsArr },
+        type: 'setRestaurants',
+        payload: { restaurantsData },
       })
     });
   });

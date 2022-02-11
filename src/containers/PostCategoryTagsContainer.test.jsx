@@ -48,7 +48,7 @@ describe('PostCategoryTagsContainer', () => {
       });
     });
 
-    it('calls dispatch with action : setCategories', () => {
+    it('calls dispatch with action : setRestaurants', () => {
       const { getByText } = renderPostCategoryTagsContainer();
 
       fireEvent.click(getByText('#면'))

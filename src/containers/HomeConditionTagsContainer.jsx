@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  setConditions,
+  setRestaurants,
   sortByCondition,
   selectConditionTag,
 } from '../actions';
@@ -24,13 +24,13 @@ const Hashtags = styled.button({
   borderRadius: '4px',
 });
 
-export default function HomeConditionTagsContainer({ conditionsArr }) {
-  const sortConditions = uniqBy(conditionsArr, 'condition');
-
+export default function HomeConditionTagsContainer({ restaurantsData }) {
+  const uniqConditions = uniqBy(restaurantsData, 'condition');
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setConditions(conditionsArr));
+    dispatch(setRestaurants(restaurantsData));
   }, []);
 
   function handleClickTag(selectedName, selectedId) {
@@ -44,15 +44,15 @@ export default function HomeConditionTagsContainer({ conditionsArr }) {
   ));
   const {color} = selectedCondition;
 
-  const sortedConditions = useSelector((state) => ({
-    sortedConditions: state.sortedConditions,
+  const sortedRestaurants = useSelector((state) => ({
+    sortedRestaurants: state.sortedRestaurants,
   }));
-  console.log(sortedConditions);
+  console.log(sortedRestaurants);
 
   return (
     <TagsBox>
       <p>어떤 상황인가요?</p>
-      {sortConditions.map((obj) => (
+      {uniqConditions.map((obj) => (
         <Hashtags
           type="button"
           key={obj.id}

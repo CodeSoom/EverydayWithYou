@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  setRegions,
+  setRestaurants,
   sortByRegion,
   selectRegionTag,
 } from '../actions';
@@ -24,13 +24,13 @@ const Hashtags = styled.button({
   borderRadius: '4px',
 });
 
-export default function HomeRegionTagsContainer({ regionsArr }) {
-  const sortRegions = uniqBy(regionsArr, 'region');
+export default function HomeRegionTagsContainer({ restaurantsData }) {
+  const uniqRegions = uniqBy(restaurantsData, 'region');
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setRegions(regionsArr));
+    dispatch(setRestaurants(restaurantsData));
   }, []);
 
   function handleClickTag(selectedName, selectedId) {
@@ -44,15 +44,15 @@ export default function HomeRegionTagsContainer({ regionsArr }) {
   ));
   const {color} = selectedRegion;
 
-  const sortedRegions = useSelector((state) => ({
-    sortedRegions: state.sortedRegions,
+  const sortedRestaurants = useSelector((state) => ({
+    sortedRestaurants: state.sortedRestaurants,
   }));
-  console.log(sortedRegions);
+  console.log(sortedRestaurants);
 
   return (
     <TagsBox>
       <p>어디로 가고 싶나요?</p>
-      {sortRegions.map((obj) => (
+      {uniqRegions.map((obj) => (
         <Hashtags
           type="button"
           key={obj.id}

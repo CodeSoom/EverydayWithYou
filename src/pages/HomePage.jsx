@@ -29,33 +29,18 @@ const PostLayout = styled.h1({
 });
 
 export default function HomePage({ restaurants }) {
-  const conditionsArr = restaurants.map((obj) => {
-    const { name, id, condition } = obj;
-    return { id: id, name: name, condition: condition };
-  });
-
-  const regionsArr = restaurants.map((obj) => {
-    const { name, id, region } = obj;
-    return { id: id, name: name, region: region };
-  });
-
-  const categoriesArr = restaurants.map((obj) => {
-    const { name, id, category } = obj;
-    return { id: id, name: name, category: category };
-  });
-
   return (
     <HomePageLayout>
       <TagsLayout>
         <h2>어디 갈지 모르겠다구요? 👀</h2>
         <HomeConditionTagsContainer
-          conditionsArr={conditionsArr}
+          restaurantsData={restaurants}
         />
         <HomeRegionTagsContainer
-          regionsArr={regionsArr}
+          restaurantsData={restaurants}
         />
         <HomeCategoryTagsContainer
-          categoriesArr={categoriesArr}
+          restaurantsData={restaurants}
         />
       </TagsLayout>
       <PostLayout>

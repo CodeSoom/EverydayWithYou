@@ -48,7 +48,7 @@ describe('PostConditionTagsContainer', () => {
       });
     });
 
-    it('calls dispatch with action : setConditions', () => {
+    it('calls dispatch with action : setRestaurants', () => {
       const { getByText } = renderPostConditionTagsContainer();
 
       fireEvent.click(getByText('#혼밥'))
