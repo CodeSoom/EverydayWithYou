@@ -1,12 +1,15 @@
 import styled from '@emotion/styled';
 
+import uniqBy from 'lodash.uniqby';
+
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   setCategories,
-  getCategoryTag,
+  sortByCategory,
+  selectCategoryTag,
 } from '../actions';
 
 const TagsBox = styled.div({
@@ -22,32 +25,40 @@ const Hashtags = styled.button({
 });
 
 export default function HomeCategoryTagsContainer({ categoriesArr }) {
+  const sortCategories = uniqBy(categoriesArr, 'category');
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setCategories(categoriesArr));
   }, []);
 
-  function handleClickTag(categoryObj) {
-    dispatch(getCategoryTag(categoryObj));
+  function handleClickTag(selectedName, selectedId) {
+    dispatch(sortByCategory(selectedName));
+    dispatch(selectCategoryTag(selectedId));
   }
 
-  const getCategory = useSelector((state) => (
-    state.getCategory === null ?
-      state : state.getCategory
+  const selectedCategory = useSelector((state) => (
+    state.selectedCategory === null ?
+      state : state.selectedCategory
   ));
-  const {color} = getCategory;
+  const {color} = selectedCategory;
+
+  const sortedCategories = useSelector((state) => ({
+    sortedCategories: state.sortedCategories,
+  }));
+  console.log(sortedCategories);
 
   return (
     <TagsBox>
       <p>무엇을 드시고 싶으세요?</p>
-      {categoriesArr.map((obj) => (
+      {sortCategories.map((obj) => (
         <Hashtags
           type="button"
           key={obj.id}
-          onClick={() => handleClickTag(obj)}
+          onClick={() => handleClickTag(obj.category, obj.id)}
           className={
-            obj.id === getCategory.id ?
+            obj.id === selectedCategory.id ?
               color : ""
           }
         >

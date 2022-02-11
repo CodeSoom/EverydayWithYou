@@ -1,3 +1,4 @@
+// ToDo delete
 import {
   conditions,
 } from '../data/hashTags';

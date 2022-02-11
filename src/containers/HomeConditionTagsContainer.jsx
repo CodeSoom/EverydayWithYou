@@ -1,12 +1,15 @@
 import styled from '@emotion/styled';
 
+import uniqBy from 'lodash.uniqby';
+
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
   setConditions,
-  getConditionTag,
+  sortByCondition,
+  selectConditionTag,
 } from '../actions';
 
 const TagsBox = styled.div({
@@ -22,32 +25,40 @@ const Hashtags = styled.button({
 });
 
 export default function HomeConditionTagsContainer({ conditionsArr }) {
+  const sortConditions = uniqBy(conditionsArr, 'condition');
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setConditions(conditionsArr));
   }, []);
 
-  function handleClickTag(conditionObj) {
-    dispatch(getConditionTag(conditionObj));
+  function handleClickTag(selectedName, selectedId) {
+    dispatch(sortByCondition(selectedName));
+    dispatch(selectConditionTag(selectedId));
   }
 
-  const getCondition = useSelector((state) => (
-    state.getCondition === null ?
-      state : state.getCondition
+  const selectedCondition = useSelector((state) => (
+    state.selectedCondition === null ?
+      state : state.selectedCondition
   ));
-  const {color} = getCondition;
+  const {color} = selectedCondition;
+
+  const sortedConditions = useSelector((state) => ({
+    sortedConditions: state.sortedConditions,
+  }));
+  console.log(sortedConditions);
 
   return (
     <TagsBox>
       <p>어떤 상황인가요?</p>
-      {conditionsArr.map((obj) => (
+      {sortConditions.map((obj) => (
         <Hashtags
           type="button"
           key={obj.id}
-          onClick={() => handleClickTag(obj)}
+          onClick={() => handleClickTag(obj.condition, obj.id)}
           className={
-            obj.id === getCondition.id ?
+            obj.id === selectedCondition.id ?
               color : ""
           }
         >
