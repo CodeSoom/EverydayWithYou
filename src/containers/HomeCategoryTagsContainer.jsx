@@ -14,7 +14,6 @@ import {
 
 const TagsBox = styled.div({
   textAlign: 'left',
-  marginBottom: '24px',
 });
 
 const Hashtags = styled.button({
@@ -42,12 +41,7 @@ export default function HomeCategoryTagsContainer({ restaurantsData }) {
     state.selectedCategory === null ?
       state : state.selectedCategory
   ));
-  const {color} = selectedCategory;
-
-  const sortedRestaurantsByCategory = useSelector((state) => ({
-    sortedRestaurantsByCategory: state.sortedRestaurantsByCategory,
-  }));
-  console.log(sortedRestaurantsByCategory);
+  const { color } = selectedCategory;
 
   return (
     <TagsBox>

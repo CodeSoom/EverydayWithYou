@@ -26,7 +26,7 @@ const Hashtags = styled.button({
 
 export default function HomeConditionTagsContainer({ restaurantsData }) {
   const uniqConditions = uniqBy(restaurantsData, 'condition');
-  
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,12 +42,7 @@ export default function HomeConditionTagsContainer({ restaurantsData }) {
     state.selectedCondition === null ?
       state : state.selectedCondition
   ));
-  const {color} = selectedCondition;
-
-  const sortedRestaurantsByCondition = useSelector((state) => ({
-    sortedRestaurantsByCondition: state.sortedRestaurantsByCondition,
-  }));
-  console.log(sortedRestaurantsByCondition);
+  const { color } = selectedCondition;
 
   return (
     <TagsBox>
