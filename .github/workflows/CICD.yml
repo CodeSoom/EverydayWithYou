@@ -33,9 +33,15 @@ jobs:
         
       - name: Build
         run: npm run build
+      
+      - name: Copy index.html
+        run: cp index.html dist/index.html
+        
+      - name: Copy css files
+        run: cp css dist/css
         
       - name : Deploy 🚀 
         uses : JamesIves/github-pages-deploy-action@v4.2.3 
         with :
           branch : gh-pages
-          folder : dist        
+          folder : dist
