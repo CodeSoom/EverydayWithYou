@@ -38,7 +38,7 @@ jobs:
         run: cp index.html dist/index.html
         
       - name: Copy css
-        run: cp /css/. gh-pages:/dist
+        run: cp /css/bootstrap.min.css gh-pages:/dist/css/
         
       - name : Deploy 🚀 
         uses : JamesIves/github-pages-deploy-action@v4.2.3 
