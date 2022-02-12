@@ -37,14 +37,14 @@ jobs:
       - name: Copy index.html
         run: cp index.html dist/index.html
         
-      - name: Copy bootstrap.min.css
-        run: cp bootstrap.min.css dist/bootstrap.min.css
+      - name: Copy css/bootstrap.min.css
+        run: cp css/bootstrap.min.css dist/css/bootstrap.min.css
         
-      - name: Copy cover.css
-        run: cp cover.css dist/cover.css
+      - name: Copy css/cover.css
+        run: cp css/cover.css dist/css/cover.css
         
-      - name: Copy reset.css
-        run: cp reset.css dist/reset.css
+      - name: Copy css/reset.css
+        run: cp css/reset.css dist/css/reset.css
         
       - name : Deploy 🚀 
         uses : JamesIves/github-pages-deploy-action@v4.2.3 
