@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   setRestaurants,
-  sortByCategory,
+  sortRestaurantsByCategory,
   selectCategoryTag,
 } from '../actions';
 
@@ -33,8 +33,8 @@ export default function HomeCategoryTagsContainer({ restaurantsData }) {
     dispatch(setRestaurants(restaurantsData));
   }, []);
 
-  function handleClickTag(selectedName, selectedId) {
-    dispatch(sortByCategory(selectedName));
+  function handleClickTag(selectedTag, selectedId) {
+    dispatch(sortRestaurantsByCategory(selectedTag));
     dispatch(selectCategoryTag(selectedId));
   }
 
@@ -44,10 +44,10 @@ export default function HomeCategoryTagsContainer({ restaurantsData }) {
   ));
   const {color} = selectedCategory;
 
-  const sortedRestaurants = useSelector((state) => ({
-    sortedRestaurants: state.sortedRestaurants,
+  const sortedRestaurantsByCategory = useSelector((state) => ({
+    sortedRestaurantsByCategory: state.sortedRestaurantsByCategory,
   }));
-  console.log(sortedRestaurants);
+  console.log(sortedRestaurantsByCategory);
 
   return (
     <TagsBox>

@@ -10,6 +10,7 @@ import {
 
 const HomePageLayout = styled.div({
   display: 'flex',
+  flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
   width: '100%',
@@ -18,8 +19,8 @@ const HomePageLayout = styled.div({
 
 const TagsLayout = styled.div({
   textAlign: 'left',
-  marginRight: '48px',
-  "& h2": {
+  marginBottom: '48px',
+  "& h4": {
     marginBottom: '24px',
   },
 });
@@ -33,6 +34,7 @@ export default function HomePage({ restaurants }) {
     <HomePageLayout>
       <TagsLayout>
         <h2>어디 갈지 모르겠다구요? 👀</h2>
+        <h4>순서대로 원하시는 태그를 선택해주세요!</h4>
         <HomeConditionTagsContainer
           restaurantsData={restaurants}
         />

@@ -53,16 +53,16 @@ describe('HomeConditionTagsContainer', () => {
   });
 
   context('when click "#과음한 다음 날" tag', () => {
-    const selectedName = '과음한 다음 날';
+    const selectedTag = '과음한 다음 날';
 
-    it('calls dispatch with action : sortByCondition', () => {
+    it('calls dispatch with action : sortRestaurantsByCondition', () => {
       const { getByText } = renderHomeConditionTagsContainer();
 
       fireEvent.click(getByText('#과음한 다음 날'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'sortByCondition',
-        payload: { selectedName },
+        type: 'sortRestaurantsByCondition',
+        payload: { selectedTag },
       })
     });
   });

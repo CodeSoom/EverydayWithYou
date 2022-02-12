@@ -53,16 +53,16 @@ describe('HomeRegionTagsContainer', () => {
   });
 
   context('when click "#서울 송파구" tag', () => {
-    it('calls dispatch with action : sortByRegion', () => {
-      const selectedName = '서울 송파구';
+    it('calls dispatch with action : sortRestaurantsByRegion', () => {
+      const selectedTag = '서울 송파구';
 
       const { getByText } = renderHomeRegionTagsContainer();
 
       fireEvent.click(getByText('#서울 송파구'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'sortByRegion',
-        payload: { selectedName },
+        type: 'sortRestaurantsByRegion',
+        payload: { selectedTag },
       })
     });
 

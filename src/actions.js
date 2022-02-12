@@ -33,23 +33,23 @@ export function selectCategoryTag(selectedId) {
   }
 }
 
-export function sortByCondition(selectedName) {
+export function sortRestaurantsByCondition(selectedTag) {
   return {
-    type: 'sortByCondition',
-    payload: { selectedName },
+    type: 'sortRestaurantsByCondition',
+    payload: { selectedTag },
   }
 }
 
-export function sortByRegion(selectedName) {
+export function sortRestaurantsByRegion(selectedTag) {
   return {
-    type: 'sortByRegion',
-    payload: { selectedName },
+    type: 'sortRestaurantsByRegion',
+    payload: { selectedTag },
   }
 }
 
-export function sortByCategory(selectedName) {
+export function sortRestaurantsByCategory(selectedTag) {
   return {
-    type: 'sortByCategory',
-    payload: { selectedName },
+    type: 'sortRestaurantsByCategory',
+    payload: { selectedTag },
   }
 }
