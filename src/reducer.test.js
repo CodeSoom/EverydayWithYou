@@ -7,7 +7,7 @@ import {
   selectConditionTag,
   selectRegionTag,
   selectCategoryTag,
-  
+
   sortRestaurantsByCondition,
   sortRestaurantsByRegion,
   sortRestaurantsByCategory,
@@ -25,7 +25,7 @@ describe('reducer', () => {
           name: '',
         },
       }
-      
+
       const state = reducer(initialState, setRestaurantName({ value: '입력값' }));
 
       expect(state).toEqual({
@@ -60,8 +60,8 @@ describe('reducer', () => {
     it('sorts "restaurants" array by selected id and sets "selectedCondition" obj', () => {
       const initialState = {
         restaurants: [
-          {id: 1, name: '청와옥', condition: '과음한 다음 날'},
-          {id: 2, name: '멘카야', condition: '혼밥'}
+          { id: 1, name: '청와옥', condition: '과음한 다음 날' },
+          { id: 2, name: '멘카야', condition: '혼밥' },
         ],
         selectedCondition: null,
       }
@@ -69,7 +69,7 @@ describe('reducer', () => {
       const state = reducer(initialState, selectConditionTag(selectedId));
 
       expect(state.selectedCondition).toEqual({
-        id: 1, name: '청와옥', condition: '과음한 다음 날', color: 'blue',
+        id: 1, name: '청와옥', condition: '과음한 다음 날',
       });
     });
   });
@@ -80,8 +80,8 @@ describe('reducer', () => {
     it('sorts "restaurants" array by selected id and sets "selectedRegion" obj', () => {
       const initialState = {
         restaurants: [
-          {id: 1, name: '청와옥', region: '서울 송파구'},
-          {id: 2, name: '멘카야', region: '서울 강남구'}
+          { id: 1, name: '청와옥', region: '서울 송파구' },
+          { id: 2, name: '멘카야', region: '서울 강남구' },
         ],
         selectedRegion: null,
       }
@@ -89,7 +89,7 @@ describe('reducer', () => {
       const state = reducer(initialState, selectRegionTag(selectedId));
 
       expect(state.selectedRegion).toEqual({
-        id: 1, name: '청와옥', region: '서울 송파구', color: 'blue',
+        id: 1, name: '청와옥', region: '서울 송파구',
       });
     });
   });
@@ -100,8 +100,8 @@ describe('reducer', () => {
     it('sorts "restaurants" array by selected id and sets "selectedCategory" obj', () => {
       const initialState = {
         restaurants: [
-          {id: 1, name: '청와옥', category: '순대국밥'},
-          {id: 2, name: '멘카야', category: '라멘'}
+          { id: 1, name: '청와옥', category: '순대국밥' },
+          { id: 2, name: '멘카야', category: '라멘' },
         ],
         selectedCategory: null,
       }
@@ -109,7 +109,7 @@ describe('reducer', () => {
       const state = reducer(initialState, selectCategoryTag(selectedId));
 
       expect(state.selectedCategory).toEqual({
-        id: 1, name: '청와옥', category: '순대국밥', color: 'blue',
+        id: 1, name: '청와옥', category: '순대국밥',
       });
     });
   });
@@ -120,8 +120,8 @@ describe('reducer', () => {
 
       const initialState = {
         restaurants: [
-          {id: 1, name: '청와옥', condition: '과음한 다음 날'},
-          {id: 2, name: '멘카야', condition: '혼밥'}
+          { id: 1, name: '청와옥', condition: '과음한 다음 날' },
+          { id: 2, name: '멘카야', condition: '혼밥' },
         ],
         sortedRestaurantsByCondition: [],
       }
@@ -138,8 +138,8 @@ describe('reducer', () => {
 
       const initialState = {
         sortedRestaurantsByCondition: [
-          {id: 1, name: '청와옥', region: '서울 송파구'},
-          {id: 2, name: '멘카야', region: '서울 강남구'}
+          { id: 1, name: '청와옥', region: '서울 송파구' },
+          { id: 2, name: '멘카야', region: '서울 강남구' },
         ],
         sortedRestaurantsByRegion: [],
       }
@@ -156,8 +156,8 @@ describe('reducer', () => {
 
       const initialState = {
         sortedRestaurantsByRegion: [
-          {id: 1, name: '청와옥', category: '순대국밥'},
-          {id: 2, name: '멘카야', category: '일본식 라면'}
+          { id: 1, name: '청와옥', category: '순대국밥' },
+          { id: 2, name: '멘카야', category: '일본식 라면' },
         ],
         sortedRestaurantsByCategory: [],
       }

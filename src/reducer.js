@@ -1,15 +1,15 @@
 const initialState = {
-  color: '',
   newId: 100,
+  color: 'blue',
 
   restaurant: {
     id: '',
     name: '',
   },
-  
-  selectedCondition: null, 
-  selectedRegion: null, 
-  selectedCategory: null, 
+
+  selectedCondition: null,
+  selectedRegion: null,
+  selectedCategory: null,
 
   sortedRestaurantsByCondition: [],
   sortedRestaurantsByRegion: [],
@@ -20,7 +20,7 @@ const initialState = {
 
 const reducers = {
   setRestaurantName(state, { payload: { value } }) {
-    const {newId} = state;
+    const { newId } = state;
     return {
       ...state,
       newId: newId + 1,
@@ -39,73 +39,70 @@ const reducers = {
   },
 
   selectConditionTag(state, { payload: { selectedId } }) {
-    const {restaurants} = state;
+    const { restaurants, color } = state;
 
     return {
       ...state,
       selectedCondition: {
         ...restaurants.find(condition => condition.id === selectedId),
-        color: "blue",
+        color,
       },
     }
   },
 
   selectRegionTag(state, { payload: { selectedId } }) {
-    const {restaurants} = state;
+    const { restaurants, color } = state;
 
     return {
       ...state,
       selectedRegion: {
         ...restaurants.find(region => region.id === selectedId),
-        color: "blue",
+        color,
       },
     }
   },
 
   selectCategoryTag(state, { payload: { selectedId } }) {
-    const {restaurants} = state;
+    const { restaurants, color } = state;
 
     return {
       ...state,
       selectedCategory: {
         ...restaurants.find(category => category.id === selectedId),
-        color: "blue",
+        color,
       },
     }
   },
 
   sortRestaurantsByCondition(state, { payload: { selectedTag } }) {
-    const {restaurants} = state;
-    console.log(restaurants);
+    const { restaurants } = state;
 
     return {
       ...state,
-      sortedRestaurantsByCondition: 
+      sortedRestaurantsByCondition:
         restaurants.filter(condition => condition.condition === selectedTag),
     }
   },
 
   sortRestaurantsByRegion(state, { payload: { selectedTag } }) {
-    const {sortedRestaurantsByCondition} = state;
-    console.log(sortedRestaurantsByCondition);
+    const { sortedRestaurantsByCondition } = state;
 
     return {
       ...state,
-      sortedRestaurantsByRegion: 
+      sortedRestaurantsByRegion:
       sortedRestaurantsByCondition.filter(region => region.region === selectedTag),
     }
   },
 
   sortRestaurantsByCategory(state, { payload: { selectedTag } }) {
-    const {sortedRestaurantsByRegion} = state;
-    console.log(sortedRestaurantsByRegion);
-  
+    const { sortedRestaurantsByRegion } = state;
+
     return {
       ...state,
-      sortedRestaurantsByCategory: 
+      sortedRestaurantsByCategory:
         sortedRestaurantsByRegion.filter(category => category.category === selectedTag),
     }
-  }
+  },
 }
 
 function defaultReducer(state) {

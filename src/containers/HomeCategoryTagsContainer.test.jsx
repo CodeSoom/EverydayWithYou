@@ -24,9 +24,9 @@ describe('HomeCategoryTagsContainer', () => {
     dispatch.mockClear();
 
     useDispatch.mockImplementation(() => dispatch);
-  
+
     useSelector.mockImplementation((selector) => selector({
-      selectedCategory: 
+      selectedCategory:
       { id: 1, name: '청와옥', category: '순대국밥', color: 'blue' },
     }));
   });

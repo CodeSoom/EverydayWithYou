@@ -42,12 +42,7 @@ export default function HomeRegionTagsContainer({ restaurantsData }) {
     state.selectedRegion === null ?
       state : state.selectedRegion
   ));
-  const {color} = selectedRegion;
-
-  const sortedRestaurantsByRegion = useSelector((state) => ({
-    sortedRestaurantsByRegion: state.sortedRestaurantsByRegion,
-  }));
-  console.log(sortedRestaurantsByRegion);
+  const { color } = selectedRegion;
 
   return (
     <TagsBox>

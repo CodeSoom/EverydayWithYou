@@ -26,8 +26,8 @@ describe('HomeRegionTagsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      selectedRegion: 
-      { id: 1, name: '청와옥', region: '서울 송파구', color: 'blue'},
+      selectedRegion:
+      { id: 1, name: '청와옥', region: '서울 송파구', color: 'blue' },
     }));
   });
 

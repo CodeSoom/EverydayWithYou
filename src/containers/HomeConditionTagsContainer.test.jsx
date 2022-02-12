@@ -26,8 +26,8 @@ describe('HomeConditionTagsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      selectedCondition: 
-      { id: 1, name: '청와옥', condition: '과음한 다음 날', color: 'blue'},
+      selectedCondition:
+      { id: 1, name: '청와옥', condition: '과음한 다음 날', color: 'blue' },
     }));
   });
 
