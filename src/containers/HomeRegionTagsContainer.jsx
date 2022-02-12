@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   setRestaurants,
-  sortByRegion,
+  sortRestaurantsByRegion,
   selectRegionTag,
 } from '../actions';
 
@@ -33,8 +33,8 @@ export default function HomeRegionTagsContainer({ restaurantsData }) {
     dispatch(setRestaurants(restaurantsData));
   }, []);
 
-  function handleClickTag(selectedName, selectedId) {
-    dispatch(sortByRegion(selectedName));
+  function handleClickTag(selectedTag, selectedId) {
+    dispatch(sortRestaurantsByRegion(selectedTag));
     dispatch(selectRegionTag(selectedId));
   }
 
@@ -44,10 +44,10 @@ export default function HomeRegionTagsContainer({ restaurantsData }) {
   ));
   const {color} = selectedRegion;
 
-  const sortedRestaurants = useSelector((state) => ({
-    sortedRestaurants: state.sortedRestaurants,
+  const sortedRestaurantsByRegion = useSelector((state) => ({
+    sortedRestaurantsByRegion: state.sortedRestaurantsByRegion,
   }));
-  console.log(sortedRestaurants);
+  console.log(sortedRestaurantsByRegion);
 
   return (
     <TagsBox>

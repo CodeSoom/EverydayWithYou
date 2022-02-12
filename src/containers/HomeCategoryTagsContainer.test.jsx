@@ -53,16 +53,16 @@ describe('HomeCategoryTagsContainer', () => {
   });
 
   context('when click "#순대국밥" tag', () => {
-    const selectedName = '순대국밥';
+    const selectedTag = '순대국밥';
 
-    it('calls dispatch with action : sortByCategory', () => {
+    it('calls dispatch with action : sortRestaurantsByCategory', () => {
       const { getByText } = renderHomeCategoryTagsContainer();
 
       fireEvent.click(getByText('#순대국밥'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'sortByCategory',
-        payload: { selectedName },
+        type: 'sortRestaurantsByCategory',
+        payload: { selectedTag },
       })
     });
   });

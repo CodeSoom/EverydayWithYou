@@ -11,7 +11,9 @@ const initialState = {
   selectedRegion: null, 
   selectedCategory: null, 
 
-  sortedRestaurants: [],
+  sortedRestaurantsByCondition: [],
+  sortedRestaurantsByRegion: [],
+  sortedRestaurantsByCategory: [],
 
   restaurants: [],
 };
@@ -72,38 +74,38 @@ const reducers = {
     }
   },
 
-  sortByCondition(state, { payload: { selectedName } }) {
+  sortRestaurantsByCondition(state, { payload: { selectedTag } }) {
     const {restaurants} = state;
+    console.log(restaurants);
 
     return {
       ...state,
-      sortedRestaurants: [
-        restaurants.filter(condition => condition.condition === selectedName)
-      ],
+      sortedRestaurantsByCondition: 
+        restaurants.filter(condition => condition.condition === selectedTag),
     }
   },
 
-  sortByRegion(state, { payload: { selectedName } }) {
-    const {restaurants} = state;
+  sortRestaurantsByRegion(state, { payload: { selectedTag } }) {
+    const {sortedRestaurantsByCondition} = state;
+    console.log(sortedRestaurantsByCondition);
 
     return {
       ...state,
-      sortedRestaurants: [
-        restaurants.filter(region => region.region === selectedName)
-      ],
+      sortedRestaurantsByRegion: 
+      sortedRestaurantsByCondition.filter(region => region.region === selectedTag),
     }
   },
 
-  sortByCategory(state, { payload: { selectedName } }) {
-    const {restaurants} = state;
-
+  sortRestaurantsByCategory(state, { payload: { selectedTag } }) {
+    const {sortedRestaurantsByRegion} = state;
+    console.log(sortedRestaurantsByRegion);
+  
     return {
       ...state,
-      sortedRestaurants: [
-        restaurants.filter(category => category.category === selectedName)
-      ],
+      sortedRestaurantsByCategory: 
+        sortedRestaurantsByRegion.filter(category => category.category === selectedTag),
     }
-  },
+  }
 }
 
 function defaultReducer(state) {
