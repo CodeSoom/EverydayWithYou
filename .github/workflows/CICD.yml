@@ -37,11 +37,6 @@ jobs:
       - name: Copy index.html
         run: cp index.html dist/index.html
         
-      - name: Copy css directory
-        run: |
-          rm -rf ./css
-          cp -r ./css ./dist
-        
       - name : Deploy 🚀 
         uses : JamesIves/github-pages-deploy-action@v4.2.3 
         with :
