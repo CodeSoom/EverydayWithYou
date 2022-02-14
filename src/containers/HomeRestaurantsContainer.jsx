@@ -4,6 +4,8 @@ import uniqBy from 'lodash.uniqby';
 
 import { useSelector } from 'react-redux';
 
+import { Link } from 'react-router-dom';
+
 const RestaurantsBox = styled.div({
   width: '40%',
   display: 'flex',
@@ -33,9 +35,14 @@ export default function HomeRestaurantsContainer() {
           <h4>결과가 없어요! 😥</h4>
           :
           uniqRestaurants.map((obj) => (
-            <h4 key={obj.id}>
+            <Link
+              key={obj.id}
+              to={
+                `/map/${obj.name}`
+              }
+            >
               {obj.name}
-            </h4>
+            </Link>
           ))
         }
       </RestaurantsBox>
