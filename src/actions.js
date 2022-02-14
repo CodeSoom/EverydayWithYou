@@ -1,3 +1,7 @@
+import {
+  fetchSearchResult,
+} from '../services/api';
+
 export function setRestaurantName({ value }) {
   return {
     type: 'setRestaurantName',
@@ -12,6 +16,8 @@ export function setRestaurants(restaurantsData) {
   }
 }
 
+/* export function setResultRestaurant()
+ */
 export function selectConditionTag(selectedId) {
   return {
     type: 'selectConditionTag',
@@ -52,4 +58,12 @@ export function sortRestaurantsByCategory(selectedTag) {
     type: 'sortRestaurantsByCategory',
     payload: { selectedTag },
   }
+}
+
+export function loadSearchResult(keyword) {
+  return async () => {
+    await fetchSearchResult(keyword);
+
+    // dispatch(setResultRestaurant(resultRestaurant));
+  };
 }

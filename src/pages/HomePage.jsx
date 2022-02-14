@@ -15,11 +15,11 @@ const HomePageLayout = styled.div({
   justifyContent: 'center',
   width: '100%',
   height: '100%',
+  margin: '48px 0',
 });
 
 const Tags = styled.div({
   textAlign: 'left',
-  marginBottom: '48px',
   '& h4': {
     marginBottom: '48px',
   },
@@ -31,6 +31,7 @@ const TagSearch = styled.div({
 });
 
 const Post = styled.div({
+  marginTop: '12px',
   textAlign: 'center',
 });
 

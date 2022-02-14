@@ -6,6 +6,7 @@ import {
 import HomePage from './pages/HomePage';
 import BoardPage from './pages/BoardPage';
 import PostFormPage from './pages/PostFormPage';
+import MapPage from './pages/MapPage';
 
 import restaurants from '../assets/json/restaurants.json';
 
@@ -17,6 +18,7 @@ export default function App() {
       />} />
       <Route path="/board" element={<BoardPage />} />
       <Route path="/post" element={<PostFormPage />} />
+      <Route path="/map/:name" element={<MapPage />} />
     </Routes>
   )
 }
