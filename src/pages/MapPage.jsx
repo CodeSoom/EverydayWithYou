@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { useEffect } from 'react';
 
-import MapContainer from './MapContainer';
+import MapContainer from '../containers/MapContainer';
 
 const PlacesList = styled.ul({
   textAlign: 'start',
@@ -18,10 +18,10 @@ export default function MapPage({ params }) {
 
   const { kakao } = window;
 
-  // 마커를 담을 배열입니다
-  var markers = [];
-
   useEffect(() => {
+    // 마커를 담을 배열입니다
+    var markers = [];
+
     const mapContainer = document.getElementById('map'); // 지도를 표시할 div
     const mapOption = {
       center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
@@ -141,7 +141,7 @@ export default function MapPage({ params }) {
       var el = document.createElement('li'),
         itemStr = '<span class="markerbg marker_' + (index + 1) + '"></span>' +
               '<div class="info">' +
-              '   <h5>' + places.place_name + '</h5>';
+              '<h5>' + places.place_name + '</h5>';
 
       if (places.road_address_name) {
         itemStr += '    <span>' + places.road_address_name + '</span>' +
