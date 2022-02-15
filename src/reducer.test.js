@@ -4,12 +4,12 @@ import {
   setRestaurantName,
   setRestaurants,
 
-  selectConditionTag,
-  selectRegionTag,
+  selectSituationTag,
+  selectPlaceTag,
   selectCategoryTag,
 
-  sortRestaurantsByCondition,
-  sortRestaurantsByRegion,
+  sortRestaurantsBySituation,
+  sortRestaurantsByPlace,
   sortRestaurantsByCategory,
 } from './actions';
 
@@ -45,7 +45,7 @@ describe('reducer', () => {
       };
 
       const restaurantsData = [
-        { id: 10, name: '청와옥', condition: '과음한 다음 날' },
+        { id: 10, name: '청와옥', situation: '과음한 다음 날' },
       ]
 
       const state = reducer(initialState, setRestaurants(restaurantsData));
@@ -54,42 +54,42 @@ describe('reducer', () => {
     });
   });
 
-  describe('selectConditionTag action', () => {
+  describe('selectSituationTag action', () => {
     const selectedId = 1;
 
-    it('sorts "restaurants" array by selected id and sets "selectedCondition" obj', () => {
+    it('sorts "restaurants" array by selected id and sets "selectedSituation" obj', () => {
       const initialState = {
         restaurants: [
-          { id: 1, name: '청와옥', condition: '과음한 다음 날' },
-          { id: 2, name: '멘카야', condition: '혼밥' },
+          { id: 1, name: '청와옥', situation: '과음한 다음 날' },
+          { id: 2, name: '멘카야', situation: '혼밥' },
         ],
-        selectedCondition: null,
+        selectedSituation: null,
       }
 
-      const state = reducer(initialState, selectConditionTag(selectedId));
+      const state = reducer(initialState, selectSituationTag(selectedId));
 
-      expect(state.selectedCondition).toEqual({
-        id: 1, name: '청와옥', condition: '과음한 다음 날',
+      expect(state.selectedSituation).toEqual({
+        id: 1, name: '청와옥', situation: '과음한 다음 날',
       });
     });
   });
 
-  describe('selectRegionTag action', () => {
+  describe('selectPlaceTag action', () => {
     const selectedId = 1;
 
-    it('sorts "restaurants" array by selected id and sets "selectedRegion" obj', () => {
+    it('sorts "restaurants" array by selected id and sets "selectedPlace" obj', () => {
       const initialState = {
         restaurants: [
-          { id: 1, name: '청와옥', region: '서울 송파구' },
-          { id: 2, name: '멘카야', region: '서울 강남구' },
+          { id: 1, name: '청와옥', place: '서울 송파구' },
+          { id: 2, name: '멘카야', place: '서울 강남구' },
         ],
-        selectedRegion: null,
+        selectedPlace: null,
       }
 
-      const state = reducer(initialState, selectRegionTag(selectedId));
+      const state = reducer(initialState, selectPlaceTag(selectedId));
 
-      expect(state.selectedRegion).toEqual({
-        id: 1, name: '청와옥', region: '서울 송파구',
+      expect(state.selectedPlace).toEqual({
+        id: 1, name: '청와옥', place: '서울 송파구',
       });
     });
   });
@@ -114,48 +114,48 @@ describe('reducer', () => {
     });
   });
 
-  describe('sortRestaurantsByCondition action', () => {
-    it('sorts "restaurants" array by hash tag keyword and puts data in "sortedRestaurantsByCondition" array', () => {
+  describe('sortRestaurantsBySituation action', () => {
+    it('sorts "restaurants" array by hash tag keyword and puts data in "sortedRestaurantsBySituation" array', () => {
       const selectedTag = '과음한 다음 날';
 
       const initialState = {
         restaurants: [
-          { id: 1, name: '청와옥', condition: '과음한 다음 날' },
-          { id: 2, name: '멘카야', condition: '혼밥' },
+          { id: 1, name: '청와옥', situation: '과음한 다음 날' },
+          { id: 2, name: '멘카야', situation: '혼밥' },
         ],
-        sortedRestaurantsByCondition: [],
+        sortedRestaurantsBySituation: [],
       }
 
-      const state = reducer(initialState, sortRestaurantsByCondition(selectedTag));
+      const state = reducer(initialState, sortRestaurantsBySituation(selectedTag));
 
-      expect(state.sortedRestaurantsByCondition).toHaveLength(1);
+      expect(state.sortedRestaurantsBySituation).toHaveLength(1);
     });
   });
 
-  describe('sortRestaurantsByRegion action', () => {
-    it('sorts "sortedRestaurantsByCondition" array by hash tag keyword and puts data in "sortedRestaurantsByRegion" array', () => {
+  describe('sortRestaurantsByPlace action', () => {
+    it('sorts "sortedRestaurantsBySituation" array by hash tag keyword and puts data in "sortedRestaurantsByPlace" array', () => {
       const selectedTag = '서울 송파구';
 
       const initialState = {
-        sortedRestaurantsByCondition: [
-          { id: 1, name: '청와옥', region: '서울 송파구' },
-          { id: 2, name: '멘카야', region: '서울 강남구' },
+        sortedRestaurantsBySituation: [
+          { id: 1, name: '청와옥', place: '서울 송파구' },
+          { id: 2, name: '멘카야', place: '서울 강남구' },
         ],
-        sortedRestaurantsByRegion: [],
+        sortedRestaurantsByPlace: [],
       }
 
-      const state = reducer(initialState, sortRestaurantsByRegion(selectedTag));
+      const state = reducer(initialState, sortRestaurantsByPlace(selectedTag));
 
-      expect(state.sortedRestaurantsByRegion).toHaveLength(1);
+      expect(state.sortedRestaurantsByPlace).toHaveLength(1);
     });
   });
 
   describe('sortRestaurantsByCategory action', () => {
-    it('sorts "sortedRestaurantsByRegion" array by hash tag keyword and puts data in "sortedRestaurantsByCategory" array', () => {
+    it('sorts "sortedRestaurantsByPlace" array by hash tag keyword and puts data in "sortedRestaurantsByCategory" array', () => {
       const selectedTag = '순대국밥';
 
       const initialState = {
-        sortedRestaurantsByRegion: [
+        sortedRestaurantsByPlace: [
           { id: 1, name: '청와옥', category: '순대국밥' },
           { id: 2, name: '멘카야', category: '일본식 라면' },
         ],

@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   setRestaurants,
-  sortRestaurantsByRegion,
-  selectRegionTag,
-} from '../actions';
+  sortRestaurantsByPlace,
+  selectPlaceTag,
+} from '../../actions';
 
 const TagsBox = styled.div({
   textAlign: 'left',
@@ -24,8 +24,8 @@ const Hashtags = styled.button({
   borderRadius: '4px',
 });
 
-export default function HomeRegionTagsContainer({ restaurantsData }) {
-  const uniqRegions = uniqBy(restaurantsData, 'region');
+export default function HomePlaceTagsContainer({ restaurantsData }) {
+  const uniqPlaces = uniqBy(restaurantsData, 'place');
 
   const dispatch = useDispatch();
 
@@ -34,30 +34,30 @@ export default function HomeRegionTagsContainer({ restaurantsData }) {
   }, []);
 
   function handleClickTag(selectedTag, selectedId) {
-    dispatch(sortRestaurantsByRegion(selectedTag));
-    dispatch(selectRegionTag(selectedId));
+    dispatch(sortRestaurantsByPlace(selectedTag));
+    dispatch(selectPlaceTag(selectedId));
   }
 
-  const selectedRegion = useSelector((state) => (
-    state.selectedRegion === null ?
-      state : state.selectedRegion
+  const selectedPlace = useSelector((state) => (
+    state.selectedPlace === null ?
+      state : state.selectedPlace
   ));
-  const { color } = selectedRegion;
+  const { color } = selectedPlace;
 
   return (
     <TagsBox>
       <p>어디로 가고 싶나요?</p>
-      {uniqRegions.map((obj) => (
+      {uniqPlaces.map((obj) => (
         <Hashtags
           type="button"
           key={obj.id}
-          onClick={() => handleClickTag(obj.region, obj.id)}
+          onClick={() => handleClickTag(obj.place, obj.id)}
           className={
-            obj.id === selectedRegion.id ?
+            obj.id === selectedPlace.id ?
               color : ""
           }
         >
-            #{obj.region}
+            #{obj.place}
         </Hashtags>
       ))}
     </TagsBox>

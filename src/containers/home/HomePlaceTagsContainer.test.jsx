@@ -8,14 +8,13 @@ import {
   MemoryRouter,
 } from 'react-router-dom';
 
-import HomeRegionTagsContainer from './HomeRegionTagsContainer';
+import HomePlaceTagsContainer from './HomePlaceTagsContainer';
 
 jest.mock('react-redux');
 
-describe('HomeRegionTagsContainer', () => {
-  // 최초 JSON 데이터
+describe('HomePlaceTagsContainer', () => {
   const restaurantsData = [
-    { id: 1, name: '청와옥', region: '서울 송파구' },
+    { id: 1, name: '청와옥', place: '서울 송파구' },
   ]
 
   const dispatch = jest.fn();
@@ -26,14 +25,14 @@ describe('HomeRegionTagsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      selectedRegion:
-      { id: 1, name: '청와옥', region: '서울 송파구', color: 'blue' },
+      selectedPlace:
+      { id: 1, name: '청와옥', place: '서울 송파구', color: 'blue' },
     }));
   });
 
-  const renderHomeRegionTagsContainer = () => render((
+  const renderHomePlaceTagsContainer = () => render((
     <MemoryRouter>
-      <HomeRegionTagsContainer
+      <HomePlaceTagsContainer
         restaurantsData={restaurantsData}
       />
     </MemoryRouter>
@@ -41,7 +40,7 @@ describe('HomeRegionTagsContainer', () => {
 
   context('render home page', () => {
     it('calls dispatch with action : setRestaurants', () => {
-      const { container } = renderHomeRegionTagsContainer();
+      const { container } = renderHomePlaceTagsContainer();
 
       expect(container).toHaveTextContent('#서울 송파구');
 
@@ -53,28 +52,28 @@ describe('HomeRegionTagsContainer', () => {
   });
 
   context('when click "#서울 송파구" tag', () => {
-    it('calls dispatch with action : sortRestaurantsByRegion', () => {
+    it('calls dispatch with action : sortRestaurantsByPlace', () => {
       const selectedTag = '서울 송파구';
 
-      const { getByText } = renderHomeRegionTagsContainer();
+      const { getByText } = renderHomePlaceTagsContainer();
 
       fireEvent.click(getByText('#서울 송파구'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'sortRestaurantsByRegion',
+        type: 'sortRestaurantsByPlace',
         payload: { selectedTag },
       })
     });
 
-    it('calls dispatch with action : selectRegionTag', () => {
+    it('calls dispatch with action : selectPlaceTag', () => {
       const selectedId = 1;
 
-      const { getByText } = renderHomeRegionTagsContainer();
+      const { getByText } = renderHomePlaceTagsContainer();
 
       fireEvent.click(getByText('#서울 송파구'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'selectRegionTag',
+        type: 'selectPlaceTag',
         payload: { selectedId },
       })
     });

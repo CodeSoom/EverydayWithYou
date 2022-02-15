@@ -18,16 +18,16 @@ export function setRestaurants(restaurantsData) {
 
 /* export function setResultRestaurant()
  */
-export function selectConditionTag(selectedId) {
+export function selectSituationTag(selectedId) {
   return {
-    type: 'selectConditionTag',
+    type: 'selectSituationTag',
     payload: { selectedId },
   }
 }
 
-export function selectRegionTag(selectedId) {
+export function selectPlaceTag(selectedId) {
   return {
-    type: 'selectRegionTag',
+    type: 'selectPlaceTag',
     payload: { selectedId },
   }
 }
@@ -39,16 +39,16 @@ export function selectCategoryTag(selectedId) {
   }
 }
 
-export function sortRestaurantsByCondition(selectedTag) {
+export function sortRestaurantsBySituation(selectedTag) {
   return {
-    type: 'sortRestaurantsByCondition',
+    type: 'sortRestaurantsBySituation',
     payload: { selectedTag },
   }
 }
 
-export function sortRestaurantsByRegion(selectedTag) {
+export function sortRestaurantsByPlace(selectedTag) {
   return {
-    type: 'sortRestaurantsByRegion',
+    type: 'sortRestaurantsByPlace',
     payload: { selectedTag },
   }
 }

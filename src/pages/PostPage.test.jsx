@@ -1,16 +1,14 @@
 import { render } from '@testing-library/react';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import {
   MemoryRouter,
 } from 'react-router-dom';
 
-import HomePage from './HomePage';
+import PostPage from './PostPage';
 
-jest.mock('react-redux');
-
-describe('HomePage', () => {
+describe('PostPage', () => {
   const restaurants = [
     {
       "name": "청와옥",
@@ -35,13 +33,7 @@ describe('HomePage', () => {
     },
   ]
 
-  const dispatch = jest.fn();
-
   beforeEach(() => {
-    dispatch.mockClear();
-
-    useDispatch.mockImplementation(() => dispatch);
-
     useSelector.mockImplementation((selector) => selector({
       selectedSituation:
       { id: 1, name: '청와옥', situation: '과음한 다음 날', color: 'blue' },
@@ -52,15 +44,22 @@ describe('HomePage', () => {
     }));
   });
 
-  const renderHomePage = () => render((
+  const renderPostPage = () => render((
     <MemoryRouter>
-      <HomePage restaurantsData={restaurants}/>
+      <PostPage restaurantsData={restaurants}/>
     </MemoryRouter>
   ));
 
-  it('renders "맛집 추천하기" text with link to "/post"', () => {
-    const { container } = renderHomePage();
+  it('renders title of post form page', () => {
+    const { container } = renderPostPage();
 
-    expect(container).toHaveTextContent('맛집 추천하기');
+    expect(container).toHaveTextContent('나만 알던 맛집을 소개해주세요!');
+  });
+
+  it('renders "가게 이름" input, "태그" buttons, "등록" button', () => {
+    const { getByLabelText, getByText } = renderPostPage();
+
+    expect(getByLabelText('가게 이름')).toBeInTheDocument();
+    expect(getByText('등록')).toBeInTheDocument();
   });
 });
