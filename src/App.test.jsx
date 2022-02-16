@@ -20,11 +20,11 @@ describe('App', () => {
 
     useSelector.mockImplementation((selector) => selector({
       selectedSituation:
-      { id: 1, name: '청와옥', situation: '과음한 다음 날', color: 'blue' },
+        { id: 1, name: '청와옥', situation: '과음한 다음 날', color: 'select' },
       selectedPlace:
-      { id: 1, name: '청와옥', place: '서울 송파구', color: 'blue' },
+        { id: 1, name: '청와옥', place: '서울 송파구', color: 'select' },
       selectedCategory:
-      { id: 1, name: '청와옥', category: '순대국밥', color: 'blue' },
+        { id: 1, name: '청와옥', category: '순대국밥', color: 'select' },
     }));
   });
 
