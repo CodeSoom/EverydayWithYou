@@ -46,6 +46,11 @@ jobs:
         run: |
           mkdir -p dist/resources/js
           cp resources/js/* dist/resources/js/
+          
+      - name: Copy img
+        run: |
+          mkdir -p dist/resources/img
+          cp resources/img/* dist/resources/img/
         
       - name : Deploy 🚀 
         uses : JamesIves/github-pages-deploy-action@v4.2.3 
