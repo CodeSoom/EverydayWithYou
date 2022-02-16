@@ -4,13 +4,13 @@ import uniqBy from 'lodash.uniqby';
 
 import { useEffect } from 'react';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
+  selectCategoryTag,
   setRestaurants,
   sortRestaurantsByCategory,
-  selectCategoryTag,
-} from '../actions';
+} from '../../actions';
 
 const TagsBox = styled.div({
   textAlign: 'left',
@@ -24,8 +24,6 @@ const Hashtags = styled.button({
 });
 
 export default function HomeCategoryTagsContainer({ restaurantsData }) {
-  const uniqCategories = uniqBy(restaurantsData, 'category');
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -43,20 +41,22 @@ export default function HomeCategoryTagsContainer({ restaurantsData }) {
   ));
   const { color } = selectedCategory;
 
+  const uniqCategories = uniqBy(restaurantsData, 'category');
+
   return (
     <TagsBox>
       <p>무엇을 드시고 싶으세요?</p>
-      {uniqCategories.map((obj) => (
+      {uniqCategories.map((category) => (
         <Hashtags
           type="button"
-          key={obj.id}
-          onClick={() => handleClickTag(obj.category, obj.id)}
+          key={category.id}
+          onClick={() => handleClickTag(category.category, category.id)}
           className={
-            obj.id === selectedCategory.id ?
+            category.id === selectedCategory.id ?
               color : ""
           }
         >
-          #{obj.category}
+          #{category.category}
         </Hashtags>
       ))}
     </TagsBox>

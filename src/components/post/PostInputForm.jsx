@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 const InputBox = styled.div({
   display: 'flex',
   alignItems: 'center',
-  margin: '12px 0',
+  marginBottom: '24px',
   '& label': {
     marginRight: '12px',
   },
@@ -15,7 +15,6 @@ const InputBox = styled.div({
   },
 });
 
-// {onChangeInput}는 전역적으로 사용할 수 있는 함수인가?
 export default function PostInputForm({ onChangeInput }) {
   function handleChange(event) {
     const { target: { value } } = event;

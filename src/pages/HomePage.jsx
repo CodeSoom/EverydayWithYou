@@ -4,10 +4,10 @@ import {
   Link,
 } from 'react-router-dom';
 
-import HomeConditionTagsContainer from '../containers/HomeConditionTagsContainer';
-import HomeRegionTagsContainer from '../containers/HomeRegionTagsContainer';
-import HomeCategoryTagsContainer from '../containers/HomeCategoryTagsContainer';
-import HomeRestaurantsContainer from '../containers/HomeRestaurantsContainer';
+import HomeSituationTagsContainer from '../containers/home/HomeSituationTagsContainer';
+import HomePlaceTagsContainer from '../containers/home/HomePlaceTagsContainer';
+import HomeCategoryTagsContainer from '../containers/home/HomeCategoryTagsContainer';
+import HomeRestaurantsContainer from '../containers/home/HomeRestaurantsContainer';
 
 const HomePageLayout = styled.div({
   display: 'flex',
@@ -42,10 +42,10 @@ export default function HomePage({ restaurants }) {
         <Tags>
           <h2>어디 갈지 모르겠다구요? 👀</h2>
           <h4>순서대로 원하시는 태그를 선택해주세요!</h4>
-          <HomeConditionTagsContainer
+          <HomeSituationTagsContainer
             restaurantsData={restaurants}
           />
-          <HomeRegionTagsContainer
+          <HomePlaceTagsContainer
             restaurantsData={restaurants}
           />
           <HomeCategoryTagsContainer

@@ -7,12 +7,12 @@ const initialState = {
     name: '',
   },
 
-  selectedCondition: null,
-  selectedRegion: null,
+  selectedSituation: null,
+  selectedPlace: null,
   selectedCategory: null,
 
-  sortedRestaurantsByCondition: [],
-  sortedRestaurantsByRegion: [],
+  sortedRestaurantsBySituation: [],
+  sortedRestaurantsByPlace: [],
   sortedRestaurantsByCategory: [],
 
   restaurants: [],
@@ -38,25 +38,25 @@ const reducers = {
     }
   },
 
-  selectConditionTag(state, { payload: { selectedId } }) {
+  selectSituationTag(state, { payload: { selectedId } }) {
     const { restaurants, color } = state;
 
     return {
       ...state,
-      selectedCondition: {
-        ...restaurants.find(condition => condition.id === selectedId),
+      selectedSituation: {
+        ...restaurants.find(situation => situation.id === selectedId),
         color,
       },
     }
   },
 
-  selectRegionTag(state, { payload: { selectedId } }) {
+  selectPlaceTag(state, { payload: { selectedId } }) {
     const { restaurants, color } = state;
 
     return {
       ...state,
-      selectedRegion: {
-        ...restaurants.find(region => region.id === selectedId),
+      selectedPlace: {
+        ...restaurants.find(place => place.id === selectedId),
         color,
       },
     }
@@ -74,33 +74,33 @@ const reducers = {
     }
   },
 
-  sortRestaurantsByCondition(state, { payload: { selectedTag } }) {
+  sortRestaurantsBySituation(state, { payload: { selectedTag } }) {
     const { restaurants } = state;
 
     return {
       ...state,
-      sortedRestaurantsByCondition:
-        restaurants.filter(condition => condition.condition === selectedTag),
+      sortedRestaurantsBySituation:
+        restaurants.filter(situation => situation.situation === selectedTag),
     }
   },
 
-  sortRestaurantsByRegion(state, { payload: { selectedTag } }) {
-    const { sortedRestaurantsByCondition } = state;
+  sortRestaurantsByPlace(state, { payload: { selectedTag } }) {
+    const { sortedRestaurantsBySituation } = state;
 
     return {
       ...state,
-      sortedRestaurantsByRegion:
-      sortedRestaurantsByCondition.filter(region => region.region === selectedTag),
+      sortedRestaurantsByPlace:
+      sortedRestaurantsBySituation.filter(place => place.place === selectedTag),
     }
   },
 
   sortRestaurantsByCategory(state, { payload: { selectedTag } }) {
-    const { sortedRestaurantsByRegion } = state;
+    const { sortedRestaurantsByPlace } = state;
 
     return {
       ...state,
       sortedRestaurantsByCategory:
-        sortedRestaurantsByRegion.filter(category => category.category === selectedTag),
+        sortedRestaurantsByPlace.filter(category => category.category === selectedTag),
     }
   },
 }

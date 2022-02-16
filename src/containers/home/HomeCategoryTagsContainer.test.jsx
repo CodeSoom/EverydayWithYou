@@ -13,7 +13,6 @@ import HomeCategoryTagsContainer from './HomeCategoryTagsContainer';
 jest.mock('react-redux');
 
 describe('HomeCategoryTagsContainer', () => {
-  // 최초 JSON 데이터
   const restaurantsData = [
     { id: 1, name: '청와옥', category: '순대국밥' },
   ]
@@ -64,6 +63,23 @@ describe('HomeCategoryTagsContainer', () => {
         type: 'sortRestaurantsByCategory',
         payload: { selectedTag },
       })
+    });
+  });
+
+  context('when click "#순대국밥" tag', () => {
+    const selectedId = 1;
+
+    it('calls dispatch with action : selectCategoryTag', () => {
+      const { getByText } = renderHomeCategoryTagsContainer();
+
+      expect(getByText('#순대국밥')).toBeInTheDocument();
+
+      fireEvent.click(getByText('#순대국밥'))
+
+      expect(dispatch).toBeCalledWith({
+        type: 'selectCategoryTag',
+        payload: { selectedId },
+      });
     });
   });
 });

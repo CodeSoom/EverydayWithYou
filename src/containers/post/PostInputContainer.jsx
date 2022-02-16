@@ -1,14 +1,14 @@
 import { useDispatch } from 'react-redux';
 
-import PostInputForm from '../components/PostInputForm';
+import PostInputForm from '../../components/post/PostInputForm';
 
 import {
   setRestaurantName,
-} from '../actions';
+} from '../../actions';
 
 import styled from '@emotion/styled';
 
-const PostFormBox = styled.div({
+const InputBox = styled.div({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -23,10 +23,10 @@ export default function PostInputContainer() {
   }
 
   return (
-    <PostFormBox>
+    <InputBox>
       <PostInputForm
         onChangeInput={handleChangeInput}
       />
-    </PostFormBox>
+    </InputBox>
   )
 }

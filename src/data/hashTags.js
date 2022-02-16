@@ -1,4 +1,4 @@
-const conditions = [
+const situations = [
   //누구랑?
   { id: 1, name: '#혼밥' },
   { id: 2, name: '#데이트' },
@@ -12,7 +12,7 @@ const conditions = [
   { id: 8, name: '#주말' },
 ];
 
-const regions = [
+const places = [
   { id: 1, name: '#서울 송파구' },
   { id: 2, name: '#서울 강남구' },
   { id: 3, name: '#서울 종로구' },
@@ -31,7 +31,7 @@ const categories = [
 ];
 
 export {
-  conditions,
-  regions,
+  situations,
+  places,
   categories,
 }

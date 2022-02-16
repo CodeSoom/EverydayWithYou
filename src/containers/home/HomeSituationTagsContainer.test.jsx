@@ -8,14 +8,13 @@ import {
   MemoryRouter,
 } from 'react-router-dom';
 
-import HomeConditionTagsContainer from './HomeConditionTagsContainer';
+import HomeSituationTagsContainer from './HomeSituationTagsContainer';
 
 jest.mock('react-redux');
 
-describe('HomeConditionTagsContainer', () => {
-  // 최초 JSON 데이터
+describe('HomeSituationTagsContainer', () => {
   const restaurantsData = [
-    { id: 1, name: '청와옥', condition: '과음한 다음 날' },
+    { id: 1, name: '청와옥', situation: '과음한 다음 날' },
   ]
 
   const dispatch = jest.fn();
@@ -26,14 +25,14 @@ describe('HomeConditionTagsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      selectedCondition:
-      { id: 1, name: '청와옥', condition: '과음한 다음 날', color: 'blue' },
+      selectedSituation:
+      { id: 1, name: '청와옥', situation: '과음한 다음 날', color: 'blue' },
     }));
   });
 
-  const renderHomeConditionTagsContainer = () => render((
+  const renderHomeSituationTagsContainer = () => render((
     <MemoryRouter>
-      <HomeConditionTagsContainer
+      <HomeSituationTagsContainer
         restaurantsData={restaurantsData}
       />
     </MemoryRouter>
@@ -41,7 +40,7 @@ describe('HomeConditionTagsContainer', () => {
 
   context('render home page', () => {
     it('calls dispatch with action : setRestaurants', () => {
-      const { container } = renderHomeConditionTagsContainer();
+      const { container } = renderHomeSituationTagsContainer();
 
       expect(container).toHaveTextContent('#과음한 다음 날');
 
@@ -55,15 +54,32 @@ describe('HomeConditionTagsContainer', () => {
   context('when click "#과음한 다음 날" tag', () => {
     const selectedTag = '과음한 다음 날';
 
-    it('calls dispatch with action : sortRestaurantsByCondition', () => {
-      const { getByText } = renderHomeConditionTagsContainer();
+    it('calls dispatch with action : sortRestaurantsBySituation', () => {
+      const { getByText } = renderHomeSituationTagsContainer();
 
       fireEvent.click(getByText('#과음한 다음 날'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'sortRestaurantsByCondition',
+        type: 'sortRestaurantsBySituation',
         payload: { selectedTag },
       })
+    });
+  });
+
+  context('when click situation tag', () => {
+    const selectedId = 1;
+
+    it('calls dispatch with action : selectSituationTag', () => {
+      const { getByText } = renderHomeSituationTagsContainer();
+
+      expect(getByText('#과음한 다음 날')).toBeInTheDocument();
+
+      fireEvent.click(getByText('#과음한 다음 날'))
+
+      expect(dispatch).toBeCalledWith({
+        type: 'selectSituationTag',
+        payload: { selectedId },
+      });
     });
   });
 });

@@ -19,13 +19,12 @@ describe('App', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      selectedCondition:
-      { id: 1, name: '청와옥', condition: '과음한 다음 날', color: 'blue' },
-      selectedRegion:
-      { id: 1, name: '청와옥', region: '서울 송파구', color: 'blue' },
+      selectedSituation:
+      { id: 1, name: '청와옥', situation: '과음한 다음 날', color: 'blue' },
+      selectedPlace:
+      { id: 1, name: '청와옥', place: '서울 송파구', color: 'blue' },
       selectedCategory:
       { id: 1, name: '청와옥', category: '순대국밥', color: 'blue' },
-      restaurant: { name: '멘카야' },
     }));
   });
 
@@ -41,15 +40,16 @@ describe('App', () => {
     expect(container).toHaveTextContent('맛집 추천하기');
   });
 
-  it('renders board page path to "/board"', () => {
-    const { container } = renderApp({ path: '/board' });
-
-    expect(container).toHaveTextContent('게시판');
-  });
-
   it('renders board page path to "/post"', () => {
     const { container } = renderApp({ path: '/post' });
 
     expect(container).toHaveTextContent('나만 알던 맛집을 소개해주세요!');
   });
+
+  // ToDo 테스트코드 작성
+  /* it('renders board page path to "/map/:name"', () => {
+    const { container } = renderApp({ path: '/map/:name' });
+
+    expect(container).toHaveTextContent('');
+  }); */
 });

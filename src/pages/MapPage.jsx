@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import { useEffect } from 'react';
 
-import MapContainer from '../containers/MapContainer';
+import MapContainer from '../containers/map/MapContainer';
 
 const PlacesList = styled.ul({
   textAlign: 'start',

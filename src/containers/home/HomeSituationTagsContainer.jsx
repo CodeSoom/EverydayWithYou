@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   setRestaurants,
-  sortRestaurantsByCondition,
-  selectConditionTag,
-} from '../actions';
+  sortRestaurantsBySituation,
+  selectSituationTag,
+} from '../../actions';
 
 const TagsBox = styled.div({
   textAlign: 'left',
@@ -24,8 +24,8 @@ const Hashtags = styled.button({
   borderRadius: '4px',
 });
 
-export default function HomeConditionTagsContainer({ restaurantsData }) {
-  const uniqConditions = uniqBy(restaurantsData, 'condition');
+export default function HomeSituationTagsContainer({ restaurantsData }) {
+  const uniqSituations = uniqBy(restaurantsData, 'situation');
 
   const dispatch = useDispatch();
 
@@ -34,30 +34,30 @@ export default function HomeConditionTagsContainer({ restaurantsData }) {
   }, []);
 
   function handleClickTag(selectedTag, selectedId) {
-    dispatch(sortRestaurantsByCondition(selectedTag));
-    dispatch(selectConditionTag(selectedId));
+    dispatch(sortRestaurantsBySituation(selectedTag));
+    dispatch(selectSituationTag(selectedId));
   }
 
-  const selectedCondition = useSelector((state) => (
-    state.selectedCondition === null ?
-      state : state.selectedCondition
+  const selectedSituation = useSelector((state) => (
+    state.selectedSituation === null ?
+      state : state.selectedSituation
   ));
-  const { color } = selectedCondition;
+  const { color } = selectedSituation;
 
   return (
     <TagsBox>
       <p>어떤 상황인가요?</p>
-      {uniqConditions.map((obj) => (
+      {uniqSituations.map((obj) => (
         <Hashtags
           type="button"
           key={obj.id}
-          onClick={() => handleClickTag(obj.condition, obj.id)}
+          onClick={() => handleClickTag(obj.situation, obj.id)}
           className={
-            obj.id === selectedCondition.id ?
+            obj.id === selectedSituation.id ?
               color : ""
           }
         >
-          #{obj.condition}
+          #{obj.situation}
         </Hashtags>
       ))}
     </TagsBox>

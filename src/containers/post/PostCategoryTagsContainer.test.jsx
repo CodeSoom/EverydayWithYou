@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 import context from 'jest-plugin-context';
 
@@ -13,6 +13,10 @@ import PostCategoryTagsContainer from './PostCategoryTagsContainer';
 jest.mock('react-redux');
 
 describe('PostCategoryTagsContainer', () => {
+  const restaurantsData = [
+    { id: 1, name: '청와옥', category: '순대국밥' },
+  ]
+
   const dispatch = jest.fn();
 
   beforeEach(() => {
@@ -21,39 +25,33 @@ describe('PostCategoryTagsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      selectedCategory: { color: 'blue', id: 1, name: '면' },
+      selectedCategory:
+      { id: 1, name: '청와옥', category: '순대국밥', color: 'blue' },
     }));
   });
 
   const renderPostCategoryTagsContainer = () => render((
     <MemoryRouter>
-      <PostCategoryTagsContainer />
+      <PostCategoryTagsContainer
+        restaurantsData={restaurantsData}
+      />
     </MemoryRouter>
   ));
 
-  context('when click category tag', () => {
+  context('when click "#순대국밥" tag', () => {
     const selectedId = 1;
 
     it('calls dispatch with action : selectCategoryTag', () => {
-      const { container, getByText } = renderPostCategoryTagsContainer();
+      const { getByText } = renderPostCategoryTagsContainer();
 
-      expect(container).toHaveTextContent('무엇을 드셨나요?');
-      expect(getByText('#면')).toBeInTheDocument();
+      expect(getByText('#순대국밥')).toBeInTheDocument();
 
-      fireEvent.click(getByText('#면'))
+      fireEvent.click(getByText('#순대국밥'))
 
       expect(dispatch).toBeCalledWith({
         type: 'selectCategoryTag',
         payload: { selectedId },
       });
-    });
-
-    it('calls dispatch with action : setRestaurants', () => {
-      const { getByText } = renderPostCategoryTagsContainer();
-
-      fireEvent.click(getByText('#면'))
-
-      expect(dispatch).toBeCalled();
     });
   });
 });
