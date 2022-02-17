@@ -13,6 +13,13 @@ const PlacesList = styled.ul({
   },
 });
 
+const Mapbox = styled.div({
+  width: '100%',
+  height: '100%',
+  position: 'relative',
+  overflow: 'hidden',
+})
+
 export default function MapPage({ params }) {
   const { name } = params || useParams();
 
@@ -106,12 +113,12 @@ export default function MapPage({ params }) {
         // 마커와 검색결과 항목에 mouseover 했을때
         // 해당 장소에 인포윈도우에 장소명을 표시합니다
         // mouseout 했을 때는 인포윈도우를 닫습니다
-        (function(marker, title) {
-          kakao.maps.event.addListener(marker, 'mouseover', function() {
+        (function (marker, title) {
+          kakao.maps.event.addListener(marker, 'mouseover', function () {
             displayInfowindow(marker, title);
           });
 
-          kakao.maps.event.addListener(marker, 'mouseout', function() {
+          kakao.maps.event.addListener(marker, 'mouseout', function () {
             infowindow.close();
           });
 
@@ -140,18 +147,18 @@ export default function MapPage({ params }) {
 
       var el = document.createElement('li'),
         itemStr = '<span class="markerbg marker_' + (index + 1) + '"></span>' +
-              '<div class="info">' +
-              '<h5>' + places.place_name + '</h5>';
+          '<div class="info">' +
+          '<h5>' + places.place_name + '</h5>';
 
       if (places.road_address_name) {
         itemStr += '    <span>' + places.road_address_name + '</span>' +
-                  '   <span class="jibun gray">' + places.address_name + '</span>';
+          '   <span class="jibun gray">' + places.address_name + '</span>';
       } else {
         itemStr += '    <span>' + places.address_name + '</span>';
       }
 
       itemStr += '  <span class="tel">' + places.phone + '</span>' +
-              '</div>';
+        '</div>';
 
       el.innerHTML = itemStr;
       el.className = 'item';
@@ -207,8 +214,8 @@ export default function MapPage({ params }) {
         if (i === pagination.current) {
           el.className = 'on';
         } else {
-          el.onclick = (function(i) {
-            return function() {
+          el.onclick = (function (i) {
+            return function () {
               pagination.gotoPage(i);
             }
           })(i);
@@ -238,6 +245,7 @@ export default function MapPage({ params }) {
 
   return (
     <>
+      <Mapbox id="map"></Mapbox>
       <div className="map_wrap">
         <div id="menu_wrap" className="bg_white">
           <div className="option">
@@ -245,7 +253,7 @@ export default function MapPage({ params }) {
               <form onSubmit={() => {
                 return false
               }}>
-                      키워드 : <input
+                키워드 : <input
                   type="text"
                   value={name}
                   id="keyword"

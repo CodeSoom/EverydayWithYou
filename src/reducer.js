@@ -1,6 +1,6 @@
 const initialState = {
   newId: 100,
-  color: 'blue',
+  color: 'select',
 
   restaurant: {
     id: '',
@@ -90,7 +90,7 @@ const reducers = {
     return {
       ...state,
       sortedRestaurantsByPlace:
-      sortedRestaurantsBySituation.filter(place => place.place === selectedTag),
+        sortedRestaurantsBySituation.filter(place => place.place === selectedTag),
     }
   },
 

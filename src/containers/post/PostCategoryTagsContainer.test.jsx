@@ -26,7 +26,7 @@ describe('PostCategoryTagsContainer', () => {
 
     useSelector.mockImplementation((selector) => selector({
       selectedCategory:
-      { id: 1, name: '청와옥', category: '순대국밥', color: 'blue' },
+        { id: 1, name: '청와옥', category: '순대국밥', color: 'select' },
     }));
   });
 

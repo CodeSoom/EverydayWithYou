@@ -26,7 +26,7 @@ describe('HomeSituationTagsContainer', () => {
 
     useSelector.mockImplementation((selector) => selector({
       selectedSituation:
-      { id: 1, name: '청와옥', situation: '과음한 다음 날', color: 'blue' },
+        { id: 1, name: '청와옥', situation: '과음한 다음 날', color: 'select' },
     }));
   });
 

@@ -3,43 +3,74 @@
 
 <head>
   <meta charset="utf-8">
-  <title>✨태그셰어</title>
+  <title>👩‍❤️‍👨 With You</title>
+
+  <!--구글폰트 커스텀아이콘 링크-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="css/cover.css" rel="stylesheet">
+  <link href="resources/css/main.css" rel="stylesheet">
+
 </head>
 
-<body class="d-flex h-100 text-center text-white bg-dark">
-
-  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header>
-      <div>
-        <a class="float-md-start" href="/">
-          <h3>TagShare</h3>
+<body>
+  <div class="sidebar-app-wrapper">
+    <!-- 여기서부터 사이드바 -->
+    <div class="p-3 text-white sidebar">
+      <div class="sidebar-title">
+        <a href="/" class="text-white">
+          매일 그대와
         </a>
-        <nav class="nav nav-masthead justify-content-center float-md-end">
-          <a class="nav-link active" href="/">Home</a>
-        </nav>
       </div>
-    </header>
+      <hr>
+
+      <div class="flex-column sidebar-menu">
+        <a href="#" class="nav-link">
+          <p class="material-icons">
+            favorite
+          </p>
+        </a>
+
+        <a href="/" class="nav-link">
+          <div class="sidebar-menu-item">
+            <p>홈</p>
+            <p class="material-icons">home</p>
+          </div>
+        </a>
+
+        <a href="#" class="nav-link">
+          <div class="sidebar-menu-item">
+            <p>검색</p>
+            <p class="material-icons">search</p>
+          </div>
+        </a>
+
+        <a href="#" class="nav-link">
+          <div class="sidebar-menu-item">
+            <p>About</p>
+            <p class="material-icons">face</p>
+          </div>
+        </a>
+      </div>
+
+      <p class="sidebar-copyright">
+        © 2022 - Page by Superduper-India
+      </p>
+    </div>
+    <!-- 사이드바 끝 -->
 
     <div id="app"></div>
-
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-
-    <footer class="mt-auto text-white-50">
-      <p>This page has been prepared by <a href="https://github.com/Superduper-India"
-          class="text-white">@Superduper-India</a></p>
-    </footer>
   </div>
-  <script src="main.js"></script>
+
   <!-- Kakao api -->
   <script type="text/javascript"
     src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8cbe20f536259f558e9b3a52f704bca0&libraries=services,clusterer,drawing">
     </script>
+
+  <script src="main.js"></script>
+
 </body>
 
 </html>
