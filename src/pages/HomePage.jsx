@@ -16,10 +16,10 @@ const HomePageLayout = styled.div({
   flexDirection: 'column',
 });
 
-const CarouselBox = styled.div({
+const TopCarouselBox = styled.div({
 });
 
-const FormBox = styled.div({
+const BtmFormBox = styled.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -36,7 +36,7 @@ export default function HomePage({ restaurants }) {
   document.getElementById('myCarousel')
   return (
     <HomePageLayout>
-      <CarouselBox id="myCarousel" className="carousel slide" data-bs-ride="carousel">
+      <TopCarouselBox id="myCarousel" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-indicators">
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active" aria-current="true"
             aria-label="Slide 1"></button>
@@ -44,13 +44,9 @@ export default function HomePage({ restaurants }) {
           <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div className="carousel-inner">
+
           <div className="carousel-item active">
             <img src='resources/img/pasta.jpg' />
-            <svg className="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <rect width="100%" height="100%" />
-            </svg>
-
             <div className="container">
               <div className="carousel-caption text-start">
                 <Link to="/post"><h1>맛집 추천하기</h1></Link>
@@ -58,12 +54,9 @@ export default function HomePage({ restaurants }) {
               </div>
             </div>
           </div>
-          <div className="carousel-item">
-            <svg className="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <rect width="100%" height="100%" fill="#777" />
-            </svg>
 
+          <div className="carousel-item">
+            <img src='https://mblogthumb-phinf.pstatic.net/MjAyMDA5MTFfNTAg/MDAxNTk5NzgzNTYzNjY0.f-PVbkC_So4KOCb1q_X1U-VbH1JVSGBDQcfPgugvraMg.1QPPwHBh0MvIVmGYSgWopxNLOqm5cGk0dtbVd7OZ9vMg.JPEG.daffodil1234/IMG_5663.JPG?type=w800' />
             <div className="container">
               <div className="carousel-caption">
                 <h1>두번째 메뉴</h1>
@@ -71,12 +64,9 @@ export default function HomePage({ restaurants }) {
               </div>
             </div>
           </div>
-          <div className="carousel-item">
-            <svg className="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <rect width="100%" height="100%" fill="#777" />
-            </svg>
 
+          <div className="carousel-item">
+            <img src='https://mblogthumb-phinf.pstatic.net/MjAyMDA5MTFfNTAg/MDAxNTk5NzgzNTYzNjY0.f-PVbkC_So4KOCb1q_X1U-VbH1JVSGBDQcfPgugvraMg.1QPPwHBh0MvIVmGYSgWopxNLOqm5cGk0dtbVd7OZ9vMg.JPEG.daffodil1234/IMG_5663.JPG?type=w800' />
             <div className="container">
               <div className="carousel-caption text-end">
                 <h1>세번째 메뉴</h1>
@@ -85,6 +75,7 @@ export default function HomePage({ restaurants }) {
             </div>
           </div>
         </div>
+
         <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Previous</span>
@@ -93,8 +84,9 @@ export default function HomePage({ restaurants }) {
           <span className="carousel-control-next-icon" aria-hidden="true"></span>
           <span className="visually-hidden">Next</span>
         </button>
-      </CarouselBox>
-      <FormBox>
+      </TopCarouselBox>
+
+      <BtmFormBox>
         <div>
           <h2>어디 갈지 모르겠다구요? 👀</h2>
           <h4>순서대로 원하시는 태그를 선택해주세요!</h4>
@@ -109,7 +101,7 @@ export default function HomePage({ restaurants }) {
           />
         </div>
         <HomeRestaurantsContainer />
-      </ FormBox>
+      </BtmFormBox>
     </HomePageLayout>
   )
 }

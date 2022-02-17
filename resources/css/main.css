@@ -1,3 +1,30 @@
+/* 구글폰트 커스텀아이콘 */
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 28px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* 폰트적용 */
 @font-face {
   font-family: 'LeferiPoint-WhiteObliqueA';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
@@ -29,16 +56,21 @@ a, a:visited {
   color: #fff;
 }
 
-
-.container {
+/* 사이드바랑 앱 가로로 나란히 */
+.sidebar-app-wrapper {
   display: flex;
 }
 .sidebar {
+  /* 구성요소 세로배치 */
+  display: flex;
+  flex-direction: column;
+  /* 사이드바 색상 및 크기 */
   background-color: #E77591;
   width: 320px;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
+  /* 사이드바 본문내용 스크롤해도 고정되도록하기 */
+  position: sticky;
+  top: 0;
 }
 
 .sidebar-title {
@@ -68,13 +100,25 @@ a, a:visited {
   margin-right: 8px;
 }
 
+/* 글씨위치 배치 */
+.carousel-caption {
+  bottom: 3rem;
+  z-index: 10;
+}
+/* 썸네일 이미지 레이아웃 */
+.carousel-item {
+  height: 18rem;
+}
+.carousel-item > img {
+  width: 100%;
+  height: 32rem;
+}
+
 .sidebar-copyright {
   margin-left: 48px;
   font-size: 16px;
   line-height: 1.5;
   width: 150px;
-  position: absolute;
-  bottom: 50px;
 }
 
 .select {
@@ -82,28 +126,10 @@ a, a:visited {
   color: #fff;
 }
 
-/* --구글폰트 커스텀아이콘 */
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 28px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
+@media (min-width: 40em) {
+  .carousel-caption p {
+    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
 }
