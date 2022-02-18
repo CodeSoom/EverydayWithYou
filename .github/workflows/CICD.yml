@@ -39,18 +39,18 @@ jobs:
         
       - name: Copy css
         run: |
-          mkdir -p dist/resources/css
-          cp resources/css/* dist/resources/css/
+          mkdir -p dist/assets/css
+          cp assets/css/* dist/assets/css/
           
       - name: Copy js
         run: |
-          mkdir -p dist/resources/js
-          cp resources/js/* dist/resources/js/
+          mkdir -p dist/assets/js
+          cp assets/js/* dist/assets/js/
           
       - name: Copy img
         run: |
-          mkdir -p dist/resources/img
-          cp resources/img/* dist/resources/img/
+          mkdir -p dist/assets/img
+          cp assets/img/* dist/assets/img/
         
       - name : Deploy 🚀 
         uses : JamesIves/github-pages-deploy-action@v4.2.3 
