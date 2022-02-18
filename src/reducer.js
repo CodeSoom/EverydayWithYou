@@ -1,7 +1,8 @@
 const initialState = {
-  newId: 100,
-  color: 'select',
+  color: '',
+  sortNumber: '',
 
+  newId: 100,
   restaurant: {
     id: '',
     name: '',
@@ -16,9 +17,46 @@ const initialState = {
   sortedRestaurantsByCategory: [],
 
   restaurants: [],
+  newRestaurants: [],
 };
 
 const reducers = {
+  // 레스토랑 JSON데이터 셋!
+  setRestaurants(state, { payload: { restaurants } }) {
+    return {
+      ...state,
+      restaurants,
+    }
+  },
+
+  // 필터된 restaurants로 레스토랑 업데이트
+  updateRestaurants(state, { payload: { filteredRestaurants, sortNumber } }) {
+    const { newRestaurants } = state;
+    if (filteredRestaurants.length == newRestaurants.length) {
+      return {
+        ...state,
+        newRestaurants: [],
+        color: '',
+        sortNumber: '',
+      }
+    } else {
+      return {
+        ...state,
+        newRestaurants: filteredRestaurants,
+        color: 'select',
+        sortNumber,
+      }
+    }
+  },
+
+  // 필터링된 레스토랑 셋!
+  setNewRestaurants(state, { payload: { newRestaurants } }) {
+    return {
+      ...state,
+      restaurants: newRestaurants,
+    }
+  },
+
   setRestaurantName(state, { payload: { value } }) {
     const { newId } = state;
     return {
@@ -28,13 +66,6 @@ const reducers = {
         id: newId,
         name: value,
       },
-    }
-  },
-
-  setRestaurants(state, { payload: { restaurantsData } }) {
-    return {
-      ...state,
-      restaurants: restaurantsData,
     }
   },
 

@@ -20,7 +20,7 @@ const Hashtags = styled.button({
   borderRadius: '4px',
 });
 
-export default function PostSituationTagsContainer({ restaurantsData }) {
+export default function PostSituationTagsContainer({ restaurants }) {
   const dispatch = useDispatch();
 
   function handleClickTag(selectedId) {
@@ -33,7 +33,7 @@ export default function PostSituationTagsContainer({ restaurantsData }) {
   ));
   const { color } = selectedSituation;
 
-  const uniqSituations = uniqBy(restaurantsData, 'situation');
+  const uniqSituations = uniqBy(restaurants, 'situation');
 
   return (
     <TagsBox>

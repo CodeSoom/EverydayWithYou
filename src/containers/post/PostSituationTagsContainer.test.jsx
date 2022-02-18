@@ -13,7 +13,7 @@ import PostSituationTagsContainer from './PostSituationTagsContainer';
 jest.mock('react-redux');
 
 describe('PostSituationTagsContainer', () => {
-  const restaurantsData = [
+  const restaurants = [
     { id: 1, name: '청와옥', situation: '과음한 다음 날' },
   ]
 
@@ -33,7 +33,7 @@ describe('PostSituationTagsContainer', () => {
   const renderPostSituationTagsContainer = () => render((
     <MemoryRouter>
       <PostSituationTagsContainer
-        restaurantsData={restaurantsData}
+        restaurants={restaurants}
       />
     </MemoryRouter>
   ));

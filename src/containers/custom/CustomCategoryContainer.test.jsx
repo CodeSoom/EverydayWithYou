@@ -8,15 +8,11 @@ import {
   MemoryRouter,
 } from 'react-router-dom';
 
-import HomeCategoryTagsContainer from './HomeCategoryTagsContainer';
+import CustomCategoryContainer from './CustomCategoryContainer';
 
 jest.mock('react-redux');
 
-describe('HomeCategoryTagsContainer', () => {
-  const restaurantsData = [
-    { id: 1, name: '청와옥', category: '순대국밥' },
-  ]
-
+describe('CustomCategoryContainer', () => {
   const dispatch = jest.fn();
 
   beforeEach(() => {
@@ -32,24 +28,10 @@ describe('HomeCategoryTagsContainer', () => {
 
   const renderHomeCategoryTagsContainer = () => render((
     <MemoryRouter>
-      <HomeCategoryTagsContainer
-        restaurantsData={restaurantsData}
+      <CustomCategoryContainer
       />
     </MemoryRouter>
   ));
-
-  context('render home page', () => {
-    it('calls dispatch with action : setRestaurants', () => {
-      const { container } = renderHomeCategoryTagsContainer();
-
-      expect(container).toHaveTextContent('#순대국밥');
-
-      expect(dispatch).toBeCalledWith({
-        type: 'setRestaurants',
-        payload: { restaurantsData },
-      })
-    });
-  });
 
   context('when click "#순대국밥" tag', () => {
     const selectedTag = '순대국밥';

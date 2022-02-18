@@ -18,14 +18,21 @@ describe('App', () => {
 
     useDispatch.mockImplementation(() => dispatch);
 
-    useSelector.mockImplementation((selector) => selector({
-      selectedSituation:
-        { id: 1, name: '청와옥', situation: '과음한 다음 날', color: 'select' },
-      selectedPlace:
-        { id: 1, name: '청와옥', place: '서울 송파구', color: 'select' },
-      selectedCategory:
-        { id: 1, name: '청와옥', category: '순대국밥', color: 'select' },
-    }));
+    // ToDo 액션고치고 수정하기
+    useSelector.mockImplementation((selector) => selector(
+      [
+        {
+          "id": "10",
+          "name": "더다이닝랩",
+          "situation": "소개팅",
+          "age": "20대",
+          "place": "홍대/합정",
+          "category": "양식",
+          "priceRange": "3만원 이하",
+          "mood": "none",
+          "2nd-course": "none",
+        },
+      ]));
   });
 
   const renderApp = ({ path }) => render((
@@ -37,7 +44,20 @@ describe('App', () => {
   it('renders home page path to "/"', () => {
     const { container } = renderApp({ path: '/' });
 
-    expect(container).toHaveTextContent('맛집 추천하기');
+    expect(container).toHaveTextContent('알콩달콩 💕 놀러 가는 목적이 무엇인지 알려주세요');
+    expect(container).toHaveTextContent('코스를 알려드리는 여정이 시작됩니다!');
+  });
+
+  it('renders home page path to "/home"', () => {
+    const { container } = renderApp({ path: '/home' });
+
+    expect(container).toHaveTextContent('연령대별 Pick');
+  });
+
+  it('renders board page path to "/custom"', () => {
+    const { container } = renderApp({ path: '/custom' });
+
+    expect(container).toHaveTextContent('어디 갈지 모르겠다구요?');
   });
 
   it('renders board page path to "/post"', () => {

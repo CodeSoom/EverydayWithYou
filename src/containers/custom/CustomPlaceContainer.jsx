@@ -12,25 +12,23 @@ import {
   selectPlaceTag,
 } from '../../actions';
 
-const TagsBox = styled.div({
-  textAlign: 'left',
-  marginBottom: '24px',
+const Container = styled.div({
+  marginRight: '24px',
 });
 
-const Hashtags = styled.button({
-  border: 'none',
+const Buttons = styled.button({
   padding: '8px',
   margin: '4px',
-  borderRadius: '4px',
+  borderRadius: '12px',
 });
 
-export default function HomePlaceTagsContainer({ restaurantsData }) {
-  const uniqPlaces = uniqBy(restaurantsData, 'place');
+export default function CustomPlaceContainer({ restaurants }) {
+  const uniqPlaces = uniqBy(restaurants, 'place');
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setRestaurants(restaurantsData));
+    dispatch(setRestaurants(restaurants));
   }, []);
 
   function handleClickTag(selectedTag, selectedId) {
@@ -45,10 +43,10 @@ export default function HomePlaceTagsContainer({ restaurantsData }) {
   const { color } = selectedPlace;
 
   return (
-    <TagsBox>
+    <Container>
       <p>어디로 가고 싶나요?</p>
       {uniqPlaces.map((obj) => (
-        <Hashtags
+        <Buttons
           type="button"
           key={obj.id}
           onClick={() => handleClickTag(obj.place, obj.id)}
@@ -57,9 +55,9 @@ export default function HomePlaceTagsContainer({ restaurantsData }) {
               color : ""
           }
         >
-            #{obj.place}
-        </Hashtags>
+          #{obj.place}
+        </Buttons>
       ))}
-    </TagsBox>
+    </Container>
   )
 }
