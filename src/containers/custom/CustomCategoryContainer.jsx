@@ -12,23 +12,26 @@ import {
   sortRestaurantsByCategory,
 } from '../../actions';
 
-const TagsBox = styled.div({
-  textAlign: 'left',
+const Container = styled.div({
+  marginRight: '24px',
 });
 
-const Hashtags = styled.button({
-  border: 'none',
+const Buttons = styled.button({
   padding: '8px',
   margin: '4px',
-  borderRadius: '4px',
+  borderRadius: '12px',
 });
 
-export default function HomeCategoryTagsContainer({ restaurantsData }) {
+export default function CustomCategoryContainer({ restaurantsData }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setRestaurants(restaurantsData));
   }, []);
+
+  const retaurants = useSelector((state) => (
+    state.retaurants
+  ))
 
   function handleClickTag(selectedTag, selectedId) {
     dispatch(sortRestaurantsByCategory(selectedTag));
@@ -44,10 +47,10 @@ export default function HomeCategoryTagsContainer({ restaurantsData }) {
   const uniqCategories = uniqBy(restaurantsData, 'category');
 
   return (
-    <TagsBox>
+    <Container>
       <p>무엇을 드시고 싶으세요?</p>
       {uniqCategories.map((category) => (
-        <Hashtags
+        <Buttons
           type="button"
           key={category.id}
           onClick={() => handleClickTag(category.category, category.id)}
@@ -57,8 +60,8 @@ export default function HomeCategoryTagsContainer({ restaurantsData }) {
           }
         >
           #{category.category}
-        </Hashtags>
+        </Buttons>
       ))}
-    </TagsBox>
+    </Container>
   )
 }

@@ -1,9 +1,12 @@
+// 관심사: 컴포넌트 라우터와 제이슨에서 기존 레스토랑 정보가져와서 컴포넌트에 뿌려주기
 import {
   Routes,
   Route,
 } from 'react-router-dom';
 
+import SituationSelectPage from './pages/SituationSelectPage';
 import HomePage from './pages/HomePage';
+import CustomPage from './pages/CustomPage';
 import PostPage from './pages/PostPage';
 import MapPage from './pages/MapPage';
 
@@ -14,16 +17,23 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={
-          <HomePage
+          <SituationSelectPage
             restaurants={restaurants}
-          />
-        } />
+          />} />
+        <Route path="/home" element={
+          <HomePage
+          />} />
+        <Route path="/custom" element={
+          <CustomPage
+            restaurants={restaurants}
+          />} />
         <Route path="/post" element={
           <PostPage
             restaurants={restaurants}
-          />
-        } />
-        <Route path="/map/:name" element={<MapPage />} />
+          />} />
+        <Route path="/map/:name" element={
+          <MapPage
+          />} />
       </Routes>
     </>
   )

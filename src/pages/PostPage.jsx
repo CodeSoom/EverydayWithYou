@@ -6,26 +6,31 @@ import PostPlaceTagsContainer from '../containers/post/PostPlaceTagsContainer';
 import PostCategoryTagsContainer from '../containers/post/PostCategoryTagsContainer';
 import PostBtnContainer from '../containers/post/PostBtnContainer';
 
-const PageTitleBox = styled.div({
-  padding: '48px 0',
+const PostPageLayout = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  padding: '36px 24px',
+  '& h1': {
+    marginBottom: '36px',
+  },
 });
-
 
 export default function PostPage({ restaurants }) {
   return (
-    <>
-      <PageTitleBox><h1>나만 알던 맛집을 소개해주세요!</h1></PageTitleBox>
+    <PostPageLayout>
+      <h1>나만 알던 맛집을 소개해주세요!</h1>
       <PostInputContainer />
       <PostSituationTagsContainer
-        restaurantsData={restaurants}
+        restaurants={restaurants}
       />
       <PostPlaceTagsContainer
-        restaurantsData={restaurants}
+        restaurants={restaurants}
       />
       <PostCategoryTagsContainer
-        restaurantsData={restaurants}
+        restaurants={restaurants}
       />
       <PostBtnContainer />
-    </>
+    </PostPageLayout>
   )
 }

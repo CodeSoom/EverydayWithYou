@@ -13,7 +13,7 @@ import PostPlaceTagsContainer from './PostPlaceTagsContainer';
 jest.mock('react-redux');
 
 describe('PostPlaceTagsContainer', () => {
-  const restaurantsData = [
+  const restaurants = [
     { id: 1, name: '청와옥', place: '서울 송파구' },
   ]
 
@@ -33,7 +33,7 @@ describe('PostPlaceTagsContainer', () => {
   const renderPostPlaceTagsContainer = () => render((
     <MemoryRouter>
       <PostPlaceTagsContainer
-        restaurantsData={restaurantsData}
+        restaurants={restaurants}
       />
     </MemoryRouter>
   ));

@@ -46,7 +46,7 @@ describe('PostPage', () => {
 
   const renderPostPage = () => render((
     <MemoryRouter>
-      <PostPage restaurantsData={restaurants} />
+      <PostPage restaurants={restaurants} />
     </MemoryRouter>
   ));
 

@@ -20,7 +20,7 @@ const Hashtags = styled.button({
   borderRadius: '4px',
 });
 
-export default function PostCategoryTagsContainer({ restaurantsData }) {
+export default function PostCategoryTagsContainer({ restaurants }) {
   const dispatch = useDispatch();
 
   function handleClick(selectedId) {
@@ -33,7 +33,7 @@ export default function PostCategoryTagsContainer({ restaurantsData }) {
   ));
   const { color } = selectedCategory;
 
-  const uniqCategories = uniqBy(restaurantsData, 'category');
+  const uniqCategories = uniqBy(restaurants, 'category');
 
   return (
     <TagsBox>

@@ -8,12 +8,12 @@ import {
   MemoryRouter,
 } from 'react-router-dom';
 
-import HomePlaceTagsContainer from './HomePlaceTagsContainer';
+import CustomPlaceContainer from './CustomPlaceContainer';
 
 jest.mock('react-redux');
 
-describe('HomePlaceTagsContainer', () => {
-  const restaurantsData = [
+describe('CustomPlaceContainer', () => {
+  const restaurants = [
     { id: 1, name: '청와옥', place: '서울 송파구' },
   ]
 
@@ -32,8 +32,8 @@ describe('HomePlaceTagsContainer', () => {
 
   const renderHomePlaceTagsContainer = () => render((
     <MemoryRouter>
-      <HomePlaceTagsContainer
-        restaurantsData={restaurantsData}
+      <CustomPlaceContainer
+        restaurants={restaurants}
       />
     </MemoryRouter>
   ));
@@ -46,7 +46,7 @@ describe('HomePlaceTagsContainer', () => {
 
       expect(dispatch).toBeCalledWith({
         type: 'setRestaurants',
-        payload: { restaurantsData },
+        payload: { restaurants },
       })
     });
   });

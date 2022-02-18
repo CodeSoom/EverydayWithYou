@@ -13,7 +13,7 @@ import PostCategoryTagsContainer from './PostCategoryTagsContainer';
 jest.mock('react-redux');
 
 describe('PostCategoryTagsContainer', () => {
-  const restaurantsData = [
+  const restaurants = [
     { id: 1, name: '청와옥', category: '순대국밥' },
   ]
 
@@ -33,7 +33,7 @@ describe('PostCategoryTagsContainer', () => {
   const renderPostCategoryTagsContainer = () => render((
     <MemoryRouter>
       <PostCategoryTagsContainer
-        restaurantsData={restaurantsData}
+        restaurants={restaurants}
       />
     </MemoryRouter>
   ));

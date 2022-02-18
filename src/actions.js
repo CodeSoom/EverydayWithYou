@@ -1,6 +1,26 @@
-import {
-  fetchSearchResult,
-} from '../services/api';
+// 레스토랑 JSON데이터 셋!
+export function setRestaurants(restaurants) {
+  return {
+    type: 'setRestaurants',
+    payload: { restaurants },
+  }
+}
+
+// 필터된 restaurants로 레스토랑 업데이트
+export function updateRestaurants(filteredRestaurants, sortNumber) {
+  return {
+    type: 'updateRestaurants',
+    payload: { filteredRestaurants, sortNumber },
+  }
+}
+
+// 필터링된 레스토랑 셋!
+export function setNewRestaurants(newRestaurants) {
+  return {
+    type: 'setNewRestaurants',
+    payload: { newRestaurants },
+  }
+}
 
 export function setRestaurantName({ value }) {
   return {
@@ -9,15 +29,7 @@ export function setRestaurantName({ value }) {
   }
 }
 
-export function setRestaurants(restaurantsData) {
-  return {
-    type: 'setRestaurants',
-    payload: { restaurantsData },
-  }
-}
-
-/* export function setResultRestaurant()
- */
+// ToDo delete
 export function selectSituationTag(selectedId) {
   return {
     type: 'selectSituationTag',
@@ -60,10 +72,38 @@ export function sortRestaurantsByCategory(selectedTag) {
   }
 }
 
-export function loadSearchResult(keyword) {
-  return async () => {
-    await fetchSearchResult(keyword);
+// --- Redux Thunk ---
 
-    // dispatch(setResultRestaurant(resultRestaurant));
+export function setSituationFilter(sortNumber) {
+  return (dispatch, getState) => {
+    const {
+      restaurants,
+    } = getState();
+
+    // sortNumber에 따라 restuarants 필터링
+    function filter(restuarants, sortNumber) {
+      if (sortNumber === 1) {
+        const filter1 = restaurants.filter(restaurant => restaurant.situation.includes('썸'));
+        const filter2 = restaurants.filter(restaurant => restaurant.situation.includes('소개팅'));
+        const result = [...filter1, ...filter2];
+        return result
+      }
+      if (sortNumber === 2) {
+        const result = restaurants.filter(restaurant => restaurant.situation.includes('데이트'));
+        return result
+      }
+      if (sortNumber === 3) {
+        const filter1 = restaurants.filter(restaurant => restaurant.situation.includes('생일'));
+        const filter2 = restaurants.filter(restaurant => restaurant.situation.includes('기념일'));
+        const filter3 = restaurants.filter(restaurant => restaurant.situation.includes('프로포즈'));
+        const result = [...filter1, ...filter2, ...filter3];
+        return result
+      } return restaurants
+    }
+
+    const filteredRestaurants = filter(restaurants, sortNumber);
+
+    // 필터된 restaurants로 레스토랑 업데이트
+    dispatch(updateRestaurants(filteredRestaurants, sortNumber));
   };
 }

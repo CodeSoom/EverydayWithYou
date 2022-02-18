@@ -4,18 +4,18 @@ import {
   MemoryRouter,
 } from 'react-router-dom';
 
-import HomeRestaurantsContainer from './HomeRestaurantsContainer';
+import CustomRestaurantsContainer from './CustomRestaurantsContainer';
 
-describe('HomeRestaurantsContainer', () => {
-  const renderHomeRestaurantsContainer = () => render((
+describe('CustomRestaurantsContainer', () => {
+  const renderCustomRestaurantsContainer = () => render((
     <MemoryRouter>
-      <HomeRestaurantsContainer
+      <CustomRestaurantsContainer
       />
     </MemoryRouter>
   ));
 
   it('calls dispatch with action : setRestaurants', () => {
-    const { container } = renderHomeRestaurantsContainer();
+    const { container } = renderCustomRestaurantsContainer();
 
     expect(container).toHaveTextContent('가게이름');
   });

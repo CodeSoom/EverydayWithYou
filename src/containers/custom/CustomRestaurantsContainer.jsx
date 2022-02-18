@@ -27,7 +27,7 @@ const Restaurant = styled.li({
   fontSize: '24px',
 });
 
-export default function HomeRestaurantsContainer() {
+export default function CustomRestaurantsContainer() {
   const sortedRestaurantsByCategory = useSelector((state) => (
     state.sortedRestaurantsByCategory === null ?
       state : state.sortedRestaurantsByCategory
