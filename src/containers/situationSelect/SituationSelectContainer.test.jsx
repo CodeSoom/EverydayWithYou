@@ -1,4 +1,4 @@
-// 관심사: 기존 레스토랑 정보 베이스로 레스토랑 업데이트
+// 관심사: 저장된 레스토랑 정보 베이스로 레스토랑 업데이트
 import { fireEvent, render } from '@testing-library/react';
 
 import context from 'jest-plugin-context';

@@ -8,11 +8,11 @@ import {
   MemoryRouter,
 } from 'react-router-dom';
 
-import CustomCategoryContainer from './CustomCategoryContainer';
+import CustomFilterContainer from './CustomFilterContainer';
 
 jest.mock('react-redux');
 
-describe('CustomCategoryContainer', () => {
+describe('CustomFilterContainer', () => {
   const dispatch = jest.fn();
 
   beforeEach(() => {
@@ -23,26 +23,27 @@ describe('CustomCategoryContainer', () => {
     useSelector.mockImplementation((selector) => selector({
       selectedCategory:
         { id: 1, name: '청와옥', category: '순대국밥', color: 'select' },
+      selectedPlace:
+        { id: 1, name: '청와옥', place: '서울 송파구', color: 'select' },
     }));
   });
 
   const renderHomeCategoryTagsContainer = () => render((
     <MemoryRouter>
-      <CustomCategoryContainer
-      />
+      <CustomFilterContainer />
     </MemoryRouter>
   ));
 
   context('when click "#순대국밥" tag', () => {
     const selectedTag = '순대국밥';
 
-    it('calls dispatch with action : sortRestaurantsByCategory', () => {
+    it('calls dispatch with action : setCategoryFilter', () => {
       const { getByText } = renderHomeCategoryTagsContainer();
 
       fireEvent.click(getByText('#순대국밥'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'sortRestaurantsByCategory',
+        type: 'setCategoryFilter',
         payload: { selectedTag },
       })
     });

@@ -25,8 +25,6 @@ describe('PostPlaceTagsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      selectedPlace:
-        { id: 1, name: '청와옥', place: '서울 송파구', color: 'select' },
     }));
   });
 

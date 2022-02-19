@@ -291,7 +291,7 @@
     "situation": "데이트",
     "age": "20대",
     "place": "홍대/합정",
-    "category": "서래마을",
+    "category": "일식",
     "priceRange": "3~5만원",
     "mood": "조용한",
     "2nd-course": "none"
@@ -301,8 +301,8 @@
     "name": "스시선수",
     "situation": "데이트",
     "age": "30대",
-    "place": "일식",
-    "category": "강남/역삼",
+    "place": "강남/역삼",
+    "category": "일식",
     "priceRange": "3~5만원",
     "mood": "조용한",
     "2nd-course": "none"

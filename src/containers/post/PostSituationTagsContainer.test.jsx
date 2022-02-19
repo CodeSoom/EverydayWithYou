@@ -25,8 +25,7 @@ describe('PostSituationTagsContainer', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
-      selectedSituation:
-        { id: 1, name: '청와옥', situation: '과음한 다음 날', color: 'select' },
+
     }));
   });
 

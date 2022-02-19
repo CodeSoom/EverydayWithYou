@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import uniqBy from 'lodash.uniqby';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import {
   selectPlaceTag,
@@ -27,12 +27,6 @@ export default function PostPlaceTagsContainer({ restaurants }) {
     dispatch(selectPlaceTag(selectedId));
   }
 
-  const selectedPlace = useSelector((state) => (
-    state.selectedPlace === null ?
-      state : state.selectedPlace
-  ));
-  const { color } = selectedPlace;
-
   const uniqPlaces = uniqBy(restaurants, 'place');
 
   return (
@@ -43,10 +37,6 @@ export default function PostPlaceTagsContainer({ restaurants }) {
           type="button"
           key={place.id}
           onClick={() => handleClickTag(place.id)}
-          className={
-            place.id === selectedPlace.id ?
-              color : ""
-          }
         >
           #{place.place}
         </Hashtags>

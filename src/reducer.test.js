@@ -3,15 +3,7 @@ import reducer from './reducer';
 import {
   setRestaurantName,
   setRestaurants,
-  updateRestaurants,
-
-  selectSituationTag,
-  selectPlaceTag,
-  selectCategoryTag,
-
-  sortRestaurantsBySituation,
-  sortRestaurantsByPlace,
-  sortRestaurantsByCategory,
+  filterRestaurantsBySituation,
 } from './actions';
 
 jest.mock('react-redux');
@@ -56,7 +48,7 @@ describe('reducer', () => {
   });
 
   // 필터된 restaurants로 레스토랑 업데이트
-  describe('updateRestaurants action', () => {
+  describe('filterRestaurantsBySituation action', () => {
     it('changes state of restaurants with new restaurants', () => {
       const initialState = {
         restaurants: [
@@ -83,7 +75,7 @@ describe('reducer', () => {
             "2nd-course": "none",
           },
         ],
-        newRestaurants: [],
+        situationRestaurantsData: [],
         color: '',
         sortNumber: '',
       };
@@ -102,9 +94,9 @@ describe('reducer', () => {
         },
       ];
 
-      const state = reducer(initialState, updateRestaurants(filteredRestaurants));
+      const state = reducer(initialState, filterRestaurantsBySituation(filteredRestaurants));
 
-      expect(state.newRestaurants).toHaveLength(1);
+      expect(state.situationRestaurantsData).toHaveLength(1);
       expect(state.color).toBe('select');
       expect(state.sortNumber).not.toBeNull();
     });
@@ -129,120 +121,6 @@ describe('reducer', () => {
           name: '입력값',
         },
       });
-    });
-  });
-
-  describe('selectSituationTag action', () => {
-    const selectedId = 1;
-
-    it('sorts "restaurants" array by selected id and sets "selectedSituation" obj', () => {
-      const initialState = {
-        restaurants: [
-          { id: 1, name: '청와옥', situation: '과음한 다음 날' },
-          { id: 2, name: '멘카야', situation: '혼밥' },
-        ],
-        selectedSituation: null,
-      }
-
-      const state = reducer(initialState, selectSituationTag(selectedId));
-
-      expect(state.selectedSituation).toEqual({
-        id: 1, name: '청와옥', situation: '과음한 다음 날',
-      });
-    });
-  });
-
-  describe('selectPlaceTag action', () => {
-    const selectedId = 1;
-
-    it('sorts "restaurants" array by selected id and sets "selectedPlace" obj', () => {
-      const initialState = {
-        restaurants: [
-          { id: 1, name: '청와옥', place: '서울 송파구' },
-          { id: 2, name: '멘카야', place: '서울 강남구' },
-        ],
-        selectedPlace: null,
-      }
-
-      const state = reducer(initialState, selectPlaceTag(selectedId));
-
-      expect(state.selectedPlace).toEqual({
-        id: 1, name: '청와옥', place: '서울 송파구',
-      });
-    });
-  });
-
-  describe('selectCategoryTag action', () => {
-    const selectedId = 1;
-
-    it('sorts "restaurants" array by selected id and sets "selectedCategory" obj', () => {
-      const initialState = {
-        restaurants: [
-          { id: 1, name: '청와옥', category: '순대국밥' },
-          { id: 2, name: '멘카야', category: '라멘' },
-        ],
-        selectedCategory: null,
-      }
-
-      const state = reducer(initialState, selectCategoryTag(selectedId));
-
-      expect(state.selectedCategory).toEqual({
-        id: 1, name: '청와옥', category: '순대국밥',
-      });
-    });
-  });
-
-  describe('sortRestaurantsBySituation action', () => {
-    it('sorts "restaurants" array by hash tag keyword and puts data in "sortedRestaurantsBySituation" array', () => {
-      const selectedTag = '과음한 다음 날';
-
-      const initialState = {
-        restaurants: [
-          { id: 1, name: '청와옥', situation: '과음한 다음 날' },
-          { id: 2, name: '멘카야', situation: '혼밥' },
-        ],
-        sortedRestaurantsBySituation: [],
-      }
-
-      const state = reducer(initialState, sortRestaurantsBySituation(selectedTag));
-
-      expect(state.sortedRestaurantsBySituation).toHaveLength(1);
-    });
-  });
-
-  describe('sortRestaurantsByPlace action', () => {
-    it('sorts "sortedRestaurantsBySituation" array by hash tag keyword and puts data in "sortedRestaurantsByPlace" array', () => {
-      const selectedTag = '서울 송파구';
-
-      const initialState = {
-        sortedRestaurantsBySituation: [
-          { id: 1, name: '청와옥', place: '서울 송파구' },
-          { id: 2, name: '멘카야', place: '서울 강남구' },
-        ],
-        sortedRestaurantsByPlace: [],
-      }
-
-      const state = reducer(initialState, sortRestaurantsByPlace(selectedTag));
-
-      expect(state.sortedRestaurantsByPlace).toHaveLength(1);
-    });
-  });
-
-  describe('sortRestaurantsByCategory action', () => {
-    it('sorts "sortedRestaurantsByPlace" array by hash tag keyword and puts data in "sortedRestaurantsByCategory" array', () => {
-      const selectedTag = '순대국밥';
-
-      const initialState = {
-        sortedRestaurantsByPlace: [
-          { id: 1, name: '청와옥', category: '순대국밥' },
-          { id: 2, name: '멘카야', category: '일본식 라면' },
-        ],
-        sortedRestaurantsByCategory: [],
-      }
-
-      const state = reducer(initialState, sortRestaurantsByCategory(selectedTag));
-
-      expect(state.sortedRestaurantsByCategory).toHaveLength(1);
     });
   });
 });

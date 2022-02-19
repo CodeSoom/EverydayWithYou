@@ -67,15 +67,15 @@ describe('CustomPage', () => {
   ));
 
   it('if length of newRestuarants is null', () => {
-    const newRestaurants = [];
+    const situationRestaurantsData = [];
 
-    const result = filter(restaurants, newRestaurants);
+    const result = filter(restaurants, situationRestaurantsData);
 
     expect(result).toHaveLength(2);
   });
 
   it('if length of newRestuarants is not null', () => {
-    const newRestaurants = [
+    const situationRestaurantsData = [
       {
         "id": "10",
         "name": "더다이닝랩",
@@ -89,7 +89,7 @@ describe('CustomPage', () => {
       },
     ];
 
-    const result = filter(restaurants, newRestaurants);
+    const result = filter(restaurants, situationRestaurantsData);
 
     expect(result).toHaveLength(1);
   });

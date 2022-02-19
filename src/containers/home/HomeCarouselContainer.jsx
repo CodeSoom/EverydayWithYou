@@ -2,7 +2,7 @@ import {
   Link,
 } from 'react-router-dom';
 
-import '../../../resources/js/bootstrap.bundle.min.js';
+import '../../../assets/js/bootstrap.bundle.min.js';
 
 export default function HomeCarouselContainer() {
   return (
@@ -18,7 +18,7 @@ export default function HomeCarouselContainer() {
       <div className="carousel-inner">
 
         <div className="carousel-item active">
-          <img src='resources/img/pasta.jpg' />
+          <img src='assets/img/pasta.jpg' />
           <div className="container">
             <div className="carousel-caption text-start">
               <Link to="/post">
@@ -30,7 +30,7 @@ export default function HomeCarouselContainer() {
         </div>
 
         <div className="carousel-item">
-          <img src='resources/img/pasta.jpg' />
+          <img src='assets/img/pasta.jpg' />
           <div className="container">
             <div className="carousel-caption">
               <h1>두번째 메뉴</h1>
@@ -40,7 +40,7 @@ export default function HomeCarouselContainer() {
         </div>
 
         <div className="carousel-item">
-          <img src='resources/img/pasta.jpg' />
+          <img src='assets/img/pasta.jpg' />
           <div className="container">
             <div className="carousel-caption text-end">
               <h1>세번째 메뉴</h1>
