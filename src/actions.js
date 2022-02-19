@@ -22,49 +22,6 @@ export function setSituationRestaurants(restaurantsData) {
   }
 }
 
-export function setRestaurantName({ value }) {
-  return {
-    type: 'setRestaurantName',
-    payload: { value },
-  }
-}
-
-// ToDo delete
-export function selectSituationTag(selectedId) {
-  return {
-    type: 'selectSituationTag',
-    payload: { selectedId },
-  }
-}
-
-export function selectPlaceTag(selectedId) {
-  return {
-    type: 'selectPlaceTag',
-    payload: { selectedId },
-  }
-}
-
-export function selectCategoryTag(selectedId) {
-  return {
-    type: 'selectCategoryTag',
-    payload: { selectedId },
-  }
-}
-
-export function sortRestaurantsBySituation(selectedTag) {
-  return {
-    type: 'sortRestaurantsBySituation',
-    payload: { selectedTag },
-  }
-}
-
-export function sortRestaurantsByPlace(selectedTag) {
-  return {
-    type: 'sortRestaurantsByPlace',
-    payload: { selectedTag },
-  }
-}
-
 // 1. 음식종류별 솔팅 => 음식으로 필터된 restaurants로 레스토랑 업데이트
 export function filterRestaurantsByCategory(filteredRestaurantsByCategory, categoryValue) {
   return {
@@ -78,6 +35,13 @@ export function filterRestaurantsByPlace(filteredRestaurantsByPlace, placeValue)
   return {
     type: 'filterRestaurantsByPlace',
     payload: { filteredRestaurantsByPlace, placeValue },
+  }
+}
+
+export function setRestaurantName({ value }) {
+  return {
+    type: 'setRestaurantName',
+    payload: { value },
   }
 }
 
@@ -117,7 +81,6 @@ export function setSituationFilter(sortNumber) {
     dispatch(filterRestaurantsBySituation(filteredRestaurantsBySituation, sortNumber));
   };
 }
-
 
 // CustomFilterContainer: 지역클릭 후 > 음식클릭
 export function setCategoryFilter(categoryValue) {
@@ -184,5 +147,31 @@ export function setPlaceFilter(placeValue) {
     const filteredRestaurantsByPlace = previously(restaurantsData, categoryRestaurantsData, placeValue);
 
     dispatch(filterRestaurantsByPlace(filteredRestaurantsByPlace, placeValue))
+  }
+}
+
+
+
+
+
+// ToDo delete
+export function selectSituationTag(selectedId) {
+  return {
+    type: 'selectSituationTag',
+    payload: { selectedId },
+  }
+}
+
+export function selectPlaceTag(selectedId) {
+  return {
+    type: 'selectPlaceTag',
+    payload: { selectedId },
+  }
+}
+
+export function selectCategoryTag(selectedId) {
+  return {
+    type: 'selectCategoryTag',
+    payload: { selectedId },
   }
 }

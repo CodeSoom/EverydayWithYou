@@ -34,19 +34,13 @@ export default function CustomFilterContainer() {
     dispatch(setPlaceFilter(placeValue));
   }
 
-  const alert = useSelector((state) => (state.alert));
-  const color = useSelector((state) => (state.color));
+  const categoryColor = useSelector((state) => (state.categoryColor));
+  const placeColor = useSelector((state) => (state.placeColor));
   const selectedCategory = useSelector((state) => (state.selectedCategory));
   const selectedPlace = useSelector((state) => (state.selectedPlace));
-  const filteredRestaurantsData1 = useSelector((state) => (state.filteredRestaurantsData1));
-  const filteredRestaurantsData2 = useSelector((state) => (state.filteredRestaurantsData2));
-  const categoryRestaurantsData = useSelector((state) => (state.categoryRestaurantsData));
-  const placeRestaurantsData = useSelector((state) => (state.placeRestaurantsData));
-  console.log(categoryRestaurantsData)
-  console.log(placeRestaurantsData)
-  console.log(filteredRestaurantsData1) // 각각 솔팅됨
-  console.log(filteredRestaurantsData2) // 각각 솔팅됨
 
+  const filteredRestaurantsData = useSelector((state) => (state.filteredRestaurantsData));
+  console.log(filteredRestaurantsData)
 
   // 그려주기용
   const restaurantsData = useSelector((state) => (state.restaurantsData));
@@ -65,7 +59,7 @@ export default function CustomFilterContainer() {
             onClick={() => handleClickCategory(category.category)}
             className={
               selectedCategory === category.category ? // 카테고리키워드가 들어왔을때
-                color : alert
+                categoryColor : ''
             }
           >
             #{category.category}
@@ -81,7 +75,7 @@ export default function CustomFilterContainer() {
             onClick={() => handleClickPlace(place.place)}
             className={
               selectedPlace === place.place ? // 장소키워드가 들어왔을때
-                color : alert
+                placeColor : ''
             }
           >
             #{place.place}
