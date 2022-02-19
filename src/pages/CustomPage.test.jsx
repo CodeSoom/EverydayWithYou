@@ -1,11 +1,15 @@
 // 관심사: 화면 구성과 스토어에서 레스토랑 컨테이너에 뿌려주기
 import { render } from '@testing-library/react';
 
-import { useSelector, useDispatch, filter } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import {
   MemoryRouter,
 } from 'react-router-dom';
+
+import {
+  filter,
+} from '../../__mocks__/react-redux';
 
 import CustomPage from './CustomPage';
 
@@ -44,8 +48,8 @@ describe('CustomPage', () => {
 
     useDispatch.mockImplementation(() => dispatch);
 
-    useSelector.mockImplementation((selector) => selector(
-      [
+    useSelector.mockImplementation((selector) => (
+      selector.situationRestaurantsData = [
         {
           "id": "10",
           "name": "더다이닝랩",
@@ -66,7 +70,9 @@ describe('CustomPage', () => {
     </MemoryRouter>
   ));
 
-  it('if length of newRestuarants is null', () => {
+  it('renders restaurants if length of newRestuarants is null', () => {
+    renderCustomPage();
+
     const situationRestaurantsData = [];
 
     const result = filter(restaurants, situationRestaurantsData);
@@ -74,7 +80,9 @@ describe('CustomPage', () => {
     expect(result).toHaveLength(2);
   });
 
-  it('if length of newRestuarants is not null', () => {
+  it('renders situationRestaurantsData if length of newRestuarants is not null', () => {
+    renderCustomPage();
+
     const situationRestaurantsData = [
       {
         "id": "10",
