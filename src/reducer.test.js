@@ -3,7 +3,7 @@ import reducer from './reducer';
 import {
   setRestaurantName,
   setRestaurants,
-  updateRestaurants,
+  filterRestaurantsBySituation,
 
   selectSituationTag,
   selectPlaceTag,
@@ -11,7 +11,7 @@ import {
 
   sortRestaurantsBySituation,
   sortRestaurantsByPlace,
-  sortRestaurantsByCategory,
+  setCategoryFilter,
 } from './actions';
 
 jest.mock('react-redux');
@@ -56,7 +56,7 @@ describe('reducer', () => {
   });
 
   // 필터된 restaurants로 레스토랑 업데이트
-  describe('updateRestaurants action', () => {
+  describe('filterRestaurantsBySituation action', () => {
     it('changes state of restaurants with new restaurants', () => {
       const initialState = {
         restaurants: [
@@ -83,7 +83,7 @@ describe('reducer', () => {
             "2nd-course": "none",
           },
         ],
-        newRestaurants: [],
+        situationRestaurantsData: [],
         color: '',
         sortNumber: '',
       };
@@ -102,9 +102,9 @@ describe('reducer', () => {
         },
       ];
 
-      const state = reducer(initialState, updateRestaurants(filteredRestaurants));
+      const state = reducer(initialState, filterRestaurantsBySituation(filteredRestaurants));
 
-      expect(state.newRestaurants).toHaveLength(1);
+      expect(state.situationRestaurantsData).toHaveLength(1);
       expect(state.color).toBe('select');
       expect(state.sortNumber).not.toBeNull();
     });
@@ -228,7 +228,7 @@ describe('reducer', () => {
     });
   });
 
-  describe('sortRestaurantsByCategory action', () => {
+  describe('setCategoryFilter action', () => {
     it('sorts "sortedRestaurantsByPlace" array by hash tag keyword and puts data in "sortedRestaurantsByCategory" array', () => {
       const selectedTag = '순대국밥';
 
@@ -240,7 +240,7 @@ describe('reducer', () => {
         sortedRestaurantsByCategory: [],
       }
 
-      const state = reducer(initialState, sortRestaurantsByCategory(selectedTag));
+      const state = reducer(initialState, setCategoryFilter(selectedTag));
 
       expect(state.sortedRestaurantsByCategory).toHaveLength(1);
     });

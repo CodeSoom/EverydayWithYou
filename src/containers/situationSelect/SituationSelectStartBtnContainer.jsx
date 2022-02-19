@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
-  setNewRestaurants,
+  setSituationRestaurants,
 } from '../../actions';
 
 const Buttons = styled.button({
@@ -14,24 +14,34 @@ const Buttons = styled.button({
   borderRadius: '12px',
 });
 
-export default function SituationSelectStartBtnContainer() {
+export default function SituationSelectStartBtnContainer({ sortNumber }) {
   const dispatch = useDispatch();
 
-  const newRestaurants = useSelector((state) => (
-    state.newRestaurants
+  // 상황별로 필터링된 데이터
+  const situationRestaurantsData = useSelector((state) => (
+    state.situationRestaurantsData
   ))
 
-  function handleClickUpdate(newRestaurants) {
-    dispatch(setNewRestaurants(newRestaurants));
+  // 날것의 JSON데이터
+  const restaurants = useSelector((state) => (
+    state.restaurants
+  ))
+
+  // 상황별 솔팅 => 필터링된 레스토랑 셋!
+  function handleClickUpdate(situationRestaurantsData) {
+    dispatch(setSituationRestaurants(situationRestaurantsData));
   }
 
   return (
     <>
-      <Link to='/home'>
+      <Link to={sortNumber ? '/home' : '/'}>
         <Buttons
           // 버튼 색깔바뀌게하기
           type='button'
-          onClick={() => handleClickUpdate(newRestaurants)}
+          onClick={() => handleClickUpdate(
+            sortNumber ?
+              situationRestaurantsData :
+              alert('한 가지 이상 선택해주세요!'))}
         >
           시작
         </Buttons>
@@ -42,6 +52,7 @@ export default function SituationSelectStartBtnContainer() {
         <Buttons
           // 버튼 색깔바뀌게하기
           type='button'
+          onClick={() => handleClickUpdate(restaurants)}
         >
           건너뛰기
         </Buttons>

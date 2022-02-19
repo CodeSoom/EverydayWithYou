@@ -58,13 +58,13 @@ describe('SituationSelectStartBtnContainer', () => {
       },
     ];
 
-    it('calls dispatch with action: setNewRestaurants', () => {
+    it('calls dispatch with action: setSituationRestaurants', () => {
       const { getByText } = renderSituationSelectStartBtnContainer();
 
       fireEvent.click(getByText('시작'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'setNewRestaurants',
+        type: 'setSituationRestaurants',
         payload: { newRestaurants },
       });
     });

@@ -83,7 +83,7 @@ describe('SituationSelectPage', () => {
     it('calls dispatch with action : setRestaurants', () => {
       const { container } = renderSituationSelectPage();
 
-      expect(container).toHaveTextContent('코스를 알려드리는 여정이 시작됩니다!');
+      expect(container).toHaveTextContent('코스를 알려드리는 여정이 시작됩니다 !');
 
       expect(dispatch).toBeCalledWith({
         type: 'setRestaurants',

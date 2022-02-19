@@ -1,6 +1,10 @@
 const initialState = {
   color: '',
   sortNumber: '',
+  value: '',
+  alter: '',
+  selectedCategory: '',
+  selectedPlace: '',
 
   newId: 100,
   restaurant: {
@@ -16,12 +20,17 @@ const initialState = {
   sortedRestaurantsByPlace: [],
   sortedRestaurantsByCategory: [],
 
-  restaurants: [],
-  newRestaurants: [],
+  restaurants: [], // JSON에서 받아온 최초의 데이터
+  situationRestaurantsData: [], // 상황별로 솔팅해서 저장된 레스토랑
+  restaurantsData: [], // 판단해서 저장된 레스토랑
+  categoryRestaurantsData: [], // 음식또는 장소 종류별로 솔팅해서 저장된 레스토랑
+  placeRestaurantsData: [], // 음식또는 장소 종류별로 솔팅해서 저장된 레스토랑
+  filteredRestaurantsData1: [],
+  filteredRestaurantsData2: [],
 };
 
 const reducers = {
-  // 레스토랑 JSON데이터 셋!
+  // SituationSelectPage: 레스토랑 JSON데이터 셋!
   setRestaurants(state, { payload: { restaurants } }) {
     return {
       ...state,
@@ -29,31 +38,99 @@ const reducers = {
     }
   },
 
-  // 필터된 restaurants로 레스토랑 업데이트
-  updateRestaurants(state, { payload: { filteredRestaurants, sortNumber } }) {
-    const { newRestaurants } = state;
-    if (filteredRestaurants.length == newRestaurants.length) {
+  // 1. 상황별 솔팅 => 상황별 숫자로 필터된 restaurants로 레스토랑 업데이트
+  filterRestaurantsBySituation(state, { payload: { filteredRestaurantsBySituation, sortNumber } }) {
+    const { situationRestaurantsData } = state; // 상황별로 솔팅해서 저장된 레스토랑 불러옴
+
+    if (filteredRestaurantsBySituation.length == situationRestaurantsData.length) {
       return {
         ...state,
-        newRestaurants: [],
+        situationRestaurantsData: [],
         color: '',
         sortNumber: '',
       }
     } else {
       return {
         ...state,
-        newRestaurants: filteredRestaurants,
+        situationRestaurantsData: filteredRestaurantsBySituation,
         color: 'select',
         sortNumber,
       }
     }
   },
 
-  // 필터링된 레스토랑 셋!
-  setNewRestaurants(state, { payload: { newRestaurants } }) {
+  // 2. 상황별 솔팅 => 필터링된 레스토랑 셋!
+  setSituationRestaurants(state, { payload: { restaurantsData } }) {
     return {
       ...state,
-      restaurants: newRestaurants,
+      restaurantsData,
+    }
+  },
+
+  // 1. 음식종류별 솔팅 => 장소 > 음식으로 필터된 restaurants로 레스토랑 업데이트
+  filterRestaurantsByCategory(state, { payload: { filteredRestaurantsByCategory, categoryValue } }) {
+    const { categoryRestaurantsData, selectedCategory } = state;
+    // 기존에 저장된 것들
+
+    if (categoryRestaurantsData.length === filteredRestaurantsByCategory.length &&
+      selectedCategory === categoryValue // 똑같은거 중복선택
+    ) {
+      return {
+        ...state,
+        categoryRestaurantsData: [], // 원래데이터
+        color: '', // 색없어짐
+        selectedPlace: '',
+        alert: '',
+      }
+    } else if (filteredRestaurantsByCategory.length === 0) { // 선택한게 빈배열일때
+      return {
+        ...state,
+        categoryRestaurantsData, // 원래데이터
+        color: 'select', // 색있음
+        selectedCategory: categoryValue, // 선택한 키워드 줌
+        alert: alert('결과가 없습니다!'),
+      }
+    } else { // 위 해당사항이 없을때
+      return {
+        ...state,
+        filteredRestaurantsData1: filteredRestaurantsByCategory,
+        categoryRestaurantsData,
+        color: 'select',
+        selectedCategory: categoryValue,
+      }
+    }
+  },
+
+  // 1. 장소종류별 솔팅 => 음식 > 장소로 필터된 restaurants로 레스토랑 업데이트
+  filterRestaurantsByPlace(state, { payload: { filteredRestaurantsByPlace, placeValue } }) {
+    const { placeRestaurantsData, selectedPlace } = state;
+
+    if (placeRestaurantsData.length === filteredRestaurantsByPlace.length &&
+      selectedPlace === placeValue // 똑같은거 중복선택
+    ) {
+      return {
+        ...state,
+        placeRestaurantsData: [], // 원래데이터
+        color: '', // 색없어짐
+        selectedCategory: '',
+        alert: '',
+      }
+    } else if (filteredRestaurantsByPlace.length === 0) { // 선택한게 빈배열일때
+      return {
+        ...state,
+        placeRestaurantsData, // 원래데이터
+        color: 'select', // 색있음
+        selectedPlace: placeValue, // 선택한 키워드 줌
+        alert: alert('결과가 없습니다!'),
+      }
+    } else { // 위 해당사항이 없을때
+      return {
+        ...state,
+        filteredRestaurantsData2: filteredRestaurantsByPlace, // filteredRestaurantsData는 업데이트 될 수 있다.
+        placeRestaurantsData,
+        color: 'select',
+        selectedPlace: placeValue,
+      }
     }
   },
 
@@ -125,7 +202,7 @@ const reducers = {
     }
   },
 
-  sortRestaurantsByCategory(state, { payload: { selectedTag } }) {
+  setCategoryFilter(state, { payload: { selectedTag } }) {
     const { sortedRestaurantsByPlace } = state;
 
     return {

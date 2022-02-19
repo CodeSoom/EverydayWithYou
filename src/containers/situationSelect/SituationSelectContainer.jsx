@@ -1,4 +1,4 @@
-// 관심사: 기존 레스토랑 정보 베이스로 레스토랑 업데이트
+// 관심사: 저장된 레스토랑 정보 베이스로 레스토랑 업데이트
 import styled from '@emotion/styled';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -18,6 +18,7 @@ const Buttons = styled.button({
 export default function SituationSelectContainer() {
   const dispatch = useDispatch();
 
+  // 클릭하면 상황별 필터적용
   function handleClickSelection(sortNumber) {
     dispatch(setSituationFilter(sortNumber));
   }
@@ -58,7 +59,9 @@ export default function SituationSelectContainer() {
       >
         특별한 날 : 생일, 기념일, 프로포즈
       </Buttons>
-      <SituationSelectStartBtnContainer />
+      <SituationSelectStartBtnContainer
+        sortNumber={sortNumber}
+      />
     </>
   )
 }
