@@ -35,13 +35,12 @@
 * {
   margin: 0; /*바디태그 margin defalut값 때문에 흰선 발생. 이를 제거 */
   padding: 0;
-  border:none;
   box-sizing: border-box;
 }
 
 body {
   font-family: 'LeferiPoint-WhiteObliqueA';
-  display: flex;
+  line-height: 1; /* 줄높이(기본값 1.2) */
 }
 
 ol, ul {
@@ -57,6 +56,10 @@ a, a:visited {
   color: #fff;
 }
 
+/* 사이드바랑 앱 가로로 나란히 */
+.sidebar-app-wrapper {
+  display: flex;
+}
 .sidebar {
   /* 구성요소 세로배치 */
   display: flex;
@@ -66,12 +69,8 @@ a, a:visited {
   width: 320px;
   height: 100vh;
   /* 사이드바 본문내용 스크롤해도 고정되도록하기 */
-  position: fixed;
-  left: 0;
-}
-#app {
-  width: 100vw;
-  margin-left: 320px;
+  position: sticky;
+  top: 0;
 }
 
 .sidebar-title {
@@ -103,7 +102,7 @@ a, a:visited {
 
 /* 글씨위치 배치 */
 .carousel-caption {
-  bottom: 4rem;
+  bottom: 3rem;
   z-index: 10;
 }
 /* 썸네일 이미지 레이아웃 */
@@ -112,7 +111,7 @@ a, a:visited {
 }
 .carousel-item > img {
   width: 100%;
-  filter: brightness(80%);
+  height: 32rem;
 }
 
 .sidebar-copyright {
