@@ -27,34 +27,37 @@ const RestaurantsList = styled.li({
 });
 
 export default function CustomRestaurantsContainer() {
-  const filteredRestaurantsData = useSelector((state) => (state.filteredRestaurantsData));
-  const alert = useSelector((state) => (state.alert));
+  const categoryRestaurantsData = useSelector((state) =>
+    (state.categoryRestaurantsData));
+  const placeRestaurantsData = useSelector((state) =>
+    (state.placeRestaurantsData));
+  const filteredRestaurantsData = useSelector((state) =>
+    (state.filteredRestaurantsData));
+  const alert = useSelector((state) =>
+    (state.alert));
 
+  console.log(categoryRestaurantsData)
+  console.log(placeRestaurantsData)
   console.log(filteredRestaurantsData)
   console.log(alert)
 
   const uniqRestaurants = uniqBy(filteredRestaurantsData, 'name');
 
   return (
-    <>
-      <Container>
-        <h2>👉🏻 가게이름</h2>
-        {alert
-          ?
-          <h4>{alert}</h4>
-          :
-          uniqRestaurants.map((restaurant) => (
-            <ul key={restaurant.id}>
-              <Link to={`/map/${restaurant.name}`}
-              >
-                <RestaurantsList>
-                  {restaurant.name}
-                </RestaurantsList>
-              </Link>
-            </ul>
-          ))
-        }
-      </Container>
-    </>
+    <Container>
+      <h2>👉🏻 가게이름</h2>
+      {
+        uniqRestaurants.map((restaurant) => (
+          <ul key={restaurant.id}>
+            <Link to={`/map/${restaurant.name}`}
+            >
+              <RestaurantsList>
+                {restaurant.name}
+              </RestaurantsList>
+            </Link>
+          </ul>
+        ))
+      }
+    </Container>
   )
 }

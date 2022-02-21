@@ -4,12 +4,13 @@ import {
   setRestaurantName,
   setRestaurants,
   filterRestaurantsBySituation,
+  filterRestaurantsByCategory,
+  filterRestaurantsByPlace,
 } from './actions';
 
 jest.mock('react-redux');
 
 describe('reducer', () => {
-  // 레스토랑 JSON데이터 셋!
   describe('setRestaurants action', () => {
     it('sets restaurants with JSON data', () => {
       const initialState = {
@@ -47,7 +48,28 @@ describe('reducer', () => {
     });
   });
 
-  // 필터된 restaurants로 레스토랑 업데이트
+  describe('setRestaurantName action', () => {
+    it('changes state of restaurantName from "" to "입력값" and update id', () => {
+      const initialState = {
+        newId: 100,
+        restaurant: {
+          id: '',
+          name: '',
+        },
+      }
+
+      const state = reducer(initialState, setRestaurantName({ value: '입력값' }));
+
+      expect(state).toEqual({
+        newId: 101,
+        restaurant: {
+          id: 100,
+          name: '입력값',
+        },
+      });
+    });
+  });
+
   describe('filterRestaurantsBySituation action', () => {
     it('changes state of restaurants with new restaurants', () => {
       const initialState = {
@@ -102,25 +124,111 @@ describe('reducer', () => {
     });
   });
 
-  describe('setRestaurantName action', () => {
-    it('changes state of restaurantName from "" to "입력값" and update id', () => {
+  describe('filterRestaurantsByCategory action', () => {
+    it('changes state of restaurants with new restaurants', () => {
       const initialState = {
-        newId: 100,
-        restaurant: {
-          id: '',
-          name: '',
-        },
-      }
+        restaurantsData: [
+          {
+            "id": "35",
+            "name": "주옥",
+            "situation": "기념일",
+            "age": "20대",
+            "place": "을지로",
+            "category": "한식",
+            "priceRange": "3~5만원",
+            "mood": "고급스러운",
+            "2nd-course": "none",
+          },
+          {
+            "id": "36",
+            "name": "보이어",
+            "situation": "데이트",
+            "age": "20대",
+            "place": "성수",
+            "category": "양식",
+            "priceRange": "3만원 이하",
+            "mood": "고급스러운",
+            "2nd-course": "none",
+          },
+        ],
+        categoryRestaurantsData: [],
+        filteredRestaurantsData: [],
+        categoryColor: '',
+      };
 
-      const state = reducer(initialState, setRestaurantName({ value: '입력값' }));
-
-      expect(state).toEqual({
-        newId: 101,
-        restaurant: {
-          id: 100,
-          name: '입력값',
+      const filteredRestaurantsByCategory = [
+        {
+          "id": "36",
+          "name": "보이어",
+          "situation": "데이트",
+          "age": "20대",
+          "place": "성수",
+          "category": "양식",
+          "priceRange": "3만원 이하",
+          "mood": "고급스러운",
+          "2nd-course": "none",
         },
-      });
+      ];
+
+      const state = reducer(initialState, filterRestaurantsByCategory(filteredRestaurantsByCategory));
+
+      expect(state.categoryRestaurantsData).toHaveLength(1);
+      expect(state.filteredRestaurantsData).toHaveLength(1);
+      expect(state.categoryColor).toBe('select');
+    });
+  });
+
+  describe('filterRestaurantsByPlace action', () => {
+    it('changes state of restaurants with new restaurants', () => {
+      const initialState = {
+        restaurantsData: [
+          {
+            "id": "35",
+            "name": "주옥",
+            "situation": "기념일",
+            "age": "20대",
+            "place": "을지로",
+            "category": "한식",
+            "priceRange": "3~5만원",
+            "mood": "고급스러운",
+            "2nd-course": "none",
+          },
+          {
+            "id": "36",
+            "name": "보이어",
+            "situation": "데이트",
+            "age": "20대",
+            "place": "성수",
+            "category": "양식",
+            "priceRange": "3만원 이하",
+            "mood": "고급스러운",
+            "2nd-course": "none",
+          },
+        ],
+        placeRestaurantsData: [],
+        filteredRestaurantsData: [],
+        placeColor: '',
+      };
+
+      const filteredRestaurantsByPlace = [
+        {
+          "id": "36",
+          "name": "보이어",
+          "situation": "데이트",
+          "age": "20대",
+          "place": "성수",
+          "category": "양식",
+          "priceRange": "3만원 이하",
+          "mood": "고급스러운",
+          "2nd-course": "none",
+        },
+      ];
+
+      const state = reducer(initialState, filterRestaurantsByPlace(filteredRestaurantsByPlace));
+
+      expect(state.placeRestaurantsData).toHaveLength(1);
+      expect(state.filteredRestaurantsData).toHaveLength(1);
+      expect(state.placeColor).toBe('select');
     });
   });
 });

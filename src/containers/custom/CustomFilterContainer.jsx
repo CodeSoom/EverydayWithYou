@@ -23,7 +23,6 @@ const Buttons = styled.button({
 export default function CustomFilterContainer() {
   const dispatch = useDispatch();
 
-
   // 클릭한 음식종류 이름 받아서 솔팅
   function handleClickCategory(categoryValue) {
     dispatch(setCategoryFilter(categoryValue));
@@ -34,16 +33,21 @@ export default function CustomFilterContainer() {
     dispatch(setPlaceFilter(placeValue));
   }
 
+  const selectedCategory = useSelector((state) =>
+    (state.selectedCategory));
+  const selectedPlace = useSelector((state) =>
+    (state.selectedPlace));
+  const categoryColor = useSelector((state) =>
+    (state.categoryColor));
+  const placeColor = useSelector((state) =>
+    (state.placeColor));
+
   // 그려주기용
-  const categoryColor = useSelector((state) => (state.categoryColor));
-  const placeColor = useSelector((state) => (state.placeColor));
-  const selectedCategory = useSelector((state) => (state.selectedCategory));
-  const selectedPlace = useSelector((state) => (state.selectedPlace));
+  const restaurantsData = useSelector((state) =>
+    (state.restaurantsData));
 
-  const restaurantsData = useSelector((state) => (state.restaurantsData));
-
-  const uniqCategories = uniqBy(restaurantsData, 'category'); // 상황별로 솔팅된(혹은 기존) 레스토랑 카테고리기준으로 고유값 솔팅
-  const uniqPlaces = uniqBy(restaurantsData, 'place'); // 상황별로 솔팅된(혹은 기존) 레스토랑 카테고리기준으로 고유값 솔팅
+  const uniqCategories = uniqBy(restaurantsData, 'category');
+  const uniqPlaces = uniqBy(restaurantsData, 'place');
 
   return (
     <>
