@@ -34,16 +34,12 @@ export default function CustomFilterContainer() {
     dispatch(setPlaceFilter(placeValue));
   }
 
+  // 그려주기용
   const categoryColor = useSelector((state) => (state.categoryColor));
   const placeColor = useSelector((state) => (state.placeColor));
   const selectedCategory = useSelector((state) => (state.selectedCategory));
   const selectedPlace = useSelector((state) => (state.selectedPlace));
 
-  // 확인용
-  /* const filteredRestaurantsData = useSelector((state) => (state.filteredRestaurantsData));
-  console.log(filteredRestaurantsData) */
-
-  // 그려주기용
   const restaurantsData = useSelector((state) => (state.restaurantsData));
 
   const uniqCategories = uniqBy(restaurantsData, 'category'); // 상황별로 솔팅된(혹은 기존) 레스토랑 카테고리기준으로 고유값 솔팅

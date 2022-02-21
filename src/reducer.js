@@ -63,39 +63,33 @@ const reducers = {
   // 1. 음식종류별 솔팅 => 장소 > 음식으로 필터된 restaurants로 레스토랑 업데이트
   filterRestaurantsByCategory(state, { payload: { filteredRestaurantsByCategory, categoryValue } }) {
     const {
-      restaurantsData, selectedCategory, selectedPlace, placeRestaurantsData, filteredRestaurantsData,
+      restaurantsData, selectedCategory,
+      filteredRestaurantsData,
+      placeRestaurantsData,
+      categoryRestaurantsData,
     } = state;
 
-    // 똑같은거 중복선택
-    if (selectedCategory === categoryValue) {
+    if (selectedCategory === categoryValue && // 음식 똑같은거 중복선택
+      filteredRestaurantsData.length === categoryRestaurantsData.length) {
       return {
         ...state,
-        placeRestaurantsData: restaurantsData.filter(restaurant => restaurant.place.includes(selectedPlace)), // 원래데이터
         categoryRestaurantsData: [],
-        filteredRestaurantsData: restaurantsData.filter(restaurant => restaurant.place.includes(selectedPlace)),
-        categoryColor: '', // 색없어짐
+        filteredRestaurantsData: placeRestaurantsData,
         selectedCategory: categoryValue,
+        categoryColor: '',
         alert: '',
       }
-    } else if (
-      selectedCategory !== categoryValue
-      && placeRestaurantsData.length !== filteredRestaurantsData.length) { // 카테고리내에서 다른거선택할때
+    } else if (selectedCategory !== categoryValue &&
+      filteredRestaurantsByCategory.length === 0) { // 선택한게 빈배열일때
       return {
         ...state,
         categoryRestaurantsData: restaurantsData.filter(restaurant => restaurant.category.includes(categoryValue)), // 원래데이터
         filteredRestaurantsData: restaurantsData.filter(restaurant => restaurant.category.includes(categoryValue)),
-        categoryColor: 'select', // 색있음
-        selectedCategory: categoryValue, // 선택한 키워드 줌
-      }
-    } else if (filteredRestaurantsByCategory.length === 0) { // 선택한게 빈배열일때
-      return {
-        ...state,
-        categoryRestaurantsData: restaurantsData.filter(restaurant => restaurant.category.includes(categoryValue)), // 원래데이터
-        filteredRestaurantsData: restaurantsData.filter(restaurant => restaurant.category.includes(categoryValue)),
+        placeRestaurantsData: [],
         categoryColor: 'select', // 색있음
         selectedCategory: categoryValue, // 선택한 키워드 줌
         selectedPlace: '',
-        alert: '결과가 없어요 ! 😥',
+        alert: '가고 싶으신 곳을 다시 선택해주세요 ! 😥',
       }
     } else { // 위 해당사항이 없을때
       return {
@@ -104,6 +98,7 @@ const reducers = {
         filteredRestaurantsData: filteredRestaurantsByCategory,
         categoryColor: 'select',
         selectedCategory: categoryValue,
+        alert: '',
       }
     }
   },
@@ -111,39 +106,33 @@ const reducers = {
   // 1. 장소종류별 솔팅 => 음식 > 장소로 필터된 restaurants로 레스토랑 업데이트
   filterRestaurantsByPlace(state, { payload: { filteredRestaurantsByPlace, placeValue } }) {
     const {
-      restaurantsData, selectedPlace, selectedCategory, categoryRestaurantsData, filteredRestaurantsData,
+      restaurantsData, selectedPlace,
+      filteredRestaurantsData,
+      categoryRestaurantsData,
+      placeRestaurantsData,
     } = state;
 
-    if (selectedPlace === placeValue // 똑같은거 중복선택
-    ) {
+    if (selectedPlace === placeValue && // 장소 똑같은거 중복선택
+      filteredRestaurantsData.length === placeRestaurantsData.length) {
       return {
         ...state,
-        categoryRestaurantsData: restaurantsData.filter(restaurant => restaurant.category.includes(selectedCategory)), // 원래데이터
         placeRestaurantsData: [],
-        filteredRestaurantsData: restaurantsData.filter(restaurant => restaurant.category.includes(selectedCategory)),
-        placeColor: '', // 색없어짐
+        filteredRestaurantsData: categoryRestaurantsData,
         selectedPlace: placeValue,
+        placeColor: '',
         alert: '',
       }
-    } else if (
-      selectedPlace !== placeValue
-      && categoryRestaurantsData.length !== filteredRestaurantsData.length) { // 장소내에서 다른거선택할때
+    } else if (selectedPlace !== placeValue &&
+      filteredRestaurantsByPlace.length === 0) { // 선택한게 빈배열일때
       return {
         ...state,
         placeRestaurantsData: restaurantsData.filter(restaurant => restaurant.place.includes(placeValue)), // 원래데이터
         filteredRestaurantsData: restaurantsData.filter(restaurant => restaurant.place.includes(placeValue)),
-        placeColor: 'select', // 색있음
-        selectedPlace: placeValue, // 선택한 키워드 줌
-      }
-    } else if (filteredRestaurantsByPlace.length === 0) { // 선택한게 빈배열일때
-      return {
-        ...state,
-        placeRestaurantsData: restaurantsData.filter(restaurant => restaurant.place.includes(placeValue)), // 원래데이터
-        filteredRestaurantsData: restaurantsData.filter(restaurant => restaurant.place.includes(placeValue)),
+        categoryRestaurantsData: [],
         placeColor: 'select', // 색있음
         selectedPlace: placeValue, // 선택한 키워드 줌
         selectedCategory: '',
-        alert: '결과가 없어요 ! 😥',
+        alert: '드시고 싶은 것을 다시 선택해주세요 ! 😥',
       }
     } else { // 위 해당사항이 없을때
       return {
@@ -152,6 +141,7 @@ const reducers = {
         filteredRestaurantsData: filteredRestaurantsByPlace,
         placeColor: 'select',
         selectedPlace: placeValue,
+        alert: '',
       }
     }
   },
