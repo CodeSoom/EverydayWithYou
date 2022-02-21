@@ -6,15 +6,14 @@ import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
-const Title = styled.h2({
-  textAlign: 'left',
-  marginBottom: '24px',
-});
-
-const RestaurantsBox = styled.div({
+const Container = styled.div({
   display: 'flex',
   flexDirection: 'column',
   width: '50%',
+  '& h2': {
+    textAlign: 'left',
+    marginBottom: '24px',
+  },
   '& h4': {
     textAlign: 'left',
     marginLeft: '36px',
@@ -22,36 +21,43 @@ const RestaurantsBox = styled.div({
   },
 });
 
-const Restaurant = styled.li({
+const RestaurantsList = styled.li({
   color: '#000',
   fontSize: '24px',
 });
 
 export default function CustomRestaurantsContainer() {
-  const sortedRestaurantsByCategory = useSelector((state) => (
-    state.sortedRestaurantsByCategory === null ?
-      state : state.sortedRestaurantsByCategory
-  ));
-  const uniqRestaurants = uniqBy(sortedRestaurantsByCategory, 'name');
+  const categoryRestaurantsData = useSelector((state) =>
+    (state.categoryRestaurantsData));
+  const placeRestaurantsData = useSelector((state) =>
+    (state.placeRestaurantsData));
+  const filteredRestaurantsData = useSelector((state) =>
+    (state.filteredRestaurantsData));
+  const alert = useSelector((state) =>
+    (state.alert));
+
+  console.log(categoryRestaurantsData)
+  console.log(placeRestaurantsData)
+  console.log(filteredRestaurantsData)
+  console.log(alert)
+
+  const uniqRestaurants = uniqBy(filteredRestaurantsData, 'name');
 
   return (
-    <>
-      <RestaurantsBox>
-        <Title>👉🏻 가게이름</Title>
-        {uniqRestaurants.length === 0
-          ?
-          <h4>결과가 없어요 ! 😥</h4>
-          :
-          uniqRestaurants.map((obj) => (
-            <ul key={obj.id}>
-              <Link to={`/map/${obj.name}`}
-              >
-                <Restaurant>{obj.name}</Restaurant>
-              </Link>
-            </ul>
-          ))
-        }
-      </RestaurantsBox>
-    </>
+    <Container>
+      <h2>👉🏻 가게이름</h2>
+      {
+        uniqRestaurants.map((restaurant) => (
+          <ul key={restaurant.id}>
+            <Link to={`/map/${restaurant.name}`}
+            >
+              <RestaurantsList>
+                {restaurant.name}
+              </RestaurantsList>
+            </Link>
+          </ul>
+        ))
+      }
+    </Container>
   )
 }

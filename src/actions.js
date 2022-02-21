@@ -6,14 +6,6 @@ export function setRestaurants(restaurants) {
   }
 }
 
-// 1. 상황별 솔팅 => 숫자로 필터된 restaurants로 레스토랑 업데이트
-export function filterRestaurantsBySituation(filteredRestaurantsBySituation, sortNumber) {
-  return {
-    type: 'filterRestaurantsBySituation',
-    payload: { filteredRestaurantsBySituation, sortNumber },
-  }
-}
-
 // 2. 상황별 솔팅 => 필터링된 레스토랑 셋!
 export function setSituationRestaurants(restaurantsData) {
   return {
@@ -22,7 +14,15 @@ export function setSituationRestaurants(restaurantsData) {
   }
 }
 
-// 1. 음식종류별 솔팅 => 음식으로 필터된 restaurants로 레스토랑 업데이트
+// 1. 상황별 솔팅 => 숫자로 필터된 레스토랑으로 업데이트
+export function filterRestaurantsBySituation(filteredRestaurantsBySituation, sortNumber) {
+  return {
+    type: 'filterRestaurantsBySituation',
+    payload: { filteredRestaurantsBySituation, sortNumber },
+  }
+}
+
+// 음식종류별 솔팅 => 음식으로 필터된 레스토랑으로 업데이트
 export function filterRestaurantsByCategory(filteredRestaurantsByCategory, categoryValue) {
   return {
     type: 'filterRestaurantsByCategory',
@@ -30,7 +30,7 @@ export function filterRestaurantsByCategory(filteredRestaurantsByCategory, categ
   }
 }
 
-// 1. 장소종류별 솔팅 => 장소로 필터된 restaurants로 레스토랑 업데이트
+// 장소종류별 솔팅 => 장소로 필터된 레스토랑으로 업데이트
 export function filterRestaurantsByPlace(filteredRestaurantsByPlace, placeValue) {
   return {
     type: 'filterRestaurantsByPlace',
@@ -47,7 +47,7 @@ export function setRestaurantName({ value }) {
 
 // <--- Redux Thunk --->
 
-// SituationSelectContainer: 상황별 필터
+// 상황별 필터
 export function setSituationFilter(sortNumber) {
   return (dispatch, getState) => {
     const {
@@ -82,69 +82,89 @@ export function setSituationFilter(sortNumber) {
   };
 }
 
-// CustomFilterContainer: 지역클릭 후 > 음식클릭
+// 음식별 필터
 export function setCategoryFilter(categoryValue) {
   return (dispatch, getState) => {
     const {
       restaurantsData,
       placeRestaurantsData,
+      filteredRestaurantsData,
     } = getState();
 
     function filterFromBase(restaurantsData, categoryValue) {
-      const filteredByCategory = restaurantsData.filter(restaurant => restaurant.category.includes(categoryValue));
+      const filteredByCategory = restaurantsData.filter(restaurant =>
+        restaurant.category.includes(categoryValue));
       const result = [...filteredByCategory];
       return result
     }
 
     function filterFromPlaceSorted(placeRestaurantsData, categoryValue) {
-      const filteredByCategory = placeRestaurantsData.filter(restaurant => restaurant.category.includes(categoryValue));
+      const filteredByCategory = placeRestaurantsData.filter(restaurant =>
+        restaurant.category.includes(categoryValue));
       const result = [...filteredByCategory];
       return result
     }
 
-    function previously(restaurantsData, placeRestaurantsData, categoryValue) {
-      if (placeRestaurantsData.length === 0) { // 기존에 장소기준으로 솔팅된게 없다면?
+    function previously(
+      restaurantsData, placeRestaurantsData, filteredRestaurantsData, categoryValue,
+    ) {
+      if (
+        placeRestaurantsData.length === 0 &&
+        filteredRestaurantsData.length === 0
+      ) { // 기존에 장소기준으로 솔팅된게 없다면?
         return filterFromBase(restaurantsData, categoryValue)
       } else {
         return filterFromPlaceSorted(placeRestaurantsData, categoryValue)
       }
     }
 
-    const filteredRestaurantsByCategory = previously(restaurantsData, placeRestaurantsData, categoryValue);
+    const filteredRestaurantsByCategory = previously(
+      restaurantsData, placeRestaurantsData, filteredRestaurantsData, categoryValue,
+    );
 
     dispatch(filterRestaurantsByCategory(filteredRestaurantsByCategory, categoryValue))
   }
 }
 
-// CustomFilterContainer: 음식클릭 후 > 지역클릭
+// 장소별 필터
 export function setPlaceFilter(placeValue) {
   return (dispatch, getState) => {
     const {
       restaurantsData,
       categoryRestaurantsData,
+      filteredRestaurantsData,
     } = getState();
 
     function filterFromBase(restaurantsData, placeValue) {
-      const filteredByPlace = restaurantsData.filter(restaurant => restaurant.place.includes(placeValue));
+      const filteredByPlace = restaurantsData.filter(restaurant =>
+        restaurant.place.includes(placeValue));
       const result = [...filteredByPlace];
       return result
     }
 
     function filterFromCategorySorted(categoryRestaurantsData, placeValue) {
-      const filteredByPlace = categoryRestaurantsData.filter(restaurant => restaurant.place.includes(placeValue));
+      const filteredByPlace = categoryRestaurantsData.filter(restaurant =>
+        restaurant.place.includes(placeValue));
       const result = [...filteredByPlace];
       return result
     }
 
-    function previously(restaurantsData, categoryRestaurantsData, placeValue) {
-      if (categoryRestaurantsData.length === 0) { // 기존에 음식기준으로 솔팅된게 없다면?
+    function previously(
+      restaurantsData, categoryRestaurantsData, filteredRestaurantsData, placeValue,
+    ) {
+      if (
+        categoryRestaurantsData.length === 0 &&
+        filteredRestaurantsData.length === 0
+      ) { // 기존에 음식기준으로 솔팅된게 없다면?
         return filterFromBase(restaurantsData, placeValue)
       } else {
         return filterFromCategorySorted(categoryRestaurantsData, placeValue)
       }
     }
 
-    const filteredRestaurantsByPlace = previously(restaurantsData, categoryRestaurantsData, placeValue);
+    const filteredRestaurantsByPlace = previously(
+      restaurantsData, categoryRestaurantsData, filteredRestaurantsData, placeValue,
+    );
 
     dispatch(filterRestaurantsByPlace(filteredRestaurantsByPlace, placeValue))
   }
