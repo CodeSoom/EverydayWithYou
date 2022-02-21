@@ -39,8 +39,9 @@ export default function CustomFilterContainer() {
   const selectedCategory = useSelector((state) => (state.selectedCategory));
   const selectedPlace = useSelector((state) => (state.selectedPlace));
 
-  const filteredRestaurantsData = useSelector((state) => (state.filteredRestaurantsData));
-  console.log(filteredRestaurantsData)
+  // 확인용
+  /* const filteredRestaurantsData = useSelector((state) => (state.filteredRestaurantsData));
+  console.log(filteredRestaurantsData) */
 
   // 그려주기용
   const restaurantsData = useSelector((state) => (state.restaurantsData));

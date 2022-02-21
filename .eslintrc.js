@@ -50,5 +50,5 @@ module.exports = {
       "version": 'detect',
     },
   },
-  "ignorePatterns": ["main.js", "node_modules/"],
+  "ignorePatterns": ["main.js", "node_modules/", "bootstrap.bundle.min.js", "assets/js/"],
 }

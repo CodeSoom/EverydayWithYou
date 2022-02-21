@@ -20,49 +20,134 @@ describe('CustomFilterContainer', () => {
 
     useDispatch.mockImplementation(() => dispatch);
 
-    useSelector.mockImplementation((selector) => selector({
-      selectedCategory:
-        { id: 1, name: '청와옥', category: '순대국밥', color: 'select' },
-      selectedPlace:
-        { id: 1, name: '청와옥', place: '서울 송파구', color: 'select' },
-    }));
+    useSelector.mockImplementation((selector) => (
+      selector.categoryColor = 'selector',
+      selector.placeColor = 'selector',
+      selector.selectedCategory = [ // 양식
+        {
+          "id": "10",
+          "name": "더다이닝랩",
+          "situation": "소개팅",
+          "age": "20대",
+          "place": "홍대/합정",
+          "category": "양식",
+          "priceRange": "3만원 이하",
+          "mood": "none",
+          "2nd-course": "none",
+        },
+        {
+          "id": "36",
+          "name": "보이어",
+          "situation": "데이트",
+          "age": "20대",
+          "place": "성수",
+          "category": "양식",
+          "priceRange": "3만원 이하",
+          "mood": "고급스러운",
+          "2nd-course": "none",
+        },
+      ],
+      selector.selectedPlace = [ // 광화문/종로
+        {
+          "id": "21",
+          "name": "갈리나데이지",
+          "situation": "썸",
+          "age": "20대",
+          "place": "광화문/종로",
+          "category": "이탈리안",
+          "priceRange": "3만원 이하",
+          "mood": "고급스러운",
+          "2nd-course": "none",
+        },
+        {
+          "id": "17",
+          "name": "고가빈커리하우스",
+          "situation": "소개팅",
+          "age": "30대",
+          "place": "광화문/종로",
+          "category": "인도음식",
+          "priceRange": "3만원 이하",
+          "mood": "캐주얼한",
+          "2nd-course": "none",
+        },
+      ],
+      selector.restaurantsData = [
+        {
+          "id": "10",
+          "name": "더다이닝랩",
+          "situation": "소개팅",
+          "age": "20대",
+          "place": "홍대/합정",
+          "category": "양식",
+          "priceRange": "3만원 이하",
+          "mood": "none",
+          "2nd-course": "none",
+        },
+        {
+          "id": "36",
+          "name": "보이어",
+          "situation": "데이트",
+          "age": "20대",
+          "place": "성수",
+          "category": "양식",
+          "priceRange": "3만원 이하",
+          "mood": "고급스러운",
+          "2nd-course": "none",
+        },
+        {
+          "id": "21",
+          "name": "갈리나데이지",
+          "situation": "썸",
+          "age": "20대",
+          "place": "광화문/종로",
+          "category": "이탈리안",
+          "priceRange": "3만원 이하",
+          "mood": "고급스러운",
+          "2nd-course": "none",
+        },
+        {
+          "id": "17",
+          "name": "고가빈커리하우스",
+          "situation": "소개팅",
+          "age": "30대",
+          "place": "광화문/종로",
+          "category": "인도음식",
+          "priceRange": "3만원 이하",
+          "mood": "캐주얼한",
+          "2nd-course": "none",
+        },
+      ]
+    ));
   });
 
-  const renderHomeCategoryTagsContainer = () => render((
+  const renderCustomFilterContainer = () => render((
     <MemoryRouter>
       <CustomFilterContainer />
     </MemoryRouter>
   ));
 
-  context('when click "#순대국밥" tag', () => {
-    const selectedTag = '순대국밥';
-
+  // ToDo 좀 더 디테일하게 리팩터링
+  context('when click "#양식" tag', () => {
     it('calls dispatch with action : setCategoryFilter', () => {
-      const { getByText } = renderHomeCategoryTagsContainer();
+      const { getByText } = renderCustomFilterContainer();
 
-      fireEvent.click(getByText('#순대국밥'));
+      expect(getByText('#양식')).toBeInTheDocument();
 
-      expect(dispatch).toBeCalledWith({
-        type: 'setCategoryFilter',
-        payload: { selectedTag },
-      })
+      fireEvent.click(getByText('#양식'));
+
+      expect(dispatch).toBeCalled();
     });
   });
 
-  context('when click "#순대국밥" tag', () => {
-    const selectedId = 1;
+  context('when click "#광화문/종로" tag', () => {
+    it('calls dispatch with action : setPlaceFilter', () => {
+      const { getByText } = renderCustomFilterContainer();
 
-    it('calls dispatch with action : selectCategoryTag', () => {
-      const { getByText } = renderHomeCategoryTagsContainer();
+      expect(getByText('#광화문/종로')).toBeInTheDocument();
 
-      expect(getByText('#순대국밥')).toBeInTheDocument();
+      fireEvent.click(getByText('#광화문/종로'))
 
-      fireEvent.click(getByText('#순대국밥'))
-
-      expect(dispatch).toBeCalledWith({
-        type: 'selectCategoryTag',
-        payload: { selectedId },
-      });
+      expect(dispatch).toBeCalled();
     });
   });
 });

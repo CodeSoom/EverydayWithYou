@@ -19,8 +19,8 @@ describe('App', () => {
     useDispatch.mockImplementation(() => dispatch);
 
     // ToDo 액션고치고 수정하기
-    useSelector.mockImplementation((selector) => selector(
-      [
+    useSelector.mockImplementation((selector) => (
+      selector.situationRestaurantsData = [
         {
           "id": "10",
           "name": "더다이닝랩",
@@ -51,7 +51,7 @@ describe('App', () => {
   it('renders home page path to "/home"', () => {
     const { container } = renderApp({ path: '/home' });
 
-    expect(container).toHaveTextContent('연령대별 Pick');
+    expect(container).toHaveTextContent('선호도를 반영한 취향 저격 음식점');
   });
 
   it('renders board page path to "/custom"', () => {
