@@ -11,31 +11,6 @@ import App from './App';
 jest.mock('react-redux');
 
 describe('App', () => {
-  const restaurants = [
-    {
-      "id": "10",
-      "name": "더다이닝랩",
-      "situation": "소개팅",
-      "age": "20대",
-      "place": "홍대/합정",
-      "category": "양식",
-      "priceRange": "3만원 이하",
-      "mood": "none",
-      "2nd-course": "none",
-    },
-    {
-      "id": "36",
-      "name": "보이어",
-      "situation": "데이트",
-      "age": "20대",
-      "place": "성수",
-      "category": "양식",
-      "priceRange": "3만원 이하",
-      "mood": "고급스러운",
-      "2nd-course": "none",
-    },
-  ];
-
   const dispatch = jest.fn();
 
   beforeEach(() => {
