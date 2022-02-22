@@ -6,15 +6,23 @@ export function setRestaurants(restaurants) {
   }
 }
 
-// 2. 상황별 솔팅 => 필터링된 레스토랑 셋!
-export function setSituationRestaurants(restaurantsData) {
+// CustomPage: 최초 레스토랑 혹은 상황별로 솔팅된 레스토랑으로 업데이트
+export function setRestaurantsData(restaurantsData) {
   return {
-    type: 'setSituationRestaurants',
+    type: 'setRestaurantsData',
     payload: { restaurantsData },
   }
 }
 
-// 1. 상황별 솔팅 => 숫자로 필터된 레스토랑으로 업데이트
+// SituationSelecPage: 2. 상황별 솔팅 => 필터링된 레스토랑 셋!
+export function setSituationRestaurants(situationRestaurantsData) {
+  return {
+    type: 'setSituationRestaurants',
+    payload: { situationRestaurantsData },
+  }
+}
+
+// SituationSelecPage: 1. 상황별 솔팅 => 숫자로 필터된 레스토랑으로 업데이트
 export function filterRestaurantsBySituation(filteredRestaurantsBySituation, sortNumber) {
   return {
     type: 'filterRestaurantsBySituation',
@@ -57,19 +65,25 @@ export function setSituationFilter(sortNumber) {
     // sortNumber에 따라 restuarants 필터링
     function filter(restuarants, sortNumber) {
       if (sortNumber === 1) {
-        const filter1 = restaurants.filter(restaurant => restaurant.situation.includes('썸'));
-        const filter2 = restaurants.filter(restaurant => restaurant.situation.includes('소개팅'));
+        const filter1 = restaurants.filter(restaurant =>
+          restaurant.situation.includes('썸'));
+        const filter2 = restaurants.filter(restaurant =>
+          restaurant.situation.includes('소개팅'));
         const result = [...filter1, ...filter2];
         return result
       }
       if (sortNumber === 2) {
-        const result = restaurants.filter(restaurant => restaurant.situation.includes('데이트'));
+        const result = restaurants.filter(restaurant =>
+          restaurant.situation.includes('데이트'));
         return result
       }
       if (sortNumber === 3) {
-        const filter1 = restaurants.filter(restaurant => restaurant.situation.includes('생일'));
-        const filter2 = restaurants.filter(restaurant => restaurant.situation.includes('기념일'));
-        const filter3 = restaurants.filter(restaurant => restaurant.situation.includes('프로포즈'));
+        const filter1 = restaurants.filter(restaurant =>
+          restaurant.situation.includes('생일'));
+        const filter2 = restaurants.filter(restaurant =>
+          restaurant.situation.includes('기념일'));
+        const filter3 = restaurants.filter(restaurant =>
+          restaurant.situation.includes('프로포즈'));
         const result = [...filter1, ...filter2, ...filter3];
         return result
       } return restaurants

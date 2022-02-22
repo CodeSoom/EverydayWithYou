@@ -36,10 +36,10 @@ export default function CustomRestaurantsContainer() {
   const alert = useSelector((state) =>
     (state.alert));
 
-  console.log(categoryRestaurantsData)
+  /* console.log(categoryRestaurantsData)
   console.log(placeRestaurantsData)
   console.log(filteredRestaurantsData)
-  console.log(alert)
+  console.log(alert) */
 
   const uniqRestaurants = uniqBy(filteredRestaurantsData, 'name');
 

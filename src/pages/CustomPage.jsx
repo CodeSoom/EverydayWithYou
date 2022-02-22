@@ -10,7 +10,7 @@ import CustomPlaceFilterContainer from '../containers/custom/CustomPlaceFilterCo
 import CustomRestaurantsContainer from '../containers/custom/CustomRestaurantsContainer';
 
 import {
-  setSituationRestaurants,
+  setRestaurantsData,
 } from '../actions';
 
 const CustomPageLayout = styled.div({
@@ -47,7 +47,7 @@ export default function CustomPage({ restaurants }) {
 
   // 최초 레스토랑 혹은 상황별로 솔팅된 레스토랑으로 업데이트
   useEffect(() => {
-    dispatch(setSituationRestaurants(restaurantsData));
+    dispatch(setRestaurantsData(restaurantsData));
   }, []);
 
   return (

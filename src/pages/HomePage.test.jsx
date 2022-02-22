@@ -24,6 +24,6 @@ describe('HomePage', () => {
   it('renders text', () => {
     const { container } = renderHomePage();
 
-    expect(container).toHaveTextContent('연령대별 Pick');
+    expect(container).toHaveTextContent('고객님이 좋아할 음식점 추천');
   });
 });

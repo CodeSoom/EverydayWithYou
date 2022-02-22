@@ -30,10 +30,6 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
     state.situationRestaurantsData
   ))
 
-  const restaurants = useSelector((state) => (
-    state.restaurants
-  ))
-
   function handleClickUpdate(situationRestaurantsData) {
     dispatch(setSituationRestaurants(situationRestaurantsData));
   }
@@ -42,7 +38,6 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
     <Container>
       <Link to={sortNumber ? '/home' : '/'}>
         <Buttons
-          // 버튼 색깔바뀌게하기
           type='button'
           onClick={() => handleClickUpdate(
             sortNumber ?
@@ -56,9 +51,8 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
         to='/home'
       >
         <Buttons
-          // 버튼 색깔바뀌게하기
           type='button'
-          onClick={() => handleClickUpdate(restaurants)}
+          onClick={() => handleClickUpdate([])}
         >
           건너뛰기
         </Buttons>
