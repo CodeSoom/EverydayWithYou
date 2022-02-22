@@ -17,7 +17,7 @@ const MenuBox = styled.div({
   padding: '36px 24px',
   '& h4': {
     marginBottom: '36px',
-    color: '#000',
+    color: '#0E0E0E',
   },
 });
 

@@ -11,31 +11,6 @@ import App from './App';
 jest.mock('react-redux');
 
 describe('App', () => {
-  const restaurants = [
-    {
-      "id": "10",
-      "name": "더다이닝랩",
-      "situation": "소개팅",
-      "age": "20대",
-      "place": "홍대/합정",
-      "category": "양식",
-      "priceRange": "3만원 이하",
-      "mood": "none",
-      "2nd-course": "none",
-    },
-    {
-      "id": "36",
-      "name": "보이어",
-      "situation": "데이트",
-      "age": "20대",
-      "place": "성수",
-      "category": "양식",
-      "priceRange": "3만원 이하",
-      "mood": "고급스러운",
-      "2nd-course": "none",
-    },
-  ];
-
   const dispatch = jest.fn();
 
   beforeEach(() => {
@@ -70,7 +45,7 @@ describe('App', () => {
   it('renders home page path to "/"', () => {
     const { container } = renderApp({ path: '/' });
 
-    expect(container).toHaveTextContent('알콩달콩 💕 놀러 가는 목적이 무엇인지 알려주세요 .');
+    expect(container).toHaveTextContent('놀러 가는 목적이 무엇인지 알려주세요 . 💕');
     expect(container).toHaveTextContent('코스를 알려드리는 여정이 시작됩니다 !');
   });
 

@@ -1,4 +1,3 @@
-// 관심사: 화면 구성과 스토어에서 기존 레스토랑 정보 스토어에 저장
 import { render } from '@testing-library/react';
 
 import { useDispatch, useSelector } from 'react-redux';

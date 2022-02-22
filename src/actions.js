@@ -88,7 +88,6 @@ export function setCategoryFilter(categoryValue) {
     const {
       restaurantsData,
       placeRestaurantsData,
-      filteredRestaurantsData,
     } = getState();
 
     function filterFromBase(restaurantsData, categoryValue) {
@@ -106,12 +105,9 @@ export function setCategoryFilter(categoryValue) {
     }
 
     function previously(
-      restaurantsData, placeRestaurantsData, filteredRestaurantsData, categoryValue,
+      restaurantsData, placeRestaurantsData, categoryValue,
     ) {
-      if (
-        placeRestaurantsData.length === 0 &&
-        filteredRestaurantsData.length === 0
-      ) { // 기존에 장소기준으로 솔팅된게 없다면?
+      if (placeRestaurantsData.length === 0) { // 기존에 장소기준으로 솔팅된게 없다면?
         return filterFromBase(restaurantsData, categoryValue)
       } else {
         return filterFromPlaceSorted(placeRestaurantsData, categoryValue)
@@ -119,7 +115,7 @@ export function setCategoryFilter(categoryValue) {
     }
 
     const filteredRestaurantsByCategory = previously(
-      restaurantsData, placeRestaurantsData, filteredRestaurantsData, categoryValue,
+      restaurantsData, placeRestaurantsData, categoryValue,
     );
 
     dispatch(filterRestaurantsByCategory(filteredRestaurantsByCategory, categoryValue))
@@ -132,7 +128,6 @@ export function setPlaceFilter(placeValue) {
     const {
       restaurantsData,
       categoryRestaurantsData,
-      filteredRestaurantsData,
     } = getState();
 
     function filterFromBase(restaurantsData, placeValue) {
@@ -150,12 +145,9 @@ export function setPlaceFilter(placeValue) {
     }
 
     function previously(
-      restaurantsData, categoryRestaurantsData, filteredRestaurantsData, placeValue,
+      restaurantsData, categoryRestaurantsData, placeValue,
     ) {
-      if (
-        categoryRestaurantsData.length === 0 &&
-        filteredRestaurantsData.length === 0
-      ) { // 기존에 음식기준으로 솔팅된게 없다면?
+      if (categoryRestaurantsData.length === 0) { // 기존에 음식기준으로 솔팅된게 없다면?
         return filterFromBase(restaurantsData, placeValue)
       } else {
         return filterFromCategorySorted(categoryRestaurantsData, placeValue)
@@ -163,7 +155,7 @@ export function setPlaceFilter(placeValue) {
     }
 
     const filteredRestaurantsByPlace = previously(
-      restaurantsData, categoryRestaurantsData, filteredRestaurantsData, placeValue,
+      restaurantsData, categoryRestaurantsData, placeValue,
     );
 
     dispatch(filterRestaurantsByPlace(filteredRestaurantsByPlace, placeValue))

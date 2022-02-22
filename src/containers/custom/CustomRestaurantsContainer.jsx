@@ -22,7 +22,7 @@ const Container = styled.div({
 });
 
 const RestaurantsList = styled.li({
-  color: '#000',
+  color: '#0E0E0E',
   fontSize: '24px',
 });
 

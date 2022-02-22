@@ -5,7 +5,8 @@ import { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import CustomFilterContainer from '../containers/custom/CustomFilterContainer';
+import CustomCategoryFilterContainer from '../containers/custom/CustomCategoryFilterContainer';
+import CustomPlaceFilterContainer from '../containers/custom/CustomPlaceFilterContainer';
 import CustomRestaurantsContainer from '../containers/custom/CustomRestaurantsContainer';
 
 import {
@@ -55,8 +56,8 @@ export default function CustomPage({ restaurants }) {
         <h2>어디 갈지 모르겠다구요? 👀</h2>
       </TitleBox>
       <FormBox>
-        <CustomFilterContainer
-        />
+        <CustomCategoryFilterContainer />
+        <CustomPlaceFilterContainer />
         <CustomRestaurantsContainer />
       </FormBox>
     </CustomPageLayout>
