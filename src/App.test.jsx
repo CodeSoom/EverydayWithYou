@@ -45,7 +45,7 @@ describe('App', () => {
   it('renders home page path to "/"', () => {
     const { container } = renderApp({ path: '/' });
 
-    expect(container).toHaveTextContent('알콩달콩 💕 놀러 가는 목적이 무엇인지 알려주세요 .');
+    expect(container).toHaveTextContent('놀러 가는 목적이 무엇인지 알려주세요 . 💕');
     expect(container).toHaveTextContent('코스를 알려드리는 여정이 시작됩니다 !');
   });
 

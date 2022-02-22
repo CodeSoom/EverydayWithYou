@@ -8,32 +8,38 @@ import {
   setSituationRestaurants,
 } from '../../actions';
 
+const Container = styled.div({
+  display: 'flex',
+});
+
 const Buttons = styled.button({
-  padding: '8px',
+  ':hover, :focus': {
+    backgroundColor: 'rgba(255, 145, 170, 0.5)',
+    color: '#fff',
+  },
+  padding: '12px 24px',
   margin: '4px',
-  borderRadius: '12px',
+  borderRadius: '20px',
+  fontSize: '18px',
 });
 
 export default function SituationSelectStartBtnContainer({ sortNumber }) {
   const dispatch = useDispatch();
 
-  // 상황별로 필터링된 데이터
   const situationRestaurantsData = useSelector((state) => (
     state.situationRestaurantsData
   ))
 
-  // 날것의 JSON데이터
   const restaurants = useSelector((state) => (
     state.restaurants
   ))
 
-  // 상황별 솔팅 => 필터링된 레스토랑 셋!
   function handleClickUpdate(situationRestaurantsData) {
     dispatch(setSituationRestaurants(situationRestaurantsData));
   }
 
   return (
-    <>
+    <Container>
       <Link to={sortNumber ? '/home' : '/'}>
         <Buttons
           // 버튼 색깔바뀌게하기
@@ -57,6 +63,6 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
           건너뛰기
         </Buttons>
       </Link>
-    </>
+    </Container>
   )
 }
