@@ -13,7 +13,7 @@ const CustomMenuBox = styled.div({
   display: 'flex',
   flexDirection: 'column',
   flexWrap: 'wrap',
-  padding: '4rem 2rem',
+  padding: '4rem 3rem',
 });
 
 const TitleBox = styled.div({
@@ -35,11 +35,12 @@ const MainBox = styled.div({
   alignItems: 'center',
 });
 
+// ToDo responsive 앱으로 할때 화면 너비에 따라 이미지나오는 갯수 다르게 하기
 const Background = styled.div({
   filter: 'blur(0.5rem) opacity(25%)',
   '& img': {
-    width: '11rem',
-    height: '11rem',
+    width: '10rem',
+    height: '10rem',
     margin: '1rem',
   },
 });

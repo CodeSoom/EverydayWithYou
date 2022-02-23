@@ -14,15 +14,15 @@ import {
 const SituationSelectPageLayout = styled.div({
   display: 'flex',
   flexDirection: 'column',
-  padding: '100px 0',
+  margin: '1.5rem 0',
 });
 
 const DecorateCircle = styled.div({
-  position: 'absolute',
-  zIndex: '-1',
   width: '640px',
   height: '640px',
   borderRadius: '320px',
+  position: 'absolute',
+  zIndex: '-1',
   left: '200px',
   top: '-166px',
   backgroundColor: '#F5F5F5',
@@ -33,12 +33,8 @@ const TitleBox = styled.div({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '0  36px',
   '& h2': {
-    marginBottom: '24px',
-  },
-  '& h4': {
-    paddingBottom: '24px',
+    marginBottom: '1.5rem',
   },
 });
 
@@ -48,7 +44,7 @@ const SelectBox = styled.div({
   alignItems: 'center',
   flexWrap: 'wrap',
   width: '100%',
-  padding: '4rem 2rem',
+  margin: '3rem 0',
 });
 
 const ConfirmBox = styled.div({
@@ -56,7 +52,6 @@ const ConfirmBox = styled.div({
   justifyContent: 'center',
   alignItems: 'center',
   flexWrap: 'wrap',
-  padding: '2rem',
 });
 
 export default function SituationSelectPage({ restaurants }) {

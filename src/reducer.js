@@ -103,7 +103,7 @@ const reducers = {
         selectedCategory: categoryValue,
         categoryColor: 'select',
         selectedPlace: '',
-        alert: '가고 싶으신 곳을 다시 선택해주세요 ! 😥',
+        alert: '가고 싶으신 곳을 다시 선택해주세요 !',
       }
     } else { // 위 해당사항이 없을때
       return {
@@ -150,7 +150,7 @@ const reducers = {
         selectedPlace: placeValue,
         placeColor: 'select',
         selectedCategory: '',
-        alert: '드시고 싶은 것을 다시 선택해주세요 ! 😥',
+        alert: '드시고 싶은 것을 다시 선택해주세요 !',
       }
     } else { // 위 해당사항이 없을때
       return {
