@@ -1,11 +1,13 @@
 import reducer from './reducer';
 
 import {
-  setRestaurantName,
   setRestaurants,
   filterRestaurantsBySituation,
   filterRestaurantsByCategory,
   filterRestaurantsByPlace,
+
+  setRestaurantName,
+
 } from './actions';
 
 jest.mock('react-redux');

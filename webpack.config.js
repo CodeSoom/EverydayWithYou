@@ -16,12 +16,8 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devServer: {
-    static: {
-      directory: path.resolve(__dirname),
-    }, //실제로 존재하는 정적 파일들의 경로
-    historyApiFallback: {
-      index: 'index.html',
-    },
+    contentBase: path.resolve(__dirname, 'dist'),
+    historyApiFallback: 'true',
     compress: true,
     port: 8080,
   },

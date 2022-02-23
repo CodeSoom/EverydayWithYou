@@ -33,15 +33,23 @@ const reducers = {
     }
   },
 
-  // 2. 상황별 솔팅 => 필터링된 레스토랑 셋!
-  setSituationRestaurants(state, { payload: { restaurantsData } }) {
+  // CustomPage: 최초 레스토랑 혹은 상황별로 솔팅된 레스토랑으로 업데이트
+  setRestaurantsData(state, { payload: { restaurantsData } }) {
     return {
       ...state,
       restaurantsData,
     }
   },
 
-  // 1. 상황별 솔팅 => 상황별 숫자로 필터된 레스토랑으로 업데이트
+  // SituationSelecPage: 2. 상황별 솔팅 => 필터링된 레스토랑 셋!
+  setSituationRestaurants(state, { payload: { situationRestaurantsData } }) {
+    return {
+      ...state,
+      situationRestaurantsData,
+    }
+  },
+
+  // SituationSelecPage: 1. 상황별 솔팅 => 숫자로 필터된 레스토랑으로 업데이트
   filterRestaurantsBySituation(state, { payload: { filteredRestaurantsBySituation, sortNumber } }) {
     const { situationRestaurantsData } = state;
 

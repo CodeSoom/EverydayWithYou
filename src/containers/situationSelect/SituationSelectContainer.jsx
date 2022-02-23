@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
@@ -11,7 +13,7 @@ const SelectBox1 = styled.button({
     filter: 'none',
     transform: 'scale(1.2, 1.2) rotate(5deg) !important',
     transition: 'all 0.35s',
-    color: '#000',
+    color: '#0E0E0E',
   },
   width: '30%',
   display: 'inline-block',
@@ -29,11 +31,13 @@ const SelectBox1 = styled.button({
   '& img': {
     width: '100%',
     height: 'auto',
-    paddingBottom: '1rem',
   },
   '& img:before': {
     position: 'absolute',
     transition: 'all 0.35s',
+  },
+  '& p': {
+    paddingTop: '2rem',
   },
 });
 
@@ -42,7 +46,7 @@ const SelectBox2 = styled.button({
     filter: 'none',
     transform: 'scale(1.2, 1.2) rotate(-5deg) !important',
     transition: 'all 0.35s',
-    color: '#000',
+    color: '#0E0E0E',
   },
   width: '25%',
   height: 'auto',
@@ -60,11 +64,13 @@ const SelectBox2 = styled.button({
   '& img': {
     width: '100%',
     height: 'auto',
-    paddingBottom: '1rem',
   },
   '& img:before': {
     position: 'absolute',
     transition: 'all 0.35s',
+  },
+  '& p': {
+    paddingTop: '2rem',
   },
 });
 
@@ -73,7 +79,7 @@ const SelectBox3 = styled.button({
     filter: 'none',
     transform: 'scale(1.2, 1.2) rotate(4deg) !important',
     transition: 'all 0.35s',
-    color: '#000',
+    color: '#0E0E0E',
   },
   width: '30%',
   display: 'inline-block',
@@ -90,11 +96,13 @@ const SelectBox3 = styled.button({
   '& img': {
     width: '100%',
     height: 'auto',
-    paddingBottom: '1rem',
   },
   '& img:before': {
     position: 'absolute',
     transition: 'all 0.35s',
+  },
+  '& p': {
+    paddingTop: '2rem',
   },
 });
 
@@ -120,7 +128,12 @@ export default function SituationSelectContainer() {
         }
       >
         <div>
-          <img src='assets/img/1.jpg' />
+          <LazyLoadImage
+            width={'100%'}
+            height={'100%'}
+            src={'assets/img/1.jpg'}
+            placeholderSrc={'assets/img/1.jpg'}
+          />
           <p>알아가는 그대와 : 소개팅, 썸</p>
         </div>
       </SelectBox1>
@@ -133,7 +146,12 @@ export default function SituationSelectContainer() {
         }
       >
         <div>
-          <img src='assets/img/2.jpg' />
+          <LazyLoadImage
+            width={'100%'}
+            height={'auto'}
+            src={'assets/img/2.jpg'}
+            placeholderSrc={'assets/img/2.jpg'}
+          />
           <p>일상 : 데이트</p>
         </div>
       </SelectBox2>
@@ -146,7 +164,12 @@ export default function SituationSelectContainer() {
         }
       >
         <div>
-          <img src='assets/img/3.jpg' />
+          <LazyLoadImage
+            width={'100%'}
+            height={'100%'}
+            src={'assets/img/3.jpg'}
+            placeholderSrc={'assets/img/3.jpg'}
+          />
           <p>특별한 날 : 생일, 기념일, 프로포즈</p>
         </div>
       </SelectBox3>

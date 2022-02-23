@@ -35,19 +35,6 @@ describe('SituationSelectStartBtnContainer', () => {
           "mood": "고급스러운",
           "2nd-course": "none",
         },
-      ],
-      selector.restaurants = [
-        {
-          "id": "36",
-          "name": "보이어",
-          "situation": "데이트",
-          "age": "20대",
-          "place": "성수",
-          "category": "양식",
-          "priceRange": "3만원 이하",
-          "mood": "고급스러운",
-          "2nd-course": "none",
-        },
       ]
     ));
   });
@@ -62,7 +49,7 @@ describe('SituationSelectStartBtnContainer', () => {
 
   context('when clicks "시작" button', () => {
     it('calls dispatch when get sortNumber with action: setSituationRestaurants to set restaurantsData', () => {
-      const restaurantsData = [
+      const situationRestaurantsData = [
         {
           "id": "36",
           "name": "보이어",
@@ -82,25 +69,13 @@ describe('SituationSelectStartBtnContainer', () => {
 
       expect(dispatch).toBeCalledWith({
         type: 'setSituationRestaurants',
-        payload: { restaurantsData },
+        payload: { situationRestaurantsData },
       });
     });
   });
 
   context('when clicks "건너뛰기" button', () => {
-    const restaurantsData = [
-      {
-        "id": "36",
-        "name": "보이어",
-        "situation": "데이트",
-        "age": "20대",
-        "place": "성수",
-        "category": "양식",
-        "priceRange": "3만원 이하",
-        "mood": "고급스러운",
-        "2nd-course": "none",
-      },
-    ];
+    const situationRestaurantsData = [];
 
     it('calls dispatch with action: setSituationRestaurants to set restaurantsData', () => {
       const { getByText } = renderSituationSelectStartBtnContainer();
@@ -109,7 +84,7 @@ describe('SituationSelectStartBtnContainer', () => {
 
       expect(dispatch).toBeCalledWith({
         type: 'setSituationRestaurants',
-        payload: { restaurantsData },
+        payload: { situationRestaurantsData },
       });
     });
   });
