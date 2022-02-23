@@ -65,7 +65,7 @@ describe('CustomRestaurantsContainer', () => {
     it('calls its argument with a non-null argument', () => {
       const { container } = renderCustomRestaurantsContainer();
 
-      expect(container).toHaveTextContent('가게이름');
+      expect(container).toHaveTextContent('고객님이 좋아할 음식점 추천');
 
       uniqRestaurants.map(restaurant => mock(restaurant))
       expect(mock).toBeCalledWith(

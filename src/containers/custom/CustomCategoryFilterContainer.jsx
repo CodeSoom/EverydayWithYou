@@ -9,7 +9,19 @@ import {
 } from '../../actions';
 
 const Container = styled.div({
-  marginRight: '24px',
+  height: '50%',
+});
+
+const TitleBox = styled.div({
+  marginBottom: '1rem',
+})
+
+const Alert = styled.div({
+  height: '1rem',
+  '& span': {
+    fontWeight: 'bold',
+    background: 'hsl(200 100% 90%)',
+  },
 });
 
 const Buttons = styled.button({
@@ -19,10 +31,6 @@ const Buttons = styled.button({
 });
 
 export default function CustomCategoryFilterContainer() {
-  const selectedCategory = useSelector((state) =>
-    (state.selectedCategory));
-  const categoryColor = useSelector((state) =>
-    (state.categoryColor));
   const restaurantsData = useSelector((state) =>
     (state.restaurantsData));
 
@@ -34,9 +42,24 @@ export default function CustomCategoryFilterContainer() {
     dispatch(setCategoryFilter(categoryValue));
   }
 
+  const selectedCategory = useSelector((state) =>
+    (state.selectedCategory));
+  const categoryColor = useSelector((state) =>
+    (state.categoryColor));
+  const alert = useSelector((state) =>
+    (state.alert));
+
   return (
     <Container>
-      <p>무엇을 드시고 싶으세요?</p>
+      <TitleBox>
+        <p>무엇을 드시고 싶으세요?</p>
+        <hr />
+        <Alert>
+          <span>
+            {alert === '드시고 싶은 것을 다시 선택해주세요 !' ? alert : ''}
+          </span>
+        </Alert>
+      </TitleBox>
       {uniqCategories.map((category) => (
         <Buttons
           type='button'

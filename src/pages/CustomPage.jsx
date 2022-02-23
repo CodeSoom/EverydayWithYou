@@ -1,6 +1,8 @@
 // 관심사: 화면 구성과 레스토랑 저장, 스토어에서 레스토랑 컨테이너에 뿌려주기
 import styled from '@emotion/styled';
 
+import { Link } from 'react-router-dom';
+
 import { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -15,16 +17,33 @@ import {
 
 const CustomPageLayout = styled.div({
   display: 'flex',
-  flexDirection: 'column',
-  padding: '48px 36px',
+  height: '100vh',
 });
 
 const TitleBox = styled.div({
-  marginBottom: '36px',
+  display: 'flex',
+  justifyContent: 'flex-start',
+  marginBottom: '3rem',
+  '& h4': {
+    fontWeight: '700',
+    color: '#0E0E0E',
+  },
+  '& span': {
+    marginRight: '0.5rem',
+    color: '#0E0E0E',
+  },
 });
 
-const FormBox = styled.div({
-  display: 'flex',
+const Container = styled.div({
+  padding: '4rem 3rem',
+  width: '50%',
+});
+
+const ResultRestaurants = styled.div({
+  padding: '4rem 3rem',
+  width: '50%',
+  backgroundColor: '#F5F5F5',
+  boxShadow: 'inset 0.5rem 0 5rem rgba(0,0,0,0.05)',
 });
 
 export default function CustomPage({ restaurants }) {
@@ -50,16 +69,30 @@ export default function CustomPage({ restaurants }) {
     dispatch(setRestaurantsData(restaurantsData));
   }, []);
 
+  const filteredRestaurantsData = useSelector((state) =>
+    (state.filteredRestaurantsData));
+
   return (
     <CustomPageLayout>
-      <TitleBox>
-        <h2>어디 갈지 모르겠다구요? 👀</h2>
-      </TitleBox>
-      <FormBox>
+      <Container>
+        <TitleBox>
+          <Link to='/home'>
+            <span className="material-icons">
+              arrow_back
+            </span>
+          </Link>
+          <h4>선택해주세요 !</h4>
+        </TitleBox>
         <CustomCategoryFilterContainer />
         <CustomPlaceFilterContainer />
-        <CustomRestaurantsContainer />
-      </FormBox>
+      </Container>
+      {filteredRestaurantsData.length !== 0 ?
+        <ResultRestaurants>
+          <CustomRestaurantsContainer />
+        </ResultRestaurants> :
+        <ResultRestaurants>
+        </ResultRestaurants>
+      }
     </CustomPageLayout>
   )
 }

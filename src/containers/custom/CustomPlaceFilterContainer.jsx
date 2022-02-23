@@ -9,7 +9,19 @@ import {
 } from '../../actions';
 
 const Container = styled.div({
-  marginRight: '24px',
+  height: '50%',
+});
+
+const TitleBox = styled.div({
+  marginBottom: '1rem',
+})
+
+const Alert = styled.div({
+  height: '1rem',
+  '& span': {
+    fontWeight: 'bold',
+    background: 'hsl(200 100% 90%)',
+  },
 });
 
 const Buttons = styled.button({
@@ -19,10 +31,6 @@ const Buttons = styled.button({
 });
 
 export default function CustomPlaceFilterContainer() {
-  const selectedPlace = useSelector((state) =>
-    (state.selectedPlace));
-  const placeColor = useSelector((state) =>
-    (state.placeColor));
   const restaurantsData = useSelector((state) =>
     (state.restaurantsData));
 
@@ -34,9 +42,24 @@ export default function CustomPlaceFilterContainer() {
     dispatch(setPlaceFilter(placeValue));
   }
 
+  const selectedPlace = useSelector((state) =>
+    (state.selectedPlace));
+  const placeColor = useSelector((state) =>
+    (state.placeColor));
+  const alert = useSelector((state) =>
+    (state.alert));
+
   return (
     <Container>
-      <p>어디로 가고 싶나요?</p>
+      <TitleBox>
+        <p>어디로 가고 싶나요?</p>
+        <hr />
+        <Alert>
+          <span>
+            {alert === '가고 싶으신 곳을 다시 선택해주세요 !' ? alert : ''}
+          </span>
+        </Alert>
+      </TitleBox>
       {uniqPlaces.map((place) => (
         <Buttons
           type="button"

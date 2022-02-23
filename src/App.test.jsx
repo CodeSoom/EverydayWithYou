@@ -58,7 +58,7 @@ describe('App', () => {
   it('renders board page path to "/custom"', () => {
     const { container } = renderApp({ path: '/custom' });
 
-    expect(container).toHaveTextContent('어디 갈지 모르겠다구요?');
+    expect(container).toHaveTextContent('선택해주세요 !');
   });
 
   it('renders board page path to "/post"', () => {

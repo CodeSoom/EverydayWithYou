@@ -9,43 +9,26 @@ import { Link } from 'react-router-dom';
 const Container = styled.div({
   display: 'flex',
   flexDirection: 'column',
-  width: '50%',
-  '& h2': {
-    textAlign: 'left',
-    marginBottom: '24px',
-  },
   '& h4': {
-    textAlign: 'left',
-    marginLeft: '36px',
-    fontSize: '24px',
+    fontWeight: '700',
+    color: '#0E0E0E',
+    marginBottom: '3rem',
   },
 });
 
 const RestaurantsList = styled.li({
   color: '#0E0E0E',
-  fontSize: '24px',
 });
 
 export default function CustomRestaurantsContainer() {
-  const categoryRestaurantsData = useSelector((state) =>
-    (state.categoryRestaurantsData));
-  const placeRestaurantsData = useSelector((state) =>
-    (state.placeRestaurantsData));
   const filteredRestaurantsData = useSelector((state) =>
     (state.filteredRestaurantsData));
-  const alert = useSelector((state) =>
-    (state.alert));
-
-  /* console.log(categoryRestaurantsData)
-  console.log(placeRestaurantsData)
-  console.log(filteredRestaurantsData)
-  console.log(alert) */
 
   const uniqRestaurants = uniqBy(filteredRestaurantsData, 'name');
 
   return (
     <Container>
-      <h2>👉🏻 가게이름</h2>
+      <h4>고객님이 좋아할 음식점 추천</h4>
       {
         uniqRestaurants.map((restaurant) => (
           <ul key={restaurant.id}>
