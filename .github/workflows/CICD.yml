@@ -35,7 +35,9 @@ jobs:
         run: npm run build
       
       - name: Copy index.html
-        run: cp index.html dist/index.html
+        run: |
+          cp index.html dist/index.html
+          cp dist/index.html dist/404.html
         
       - name: Copy css
         run: |
