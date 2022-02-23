@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="kr" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <title>👩‍❤️‍👨 With You</title>
+
+  <!--구글폰트 커스텀아이콘 링크-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- 여기서부터 사이드바 -->
+  <div class="p-3 text-white sidebar">
+    <div class="sidebar-title">
+      <a href="/home" class="text-white">
+        매일 그대와
+      </a>
+    </div>
+    <hr>
+
+    <div class="flex-column sidebar-menu">
+      <a href="/" class="nav-link">
+        <p class="material-icons">
+          favorite
+        </p>
+      </a>
+
+      <a href="/home" class="nav-link">
+        <div class="sidebar-menu-item">
+          <p>홈</p>
+          <p class="material-icons">home</p>
+        </div>
+      </a>
+
+      <a href="#" class="nav-link">
+        <div class="sidebar-menu-item">
+          <p>검색</p>
+          <p class="material-icons">search</p>
+        </div>
+      </a>
+
+      <a href="#" class="nav-link">
+        <div class="sidebar-menu-item">
+          <p>About</p>
+          <p class="material-icons">face</p>
+        </div>
+      </a>
+    </div>
+
+    <p class="sidebar-copyright">
+      © 2022 - Page by Superduper-India
+    </p>
+  </div>
+  <!-- 사이드바 끝 -->
+
+  <div id="app"></div>
+
+  <!-- Kakao api -->
+  <script type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8cbe20f536259f558e9b3a52f704bca0&libraries=services,clusterer,drawing">
+    </script>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>
