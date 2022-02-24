@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 
 import uniqBy from 'lodash.uniqby';
 
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-
 import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
@@ -21,14 +19,11 @@ const Container = styled.div({
 const RestaurantBox = styled.div({
   display: 'flex',
   padding: '1rem',
-});
-
-const Img = styled.div({
-  marginRight: '1rem',
   '& img': {
     width: '250px',
     height: '150px',
     objectFit: 'cover',
+    marginRight: '1.5rem',
   },
 });
 
@@ -37,7 +32,7 @@ const Contents = styled.div({
   flexDirection: 'column',
   justifyContent: 'space-between',
   color: '#0E0E0E',
-  '&h5': {
+  '& h5': {
     fontWeight: '700',
   },
   '& p': {
@@ -53,13 +48,6 @@ const Contents = styled.div({
     borderRadius: '20px',
     fontSize: '18px',
   },
-});
-
-const ContentsTop = styled.div({
-
-});
-const ContentsBtm = styled.div({
-
 });
 
 export default function CustomRestaurantsContainer() {
@@ -78,28 +66,22 @@ export default function CustomRestaurantsContainer() {
             >
               <li>
                 <RestaurantBox>
-                  <Img>
-                    <LazyLoadImage
-                      effect="blur"
-                      src={`${restaurant.img}`}
-                      placeholderSrc={`${restaurant.img}`}
-                    />
-                  </Img>
+                  <img src={`${restaurant.img}`} />
                   <Contents>
-                    <ContentsTop>
+                    <div>
                       <h5>{restaurant.name}</h5>
                       {`${restaurant.category} · ${restaurant.place}`}
                       <br />
                       <p>{restaurant.mood === "none" ?
                         '' : restaurant.mood
                       }</p>
-                    </ContentsTop>
-                    <ContentsBtm>
+                    </div>
+                    <div>
                       <button type='button'>
                         상세보기
                         <i className="material-icons">chevron_right</i>
                       </button>
-                    </ContentsBtm>
+                    </div>
                   </Contents>
                 </RestaurantBox>
               </li>
