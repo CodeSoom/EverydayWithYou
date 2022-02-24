@@ -16,8 +16,12 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
-    historyApiFallback: 'true',
+    static: {
+      directory: path.resolve(__dirname),
+    },
+    historyApiFallback: {
+      index: 'index.html',
+    },
     compress: true,
     port: 8080,
   },

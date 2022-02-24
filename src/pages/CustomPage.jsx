@@ -17,7 +17,6 @@ import {
 
 const CustomPageLayout = styled.div({
   display: 'flex',
-  height: '100vh',
 });
 
 const TitleBox = styled.div({
@@ -35,12 +34,15 @@ const TitleBox = styled.div({
 });
 
 const Container = styled.div({
+  height: '100vh',
   padding: '4rem 3rem',
   width: '50%',
+  position: 'sticky',
+  top: '0',
 });
 
 const ResultRestaurants = styled.div({
-  padding: '4rem 3rem',
+  overflow: 'hidden',
   width: '50%',
   backgroundColor: '#F5F5F5',
   boxShadow: 'inset 0.5rem 0 5rem rgba(0,0,0,0.05)',
