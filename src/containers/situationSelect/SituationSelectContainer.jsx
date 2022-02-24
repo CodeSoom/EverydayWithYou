@@ -15,7 +15,6 @@ const SelectBox1 = styled.button({
     transition: 'all 0.35s',
     color: '#0E0E0E',
   },
-  width: '30%',
   display: 'inline-block',
   margin: '1rem',
   filter: 'grayscale(100%)',
@@ -29,8 +28,9 @@ const SelectBox1 = styled.button({
     height: 'auto',
   },
   '& img': {
-    width: '100%',
-    height: 'auto',
+    width: '250px',
+    height: '250px',
+    objectFit: 'cover',
   },
   '& p': {
     paddingTop: '2rem',
@@ -44,7 +44,6 @@ const SelectBox2 = styled.button({
     transition: 'all 0.35s',
     color: '#0E0E0E',
   },
-  width: '25%',
   height: 'auto',
   display: 'inline-block',
   margin: '1rem',
@@ -58,8 +57,9 @@ const SelectBox2 = styled.button({
     boxShadow: '0 0.2rem 1.2rem rgba(0,0,0,0.2)',
   },
   '& img': {
-    width: '100%',
-    height: 'auto',
+    width: '250px',
+    height: '250px',
+    objectFit: 'cover',
   },
   '& p': {
     paddingTop: '2rem',
@@ -73,7 +73,6 @@ const SelectBox3 = styled.button({
     transition: 'all 0.35s',
     color: '#0E0E0E',
   },
-  width: '30%',
   display: 'inline-block',
   margin: '1rem',
   filter: 'grayscale(100%)',
@@ -86,8 +85,9 @@ const SelectBox3 = styled.button({
     boxShadow: '0 0.2rem 1.2rem rgba(0,0,0,0.2)',
   },
   '& img': {
-    width: '100%',
-    height: 'auto',
+    width: '250px',
+    height: '250px',
+    objectFit: 'cover',
   },
   '& p': {
     paddingTop: '2rem',
@@ -117,8 +117,8 @@ export default function SituationSelectContainer() {
       >
         <div>
           <LazyLoadImage
-            width='100%'
-            height='auto'
+            width='250px'
+            height='250px'
             src='assets/img/1.jpg'
             placeholderSrc='assets/img/grey.jpg'
           />
@@ -135,8 +135,8 @@ export default function SituationSelectContainer() {
       >
         <div>
           <LazyLoadImage
-            width='100%'
-            height='auto'
+            width='250px'
+            height='250px'
             src='assets/img/2.jpg'
             placeholderSrc='assets/img/grey.jpg'
           />
@@ -153,8 +153,8 @@ export default function SituationSelectContainer() {
       >
         <div>
           <LazyLoadImage
-            width='100%'
-            height='auto'
+            width='250px'
+            height='250px'
             src='assets/img/3.jpg'
             placeholderSrc='assets/img/grey.jpg'
           />
