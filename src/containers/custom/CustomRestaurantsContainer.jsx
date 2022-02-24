@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 
 import uniqBy from 'lodash.uniqby';
 
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
@@ -12,12 +14,52 @@ const Container = styled.div({
   '& h4': {
     fontWeight: '700',
     color: '#0E0E0E',
-    marginBottom: '3rem',
+    padding: '4rem 3rem',
   },
 });
 
-const RestaurantsList = styled.li({
+const RestaurantBox = styled.div({
+  display: 'flex',
+  padding: '1rem',
+});
+
+const Img = styled.div({
+  marginRight: '1rem',
+  '& img': {
+    width: '250px',
+    height: '150px',
+    objectFit: 'cover',
+  },
+});
+
+const Contents = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
   color: '#0E0E0E',
+  '&h5': {
+    fontWeight: '700',
+  },
+  '& p': {
+    color: '#595959',
+    fontWeight: '700',
+  },
+  '& button': {
+    display: 'flex',
+    alignItems: 'center',
+    backgroundColor: '#E77591',
+    color: '#fff',
+    padding: '12px 24px',
+    borderRadius: '20px',
+    fontSize: '18px',
+  },
+});
+
+const ContentsTop = styled.div({
+
+});
+const ContentsBtm = styled.div({
+
 });
 
 export default function CustomRestaurantsContainer() {
@@ -25,10 +67,6 @@ export default function CustomRestaurantsContainer() {
     (state.filteredRestaurantsData));
 
   const uniqRestaurants = uniqBy(filteredRestaurantsData, 'name');
-  console.log(uniqRestaurants)
-
-  uniqRestaurants.map((restaurant) =>
-    console.log(restaurant.img));
 
   return (
     <Container>
@@ -38,9 +76,33 @@ export default function CustomRestaurantsContainer() {
           <ul key={restaurant.id}>
             <Link to={`/map/${restaurant.name}`}
             >
-              <RestaurantsList>
-                {restaurant.name}
-              </RestaurantsList>
+              <li>
+                <RestaurantBox>
+                  <Img>
+                    <LazyLoadImage
+                      effect="blur"
+                      src={`${restaurant.img}`}
+                      placeholderSrc={`${restaurant.img}`}
+                    />
+                  </Img>
+                  <Contents>
+                    <ContentsTop>
+                      <h5>{restaurant.name}</h5>
+                      {`${restaurant.category} · ${restaurant.place}`}
+                      <br />
+                      <p>{restaurant.mood === "none" ?
+                        '' : restaurant.mood
+                      }</p>
+                    </ContentsTop>
+                    <ContentsBtm>
+                      <button type='button'>
+                        상세보기
+                        <i className="material-icons">chevron_right</i>
+                      </button>
+                    </ContentsBtm>
+                  </Contents>
+                </RestaurantBox>
+              </li>
             </Link>
           </ul>
         ))

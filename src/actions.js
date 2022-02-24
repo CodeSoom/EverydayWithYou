@@ -1,7 +1,3 @@
-import {
-  fetchImgs,
-} from '../services/api';
-
 // SituationSelectPage: 최초 레스토랑 JSON데이터 셋!
 export function setRestaurants(restaurants) {
   return {
@@ -179,15 +175,6 @@ export function setPlaceFilter(placeValue) {
     dispatch(filterRestaurantsByPlace(filteredRestaurantsByPlace, placeValue))
   }
 }
-
-export function loadRestaurantsImg(searchWord) {
-  return async (dispatch) => {
-    const imgs = await fetchImgs(searchWord);
-
-    //dispatch(setImgs(imgs));
-  };
-}
-
 
 
 // ToDo delete
