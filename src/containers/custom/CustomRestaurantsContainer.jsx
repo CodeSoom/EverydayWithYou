@@ -25,6 +25,10 @@ export default function CustomRestaurantsContainer() {
     (state.filteredRestaurantsData));
 
   const uniqRestaurants = uniqBy(filteredRestaurantsData, 'name');
+  console.log(uniqRestaurants)
+
+  uniqRestaurants.map((restaurant) =>
+    console.log(restaurant.img));
 
   return (
     <Container>
