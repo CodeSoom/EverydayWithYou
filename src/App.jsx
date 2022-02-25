@@ -8,7 +8,7 @@ import SituationSelectPage from './pages/SituationSelectPage';
 import HomePage from './pages/HomePage';
 import CustomPage from './pages/CustomPage';
 import PostPage from './pages/PostPage';
-import MapPage from './pages/MapPage';
+import RestaurantsPage from './pages/RestaurantsPage';
 
 import restaurants from '../assets/json/restaurants.json';
 
@@ -19,21 +19,20 @@ export default function App() {
         <Route path="/" element={
           <SituationSelectPage
             restaurants={restaurants}
-          />} />
-        <Route path="/home" element={
-          <HomePage
-          />} />
+          />}
+        />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/custom" element={
           <CustomPage
             restaurants={restaurants}
-          />} />
+          />}
+        />
         <Route path="/post" element={
           <PostPage
             restaurants={restaurants}
-          />} />
-        <Route path="/map/:name" element={
-          <MapPage
-          />} />
+          />}
+        />
+        <Route path="/restaurants/:name" element={<RestaurantsPage />} />
       </Routes>
     </>
   )

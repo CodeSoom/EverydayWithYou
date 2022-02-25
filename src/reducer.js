@@ -16,6 +16,14 @@ const initialState = {
   placeColor: '',
   alter: '',
 
+  // 지도 중심좌표 저장
+  placePosition: {
+    lat: 37.566826,
+    lon: 126.9786567,
+  },
+  resultRestaurants: [],
+
+  // ToDo revision
   value: '',
   newId: 100,
   restaurant: {
@@ -46,6 +54,14 @@ const reducers = {
     return {
       ...state,
       situationRestaurantsData,
+    }
+  },
+
+  // RestaurantsPage: 검색결과 객체 셋
+  setResultRestaurants(state, { payload: { placeResult } }) {
+    return {
+      ...state,
+      resultRestaurants: placeResult,
     }
   },
 

@@ -22,6 +22,14 @@ export function setSituationRestaurants(situationRestaurantsData) {
   }
 }
 
+// RestaurantsPage: 검색결과 객체 셋
+export function setResultRestaurants(placeResult) {
+  return {
+    type: 'setResultRestaurants',
+    payload: { placeResult },
+  }
+}
+
 // SituationSelecPage: 1. 상황별 솔팅 => 숫자로 필터된 레스토랑으로 업데이트
 export function filterRestaurantsBySituation(filteredRestaurantsBySituation, sortNumber) {
   return {
@@ -173,6 +181,44 @@ export function setPlaceFilter(placeValue) {
     );
 
     dispatch(filterRestaurantsByPlace(filteredRestaurantsByPlace, placeValue))
+  }
+}
+
+export function loadSearchResult(restaurantName, map, kakao) {
+  return (dispatch) => {
+    new kakao.maps.services.Places().keywordSearch(restaurantName, placesSearchCB);
+
+    function placesSearchCB(result, status) {
+      if (status === kakao.maps.services.Status.OK) {
+        resultRestaurants(result);
+
+        for (let i = 0; i < result.length; i++) {
+          const placePosition = new kakao.maps.LatLng(result[i].y, result[i].x);
+          resultMap(placePosition, i)
+        }
+
+      } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+        alert('검색 결과가 존재하지 않습니다.');
+        return;
+      } else if (status === kakao.maps.services.Status.ERROR) {
+        alert('검색 결과 중 오류가 발생했습니다.');
+        return;
+      }
+    }
+
+    // 가게이름 검색결과 장소검색 객체 셋
+    function resultRestaurants(placeResult) {
+      dispatch(setResultRestaurants(placeResult))
+    }
+
+    // 가게이름 검색결과 맵에 표시
+    function resultMap(placePosition) {
+      map.setCenter(placePosition);
+      new kakao.maps.Marker({
+        map: map,
+        position: placePosition,
+      });
+    }
   }
 }
 

@@ -31,8 +31,8 @@ const Contents = styled.div({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  color: '#0E0E0E',
   '& h5': {
+    color: '#0E0E0E',
     fontWeight: '700',
   },
   '& p': {
@@ -62,30 +62,33 @@ export default function CustomRestaurantsContainer() {
       {
         uniqRestaurants.map((restaurant) => (
           <ul key={restaurant.id}>
-            <Link to={`/map/${restaurant.name}`}
-            >
-              <li>
-                <RestaurantBox>
+            <li>
+              <RestaurantBox>
+                <Link to={`/restaurants/${restaurant.name}`}>
                   <img src={`${restaurant.img}`} />
-                  <Contents>
-                    <div>
+                </Link>
+                <Contents>
+                  <div>
+                    <Link to={`/restaurants/${restaurant.name}`}>
                       <h5>{restaurant.name}</h5>
-                      {`${restaurant.category} · ${restaurant.place}`}
-                      <br />
-                      <p>{restaurant.mood === "none" ?
-                        '' : restaurant.mood
-                      }</p>
-                    </div>
-                    <div>
+                    </Link>
+                    {`${restaurant.category} · ${restaurant.place}`}
+                    <br />
+                    <p>{restaurant.mood === "none" ?
+                      '' : restaurant.mood
+                    }</p>
+                  </div>
+                  <div>
+                    <Link to={`/restaurants/${restaurant.name}`}>
                       <button type='button'>
                         상세보기
                         <i className="material-icons">chevron_right</i>
                       </button>
-                    </div>
-                  </Contents>
-                </RestaurantBox>
-              </li>
-            </Link>
+                    </Link>
+                  </div>
+                </Contents>
+              </RestaurantBox>
+            </li>
           </ul>
         ))
       }
