@@ -9,7 +9,7 @@ import {
 
 import {
   filter,
-} from '../services/__mocks__/method';
+} from '../../__mocks__/method';
 
 import CustomPage from './CustomPage';
 
@@ -25,8 +25,8 @@ describe('CustomPage', () => {
       "place": "마포구/홍대/합정",
       "category": "양식",
       "priceRange": "3만원 이하",
-      "mood": "none",
-      "2nd-course": "none",
+      "mood": null,
+      "2nd-course": null,
     },
     {
       "id": "36",
@@ -37,7 +37,7 @@ describe('CustomPage', () => {
       "category": "양식",
       "priceRange": "3만원 이하",
       "mood": "고급스러운",
-      "2nd-course": "none",
+      "2nd-course": null,
     },
   ];
 
@@ -58,8 +58,8 @@ describe('CustomPage', () => {
           "place": "마포구/홍대/합정",
           "category": "양식",
           "priceRange": "3만원 이하",
-          "mood": "none",
-          "2nd-course": "none",
+          "mood": null,
+          "2nd-course": null,
         },
       ]));
   });
@@ -92,8 +92,8 @@ describe('CustomPage', () => {
         "place": "마포구/홍대/합정",
         "category": "양식",
         "priceRange": "3만원 이하",
-        "mood": "none",
-        "2nd-course": "none",
+        "mood": null,
+        "2nd-course": null,
       },
     ];
 

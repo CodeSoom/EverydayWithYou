@@ -16,7 +16,7 @@ export function createKakaoBtn() {
       objectType: 'feed',
       content: {
         title: `${restaurant.name} | ${restaurant.category} · ${restaurant.place}`,
-        description: `#${restaurant.mood ? restaurant.mood : ''}`,
+        description: `${restaurant.mood === null ? '' : `#${restaurant.mood}`}`,
         imageUrl: `${restaurant.img}`,
         link: {
           mobileWebUrl: `https://superduper-india.codesoom.com/restaurants/${restaurant.name}`,

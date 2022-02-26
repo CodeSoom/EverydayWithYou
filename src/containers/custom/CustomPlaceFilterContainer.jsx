@@ -70,7 +70,7 @@ export default function CustomPlaceFilterContainer() {
               placeColor : ''
           }
         >
-          #{place.place}
+          {place.place}
         </Buttons>
       ))}
     </Container>

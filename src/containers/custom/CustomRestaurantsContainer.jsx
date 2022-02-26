@@ -87,8 +87,8 @@ export default function CustomRestaurantsContainer() {
                     </a>
                     {`${restaurant.category} · ${restaurant.place}`}
                     <br />
-                    <p>{restaurant.mood === "none" ?
-                      '' : restaurant.mood
+                    <p>{restaurant.mood === null ?
+                      '' : `#${restaurant.mood}`
                     }</p>
                   </div>
                   <div>

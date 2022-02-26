@@ -70,7 +70,7 @@ export default function CustomCategoryFilterContainer() {
               categoryColor : ''
           }
         >
-          #{category.category}
+          {category.category}
         </Buttons>
       ))}
     </Container>

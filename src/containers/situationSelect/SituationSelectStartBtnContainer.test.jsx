@@ -33,7 +33,7 @@ describe('SituationSelectStartBtnContainer', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": "none",
+          "2nd-course": null,
         },
       ]
     ));
@@ -59,7 +59,7 @@ describe('SituationSelectStartBtnContainer', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": "none",
+          "2nd-course": null,
         },
       ];
 

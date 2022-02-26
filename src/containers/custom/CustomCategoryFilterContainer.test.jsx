@@ -35,8 +35,8 @@ describe('CustomCategoryFilterContainer', () => {
           "place": "마포구/홍대/합정",
           "category": "양식",
           "priceRange": "3만원 이하",
-          "mood": "none",
-          "2nd-course": "none",
+          "mood": null,
+          "2nd-course": null,
         },
         {
           "id": "36",
@@ -47,7 +47,7 @@ describe('CustomCategoryFilterContainer', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": "none",
+          "2nd-course": null,
         },
       ],
       selector.restaurantsData = [
@@ -59,8 +59,8 @@ describe('CustomCategoryFilterContainer', () => {
           "place": "마포구/홍대/합정",
           "category": "양식",
           "priceRange": "3만원 이하",
-          "mood": "none",
-          "2nd-course": "none",
+          "mood": null,
+          "2nd-course": null,
         },
         {
           "id": "36",
@@ -71,7 +71,7 @@ describe('CustomCategoryFilterContainer', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": "none",
+          "2nd-course": null,
         },
         {
           "id": "21",
@@ -82,7 +82,7 @@ describe('CustomCategoryFilterContainer', () => {
           "category": "이탈리안",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": "none",
+          "2nd-course": null,
         },
         {
           "id": "17",
@@ -93,7 +93,7 @@ describe('CustomCategoryFilterContainer', () => {
           "category": "인도음식",
           "priceRange": "3만원 이하",
           "mood": "캐주얼한",
-          "2nd-course": "none",
+          "2nd-course": null,
         },
       ]
     ));
@@ -115,8 +115,8 @@ describe('CustomCategoryFilterContainer', () => {
         "place": "마포구/홍대/합정",
         "category": "양식",
         "priceRange": "3만원 이하",
-        "mood": "none",
-        "2nd-course": "none",
+        "mood": null,
+        "2nd-course": null,
       },
       {
         "id": "36",
@@ -127,7 +127,7 @@ describe('CustomCategoryFilterContainer', () => {
         "category": "양식",
         "priceRange": "3만원 이하",
         "mood": "고급스러운",
-        "2nd-course": "none",
+        "2nd-course": null,
       },
       {
         "id": "21",
@@ -138,7 +138,7 @@ describe('CustomCategoryFilterContainer', () => {
         "category": "이탈리안",
         "priceRange": "3만원 이하",
         "mood": "고급스러운",
-        "2nd-course": "none",
+        "2nd-course": null,
       },
       {
         "id": "17",
@@ -149,7 +149,7 @@ describe('CustomCategoryFilterContainer', () => {
         "category": "인도음식",
         "priceRange": "3만원 이하",
         "mood": "캐주얼한",
-        "2nd-course": "none",
+        "2nd-course": null,
       },
     ]
 
@@ -165,13 +165,13 @@ describe('CustomCategoryFilterContainer', () => {
     });
   });
 
-  context('when click "#양식" tag', () => {
+  context('when click "양식" tag', () => {
     it('calls dispatch with action : setCategoryFilter', () => {
       const { getByText } = renderCustomFilterContainer();
 
-      expect(getByText('#양식')).toBeInTheDocument();
+      expect(getByText('양식')).toBeInTheDocument();
 
-      fireEvent.click(getByText('#양식'));
+      fireEvent.click(getByText('양식'));
 
       expect(dispatch).toBeCalled();
     });
