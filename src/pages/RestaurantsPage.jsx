@@ -8,15 +8,16 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import RestaurantsDetailContainer from '../containers/restaurants/RestaurantsDetailContainer';
 
+import { createMap } from '../utils';
+
 import {
   loadResultRestaurants,
 } from '../actions';
 
 const RestaurantsPageLayout = styled.div({
-
 });
 
-const Mapbox = styled.div({
+const Map = styled.div({
   width: '400px',
   height: '328px',
   position: 'relative',
@@ -30,24 +31,14 @@ export default function RestaurantsPage({ params }) {
 
   const { lat, lon } = useSelector((state) => state.placePosition);
 
-  const { kakao } = window;
-
   useEffect(() => {
-    const container = document.getElementById('map');
-
-    const options = {
-      center: new kakao.maps.LatLng(lat, lon),
-      level: 3,
-    };
-
-    const map = new kakao.maps.Map(container, options);
-
-    dispatch(loadResultRestaurants(name, kakao, map));
+    const map = createMap(lat, lon)
+    dispatch(loadResultRestaurants(name, map));
   }, []);
 
   return (
     <RestaurantsPageLayout>
-      <Mapbox id="map"></Mapbox>
+      <Map id="map"></Map>
       <RestaurantsDetailContainer />
     </RestaurantsPageLayout>
   )

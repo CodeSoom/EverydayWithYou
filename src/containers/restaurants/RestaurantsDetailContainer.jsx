@@ -1,6 +1,8 @@
 // import styled from '@emotion/styled';
 
-import { useSelector } from "react-redux"
+import { useSelector } from 'react-redux';
+
+import KakaoShareBtn from '../../components/KakaoShareBtn';
 
 export default function RestaurantsDetailContainer() {
   const filteredPlaceResult = useSelector((state) => state.filteredPlaceResult);
@@ -15,8 +17,9 @@ export default function RestaurantsDetailContainer() {
       <button
         type='button'
         onClick={() => handleClick(place_url)}>
-        지도에서 보기
+        카카오맵에서 보기
       </button>
+      <KakaoShareBtn />
     </>
   )
 }
