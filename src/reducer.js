@@ -58,16 +58,7 @@ const reducers = {
   },
 
   // RestaurantsPage: 검색결과 객체 셋
-  setResultRestaurants(state, { payload: { placeResult, placeName } }) {
-    function sort(placeName) {
-      for (const keyword of placeName) {
-        return placeResult.find(result =>
-          result.address_name.includes(keyword),
-        );
-      }
-    }
-
-    const filteredPlaceResult = sort(placeName);
+  setResultRestaurants(state, { payload: { filteredPlaceResult } }) {
     const { y, x } = filteredPlaceResult;
 
     return {

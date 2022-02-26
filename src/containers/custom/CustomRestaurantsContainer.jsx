@@ -60,7 +60,7 @@ export default function CustomRestaurantsContainer() {
     const selectedRestaurant = uniqRestaurants.filter(restaurant =>
       restaurant.name === restaurantName,
     );
-    saveItem('selectedRestaurant', JSON.stringify(selectedRestaurant));
+    saveItem('selectedRestaurant', JSON.stringify(selectedRestaurant)); // 배열형식 저장
   }
 
   return (

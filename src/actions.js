@@ -25,10 +25,10 @@ export function setSituationRestaurants(situationRestaurantsData) {
 }
 
 // RestaurantsPage: 검색결과 객체 셋
-export function setResultRestaurants(placeResult, placeName) {
+export function setResultRestaurants(filteredPlaceResult) {
   return {
     type: 'setResultRestaurants',
-    payload: { placeResult, placeName },
+    payload: { filteredPlaceResult },
   }
 }
 
@@ -193,14 +193,20 @@ export function loadResultRestaurants(restaurantName, kakao, map) {
 
     function placesSearchCB(result, status) {
       if (status === kakao.maps.services.Status.OK) {
-        const placePosition = new kakao.maps.LatLng(result[0].y, result[0].x)
-        resultMap(placePosition)
+        const selectedRestaurant = JSON.parse(loadItem(('selectedRestaurant'))); // 저장된 배열형식 출력
+        const placeName = selectedRestaurant[0].place.split(/[/]/i);
 
-        const selectedRestaurant = loadItem(('selectedRestaurant'));
-        const placeName = JSON.parse(selectedRestaurant)[0].place.split(/[/]/i);
-        console.log(placeName)
+        for (const keyword of placeName) {
+          const filteredPlaceResult = result.find(result =>
+            result.address_name.includes(keyword),
+          );
+          if (filteredPlaceResult) {
+            const placePosition = new kakao.maps.LatLng(filteredPlaceResult.y, filteredPlaceResult.x)
+            resultMap(placePosition);
+            resultRestaurants(filteredPlaceResult);
+          }
+        }
 
-        resultRestaurants(result, placeName);
       } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
         alert('검색 결과가 존재하지 않습니다.');
         return;
@@ -210,11 +216,6 @@ export function loadResultRestaurants(restaurantName, kakao, map) {
       }
     }
 
-    // 가게이름 검색결과 장소검색 객체 셋
-    function resultRestaurants(placeResult, placeName) {
-      dispatch(setResultRestaurants(placeResult, placeName))
-    }
-
     // 가게이름 검색결과 맵에 마커표시
     function resultMap(placePosition) {
       map.setCenter(placePosition);
@@ -222,6 +223,11 @@ export function loadResultRestaurants(restaurantName, kakao, map) {
         map: map,
         position: placePosition,
       });
+    }
+
+    // 가게이름 검색결과 장소검색 객체 셋
+    function resultRestaurants(filteredPlaceResult) {
+      dispatch(setResultRestaurants(filteredPlaceResult))
     }
   }
 }

@@ -4,8 +4,7 @@ import { useSelector } from "react-redux"
 
 export default function RestaurantsDetailContainer() {
   const filteredPlaceResult = useSelector((state) => state.filteredPlaceResult);
-  const { place_url } = filteredPlaceResult
-  console.log(filteredPlaceResult)
+  const place_url = filteredPlaceResult.place_url
 
   function handleClick(place_url) {
     window.location.assign(`${place_url}`)
