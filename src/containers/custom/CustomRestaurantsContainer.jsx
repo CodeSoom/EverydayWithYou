@@ -4,7 +4,7 @@ import uniqBy from 'lodash.uniqby';
 
 import { useSelector } from 'react-redux';
 
-import { Link } from 'react-router-dom';
+import { saveItem } from '../../services/storage';
 
 const Container = styled.div({
   display: 'flex',
@@ -56,6 +56,13 @@ export default function CustomRestaurantsContainer() {
 
   const uniqRestaurants = uniqBy(filteredRestaurantsData, 'name');
 
+  function handleClickRestaurant(restaurantName) {
+    const selectedRestaurant = uniqRestaurants.filter(restaurant =>
+      restaurant.name === restaurantName,
+    );
+    saveItem('selectedRestaurant', JSON.stringify(selectedRestaurant));
+  }
+
   return (
     <Container>
       <h4>고객님이 좋아할 음식점 추천</h4>
@@ -64,14 +71,20 @@ export default function CustomRestaurantsContainer() {
           <ul key={restaurant.id}>
             <li>
               <RestaurantBox>
-                <Link to={`/restaurants/${restaurant.name}`}>
+                <a
+                  href={`/restaurants/${restaurant.name}`}
+                  onClick={() => handleClickRestaurant(restaurant.name)}
+                >
                   <img src={`${restaurant.img}`} />
-                </Link>
+                </a>
                 <Contents>
                   <div>
-                    <Link to={`/restaurants/${restaurant.name}`}>
+                    <a
+                      href={`/restaurants/${restaurant.name}`}
+                      onClick={() => handleClickRestaurant(restaurant.name)}
+                    >
                       <h5>{restaurant.name}</h5>
-                    </Link>
+                    </a>
                     {`${restaurant.category} · ${restaurant.place}`}
                     <br />
                     <p>{restaurant.mood === "none" ?
@@ -79,12 +92,15 @@ export default function CustomRestaurantsContainer() {
                     }</p>
                   </div>
                   <div>
-                    <Link to={`/restaurants/${restaurant.name}`}>
+                    <a
+                      href={`/restaurants/${restaurant.name}`}
+                      onClick={() => handleClickRestaurant(restaurant.name)}
+                    >
                       <button type='button'>
                         상세보기
                         <i className="material-icons">chevron_right</i>
                       </button>
-                    </Link>
+                    </a>
                   </div>
                 </Contents>
               </RestaurantBox>

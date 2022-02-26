@@ -32,7 +32,7 @@ describe('CustomPlaceFilterContainer', () => {
           "name": "갈리나데이지",
           "situation": "썸",
           "age": "20대",
-          "place": "광화문/종로",
+          "place": "종로구",
           "category": "이탈리안",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
@@ -43,7 +43,7 @@ describe('CustomPlaceFilterContainer', () => {
           "name": "고가빈커리하우스",
           "situation": "소개팅",
           "age": "30대",
-          "place": "광화문/종로",
+          "place": "종로구",
           "category": "인도음식",
           "priceRange": "3만원 이하",
           "mood": "캐주얼한",
@@ -56,7 +56,7 @@ describe('CustomPlaceFilterContainer', () => {
           "name": "더다이닝랩",
           "situation": "소개팅",
           "age": "20대",
-          "place": "홍대/합정",
+          "place": "마포구/홍대/합정",
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "none",
@@ -78,7 +78,7 @@ describe('CustomPlaceFilterContainer', () => {
           "name": "갈리나데이지",
           "situation": "썸",
           "age": "20대",
-          "place": "광화문/종로",
+          "place": "종로구",
           "category": "이탈리안",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
@@ -89,7 +89,7 @@ describe('CustomPlaceFilterContainer', () => {
           "name": "고가빈커리하우스",
           "situation": "소개팅",
           "age": "30대",
-          "place": "광화문/종로",
+          "place": "종로구",
           "category": "인도음식",
           "priceRange": "3만원 이하",
           "mood": "캐주얼한",
@@ -112,7 +112,7 @@ describe('CustomPlaceFilterContainer', () => {
         "name": "더다이닝랩",
         "situation": "소개팅",
         "age": "20대",
-        "place": "홍대/합정",
+        "place": "마포구/홍대/합정",
         "category": "양식",
         "priceRange": "3만원 이하",
         "mood": "none",
@@ -134,7 +134,7 @@ describe('CustomPlaceFilterContainer', () => {
         "name": "갈리나데이지",
         "situation": "썸",
         "age": "20대",
-        "place": "광화문/종로",
+        "place": "종로구",
         "category": "이탈리안",
         "priceRange": "3만원 이하",
         "mood": "고급스러운",
@@ -145,7 +145,7 @@ describe('CustomPlaceFilterContainer', () => {
         "name": "고가빈커리하우스",
         "situation": "소개팅",
         "age": "30대",
-        "place": "광화문/종로",
+        "place": "종로구",
         "category": "인도음식",
         "priceRange": "3만원 이하",
         "mood": "캐주얼한",
@@ -164,13 +164,13 @@ describe('CustomPlaceFilterContainer', () => {
     });
   });
 
-  context('when click "#광화문/종로" tag', () => {
+  context('when click "#종로구" tag', () => {
     it('calls dispatch with action : setPlaceFilter', () => {
       const { getByText } = renderCustomFilterContainer();
 
-      expect(getByText('#광화문/종로')).toBeInTheDocument();
+      expect(getByText('#종로구')).toBeInTheDocument();
 
-      fireEvent.click(getByText('#광화문/종로'))
+      fireEvent.click(getByText('#종로구'))
 
       expect(dispatch).toBeCalled();
     });

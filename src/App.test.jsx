@@ -26,7 +26,7 @@ describe('App', () => {
           "name": "더다이닝랩",
           "situation": "소개팅",
           "age": "20대",
-          "place": "홍대/합정",
+          "place": "마포구/홍대/합정",
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "none",
@@ -67,10 +67,11 @@ describe('App', () => {
     expect(container).toHaveTextContent('나만 알던 맛집을 소개해주세요!');
   });
 
-  // ToDo 테스트코드 작성
-  /* it('renders board page path to "/map/:name"', () => {
-    const { container } = renderApp({ path: '/map/:name' });
+  // ToDo 테스트 구현
+  /* it('renders restaurants page path to "/restaurants/:name"', () => {
+    const { container } = renderApp({ path: '/restaurants/:name' });
 
-    expect(container).toHaveTextContent('');
+    expect(options).toBeInTheDocument();
+    expect(map).toBeInTheDocument();
   }); */
 });

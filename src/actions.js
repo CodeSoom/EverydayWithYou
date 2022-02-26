@@ -1,3 +1,5 @@
+import { loadItem } from './services/storage';
+
 // SituationSelectPage: 최초 레스토랑 JSON데이터 셋!
 export function setRestaurants(restaurants) {
   return {
@@ -23,10 +25,10 @@ export function setSituationRestaurants(situationRestaurantsData) {
 }
 
 // RestaurantsPage: 검색결과 객체 셋
-export function setResultRestaurants(placeResult) {
+export function setResultRestaurants(placeResult, placeName) {
   return {
     type: 'setResultRestaurants',
-    payload: { placeResult },
+    payload: { placeResult, placeName },
   }
 }
 
@@ -184,19 +186,21 @@ export function setPlaceFilter(placeValue) {
   }
 }
 
-export function loadSearchResult(restaurantName, map, kakao) {
+// 결과 레스토랑 목록
+export function loadResultRestaurants(restaurantName, kakao, map) {
   return (dispatch) => {
     new kakao.maps.services.Places().keywordSearch(restaurantName, placesSearchCB);
 
     function placesSearchCB(result, status) {
       if (status === kakao.maps.services.Status.OK) {
-        resultRestaurants(result);
+        const placePosition = new kakao.maps.LatLng(result[0].y, result[0].x)
+        resultMap(placePosition)
 
-        for (let i = 0; i < result.length; i++) {
-          const placePosition = new kakao.maps.LatLng(result[i].y, result[i].x);
-          resultMap(placePosition, i)
-        }
+        const selectedRestaurant = loadItem(('selectedRestaurant'));
+        const placeName = JSON.parse(selectedRestaurant)[0].place.split(/[/]/i);
+        console.log(placeName)
 
+        resultRestaurants(result, placeName);
       } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
         alert('검색 결과가 존재하지 않습니다.');
         return;
@@ -207,11 +211,11 @@ export function loadSearchResult(restaurantName, map, kakao) {
     }
 
     // 가게이름 검색결과 장소검색 객체 셋
-    function resultRestaurants(placeResult) {
-      dispatch(setResultRestaurants(placeResult))
+    function resultRestaurants(placeResult, placeName) {
+      dispatch(setResultRestaurants(placeResult, placeName))
     }
 
-    // 가게이름 검색결과 맵에 표시
+    // 가게이름 검색결과 맵에 마커표시
     function resultMap(placePosition) {
       map.setCenter(placePosition);
       new kakao.maps.Marker({

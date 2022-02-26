@@ -21,7 +21,7 @@ const initialState = {
     lat: 37.566826,
     lon: 126.9786567,
   },
-  resultRestaurants: [],
+  filteredPlaceResult: [],
 
   // ToDo revision
   value: '',
@@ -58,10 +58,25 @@ const reducers = {
   },
 
   // RestaurantsPage: 검색결과 객체 셋
-  setResultRestaurants(state, { payload: { placeResult } }) {
+  setResultRestaurants(state, { payload: { placeResult, placeName } }) {
+    function sort(placeName) {
+      for (const keyword of placeName) {
+        return placeResult.find(result =>
+          result.address_name.includes(keyword),
+        );
+      }
+    }
+
+    const filteredPlaceResult = sort(placeName);
+    const { y, x } = filteredPlaceResult;
+
     return {
       ...state,
-      resultRestaurants: placeResult,
+      filteredPlaceResult,
+      placePosition: {
+        lat: x,
+        lon: y,
+      },
     }
   },
 

@@ -9,7 +9,7 @@ import {
 
 import {
   filter,
-} from '../../__mocks__/react-redux';
+} from '../services/__mocks__/method';
 
 import CustomPage from './CustomPage';
 
@@ -22,7 +22,7 @@ describe('CustomPage', () => {
       "name": "더다이닝랩",
       "situation": "소개팅",
       "age": "20대",
-      "place": "홍대/합정",
+      "place": "마포구/홍대/합정",
       "category": "양식",
       "priceRange": "3만원 이하",
       "mood": "none",
@@ -55,7 +55,7 @@ describe('CustomPage', () => {
           "name": "더다이닝랩",
           "situation": "소개팅",
           "age": "20대",
-          "place": "홍대/합정",
+          "place": "마포구/홍대/합정",
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "none",
@@ -89,7 +89,7 @@ describe('CustomPage', () => {
         "name": "더다이닝랩",
         "situation": "소개팅",
         "age": "20대",
-        "place": "홍대/합정",
+        "place": "마포구/홍대/합정",
         "category": "양식",
         "priceRange": "3만원 이하",
         "mood": "none",
