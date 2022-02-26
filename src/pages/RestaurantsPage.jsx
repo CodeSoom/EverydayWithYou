@@ -2,13 +2,19 @@ import styled from '@emotion/styled';
 
 import { useParams } from 'react-router-dom';
 
-import { useDispatch, useSelector } from 'react-redux';
-
 import { useEffect } from 'react';
 
+import { useDispatch, useSelector } from 'react-redux';
+
+import RestaurantsDetailContainer from '../containers/restaurants/RestaurantsDetailContainer';
+
 import {
-  loadSearchResult,
+  loadResultRestaurants,
 } from '../actions';
+
+const RestaurantsPageLayout = styled.div({
+
+});
 
 const Mapbox = styled.div({
   width: '400px',
@@ -22,27 +28,27 @@ export default function RestaurantsPage({ params }) {
 
   const dispatch = useDispatch();
 
-  const { kakao } = window;
+  const { lat, lon } = useSelector((state) => state.placePosition);
 
-  const placePosition = useSelector((state) => state.placePosition);
-  const { lat, lon } = placePosition;
-  console.log(placePosition)
+  const { kakao } = window;
 
   useEffect(() => {
     const container = document.getElementById('map');
+
     const options = {
       center: new kakao.maps.LatLng(lat, lon),
       level: 3,
     };
+
     const map = new kakao.maps.Map(container, options);
 
-    dispatch(loadSearchResult(name, map, kakao));
+    dispatch(loadResultRestaurants(name, kakao, map));
   }, []);
 
-  // const resultRestaurants = useSelector((state) => state.resultRestaurants);
-
   return (
-    <Mapbox id="map">
-    </Mapbox>
+    <RestaurantsPageLayout>
+      <Mapbox id="map"></Mapbox>
+      <RestaurantsDetailContainer />
+    </RestaurantsPageLayout>
   )
 }
