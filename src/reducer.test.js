@@ -28,8 +28,8 @@ describe('reducer', () => {
           "place": "마포구/홍대/합정",
           "category": "양식",
           "priceRange": "3만원 이하",
-          "mood": "none",
-          "2nd-course": "none",
+          "mood": null,
+          "2nd-course": null,
         },
         {
           "id": "36",
@@ -40,7 +40,7 @@ describe('reducer', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": "none",
+          "2nd-course": null,
         },
       ]
 
@@ -85,7 +85,7 @@ describe('reducer', () => {
             "category": "한식",
             "priceRange": "3~5만원",
             "mood": "고급스러운",
-            "2nd-course": "none",
+            "2nd-course": null,
           },
           {
             "id": "36",
@@ -96,7 +96,7 @@ describe('reducer', () => {
             "category": "양식",
             "priceRange": "3만원 이하",
             "mood": "고급스러운",
-            "2nd-course": "none",
+            "2nd-course": null,
           },
         ],
         situationRestaurantsData: [],
@@ -114,7 +114,7 @@ describe('reducer', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": "none",
+          "2nd-course": null,
         },
       ];
 
@@ -139,7 +139,7 @@ describe('reducer', () => {
             "category": "한식",
             "priceRange": "3~5만원",
             "mood": "고급스러운",
-            "2nd-course": "none",
+            "2nd-course": null,
           },
           {
             "id": "36",
@@ -150,7 +150,7 @@ describe('reducer', () => {
             "category": "양식",
             "priceRange": "3만원 이하",
             "mood": "고급스러운",
-            "2nd-course": "none",
+            "2nd-course": null,
           },
         ],
         categoryRestaurantsData: [],
@@ -168,7 +168,7 @@ describe('reducer', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": "none",
+          "2nd-course": null,
         },
       ];
 
@@ -193,7 +193,7 @@ describe('reducer', () => {
             "category": "한식",
             "priceRange": "3~5만원",
             "mood": "고급스러운",
-            "2nd-course": "none",
+            "2nd-course": null,
           },
           {
             "id": "36",
@@ -204,7 +204,7 @@ describe('reducer', () => {
             "category": "양식",
             "priceRange": "3만원 이하",
             "mood": "고급스러운",
-            "2nd-course": "none",
+            "2nd-course": null,
           },
         ],
         placeRestaurantsData: [],
@@ -222,7 +222,7 @@ describe('reducer', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": "none",
+          "2nd-course": null,
         },
       ];
 

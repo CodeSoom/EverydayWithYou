@@ -20,8 +20,8 @@ describe('SituationSelectPage', () => {
       "place": "마포구/홍대/합정",
       "category": "양식",
       "priceRange": "3만원 이하",
-      "mood": "none",
-      "2nd-course": "none",
+      "mood": null,
+      "2nd-course": null,
     },
     {
       "id": "36",
@@ -32,7 +32,7 @@ describe('SituationSelectPage', () => {
       "category": "양식",
       "priceRange": "3만원 이하",
       "mood": "고급스러운",
-      "2nd-course": "none",
+      "2nd-course": null,
     },
   ]
 
@@ -53,8 +53,8 @@ describe('SituationSelectPage', () => {
           "place": "마포구/홍대/합정",
           "category": "양식",
           "priceRange": "3만원 이하",
-          "mood": "none",
-          "2nd-course": "none",
+          "mood": null,
+          "2nd-course": null,
         },
         {
           "id": "36",
@@ -65,7 +65,7 @@ describe('SituationSelectPage', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": "none",
+          "2nd-course": null,
         },
       ],
     }))

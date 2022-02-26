@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import PostInputForm from '../../components/post/PostInputForm';
+import PostInputForm from '../../components/PostInputForm';
 
 import {
   setRestaurantName,

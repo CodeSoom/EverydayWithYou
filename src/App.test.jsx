@@ -29,8 +29,8 @@ describe('App', () => {
           "place": "마포구/홍대/합정",
           "category": "양식",
           "priceRange": "3만원 이하",
-          "mood": "none",
-          "2nd-course": "none",
+          "mood": null,
+          "2nd-course": null,
         },
       ]
     ));
