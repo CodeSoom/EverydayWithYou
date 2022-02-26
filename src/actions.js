@@ -187,12 +187,12 @@ export function setPlaceFilter(placeValue) {
 }
 
 // 결과 레스토랑 목록
-export function loadResultRestaurants(restaurantName, kakao, map) {
+export function loadResultRestaurants(restaurantName, map) {
   return (dispatch) => {
-    new kakao.maps.services.Places().keywordSearch(restaurantName, placesSearchCB);
+    new window.kakao.maps.services.Places().keywordSearch(restaurantName, placesSearchCB);
 
     function placesSearchCB(result, status) {
-      if (status === kakao.maps.services.Status.OK) {
+      if (status === window.kakao.maps.services.Status.OK) {
         const selectedRestaurant = JSON.parse(loadItem(('selectedRestaurant'))); // 저장된 배열형식 출력
         const placeName = selectedRestaurant[0].place.split(/[/]/i);
 
@@ -201,16 +201,16 @@ export function loadResultRestaurants(restaurantName, kakao, map) {
             result.address_name.includes(keyword),
           );
           if (filteredPlaceResult) {
-            const placePosition = new kakao.maps.LatLng(filteredPlaceResult.y, filteredPlaceResult.x)
+            const placePosition = new window.kakao.maps.LatLng(filteredPlaceResult.y, filteredPlaceResult.x)
             resultMap(placePosition);
             resultRestaurants(filteredPlaceResult);
           }
         }
 
-      } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+      } else if (status === window.kakao.maps.services.Status.ZERO_RESULT) {
         alert('검색 결과가 존재하지 않습니다.');
         return;
-      } else if (status === kakao.maps.services.Status.ERROR) {
+      } else if (status === window.kakao.maps.services.Status.ERROR) {
         alert('검색 결과 중 오류가 발생했습니다.');
         return;
       }
@@ -219,7 +219,7 @@ export function loadResultRestaurants(restaurantName, kakao, map) {
     // 가게이름 검색결과 맵에 마커표시
     function resultMap(placePosition) {
       map.setCenter(placePosition);
-      new kakao.maps.Marker({
+      new window.kakao.maps.Marker({
         map: map,
         position: placePosition,
       });
