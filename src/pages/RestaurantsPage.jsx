@@ -7,22 +7,17 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import RestaurantsDetailContainer from '../containers/restaurants/RestaurantsDetailContainer';
+import RestaurantsAfterContainer from '../containers/restaurants/RestaurantsAfterContainer';
 
-import { createMap } from '../utils';
+import { createMap } from '../kakao';
 
 import {
   loadResultRestaurants,
 } from '../actions';
 
 const RestaurantsPageLayout = styled.div({
+  display: 'flex',
 });
-
-const Map = styled.div({
-  width: '400px',
-  height: '328px',
-  position: 'relative',
-  overflow: 'hidden',
-})
 
 export default function RestaurantsPage({ params }) {
   const { name } = params || useParams();
@@ -38,8 +33,8 @@ export default function RestaurantsPage({ params }) {
 
   return (
     <RestaurantsPageLayout>
-      <Map id="map"></Map>
       <RestaurantsDetailContainer />
+      <RestaurantsAfterContainer />
     </RestaurantsPageLayout>
   )
 }

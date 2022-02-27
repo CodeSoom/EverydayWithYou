@@ -24,10 +24,15 @@ const Alert = styled.div({
   },
 });
 
-const Buttons = styled.button({
-  padding: '8px',
+const SelectButton = styled.button({
+  ':hover, :focus': {
+    backgroundColor: 'rgba(255, 145, 170, 0.5)',
+    color: '#fff',
+  },
+  padding: '8px 16px',
   margin: '4px',
-  borderRadius: '12px',
+  borderRadius: '20px',
+
 });
 
 export default function CustomCategoryFilterContainer() {
@@ -61,7 +66,7 @@ export default function CustomCategoryFilterContainer() {
         </Alert>
       </TitleBox>
       {uniqCategories.map((category) => (
-        <Buttons
+        <SelectButton
           type='button'
           key={category.id}
           onClick={() => handleClickCategory(category.category)}
@@ -71,7 +76,7 @@ export default function CustomCategoryFilterContainer() {
           }
         >
           {category.category}
-        </Buttons>
+        </SelectButton>
       ))}
     </Container>
   )

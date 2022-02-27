@@ -1,8 +1,17 @@
-// import styled from '@emotion/styled';
+import styled from '@emotion/styled';
 
 import { useEffect } from 'react';
 
-import { createKakaoBtn } from '../utils';
+import { createKakaoBtn } from '../kakao';
+
+const ConfirmButton = styled.button({
+  display: 'flex',
+  alignItems: 'center',
+  backgroundColor: '#E77591',
+  color: '#fff',
+  padding: '8px 20px',
+  borderRadius: '24px',
+});
 
 export default function KakaoShareBtn() {
   useEffect(() => {
@@ -11,9 +20,9 @@ export default function KakaoShareBtn() {
 
   return (
     <>
-      <button id="kakao-link-btn">
+      <ConfirmButton id="kakao-link-btn">
         공유하기
-      </button>
+      </ConfirmButton>
     </>
   )
 }

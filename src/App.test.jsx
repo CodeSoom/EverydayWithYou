@@ -30,7 +30,7 @@ describe('App', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": null,
-          "2nd-course": null,
+          "after_course": null,
         },
       ]
     ));
