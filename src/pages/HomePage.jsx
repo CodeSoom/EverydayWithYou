@@ -57,8 +57,8 @@ const Contents = styled.div({
     alignItems: 'center',
     backgroundColor: '#E77591',
     color: '#fff',
-    padding: '12px 24px',
-    borderRadius: '20px',
+    padding: '8px 20px',
+    borderRadius: '24px',
     fontSize: '18px',
   },
 })

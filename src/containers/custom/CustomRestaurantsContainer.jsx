@@ -39,16 +39,17 @@ const Contents = styled.div({
     color: '#595959',
     fontWeight: '700',
   },
-  '& button': {
-    display: 'flex',
-    alignItems: 'center',
-    backgroundColor: '#E77591',
-    color: '#fff',
-    padding: '12px 24px',
-    borderRadius: '20px',
-    fontSize: '18px',
-  },
 });
+
+const ConfirmButton = styled.button({
+  display: 'flex',
+  alignItems: 'center',
+  backgroundColor: '#E77591',
+  color: '#fff',
+  padding: '8px 20px',
+  borderRadius: '24px',
+  fontSize: '18px',
+})
 
 export default function CustomRestaurantsContainer() {
   const filteredRestaurantsData = useSelector((state) =>
@@ -96,10 +97,10 @@ export default function CustomRestaurantsContainer() {
                       href={`/restaurants/${restaurant.name}`}
                       onClick={() => handleClickRestaurant(restaurant.name)}
                     >
-                      <button type='button'>
+                      <ConfirmButton type='button'>
                         상세보기
                         <i className="material-icons">chevron_right</i>
-                      </button>
+                      </ConfirmButton>
                     </a>
                   </div>
                 </Contents>

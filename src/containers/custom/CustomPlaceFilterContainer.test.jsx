@@ -36,7 +36,7 @@ describe('CustomPlaceFilterContainer', () => {
           "category": "이탈리안",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": null,
+          "after_course": null,
         },
         {
           "id": "17",
@@ -47,7 +47,7 @@ describe('CustomPlaceFilterContainer', () => {
           "category": "인도음식",
           "priceRange": "3만원 이하",
           "mood": "캐주얼한",
-          "2nd-course": null,
+          "after_course": null,
         },
       ],
       selector.restaurantsData = [
@@ -60,7 +60,7 @@ describe('CustomPlaceFilterContainer', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": null,
-          "2nd-course": null,
+          "after_course": null,
         },
         {
           "id": "36",
@@ -71,7 +71,7 @@ describe('CustomPlaceFilterContainer', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": null,
+          "after_course": null,
         },
         {
           "id": "21",
@@ -82,7 +82,7 @@ describe('CustomPlaceFilterContainer', () => {
           "category": "이탈리안",
           "priceRange": "3만원 이하",
           "mood": "고급스러운",
-          "2nd-course": null,
+          "after_course": null,
         },
         {
           "id": "17",
@@ -93,7 +93,7 @@ describe('CustomPlaceFilterContainer', () => {
           "category": "인도음식",
           "priceRange": "3만원 이하",
           "mood": "캐주얼한",
-          "2nd-course": null,
+          "after_course": null,
         },
       ]
     ));
@@ -116,7 +116,7 @@ describe('CustomPlaceFilterContainer', () => {
         "category": "양식",
         "priceRange": "3만원 이하",
         "mood": null,
-        "2nd-course": null,
+        "after_course": null,
       },
       {
         "id": "36",
@@ -127,7 +127,7 @@ describe('CustomPlaceFilterContainer', () => {
         "category": "양식",
         "priceRange": "3만원 이하",
         "mood": "고급스러운",
-        "2nd-course": null,
+        "after_course": null,
       },
       {
         "id": "21",
@@ -138,7 +138,7 @@ describe('CustomPlaceFilterContainer', () => {
         "category": "이탈리안",
         "priceRange": "3만원 이하",
         "mood": "고급스러운",
-        "2nd-course": null,
+        "after_course": null,
       },
       {
         "id": "17",
@@ -149,7 +149,7 @@ describe('CustomPlaceFilterContainer', () => {
         "category": "인도음식",
         "priceRange": "3만원 이하",
         "mood": "캐주얼한",
-        "2nd-course": null,
+        "after_course": null,
       },
     ]
 

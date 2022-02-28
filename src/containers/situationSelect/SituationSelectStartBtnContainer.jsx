@@ -12,14 +12,14 @@ const Container = styled.div({
   display: 'flex',
 });
 
-const Buttons = styled.button({
+const SelectButton = styled.button({
   ':hover, :focus': {
     backgroundColor: 'rgba(255, 145, 170, 0.5)',
     color: '#fff',
   },
-  padding: '12px 24px',
+  padding: '8px 20px',
   margin: '4px',
-  borderRadius: '20px',
+  borderRadius: '24px',
   fontSize: '18px',
 });
 
@@ -37,7 +37,7 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
   return (
     <Container>
       <Link to={sortNumber ? '/home' : '/'}>
-        <Buttons
+        <SelectButton
           type='button'
           onClick={() => handleClickUpdate(
             sortNumber ?
@@ -45,17 +45,17 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
               alert('한 가지 이상 선택해주세요!'))}
         >
           시작
-        </Buttons>
+        </SelectButton>
       </Link>
       <Link
         to='/home'
       >
-        <Buttons
+        <SelectButton
           type='button'
           onClick={() => handleClickUpdate([])}
         >
           건너뛰기
-        </Buttons>
+        </SelectButton>
       </Link>
     </Container>
   )

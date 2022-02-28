@@ -24,10 +24,15 @@ const Alert = styled.div({
   },
 });
 
-const Buttons = styled.button({
-  padding: '8px',
+const SelectButton = styled.button({
+  ':hover, :focus': {
+    backgroundColor: 'rgba(255, 145, 170, 0.5)',
+    color: '#fff',
+  },
+  padding: '8px 16px',
   margin: '4px',
-  borderRadius: '12px',
+  borderRadius: '20px',
+
 });
 
 export default function CustomPlaceFilterContainer() {
@@ -61,7 +66,7 @@ export default function CustomPlaceFilterContainer() {
         </Alert>
       </TitleBox>
       {uniqPlaces.map((place) => (
-        <Buttons
+        <SelectButton
           type="button"
           key={place.id}
           onClick={() => handleClickPlace(place.place)}
@@ -71,7 +76,7 @@ export default function CustomPlaceFilterContainer() {
           }
         >
           {place.place}
-        </Buttons>
+        </SelectButton>
       ))}
     </Container>
   )

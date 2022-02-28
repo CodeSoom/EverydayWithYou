@@ -33,10 +33,10 @@ const TitleBox = styled.div({
   },
 });
 
-const Container = styled.div({
+const FilterContainer = styled.div({
+  width: '50%',
   height: '100vh',
   padding: '4rem 3rem',
-  width: '50%',
   position: 'sticky',
   top: '0',
 });
@@ -45,7 +45,6 @@ const ResultRestaurants = styled.div({
   overflow: 'hidden',
   width: '50%',
   backgroundColor: '#F5F5F5',
-  boxShadow: 'inset 0.5rem 0 5rem rgba(0,0,0,0.05)',
 });
 
 export default function CustomPage({ restaurants }) {
@@ -76,7 +75,7 @@ export default function CustomPage({ restaurants }) {
 
   return (
     <CustomPageLayout>
-      <Container>
+      <FilterContainer>
         <TitleBox>
           <Link to='/home'>
             <span className="material-icons">
@@ -87,7 +86,7 @@ export default function CustomPage({ restaurants }) {
         </TitleBox>
         <CustomCategoryFilterContainer />
         <CustomPlaceFilterContainer />
-      </Container>
+      </FilterContainer>
       {filteredRestaurantsData.length !== 0 ?
         <ResultRestaurants>
           <CustomRestaurantsContainer />

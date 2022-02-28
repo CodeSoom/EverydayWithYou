@@ -26,7 +26,7 @@ describe('CustomPage', () => {
       "category": "양식",
       "priceRange": "3만원 이하",
       "mood": null,
-      "2nd-course": null,
+      "after_course": null,
     },
     {
       "id": "36",
@@ -37,7 +37,7 @@ describe('CustomPage', () => {
       "category": "양식",
       "priceRange": "3만원 이하",
       "mood": "고급스러운",
-      "2nd-course": null,
+      "after_course": null,
     },
   ];
 
@@ -59,7 +59,7 @@ describe('CustomPage', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": null,
-          "2nd-course": null,
+          "after_course": null,
         },
       ]));
   });
@@ -93,7 +93,7 @@ describe('CustomPage', () => {
         "category": "양식",
         "priceRange": "3만원 이하",
         "mood": null,
-        "2nd-course": null,
+        "after_course": null,
       },
     ];
 

@@ -31,7 +31,7 @@ describe('CustomRestaurantsContainer', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": null,
-          "2nd-course": null,
+          "after_course": null,
         },
       ],
       selector.alert = ''
@@ -56,7 +56,7 @@ describe('CustomRestaurantsContainer', () => {
         "category": "양식",
         "priceRange": "3만원 이하",
         "mood": null,
-        "2nd-course": null,
+        "after_course": null,
       },
     ];
     const uniqRestaurants = uniqBy(filteredRestaurantsData, 'name');
@@ -78,7 +78,7 @@ describe('CustomRestaurantsContainer', () => {
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": null,
-          "2nd-course": null,
+          "after_course": null,
         },
       );
     });
