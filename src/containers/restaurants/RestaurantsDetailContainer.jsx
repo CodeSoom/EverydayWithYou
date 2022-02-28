@@ -19,40 +19,64 @@ const RestaurantsPageLeft = styled.div({
   },
 });
 
-const Container = styled.div({
+const Wrapper = styled.div({
   height: '461px',
   padding: '3rem 2rem',
+  background: 'linear-gradient(to top, transparent, 90%, rgba(0,0,0,0.05) )',
 })
 
-const TitleBox = styled.div({
+const RestaurantName = styled.div({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
   marginBottom: '0.5rem',
-  '& h4': {
+  '& h3': {
     fontWeight: '700',
     color: '#0E0E0E',
     marginRight: '0.5rem',
   },
 })
 
+const Container = styled.div({
+  display: 'flex',
+  padding: '1rem',
+})
+
+const TitleBox = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  width: '20%',
+  '& span': {
+    fontWeight: '700',
+    marginBottom: '0.5rem',
+  },
+  '& div': {
+    height: '24px',
+  },
+})
+
 const ContentsBox = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  '& span': {
+    marginBottom: '0.5rem',
+  },
 })
 
-const Address = styled.div({
+const RoadAddress = styled.div({
+  marginBottom: '0.5rem',
+});
+
+const RoadAddressTitle = styled.span({
+  color: '#595959',
+  fontWeight: '700',
+  fontSize: '14px',
 })
 
-const Contact = styled.div({
-})
-
-const Category = styled.div({
-})
-
-const Price = styled.div({
-})
-
-const Mood = styled.div({
+const RoadAddressName = styled.span({
+  color: '#595959',
+  fontSize: '14px',
 })
 
 const BottomBox = styled.div({
@@ -62,7 +86,7 @@ const BottomBox = styled.div({
   margin: '1rem 0',
   '& span': {
     fontSize: '18px',
-    marginRight: '0.5rem',
+    marginRight: '1rem',
   },
 })
 
@@ -82,47 +106,43 @@ export default function RestaurantsDetailContainer() {
   return (
     <RestaurantsPageLeft>
       <img src={`${img}`} />
-      <Container>
-        <TitleBox>
-          <h4>{place_name}</h4>
+      <Wrapper>
+        <div></div>
+        <RestaurantName>
+          <h3>{place_name}</h3>
           <KakaoMapBtn
             placeUrl={place_url}
           />
-        </TitleBox>
+        </RestaurantName>
         <hr />
-        <ContentsBox>
-          <Address>
+        <Container>
+          <TitleBox>
             <span>주소</span>
+            <div></div>
+            <span>전화번호</span>
+            <span>음식 종류</span>
+            <span>가격대</span>
+            <span>분위기</span>
+          </TitleBox>
+          <ContentsBox>
             <div>
               <span>{address_name}</span>
-              <div>
-                <span>지번</span>
-                <span>{road_address_name}</span>
-              </div>
+              <RoadAddress>
+                <RoadAddressTitle>지번 </RoadAddressTitle>
+                <RoadAddressName>{road_address_name}</RoadAddressName>
+              </RoadAddress>
             </div>
-          </Address>
-          <Contact>
-            <span>전화번호</span>
             <span>{phone}</span>
-          </Contact>
-          <Category>
-            <span>음식 종류</span>
             <span>{category_name}</span>
-          </Category>
-          <Price>
-            <span>가격대</span>
             <span>{priceRange}</span>
-          </Price>
-          <Mood>
-            <span>분위기</span>
             <span>{mood}</span>
-          </Mood>
-        </ContentsBox>
+          </ContentsBox>
+        </Container>
         <BottomBox>
           <span>데이트 상대에게 공유해볼까요?</span>
           <KakaoShareBtn />
         </BottomBox>
-      </Container>
+      </Wrapper>
     </RestaurantsPageLeft>
   )
 }

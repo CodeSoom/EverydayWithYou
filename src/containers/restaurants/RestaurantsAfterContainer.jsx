@@ -16,10 +16,7 @@ const Map = styled.div({
 
 export default function RestaurantsAfterContainer() {
   const { address_name } = useSelector((state) => state.filteredPlaceResult);
-  console.log(address_name)
-
   const { after_course } = JSON.parse(loadItem(('selectedRestaurant')))[0];
-  console.log(after_course)
 
   return (
     <RestaurantAfterContainer>
