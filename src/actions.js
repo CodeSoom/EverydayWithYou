@@ -1,5 +1,12 @@
 import { loadItem } from './services/storage';
 
+import {
+  fetchAfterRestaurants,
+  fetchAfterCafes,
+  fetchAfterBars,
+  fetchRecommendCourse,
+} from './services/api';
+
 // SituationSelectPage: 최초 레스토랑 JSON데이터 셋!
 export function setRestaurants(restaurants) {
   return {
@@ -29,6 +36,35 @@ export function setResultRestaurants(filteredPlaceResult) {
   return {
     type: 'setResultRestaurants',
     payload: { filteredPlaceResult },
+  }
+}
+
+// RestaurantsAfterContainer
+export function setAfterRestaurants(afterRestaurants) {
+  return {
+    type: 'setAfterRestaurants',
+    payload: { afterRestaurants },
+  }
+}
+
+export function setAfterCafes(afterCafes) {
+  return {
+    type: 'setAfterCafes',
+    payload: { afterCafes },
+  }
+}
+
+export function setAfterBars(afterBars) {
+  return {
+    type: 'setAfterBars',
+    payload: { afterBars },
+  }
+}
+
+export function setRecommendCourse(recommendCourse) {
+  return {
+    type: 'setRecommendCourse',
+    payload: { recommendCourse },
   }
 }
 
@@ -204,6 +240,7 @@ export function loadResultRestaurants(restaurantName, map) {
             const placePosition = new window.kakao.maps.LatLng(filteredPlaceResult.y, filteredPlaceResult.x)
             resultMap(placePosition);
             resultRestaurants(filteredPlaceResult);
+            loadAfterCourse(filteredPlaceResult);
           }
         }
 
@@ -229,6 +266,34 @@ export function loadResultRestaurants(restaurantName, map) {
     function resultRestaurants(filteredPlaceResult) {
       dispatch(setResultRestaurants(filteredPlaceResult))
     }
+  }
+}
+
+// 애프터코스
+export function loadAfterCourse() {
+  return async (dispatch, getState) => {
+    const {
+      filteredPlaceResult: { x, y },
+    } = getState();
+
+    const afterRestaurants = await fetchAfterRestaurants({ x, y }); // 애프터코스: 주변맛집
+    const afterCafes = await fetchAfterCafes({ x, y }); // 애프터코스: 주변카페
+    const afterBars = await fetchAfterBars({ x, y }); // 애프터코스: 주변술집
+
+    dispatch(setAfterRestaurants(afterRestaurants));
+    dispatch(setAfterCafes(afterCafes));
+    dispatch(setAfterBars(afterBars));
+  }
+}
+
+export function searchAfterCourse(afterCourse) {
+  return async (dispatch, getState) => {
+    const {
+      filteredPlaceResult: { x, y },
+    } = getState();
+
+    const recommendCourse = await fetchRecommendCourse({ x, y, afterCourse }); // 애프터코스: 사용자 제공
+    dispatch(setRecommendCourse(recommendCourse));
   }
 }
 

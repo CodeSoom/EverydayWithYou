@@ -23,6 +23,12 @@ const initialState = {
   },
   filteredPlaceResult: [],
 
+  // 애프터코스 저장
+  afterRestaurants: [],
+  afterCafes: [],
+  afterBars: [],
+  recommendCourse: [],
+
   // ToDo revision
   value: '',
   newId: 100,
@@ -68,6 +74,32 @@ const reducers = {
         lat: x,
         lon: y,
       },
+    }
+  },
+
+  // RestaurantsAfterContainer
+  setAfterRestaurants(state, { payload: { afterRestaurants } }) {
+    return {
+      ...state,
+      afterRestaurants,
+    }
+  },
+  setAfterCafes(state, { payload: { afterCafes } }) {
+    return {
+      ...state,
+      afterCafes,
+    }
+  },
+  setAfterBars(state, { payload: { afterBars } }) {
+    return {
+      ...state,
+      afterBars,
+    }
+  },
+  setRecommendCourse(state, { payload: { recommendCourse } }) {
+    return {
+      ...state,
+      recommendCourse,
     }
   },
 
