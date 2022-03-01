@@ -1,9 +1,15 @@
 import styled from '@emotion/styled';
+
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
 import { loadItem } from '../../services/storage';
+
+import AfterRestaurants from '../../components/AfterRestaurants';
+import AfterCafes from '../../components/AfterCafes';
+import AfterBars from '../../components/AfterBars';
+import AfterRecommendation from '../../components/AfterRecommendation';
 
 import {
   loadAfterCourse,
@@ -14,11 +20,6 @@ const RestaurantAfterContainer = styled.div({
   width: '400px',
   backgroundColor: '#F5F5F5',
 });
-
-const Map = styled.div({
-  width: '400px',
-  height: '328px',
-})
 
 export default function RestaurantsAfterContainer() {
   const dispatch = useDispatch();
@@ -33,14 +34,12 @@ export default function RestaurantsAfterContainer() {
     }
   }, [filteredPlaceResult]);
 
-  /* const afterRestaurants = useSelector((state) => state.afterRestaurants);
-  const afterCafes = useSelector((state) => state.afterCafes);
-  const afterBars = useSelector((state) => state.afterBars);
-  const recommendCourse = useSelector((state) => state.recommendCourse); */
-
   return (
     <RestaurantAfterContainer>
-      <Map id='map'></Map>
+      <AfterRestaurants />
+      <AfterCafes />
+      <AfterBars />
+      <AfterRecommendation />
     </RestaurantAfterContainer>
   )
 }

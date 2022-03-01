@@ -11,8 +11,8 @@ export async function fetchAfterRestaurants({ x, y }) {
       },
     });
 
-    const data = await response.json();
-    return data;
+    const { documents } = await response.json();
+    return documents;
   }
 }
 
@@ -29,8 +29,8 @@ export async function fetchAfterCafes({ x, y }) {
       },
     });
 
-    const data = await response.json();
-    return data;
+    const { documents } = await response.json();
+    return documents;
   }
 }
 
@@ -47,8 +47,8 @@ export async function fetchAfterBars({ x, y }) {
       },
     });
 
-    const data = await response.json();
-    return data;
+    const { documents } = await response.json();
+    return documents;
   }
 }
 
@@ -65,7 +65,7 @@ export async function fetchRecommendCourse({ x, y, afterCourse }) {
       },
     });
 
-    const data = await response.json();
-    return data;
+    const { documents } = await response.json();
+    return documents;
   }
 }
