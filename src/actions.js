@@ -1,4 +1,6 @@
-import { loadItem } from './services/storage';
+import { saveItem, loadItem } from './services/storage';
+
+import filter from 'lodash.filter';
 
 import {
   fetchAfterRestaurants,
@@ -32,9 +34,9 @@ export function setSituationRestaurants(situationRestaurantsData) {
 }
 
 // RestaurantsPage: 검색결과 객체 셋
-export function setResultRestaurants(filteredPlaceResult) {
+export function setPlaceResultRestaurants(filteredPlaceResult) {
   return {
-    type: 'setResultRestaurants',
+    type: 'setPlaceResultRestaurants',
     payload: { filteredPlaceResult },
   }
 }
@@ -65,6 +67,14 @@ export function setRecommendCourse(recommendation) {
   return {
     type: 'setRecommendCourse',
     payload: { recommendation },
+  }
+}
+
+// 검색창에 입력한 검색어 스토어에 저장
+export function setSearchKeyword(searchKeyword) {
+  return {
+    type: 'setSearchKeyword',
+    payload: { searchKeyword },
   }
 }
 
@@ -264,7 +274,7 @@ export function loadResultRestaurants(restaurantName, map) {
 
     // 가게이름 검색결과 장소검색 객체 셋
     function resultRestaurants(filteredPlaceResult) {
-      dispatch(setResultRestaurants(filteredPlaceResult))
+      dispatch(setPlaceResultRestaurants(filteredPlaceResult))
     }
   }
 }
@@ -294,6 +304,37 @@ export function searchAfterCourse(afterCourse) {
 
     const recommendation = await fetchRecommendCourse({ x, y, afterCourse }); // 애프터코스: 사용자 제공
     dispatch(setRecommendCourse(recommendation));
+  }
+}
+
+// 검색창에서 지역, 식당, 음식 검색
+export function findRestaurants({ restaurants }) {
+  return async (dispatch, getState) => {
+    const {
+      searchKeyword: { value },
+    } = getState();
+
+    const words = value.split(/[ ]/i);
+
+    for (const word of words) {
+      const searchResultRestaurants = filter(restaurants,
+        function (restaurant) {
+          if (restaurant.name.includes(word)) {
+            return restaurant.name
+          } else if (restaurant.place.includes(word)) {
+            return restaurant.place
+          } else if (restaurant.category.includes(word)) {
+            return restaurant.category
+          }
+        });
+      if (searchResultRestaurants) {
+        setSearchResultRestaurants(searchResultRestaurants)
+      }
+    }
+
+    function setSearchResultRestaurants(searchResultRestaurants) {
+      saveItem('searchResultRestaurants', JSON.stringify(searchResultRestaurants));
+    }
   }
 }
 

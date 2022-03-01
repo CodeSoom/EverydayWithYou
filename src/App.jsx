@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage';
 import CustomPage from './pages/CustomPage';
 import PostPage from './pages/PostPage';
 import RestaurantsPage from './pages/RestaurantsPage';
+import SearchPage from './pages/SearchPage';
 
 import restaurants from '../assets/json/restaurants.json';
 
@@ -33,6 +34,11 @@ export default function App() {
           />}
         />
         <Route path="/restaurants/:name" element={<RestaurantsPage />} />
+        <Route path="/search" element={
+          <SearchPage
+            restaurants={restaurants}
+          />}
+        />
       </Routes>
     </>
   )

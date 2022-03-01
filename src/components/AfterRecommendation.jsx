@@ -32,7 +32,6 @@ const Contents = styled.div({
 
 export default function AfterRecommendation() {
   const recommendation = useSelector((state) => state.recommendation);
-  console.log(recommendation)
 
   return (
     <>{
