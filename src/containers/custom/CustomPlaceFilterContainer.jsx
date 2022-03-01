@@ -26,7 +26,7 @@ const Alert = styled.div({
 
 const SelectButton = styled.button({
   ':hover, :focus': {
-    backgroundColor: 'rgba(255, 145, 170, 0.5)',
+    backgroundColor: 'rgba(250, 98, 91, 0.5)',
     color: '#fff',
   },
   padding: '8px 16px',

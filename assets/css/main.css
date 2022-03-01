@@ -62,7 +62,7 @@ a, a:visited {
   display: flex;
   flex-direction: column;
   /* 사이드바 색상 및 크기 */
-  background-color: #E77591;
+  background-color: #FA625B;
   width: 320px;
   height: 100vh;
   /* 사이드바 본문내용 스크롤해도 고정되도록하기 */
@@ -123,7 +123,7 @@ a, a:visited {
 }
 
 .select {
-  background-color: rgba(255, 145, 170, 0.5);
+  background-color: rgba(250, 98, 91, 0.5);
   color: #fff;
 }
 

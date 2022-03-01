@@ -7,7 +7,7 @@ import { createKakaoBtn } from '../kakao';
 const ConfirmButton = styled.button({
   display: 'flex',
   alignItems: 'center',
-  backgroundColor: '#E77591',
+  backgroundColor: '#FA625B',
   color: '#fff',
   padding: '8px 20px',
   borderRadius: '24px',
