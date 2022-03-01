@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import RestaurantsDetailContainer from '../containers/restaurants/RestaurantsDetailContainer';
+import RestaurantsMapContainer from '../containers/restaurants/RestaurantsMapContainer';
 import RestaurantsAfterContainer from '../containers/restaurants/RestaurantsAfterContainer';
 
 import { createMap } from '../kakao';
@@ -34,6 +35,7 @@ export default function RestaurantsPage({ params }) {
   return (
     <RestaurantsPageLayout>
       <RestaurantsDetailContainer />
+      <RestaurantsMapContainer />
       <RestaurantsAfterContainer />
     </RestaurantsPageLayout>
   )

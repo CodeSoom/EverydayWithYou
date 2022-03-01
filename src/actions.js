@@ -61,10 +61,10 @@ export function setAfterBars(afterBars) {
   }
 }
 
-export function setRecommendCourse(recommendCourse) {
+export function setRecommendCourse(recommendation) {
   return {
     type: 'setRecommendCourse',
-    payload: { recommendCourse },
+    payload: { recommendation },
   }
 }
 
@@ -292,8 +292,8 @@ export function searchAfterCourse(afterCourse) {
       filteredPlaceResult: { x, y },
     } = getState();
 
-    const recommendCourse = await fetchRecommendCourse({ x, y, afterCourse }); // 애프터코스: 사용자 제공
-    dispatch(setRecommendCourse(recommendCourse));
+    const recommendation = await fetchRecommendCourse({ x, y, afterCourse }); // 애프터코스: 사용자 제공
+    dispatch(setRecommendCourse(recommendation));
   }
 }
 

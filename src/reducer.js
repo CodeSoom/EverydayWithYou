@@ -27,7 +27,7 @@ const initialState = {
   afterRestaurants: [],
   afterCafes: [],
   afterBars: [],
-  recommendCourse: [],
+  recommendation: [],
 
   // ToDo revision
   value: '',
@@ -96,10 +96,10 @@ const reducers = {
       afterBars,
     }
   },
-  setRecommendCourse(state, { payload: { recommendCourse } }) {
+  setRecommendCourse(state, { payload: { recommendation } }) {
     return {
       ...state,
-      recommendCourse,
+      recommendation,
     }
   },
 
