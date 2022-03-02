@@ -1,34 +1,12 @@
 // import styled from '@emotion/styled';
 
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import SearchContainer from '../containers/search/SearchContainer';
-import SearchResultRestaurantsContainer from '../containers/search/SearchResultRestaurantsContainer';
-import RecommendationContainer from '../containers/RecommendationContainer';
 
-import { loadItem, removeItem } from '../services/storage';
-
-import {
-  setSearchKeyword,
-  findRestaurants,
-} from '../actions';
+import { removeItem } from '../services/storage';
 
 export default function SearchPage({ restaurants }) {
-  const dispatch = useDispatch();
-
-  function handleClickSearch() {
-    dispatch(findRestaurants({ restaurants }))
-    location.reload()
-  }
-
-  function handleChangeKeyword({ value }) {
-    dispatch(setSearchKeyword({ value }))
-  }
-
-  const searchResultRestaurants = JSON.parse(
-    loadItem('searchResultRestaurants'),
-  );
-
   if (window.history.back) {
     removeItem('searchResultRestaurants')
   }
@@ -37,36 +15,40 @@ export default function SearchPage({ restaurants }) {
     if (!searchResultRestaurants) {
       return (
         <>
+          <SearchContainer
+            restaurantsData={restaurants}
+          />
           <p>지역, 식당 또는 음식을 검색해 보세요.</p>
-          <RecommendationContainer />
         </>
       )
     } else if (searchResultRestaurants.length === 0) {
       return (
         <>
+          <SearchContainer
+            restaurantsData={restaurants}
+          />
           <p>결과가 없어요 ㅠㅠ</p>
-          <RecommendationContainer />
         </>
       )
     } else if (searchResultRestaurants.length !== 0) {
       return (
         <>
-          <SearchResultRestaurantsContainer
-            searchResultRestaurants={searchResultRestaurants}
+          <SearchContainer
+            restaurantsData={restaurants}
           />
         </>
       )
     }
   }
 
-  const notificationAndResult = condition(searchResultRestaurants)
+  const searchResultRestaurants = useSelector((state) => (
+    state.searchResultRestaurants
+  ));
+
+  const notificationAndResult = condition(searchResultRestaurants);
 
   return (
     <>
-      <SearchContainer
-        onChangeKeyword={handleChangeKeyword}
-        onClickSearch={handleClickSearch}
-      />
       {notificationAndResult}
     </>
   )

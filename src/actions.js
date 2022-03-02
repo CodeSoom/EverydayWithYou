@@ -1,5 +1,6 @@
-import { saveItem, loadItem } from './services/storage';
+import { loadItem } from './services/storage';
 
+import uniqBy from 'lodash.uniqby';
 import filter from 'lodash.filter';
 
 import {
@@ -30,6 +31,14 @@ export function setSituationRestaurants(situationRestaurantsData) {
   return {
     type: 'setSituationRestaurants',
     payload: { situationRestaurantsData },
+  }
+}
+
+// SearchPage: 분위기별 솔팅 => 필터링된 레스토랑 셋!
+export function setMoodRestaurants(moodName, moodRestaurantsData) {
+  return {
+    type: 'setMoodRestaurants',
+    payload: { moodName, moodRestaurantsData },
   }
 }
 
@@ -70,11 +79,10 @@ export function setRecommendCourse(recommendation) {
   }
 }
 
-// 검색창에 입력한 검색어 스토어에 저장
-export function setSearchKeyword(searchKeyword) {
+export function setSearchResultRestaurants(searchResultRestaurants) {
   return {
-    type: 'setSearchKeyword',
-    payload: { searchKeyword },
+    type: 'setSearchResultRestaurants',
+    payload: { searchResultRestaurants },
   }
 }
 
@@ -99,6 +107,14 @@ export function filterRestaurantsByPlace(filteredRestaurantsByPlace, placeValue)
   return {
     type: 'filterRestaurantsByPlace',
     payload: { filteredRestaurantsByPlace, placeValue },
+  }
+}
+
+// 검색창에 입력한 검색어 스토어에 저장
+export function changeSearchField({ name, value }) {
+  return {
+    type: 'changeSearchField',
+    payload: { name, value },
   }
 }
 
@@ -308,16 +324,16 @@ export function searchAfterCourse(afterCourse) {
 }
 
 // 검색창에서 지역, 식당, 음식 검색
-export function findRestaurants({ restaurants }) {
-  return async (dispatch, getState) => {
+export function findRestaurants({ restaurantsData }) {
+  return (dispatch, getState) => {
     const {
-      searchKeyword: { value },
+      searchField: { searchKeyword },
     } = getState();
 
-    const words = value.split(/[ ]/i);
+    const words = searchKeyword.split(/[ ]/i);
 
     for (const word of words) {
-      const searchResultRestaurants = filter(restaurants,
+      const searchResultRestaurants = filter(restaurantsData,
         function (restaurant) {
           if (restaurant.name.includes(word)) {
             return restaurant.name
@@ -328,16 +344,36 @@ export function findRestaurants({ restaurants }) {
           }
         });
       if (searchResultRestaurants) {
-        setSearchResultRestaurants(searchResultRestaurants)
+        setSearchResult(searchResultRestaurants)
+        setMoodFilter(searchResultRestaurants)
       }
     }
 
-    function setSearchResultRestaurants(searchResultRestaurants) {
-      saveItem('searchResultRestaurants', JSON.stringify(searchResultRestaurants));
+    function setSearchResult(searchResultRestaurants) {
+      dispatch(setSearchResultRestaurants(searchResultRestaurants));
+    }
+
+    function setMoodFilter(searchResultRestaurants) {
+      const uniqMoods = uniqBy(searchResultRestaurants, 'mood');
+
+      for (const obj of uniqMoods) {
+        const newArr = filter(searchResultRestaurants,
+          function (restaurant) {
+            if (restaurant.mood && restaurant.mood.includes(obj.mood)) {
+              return restaurant.mood
+            } else if (!obj.mood) {
+              return restaurant
+            }
+          })
+        setMood(obj.mood, newArr)
+      }
+    }
+
+    function setMood(moodName, moodRestaurantsData) {
+      dispatch(setMoodRestaurants(moodName, moodRestaurantsData));
     }
   }
 }
-
 
 // ToDo delete
 export function selectSituationTag(selectedId) {

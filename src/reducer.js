@@ -29,7 +29,8 @@ const initialState = {
   afterBars: [],
   recommendation: [],
 
-  searchKeyword: '',
+  searchField: {},
+  moodRestaurantsData: {},
 
   // ToDo revision
   value: '',
@@ -62,6 +63,25 @@ const reducers = {
     return {
       ...state,
       situationRestaurantsData,
+    }
+  },
+
+  setSearchResultRestaurants(state, { payload: { searchResultRestaurants } }) {
+    return {
+      ...state,
+      searchResultRestaurants,
+      moodRestaurantsData: {},
+    }
+  },
+
+  // SearchPage: 분위기별 솔팅 => 필터링된 레스토랑 셋!
+  setMoodRestaurants(state, { payload: { moodName, moodRestaurantsData } }) {
+    return {
+      ...state,
+      moodRestaurantsData: {
+        ...state.moodRestaurantsData,
+        [moodName]: moodRestaurantsData,
+      },
     }
   },
 
@@ -105,12 +125,6 @@ const reducers = {
     }
   },
 
-  setSearchKeyword(state, { payload: { searchKeyword } }) {
-    return {
-      ...state,
-      searchKeyword,
-    }
-  },
 
   // SituationSelecPage: 1. 상황별 솔팅 => 숫자로 필터된 레스토랑으로 업데이트
   filterRestaurantsBySituation(state, { payload: { filteredRestaurantsBySituation, sortNumber } }) {
@@ -224,6 +238,16 @@ const reducers = {
         placeColor: 'select',
         alert: '',
       }
+    }
+  },
+
+  changeSearchField(state, { payload: { name, value } }) {
+    return {
+      ...state,
+      searchField: {
+        ...state.searchField,
+        [name]: value,
+      },
     }
   },
 

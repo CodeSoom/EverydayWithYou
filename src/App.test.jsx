@@ -73,5 +73,13 @@ describe('App', () => {
 
     expect(options).toBeInTheDocument();
     expect(map).toBeInTheDocument();
-  }); */
+  });
+
+  it('renders search page path to "/search"', () => {
+    const { container } = renderApp({ path: '/search' });
+
+    expect(container).toHaveTextContent('지역, 식당 또는 음식을 검색해 보세요.');
+  });
+
+  */
 });
