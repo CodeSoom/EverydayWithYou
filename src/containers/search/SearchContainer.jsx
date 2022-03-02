@@ -1,33 +1,45 @@
-import styled from '@emotion/styled';
+// import styled from '@emotion/styled';
 
-const Search = styled.input({
-  backgroundColor: '#fff',
-  color: '0E0E0E',
-})
+import { useDispatch, useSelector } from 'react-redux';
 
-const Button = styled.button({
-  backgroundColor: '#FA625B',
-  color: '#fff',
-})
+import SearchForm from '../../components/SearchForm';
+import MoodSortRestaurants from '../../components/MoodSortRestaurants';
 
-export default function SearchPage({ onChangeKeyword, onClickSearch }) {
-  function handleChange(event) {
-    const { target: { value } } = event;
-    onChangeKeyword({ value });
+import {
+  changeSearchField,
+  findRestaurants,
+} from '../../actions';
+
+export default function SearchPage({ restaurantsData }) {
+  const dispatch = useDispatch();
+
+  function handleClickSearch() {
+    dispatch(findRestaurants({ restaurantsData }))
   }
+
+  function handleChangeKeyword({ name, value }) {
+    dispatch(changeSearchField({ name, value }))
+  }
+
+  const searchField = useSelector((state) => (
+    state.searchField
+  ));
+
+  const moodRestaurantsData = useSelector((state) => (
+    state.moodRestaurantsData
+  ));
 
   return (
     <>
-      <Search
-        type='text'
-        onChange={handleChange}
+      <SearchForm
+        searchField={searchField}
+        onClickSearch={handleClickSearch}
+        onChangeKeyword={handleChangeKeyword}
       />
-      <Button
-        type='button'
-        onClick={() => onClickSearch()}
-      >
-        검색
-      </Button>
+      <MoodSortRestaurants
+        searchField={searchField}
+        moodRestaurantsData={moodRestaurantsData}
+      />
     </>
   )
 }
