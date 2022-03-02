@@ -29,6 +29,8 @@ const initialState = {
   afterBars: [],
   recommendation: [],
 
+  searchKeyword: '',
+
   // ToDo revision
   value: '',
   newId: 100,
@@ -64,7 +66,7 @@ const reducers = {
   },
 
   // RestaurantsPage: 검색결과 객체 셋
-  setResultRestaurants(state, { payload: { filteredPlaceResult } }) {
+  setPlaceResultRestaurants(state, { payload: { filteredPlaceResult } }) {
     const { y, x } = filteredPlaceResult;
 
     return {
@@ -100,6 +102,13 @@ const reducers = {
     return {
       ...state,
       recommendation,
+    }
+  },
+
+  setSearchKeyword(state, { payload: { searchKeyword } }) {
+    return {
+      ...state,
+      searchKeyword,
     }
   },
 

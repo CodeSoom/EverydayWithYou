@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 
 import HomeCarouselContainer from '../containers/home/HomeCarouselContainer';
 
+const SearchBox = styled.div({
+  width: '100%',
+  height: '50px',
+})
+
 const HomePageLayout = styled.div({
   display: 'flex',
   flexDirection: 'column',
@@ -66,6 +71,9 @@ const Contents = styled.div({
 export default function HomePage() {
   return (
     <HomePageLayout>
+      <Link to='/search'>
+        <SearchBox></SearchBox>
+      </Link>
       <HomeCarouselContainer />
       {/* <h4>어디로 가시나요?</h4>
       <h4>연령대별 Pick</h4>
