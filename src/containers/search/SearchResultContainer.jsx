@@ -21,7 +21,7 @@ const InformationContainer = styled.div({
 })
 
 const RandomRestaurantsContainer = styled.div({
-  padding: '3rem 2rem',
+  padding: '3rem',
   borderTop: 'solid 2px #C4C4C4',
 })
 

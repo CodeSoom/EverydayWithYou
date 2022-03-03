@@ -98,18 +98,15 @@ a, a:visited {
   margin-right: 8px;
 }
 
-/* 글씨위치 배치 */
-.carousel-caption {
-  bottom: 4rem;
-  z-index: 10;
-}
 /* 썸네일 이미지 레이아웃 */
 .carousel-item {
-  height: 18rem;
+  height: 300px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 .carousel-item > img {
+  object-fit: cover;
   width: 100%;
-  filter: brightness(80%);
+  filter: brightness(50%);
 }
 
 .sidebar-copyright {
