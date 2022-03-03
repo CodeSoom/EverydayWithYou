@@ -4,14 +4,12 @@ import uniqBy from 'lodash.uniqby';
 
 import { useSelector } from 'react-redux';
 
-import { saveItem } from '../../services/storage';
-
 const Container = styled.div({
   display: 'flex',
   flexDirection: 'column',
   '& h4': {
     fontWeight: '700',
-    color: '#0E0E0E',
+    color: '#000',
     padding: '4rem 3rem',
   },
 });
@@ -32,7 +30,7 @@ const Contents = styled.div({
   flexDirection: 'column',
   justifyContent: 'space-between',
   '& h5': {
-    color: '#0E0E0E',
+    color: '#000',
     fontWeight: '700',
   },
   '& p': {
@@ -57,13 +55,6 @@ export default function CustomRestaurantsContainer() {
 
   const uniqRestaurants = uniqBy(filteredRestaurantsData, 'name');
 
-  function handleClickRestaurant(restaurantName) {
-    const selectedRestaurant = uniqRestaurants.filter(restaurant =>
-      restaurant.name === restaurantName,
-    );
-    saveItem('selectedRestaurant', JSON.stringify(selectedRestaurant)); // 배열형식 저장
-  }
-
   return (
     <Container>
       <h4>고객님이 좋아할 음식점 추천</h4>
@@ -74,7 +65,6 @@ export default function CustomRestaurantsContainer() {
               <RestaurantBox>
                 <a
                   href={`/restaurants/${restaurant.name}`}
-                  onClick={() => handleClickRestaurant(restaurant.name)}
                 >
                   <img src={`${restaurant.img}`} />
                 </a>
@@ -82,7 +72,6 @@ export default function CustomRestaurantsContainer() {
                   <div>
                     <a
                       href={`/restaurants/${restaurant.name}`}
-                      onClick={() => handleClickRestaurant(restaurant.name)}
                     >
                       <h5>{restaurant.name}</h5>
                     </a>
@@ -95,7 +84,6 @@ export default function CustomRestaurantsContainer() {
                   <div>
                     <a
                       href={`/restaurants/${restaurant.name}`}
-                      onClick={() => handleClickRestaurant(restaurant.name)}
                     >
                       <ConfirmButton type='button'>
                         상세보기

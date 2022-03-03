@@ -34,14 +34,6 @@ const initialState = {
   moodRestaurantsData: {},
   randomSituationPlaceRestaurants: [],
   randomAgeCategoryRestaurants: [],
-
-  // ToDo revision
-  value: '',
-  newId: 100,
-  restaurant: {
-    id: '',
-    name: '',
-  },
 };
 
 const reducers = {
@@ -274,21 +266,6 @@ const reducers = {
       searchField: {
         ...state.searchField,
         [name]: value,
-      },
-    }
-  },
-
-
-
-  // ToDo delete
-  setRestaurantName(state, { payload: { value } }) {
-    const { newId } = state;
-    return {
-      ...state,
-      newId: newId + 1,
-      restaurant: {
-        id: newId,
-        name: value,
       },
     }
   },

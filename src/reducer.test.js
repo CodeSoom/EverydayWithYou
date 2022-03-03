@@ -5,9 +5,6 @@ import {
   filterRestaurantsBySituation,
   filterRestaurantsByCategory,
   filterRestaurantsByPlace,
-
-  setRestaurantName,
-
 } from './actions';
 
 jest.mock('react-redux');
@@ -47,28 +44,6 @@ describe('reducer', () => {
       const state = reducer(initialState, setRestaurants(restaurants));
 
       expect(state.restaurants).toHaveLength(2);
-    });
-  });
-
-  describe('setRestaurantName action', () => {
-    it('changes state of restaurantName from "" to "입력값" and update id', () => {
-      const initialState = {
-        newId: 100,
-        restaurant: {
-          id: '',
-          name: '',
-        },
-      }
-
-      const state = reducer(initialState, setRestaurantName({ value: '입력값' }));
-
-      expect(state).toEqual({
-        newId: 101,
-        restaurant: {
-          id: 100,
-          name: '입력값',
-        },
-      });
     });
   });
 

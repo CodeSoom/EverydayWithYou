@@ -7,7 +7,6 @@ import {
 import SituationSelectPage from './pages/SituationSelectPage';
 import HomePage from './pages/HomePage';
 import CustomPage from './pages/CustomPage';
-import PostPage from './pages/PostPage';
 import RestaurantsPage from './pages/RestaurantsPage';
 import SearchPage from './pages/SearchPage';
 
@@ -17,23 +16,22 @@ export default function App() {
   return (
     <>
       <Routes>
+        <Route path="/home" element={<HomePage />} />
         <Route path="/" element={
           <SituationSelectPage
             restaurants={restaurants}
           />}
         />
-        <Route path="/home" element={<HomePage />} />
         <Route path="/custom" element={
           <CustomPage
             restaurants={restaurants}
           />}
         />
-        <Route path="/post" element={
-          <PostPage
+        <Route path="/restaurants/:name" element={
+          <RestaurantsPage
             restaurants={restaurants}
           />}
         />
-        <Route path="/restaurants/:name" element={<RestaurantsPage />} />
         <Route path="/search" element={
           <SearchPage
             restaurants={restaurants}

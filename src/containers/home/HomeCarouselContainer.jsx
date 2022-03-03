@@ -21,9 +21,10 @@ export default function HomeCarouselContainer() {
           <img src='assets/img/pasta.jpg' />
           <div className="container">
             <div className="carousel-caption text-start">
-              <Link to="/post">
-                <h1>맛집 추천하기</h1>
-                <p>지금 당장 고고싱!</p>
+              <Link to="/custom">
+                <p>어디 갈지 모르겠나요?</p>
+                <p>오늘 드시고 싶으신 메뉴와</p>
+                <p>가고 싶으신 장소를 알려주시면 음식점을 추천해드릴게요.</p>
               </Link>
             </div>
           </div>

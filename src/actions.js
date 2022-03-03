@@ -142,13 +142,6 @@ export function changeSearchField({ name, value }) {
   }
 }
 
-export function setRestaurantName({ value }) {
-  return {
-    type: 'setRestaurantName',
-    payload: { value },
-  }
-}
-
 // <--- Redux Thunk --->
 
 // 상황별 필터
@@ -438,28 +431,5 @@ export function setRandomFilter(restaurants) {
     filter2(restaurants)
 
     filter1(restaurants)
-  }
-}
-
-
-// ToDo delete
-export function selectSituationTag(selectedId) {
-  return {
-    type: 'selectSituationTag',
-    payload: { selectedId },
-  }
-}
-
-export function selectPlaceTag(selectedId) {
-  return {
-    type: 'selectPlaceTag',
-    payload: { selectedId },
-  }
-}
-
-export function selectCategoryTag(selectedId) {
-  return {
-    type: 'selectCategoryTag',
-    payload: { selectedId },
   }
 }

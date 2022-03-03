@@ -2,6 +2,13 @@ export function randomRestaurant(arr) {
   return arr[(Math.random() * arr.length) | 0]
 }
 
+export function nameFilter(arr, keyword) {
+  return (
+    arr.filter(restaurant =>
+      restaurant.name.includes(keyword))
+  )
+}
+
 export function situationFilter(arr, keyword) {
   return (
     arr.filter(restaurant =>

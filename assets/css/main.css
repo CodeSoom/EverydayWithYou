@@ -1,3 +1,6 @@
+/* 구글폰트 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
 /* 구글폰트 커스텀아이콘 */
 .material-icons {
   font-family: 'Material Icons';
@@ -24,14 +27,6 @@
   font-feature-settings: 'liga';
 }
 
-/* 폰트적용 */
-@font-face {
-  font-family: 'LeferiPoint-WhiteObliqueA';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 * {
   margin: 0; /*바디태그 margin defalut값 때문에 흰선 발생. 이를 제거 */
   padding: 0;
@@ -40,11 +35,11 @@
 }
 
 body {
-  font-family: 'LeferiPoint-WhiteObliqueA';
+  font-family: 'Noto Sans KR', sans-serif;
   display: flex;
 }
 
-ol, ul {
+li, ol, ul {
   list-style: none;
 }
 
@@ -70,8 +65,10 @@ a, a:visited {
   left: 0;
 }
 #app {
-  width: 100vw;
+  width: 1600px;
+  height: 100vh;
   margin-left: 320px;
+  overflow-x: hidden;
 }
 
 .sidebar-title {
@@ -123,7 +120,7 @@ a, a:visited {
 }
 
 .select {
-  background-color: rgba(250, 98, 91, 0.5);
+  background-color: rgba(65, 45, 44, 0.5);
   color: #fff;
 }
 

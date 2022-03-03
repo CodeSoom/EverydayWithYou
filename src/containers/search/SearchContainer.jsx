@@ -1,5 +1,3 @@
-// import styled from '@emotion/styled';
-
 import { useDispatch, useSelector } from 'react-redux';
 
 import SearchForm from '../../components/SearchForm';
