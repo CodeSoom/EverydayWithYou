@@ -1,7 +1,6 @@
 // import styled from '@emotion/styled';
 
-export default function MoodSortRestaurants({ searchField, moodRestaurantsData }) {
-  const { searchKeyword } = searchField;
+export default function SearchResultRestaurants({ searchKeyword, moodRestaurantsData }) {
   const moodNames = Object.keys(moodRestaurantsData)
 
   return (

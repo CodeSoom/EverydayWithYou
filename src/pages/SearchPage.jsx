@@ -1,55 +1,48 @@
 // import styled from '@emotion/styled';
 
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+import { useSelector, useDispatch } from 'react-redux';
 
 import SearchContainer from '../containers/search/SearchContainer';
+import SearchResultContainer from '../containers/search/SearchResultContainer';
+import RandomSituationPlaceRestaurants from '../components/RandomSituationPlaceRestaurants';
+import RandomAgeCategoryRestaurants from '../components/RandomAgeCategoryRestaurants';
 
 import { removeItem } from '../services/storage';
 
-export default function SearchPage({ restaurants }) {
-  if (window.history.back) {
-    removeItem('searchResultRestaurants')
-  }
+import {
+  setRandomFilter,
+} from '../actions';
 
-  function condition(searchResultRestaurants) {
-    if (!searchResultRestaurants) {
-      return (
-        <>
-          <SearchContainer
-            restaurantsData={restaurants}
-          />
-          <p>지역, 식당 또는 음식을 검색해 보세요.</p>
-        </>
-      )
-    } else if (searchResultRestaurants.length === 0) {
-      return (
-        <>
-          <SearchContainer
-            restaurantsData={restaurants}
-          />
-          <p>결과가 없어요 ㅠㅠ</p>
-        </>
-      )
-    } else if (searchResultRestaurants.length !== 0) {
-      return (
-        <>
-          <SearchContainer
-            restaurantsData={restaurants}
-          />
-        </>
-      )
-    }
-  }
+export default function SearchPage({ restaurants }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setRandomFilter(restaurants))
+  }, []);
 
   const searchResultRestaurants = useSelector((state) => (
     state.searchResultRestaurants
   ));
 
-  const notificationAndResult = condition(searchResultRestaurants);
+  if (window.history.back) {
+    removeItem('searchResultRestaurants')
+  }
 
   return (
     <>
-      {notificationAndResult}
+      <SearchContainer
+        restaurantsData={restaurants}
+      />
+      {!searchResultRestaurants ?
+        <>
+          <p>지역, 식당 또는 음식을 검색해 보세요.</p>
+          <RandomSituationPlaceRestaurants />
+          <RandomAgeCategoryRestaurants />
+        </>
+        : <SearchResultContainer />
+      }
     </>
   )
 }
