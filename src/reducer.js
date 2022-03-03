@@ -30,7 +30,10 @@ const initialState = {
   recommendation: [],
 
   searchField: {},
+  searchKeyword: '',
   moodRestaurantsData: {},
+  randomSituationPlaceRestaurants: [],
+  randomAgeCategoryRestaurants: [],
 
   // ToDo revision
   value: '',
@@ -63,14 +66,6 @@ const reducers = {
     return {
       ...state,
       situationRestaurantsData,
-    }
-  },
-
-  setSearchResultRestaurants(state, { payload: { searchResultRestaurants } }) {
-    return {
-      ...state,
-      searchResultRestaurants,
-      moodRestaurantsData: {},
     }
   },
 
@@ -125,6 +120,38 @@ const reducers = {
     }
   },
 
+  // 검색결과 셋
+  setSearchResultRestaurants(state, { payload: { searchKeyword, searchResultRestaurants } }) {
+    return {
+      ...state,
+      searchResultRestaurants,
+      searchKeyword,
+      moodRestaurantsData: {},
+    }
+  },
+
+  // 추천레스토랑 셋
+  setRandomRecommendedRestaurants1(state, { payload: { filteredTwice, situation, place } }) {
+    return {
+      ...state,
+      randomSituationPlaceRestaurants: [
+        ...state.randomSituationPlaceRestaurants,
+        ...filteredTwice,
+      ],
+      situation, place,
+    }
+  },
+
+  setRandomRecommendedRestaurants2(state, { payload: { filteredTwice, age, category } }) {
+    return {
+      ...state,
+      randomAgeCategoryRestaurants: [
+        ...state.randomAgeCategoryRestaurants,
+        ...filteredTwice,
+      ],
+      age, category,
+    }
+  },
 
   // SituationSelecPage: 1. 상황별 솔팅 => 숫자로 필터된 레스토랑으로 업데이트
   filterRestaurantsBySituation(state, { payload: { filteredRestaurantsBySituation, sortNumber } }) {

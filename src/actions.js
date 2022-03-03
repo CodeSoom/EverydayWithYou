@@ -1,5 +1,13 @@
 import { loadItem } from './services/storage';
 
+import {
+  randomRestaurant,
+  situationFilter,
+  placeFilter,
+  ageFilter,
+  categoryFilter,
+} from './utils';
+
 import uniqBy from 'lodash.uniqby';
 import filter from 'lodash.filter';
 
@@ -50,7 +58,7 @@ export function setPlaceResultRestaurants(filteredPlaceResult) {
   }
 }
 
-// RestaurantsAfterContainer
+// RestaurantsAfterContainer: 애프터 코스 셋
 export function setAfterRestaurants(afterRestaurants) {
   return {
     type: 'setAfterRestaurants',
@@ -79,10 +87,26 @@ export function setRecommendCourse(recommendation) {
   }
 }
 
-export function setSearchResultRestaurants(searchResultRestaurants) {
+// 검색결과 셋
+export function setSearchResultRestaurants(searchKeyword, searchResultRestaurants) {
   return {
     type: 'setSearchResultRestaurants',
-    payload: { searchResultRestaurants },
+    payload: { searchKeyword, searchResultRestaurants },
+  }
+}
+
+// 추천레스토랑 셋
+export function setRandomRecommendedRestaurants1(filteredTwice, situation, place) {
+  return {
+    type: 'setRandomRecommendedRestaurants1',
+    payload: { filteredTwice, situation, place },
+  }
+}
+
+export function setRandomRecommendedRestaurants2(filteredTwice, age, category) {
+  return {
+    type: 'setRandomRecommendedRestaurants2',
+    payload: { filteredTwice, age, category },
   }
 }
 
@@ -344,13 +368,13 @@ export function findRestaurants({ restaurantsData }) {
           }
         });
       if (searchResultRestaurants) {
-        setSearchResult(searchResultRestaurants)
+        setSearchResult(searchKeyword, searchResultRestaurants)
         setMoodFilter(searchResultRestaurants)
       }
     }
 
-    function setSearchResult(searchResultRestaurants) {
-      dispatch(setSearchResultRestaurants(searchResultRestaurants));
+    function setSearchResult(searchKeyword, searchResultRestaurants) {
+      dispatch(setSearchResultRestaurants(searchKeyword, searchResultRestaurants));
     }
 
     function setMoodFilter(searchResultRestaurants) {
@@ -374,6 +398,49 @@ export function findRestaurants({ restaurantsData }) {
     }
   }
 }
+
+// 랜덤 식당 추천 액션 생성하기
+export function setRandomFilter(restaurants) {
+  return (dispatch) => {
+
+    const filter1 = (restaurants) => {
+      const situation = randomRestaurant(restaurants).situation;
+      const filteredOnce = situationFilter(
+        restaurants, situation,
+      )
+
+      const place = randomRestaurant(filteredOnce).place;
+      const filteredTwice = placeFilter(
+        filteredOnce, place,
+      )
+
+      dispatch(setRandomRecommendedRestaurants1(
+        filteredTwice, situation, place,
+      ))
+    }
+
+    const filter2 = (restaurants) => {
+      const age = randomRestaurant(restaurants).age;
+      const filteredOnce = ageFilter(
+        restaurants, age,
+      )
+
+      const category = randomRestaurant(filteredOnce).category;
+      const filteredTwice = categoryFilter(
+        filteredOnce, category,
+      )
+
+      dispatch(setRandomRecommendedRestaurants2(
+        filteredTwice, age, category,
+      ))
+    }
+
+    filter2(restaurants)
+
+    filter1(restaurants)
+  }
+}
+
 
 // ToDo delete
 export function selectSituationTag(selectedId) {
