@@ -26,7 +26,7 @@ const TitleBox = styled.div({
   flexDirection: 'column',
   '& h4': {
     fontWeight: '700',
-    color: '#0E0E0E',
+    color: '#000',
   },
   '& p': {
     color: '#595959',

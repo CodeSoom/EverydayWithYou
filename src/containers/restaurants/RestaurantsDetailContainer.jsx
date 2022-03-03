@@ -33,7 +33,7 @@ const RestaurantName = styled.div({
   marginBottom: '0.5rem',
   '& h3': {
     fontWeight: '700',
-    color: '#0E0E0E',
+    color: '#000',
     marginRight: '0.5rem',
   },
 })

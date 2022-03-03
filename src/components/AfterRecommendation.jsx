@@ -32,10 +32,12 @@ const Contents = styled.div({
 
 export default function AfterRecommendation() {
   const recommendation = useSelector((state) => state.recommendation);
+  // ToDo recommendation있는데 undefined들어오는거 해결하기
+  console.log(recommendation)
 
   return (
     <>{
-      recommendation.length !== 0 ?
+      recommendation ?
         <>
           <Title>
             <h5>다음 코스 추천</h5>

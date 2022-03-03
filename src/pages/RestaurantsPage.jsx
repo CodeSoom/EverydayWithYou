@@ -11,6 +11,8 @@ import RestaurantsMapContainer from '../containers/restaurants/RestaurantsMapCon
 import RestaurantsAfterContainer from '../containers/restaurants/RestaurantsAfterContainer';
 
 import { createMap } from '../kakao';
+import { nameFilter } from '../utils';
+import { saveItem } from '../services/storage'
 
 import {
   loadResultRestaurants,
@@ -20,7 +22,7 @@ const RestaurantsPageLayout = styled.div({
   display: 'flex',
 });
 
-export default function RestaurantsPage({ params }) {
+export default function RestaurantsPage({ params, restaurants }) {
   const { name } = params || useParams();
 
   const dispatch = useDispatch();
@@ -31,6 +33,10 @@ export default function RestaurantsPage({ params }) {
     const map = createMap(lat, lon)
     dispatch(loadResultRestaurants(name, map));
   }, []);
+
+  const selectedRestaurant = nameFilter(restaurants, name)
+  saveItem('selectedRestaurant', JSON.stringify(selectedRestaurant));
+
 
   return (
     <RestaurantsPageLayout>

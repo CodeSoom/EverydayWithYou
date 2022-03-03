@@ -1,10 +1,29 @@
-// import styled from '@emotion/styled';
+import styled from '@emotion/styled';
 
 import { useSelector } from 'react-redux';
 
 import SearchResultRestaurants from '../../components/SearchResultRestaurants';
 import RandomSituationPlaceRestaurants from '../../components/RandomSituationPlaceRestaurants';
 import RandomAgeCategoryRestaurants from '../../components/RandomAgeCategoryRestaurants';
+
+const SearchPageLayout = styled.div({
+  backgroundColor: '#E5E5E5',
+})
+
+const InformationContainer = styled.div({
+  fontSize: '1.5rem',
+  fontWeight: '700',
+  color: '#828282',
+  height: '380px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+})
+
+const RandomRestaurantsContainer = styled.div({
+  padding: '3rem 2rem',
+  borderTop: 'solid 2px #C4C4C4',
+})
 
 export default function SearchResultContainer() {
   const searchResultRestaurants = useSelector((state) => (
@@ -20,7 +39,7 @@ export default function SearchResultContainer() {
   ));
 
   return (
-    <>
+    <SearchPageLayout>
       {searchResultRestaurants.length !== 0 ?
         <SearchResultRestaurants
           searchKeyword={searchKeyword}
@@ -28,11 +47,15 @@ export default function SearchResultContainer() {
         />
         :
         <>
-          <p>결과가 없어요 ㅠㅠ</p>
-          <RandomSituationPlaceRestaurants />
-          <RandomAgeCategoryRestaurants />
+          <InformationContainer>
+            <p>결과가 없어요 ㅠㅠ</p>
+          </InformationContainer>
+          <RandomRestaurantsContainer>
+            <RandomSituationPlaceRestaurants />
+            <RandomAgeCategoryRestaurants />
+          </RandomRestaurantsContainer>
         </>
       }
-    </>
+    </SearchPageLayout>
   )
 }

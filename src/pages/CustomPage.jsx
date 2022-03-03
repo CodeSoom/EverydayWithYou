@@ -25,11 +25,11 @@ const TitleBox = styled.div({
   marginBottom: '3rem',
   '& h4': {
     fontWeight: '700',
-    color: '#0E0E0E',
+    color: '#000',
   },
   '& span': {
     marginRight: '0.5rem',
-    color: '#0E0E0E',
+    color: '#000',
   },
 });
 
