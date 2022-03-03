@@ -16,7 +16,11 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/home" element={
+          <HomePage
+            restaurants={restaurants}
+          />}
+        />
         <Route path="/" element={
           <SituationSelectPage
             restaurants={restaurants}

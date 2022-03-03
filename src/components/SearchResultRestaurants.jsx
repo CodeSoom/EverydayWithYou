@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 const HorizontalRestaurantsListContainer = styled.div({
-  padding: '3rem 2rem',
+  padding: '3rem',
 })
 
 const Title = styled.h4({

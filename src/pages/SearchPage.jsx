@@ -20,17 +20,17 @@ const SearchPageLayout = styled.div({
 })
 
 const InformationContainer = styled.div({
-  fontSize: '1.5rem',
-  fontWeight: '700',
-  color: '#828282',
-  height: '380px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  fontSize: '1.5rem',
+  fontWeight: '700',
+  color: '#828282',
+  height: '23.75rem',
 })
 
 const RandomRestaurantsContainer = styled.div({
-  padding: '3rem 2rem',
+  padding: '3rem',
   borderTop: 'solid 2px #C4C4C4',
 })
 
