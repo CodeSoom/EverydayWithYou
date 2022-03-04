@@ -15,7 +15,8 @@ import {
 } from '../actions';
 
 const HomePageLayout = styled.div({
-  backgroundColor: '#F4F4F4',
+  marginLeft: '60px',
+  zIndex: '-1',
 });
 
 const HomeTopSearchContainer = styled.div({
@@ -44,37 +45,42 @@ const HomeTopSearchContainer = styled.div({
 
 const HomeSelectContainer = styled.div({
   display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
   justifyContent: 'center',
-  flexWrap: 'wrap',
-  padding: '2rem',
+  margin: '2rem',
 });
 
-const HomeSelectContainer_situation = styled.button({
+const HomeSelectContainer_situation = styled.div({
   display: 'flex',
   alignItems: 'center',
-  textAlign: 'left',
+
+  width: '100%',
   padding: '1rem',
+  marginBottom: '2rem',
+
   fontSize: '1rem',
   color: '#fff',
   backgroundColor: '#FA625B',
   boxShadow: '0px 0px 24.25px rgba(0, 0, 0, 0.08)',
-  marginBottom: '2rem',
   '& div': {
-    width: '20rem',
+    width: '50rem',
   },
 });
 
-const HomeSelectContainer_custom = styled.button({
+const HomeSelectContainer_custom = styled.div({
   display: 'flex',
   alignItems: 'center',
-  textAlign: 'left',
+
+  width: '100%',
   padding: '1rem',
+
   fontSize: '1rem',
   color: '#fff',
   backgroundColor: '#FA625B',
   boxShadow: '0px 0px 24.25px rgba(0, 0, 0, 0.08)',
   '& div': {
-    width: '20rem',
+    width: '50rem',
   },
 });
 

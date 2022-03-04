@@ -3,9 +3,9 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 const MobileSideBarLeftContainer = styled.div({
-  width: '60px',
   maxWidth: '100%',
   height: '100vh',
+  padding: '0 0.625rem',
   backgroundColor: '#fff',
   position: 'fixed',
   top: 0,
@@ -17,7 +17,6 @@ const MobileSideBarLeftContainer = styled.div({
 })
 
 const MobileSideBarLeftContainer_hamberger = styled.button({
-  backgroundColor: 'transparent',
   marginTop: '1rem',
 })
 

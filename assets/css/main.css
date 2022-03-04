@@ -26,11 +26,14 @@ a, a:visited {
 
 button {
   cursor: pointer;
+  background-color: transparent;
 }
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
-}
+  background-color: #F4F4F4;
+  background-size : cover; /* 화면 꽉차게 */
+  height: 100vh; /* 전체 높이 설정 */
 
 .select {
   background-color: rgba(65, 45, 44, 0.5);
@@ -39,6 +42,6 @@ body {
 
 .black-filter {
   filter: brightness(50%);
-  margin-left: 210px;
+  margin-left: 270px;
   z-index: -1;
 }
