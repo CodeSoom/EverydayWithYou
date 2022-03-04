@@ -12,19 +12,20 @@ const Carousel_slide = styled.div({
   position: 'relative',
   '& img': {
     width: '100%',
-    height: '18.75rem',
+    height: '48rem',
     objectFit: 'cover',
     filter: 'brightness(50%) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.05))',
     border: '0.5px solid #000',
   },
   '& p': {
-    width: '9.5rem',
+    width: '32rem',
     zIndex: '1',
-    fontSize: '0.75rem',
+    fontSize: '2.2rem',
     fontWeight: '700',
+    lineHeight: '3.5rem',
     position: 'absolute',
-    top: '1.8rem',
-    left: '2rem',
+    top: '5rem',
+    left: '4.5rem',
   },
 })
 

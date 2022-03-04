@@ -7,10 +7,10 @@ import { useSelector } from 'react-redux';
 
 import { useMediaQuery } from "react-responsive"
 
-import WebSideBar from './components/WebSideBar';
+import SideBar from './components/SideBar';
 import MobileSideBar from './components/MobileSideBar';
 import SituationSelectPage from './pages/SituationSelectPage';
-import WebHomePage from './pages/WebHomePage';
+import HomePage from './pages/HomePage';
 import MobileHomePage from './pages/MobileHomePage';
 import CustomPage from './pages/CustomPage';
 import RestaurantsPage from './pages/RestaurantsPage';
@@ -29,11 +29,11 @@ export default function App() {
 
   return (
     <>
-      {isPc ? <WebSideBar /> : <MobileSideBar callMenu={callMenu} />}
+      {isPc ? <SideBar /> : <MobileSideBar callMenu={callMenu} />}
       {isPc ?
         <Routes>
           <Route path="/home" element={
-            <WebHomePage
+            <HomePage
               restaurants={restaurants}
             />
           }
