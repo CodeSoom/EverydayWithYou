@@ -16,6 +16,10 @@ import {
 } from '../actions';
 
 const SearchPageLayout = styled.div({
+  marginLeft: '300px',
+  backgroundColor: '#F4F4F4',
+  backgroundSize: 'cover',
+  height: '100vh',
 })
 
 const InformationContainer = styled.div({

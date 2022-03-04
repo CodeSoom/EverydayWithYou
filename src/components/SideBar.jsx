@@ -56,7 +56,7 @@ const WebSideBarContainer_copyright = styled.div({
   },
 })
 
-export default function WebSideBar() {
+export default function SideBar() {
   return (
     <WebSideBarContainer>
       <Link to='/home'>

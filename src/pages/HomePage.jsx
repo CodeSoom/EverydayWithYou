@@ -16,6 +16,9 @@ import {
 
 const HomePageLayout = styled.div({
   marginLeft: '300px',
+  backgroundColor: '#F4F4F4',
+  backgroundSize: 'cover',
+  height: '100vh',
 });
 
 const HomeTopSearchContainer = styled.div({
@@ -52,34 +55,28 @@ const HomeSelectContainer = styled.div({
 const HomeSelectContainer_situation = styled.div({
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'space-between',
 
-  height: '6rem',
-  padding: '1rem',
+  padding: '1rem 2rem',
   marginRight: '2rem',
 
   fontSize: '1.5rem',
   color: '#fff',
   backgroundColor: '#FA625B',
   boxShadow: '0px 0px 24.25px rgba(0, 0, 0, 0.08)',
-  '& div': {
-    width: '16rem',
-  },
 });
 
 const HomeSelectContainer_custom = styled.div({
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'space-between',
 
-  height: '6rem',
-  padding: '1rem',
+  padding: '1rem 2rem',
 
   fontSize: '1.5rem',
   color: '#fff',
   backgroundColor: '#FA625B',
   boxShadow: '0px 0px 24.25px rgba(0, 0, 0, 0.08)',
-  '& div': {
-    width: '16rem',
-  },
 });
 
 const RandomRestaurantsContainer = styled.div({
@@ -112,23 +109,17 @@ export default function HomePage({ restaurants }) {
       <HomeSelectContainer>
         <Link to='/'>
           <HomeSelectContainer_situation>
-            <div>
-              <span>Today is...</span>
-              <p>놀러 가는 목적부터 선택</p>
-            </div>
-            <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17.0361 45.5158L39.6695 24.4991L17.0361 3.48242" stroke="white" strokeWidth="4.04167" strokeLinecap="square" />
+            <p>놀러 가는 목적부터 선택</p>
+            <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 24.4006L19.2 14.0006L8 3.60059" stroke="white" strokeWidth="4.04167" strokeLinecap="square" />
             </svg>
           </HomeSelectContainer_situation>
         </Link>
         <Link to='/custom'>
           <HomeSelectContainer_custom>
-            <div>
-              <span>Selector</span>
-              <p>메뉴와 장소부터 선택</p>
-            </div>
-            <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17.0361 45.5158L39.6695 24.4991L17.0361 3.48242" stroke="white" strokeWidth="4.04167" strokeLinecap="square" />
+            <p>메뉴와 장소부터 선택</p>
+            <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 24.4006L19.2 14.0006L8 3.60059" stroke="white" strokeWidth="4.04167" strokeLinecap="square" />
             </svg>
           </HomeSelectContainer_custom>
         </Link>

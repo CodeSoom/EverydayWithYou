@@ -4,11 +4,11 @@ import {
   MemoryRouter,
 } from 'react-router-dom';
 
-import WebHomePage from './WebHomePage';
+import HomePage from './HomePage';
 
 jest.mock('react-redux');
 
-describe('WebHomePage', () => {
+describe('HomePage', () => {
   const dispatch = jest.fn();
 
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe('WebHomePage', () => {
 
   const renderWebHomePage = () => render((
     <MemoryRouter>
-      <WebHomePage />
+      <HomePage />
     </MemoryRouter>
   ));
 

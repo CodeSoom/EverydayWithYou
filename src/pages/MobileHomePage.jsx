@@ -7,39 +7,42 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import MobileHomeCarouselContainer from '../containers/home/MobileHomeCarouselContainer';
-import RandomSituationPlaceRestaurants from '../components/RandomSituationPlaceRestaurants';
-import RandomAgeCategoryRestaurants from '../components/RandomAgeCategoryRestaurants';
+import MobileRandomSituationPlaceRestaurants from '../components/MobileRandomSituationPlaceRestaurants';
+import MobileRandomAgeCategoryRestaurants from '../components/MobileRandomAgeCategoryRestaurants';
 
 import {
   setRandomFilter,
 } from '../actions';
 
 const HomePageLayout = styled.div({
-  marginLeft: '60px',
+  marginLeft: '12.75rem',
+  backgroundColor: '#F4F4F4',
+  backgroundSize: 'cover',
+  height: '100vh',
   zIndex: '-1',
 });
 
 const HomeTopSearchContainer = styled.div({
-  height: '3.75rem',
+  height: '11rem',
   position: 'relative',
   '& span': {
     position: 'absolute',
-    right: '5rem',
-    bottom: '0.625rem',
-    fontSize: '0.875rem',
+    right: '15rem',
+    bottom: '2rem',
+    fontSize: '2.75rem',
     color: '#828282',
   },
   '& div': {
     position: 'absolute',
-    right: '1rem',
+    right: '3rem',
     bottom: '0',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FA625B',
     color: '#fff',
-    width: '2.5rem',
-    height: '2.5rem',
+    width: '7.5rem',
+    height: '7.5rem',
   },
 })
 
@@ -48,49 +51,37 @@ const HomeSelectContainer = styled.div({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  margin: '2rem',
+  margin: '5rem',
 });
 
 const HomeSelectContainer_situation = styled.div({
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'space-between',
 
-  width: '100%',
-  padding: '1rem',
-  marginBottom: '2rem',
+  width: '42rem',
+  padding: '2.5rem',
+  marginBottom: '2.75rem',
 
-  fontSize: '1rem',
+  fontSize: '2.75rem',
   color: '#fff',
   backgroundColor: '#FA625B',
   boxShadow: '0px 0px 24.25px rgba(0, 0, 0, 0.08)',
-  '& div': {
-    width: '50rem',
-  },
 });
 
 const HomeSelectContainer_custom = styled.div({
   display: 'flex',
   alignItems: 'center',
+  justifyContent: 'space-between',
 
-  width: '100%',
-  padding: '1rem',
+  width: '42rem',
+  padding: '2.5rem',
 
-  fontSize: '1rem',
+  fontSize: '2.75rem',
   color: '#fff',
   backgroundColor: '#FA625B',
   boxShadow: '0px 0px 24.25px rgba(0, 0, 0, 0.08)',
-  '& div': {
-    width: '50rem',
-  },
 });
-
-const RandomRestaurantsContainer = styled.div({
-  padding: '2rem',
-  borderTop: 'solid 2px #C4C4C4',
-  '& h4': {
-    fontSize: '1rem',
-  },
-})
 
 export default function HomePage({ restaurants, callMenu }) {
   const dispatch = useDispatch();
@@ -110,8 +101,8 @@ export default function HomePage({ restaurants, callMenu }) {
         <HomeTopSearchContainer>
           <span>지역, 식당 또는 음식</span>
           <div>
-            <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24.1998 24.1998L17.7998 17.7998M11.3998 20.9998C6.09787 20.9998 1.7998 16.7017 1.7998 11.3998C1.7998 6.09787 6.09787 1.7998 11.3998 1.7998C16.7017 1.7998 20.9998 6.09787 20.9998 11.3998C20.9998 16.7017 16.7017 20.9998 11.3998 20.9998Z" stroke="white" strokeWidth="2" />
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M58 58L42 42M26 50C12.7452 50 2 39.2548 2 26C2 12.7452 12.7452 2 26 2C39.2548 2 50 12.7452 50 26C50 39.2548 39.2548 50 26 50Z" stroke="white" strokeWidth="6" />
             </svg>
           </div>
         </HomeTopSearchContainer>
@@ -123,31 +114,27 @@ export default function HomePage({ restaurants, callMenu }) {
         <Link to='/'>
           <HomeSelectContainer_situation>
             <div>
-              <span>Today is...</span>
               <p>놀러 가는 목적부터 선택</p>
             </div>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 22.3996L19.2 11.9996L8 1.59961" stroke="white" strokeWidth="2" strokeLinecap="square" />
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 56L48 30L20 4" stroke="white" strokeWidth="6" strokeLinecap="square" />
             </svg>
           </HomeSelectContainer_situation>
         </Link>
         <Link to='/custom'>
           <HomeSelectContainer_custom>
             <div>
-              <span>Selector</span>
               <p>메뉴와 장소부터 선택</p>
             </div>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 22.3996L19.2 11.9996L8 1.59961" stroke="white" strokeWidth="2" strokeLinecap="square" />
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 56L48 30L20 4" stroke="white" strokeWidth="6" strokeLinecap="square" />
             </svg>
           </HomeSelectContainer_custom>
         </Link>
       </HomeSelectContainer>
       {/* ToDo 어디로 가시나요? ~ 가격대별 Pick 테마로 변경하기*/}
-      <RandomRestaurantsContainer>
-        <RandomSituationPlaceRestaurants />
-        <RandomAgeCategoryRestaurants />
-      </RandomRestaurantsContainer>
+      <MobileRandomSituationPlaceRestaurants />
+      <MobileRandomAgeCategoryRestaurants />
     </HomePageLayout>
   )
 }
