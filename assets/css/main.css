@@ -31,6 +31,9 @@ button {
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
+  background-color: #F4F4F4;
+  background-size: cover;
+  height: 100vh;
 }
 
 .select {
