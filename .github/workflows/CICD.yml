@@ -44,10 +44,10 @@ jobs:
           mkdir -p dist/assets/css
           cp assets/css/* dist/assets/css/
           
-      - name: Copy js
+      - name: Copy icon
         run: |
-          mkdir -p dist/assets/js
-          cp assets/js/* dist/assets/js/
+          mkdir -p dist/assets/icon
+          cp assets/icon/* dist/assets/icon/
           
       - name: Copy img
         run: |
