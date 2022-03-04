@@ -26,6 +26,7 @@ a, a:visited {
 
 button {
   cursor: pointer;
+  background-color: transparent;
 }
 
 body {
@@ -39,6 +40,6 @@ body {
 
 .black-filter {
   filter: brightness(50%);
-  margin-left: 210px;
+  margin-left: 270px;
   z-index: -1;
 }
