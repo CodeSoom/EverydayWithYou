@@ -1,42 +1,13 @@
 /* 구글폰트 폰트 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
 
-/* 구글폰트 커스텀아이콘 */
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 28px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
 
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-}
-
+/* reset */
 * {
-  margin: 0; /*바디태그 margin defalut값 때문에 흰선 발생. 이를 제거 */
+  margin: 0;
   padding: 0;
   border:none;
   box-sizing: border-box;
-}
-
-body {
-  font-family: 'Noto Sans KR', sans-serif;
-  display: flex;
 }
 
 li, ol, ul {
@@ -50,70 +21,15 @@ input:focus {
 a, a:visited {
   text-decoration: none;
   color: #fff;
+  cursor: pointer;
 }
 
-.sidebar {
-  /* 구성요소 세로배치 */
-  display: flex;
-  flex-direction: column;
-  /* 사이드바 색상 및 크기 */
-  background-color: #FA625B;
-  width: 320px;
-  height: 100vh;
-  /* 사이드바 본문내용 스크롤해도 고정되도록하기 */
-  position: fixed;
-  left: 0;
-}
-#app {
-  width: 1600px;
-  height: 100vh;
-  margin-left: 320px;
-  overflow-x: hidden;
+button {
+  cursor: pointer;
 }
 
-.sidebar-title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 36px 0;
-  font-size: 36px;
-}
-
-.sidebar-menu {
-  display: flex;
-  justify-content: center;
-  font-size: 24px;
-  height: 500px;
-}
-.sidebar-menu a {
-  margin-left: 48px;
-  margin-bottom: 24px;
-}
-
-.sidebar-menu-item {
-  display: flex;
-  align-items: center;
-}
-.sidebar-menu-item p{
-  margin-right: 8px;
-}
-
-/* 썸네일 이미지 레이아웃 */
-.carousel-item {
-  height: 300px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-.carousel-item > img {
-  object-fit: cover;
-  width: 100%;
-  filter: brightness(50%);
-}
-
-.sidebar-copyright {
-  margin-left: 48px;
-  font-size: 16px;
-  line-height: 1.5;
-  width: 150px;
+body {
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .select {
@@ -121,10 +37,8 @@ a, a:visited {
   color: #fff;
 }
 
-@media (min-width: 40em) {
-  .carousel-caption p {
-    margin-bottom: 1.25rem;
-    font-size: 1.25rem;
-    line-height: 1.4;
-  }
+.black-filter {
+  filter: brightness(50%);
+  margin-left: 210px;
+  z-index: -1;
 }

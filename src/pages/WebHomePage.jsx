@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import HomeCarouselContainer from '../containers/home/HomeCarouselContainer';
+import WebHomeCarouselContainer from '../containers/home/WebHomeCarouselContainer';
 import RandomSituationPlaceRestaurants from '../components/RandomSituationPlaceRestaurants';
 import RandomAgeCategoryRestaurants from '../components/RandomAgeCategoryRestaurants';
 
@@ -15,13 +15,10 @@ import {
 } from '../actions';
 
 const HomePageLayout = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  backgroundColor: '#E5E5E5',
+  backgroundColor: '#F4F4F4',
 });
 
 const HomeTopSearchContainer = styled.div({
-  width: '100%',
   height: '3.75rem',
   position: 'relative',
   '& span': {
@@ -56,6 +53,7 @@ const HomeSelectContainer_situation = styled.button({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  textAlign: 'left',
   width: '33rem',
   height: '6rem',
   padding: '2.5rem',
@@ -70,6 +68,7 @@ const HomeSelectContainer_custom = styled.button({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
+  textAlign: 'left',
   width: '33rem',
   height: '6rem',
   padding: '2.5rem',
@@ -104,11 +103,13 @@ export default function HomePage({ restaurants }) {
         </HomeTopSearchContainer>
       </Link>
       {/* Todo 리액트 라이브러리로 대체하기*/}
-      <HomeCarouselContainer />
+      <WebHomeCarouselContainer />
       {/* */}
       <HomeSelectContainer>
         <Link to='/'>
           <HomeSelectContainer_situation>
+            Today is...
+            <br />
             놀러 가는 목적부터 선택
             <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M17.0361 45.5158L39.6695 24.4991L17.0361 3.48242" stroke="white" strokeWidth="4.04167" strokeLinecap="square" />
@@ -117,6 +118,8 @@ export default function HomePage({ restaurants }) {
         </Link>
         <Link to='/custom'>
           <HomeSelectContainer_custom>
+            Selector
+            <br />
             메뉴와 장소부터 선택
             <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M17.0361 45.5158L39.6695 24.4991L17.0361 3.48242" stroke="white" strokeWidth="4.04167" strokeLinecap="square" />
