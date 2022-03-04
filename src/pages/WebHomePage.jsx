@@ -15,7 +15,7 @@ import {
 } from '../actions';
 
 const HomePageLayout = styled.div({
-  backgroundColor: '#F4F4F4',
+  marginLeft: '300px',
 });
 
 const HomeTopSearchContainer = styled.div({
@@ -46,36 +46,40 @@ const HomeSelectContainer = styled.div({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  height: '12rem',
+  margin: '2rem',
 });
 
-const HomeSelectContainer_situation = styled.button({
+const HomeSelectContainer_situation = styled.div({
   display: 'flex',
-  justifyContent: 'space-between',
   alignItems: 'center',
-  textAlign: 'left',
-  width: '33rem',
+
   height: '6rem',
-  padding: '2.5rem',
-  marginRight: '2.5rem',
+  padding: '1rem',
+  marginRight: '2rem',
+
   fontSize: '1.5rem',
   color: '#fff',
   backgroundColor: '#FA625B',
   boxShadow: '0px 0px 24.25px rgba(0, 0, 0, 0.08)',
+  '& div': {
+    width: '16rem',
+  },
 });
 
-const HomeSelectContainer_custom = styled.button({
+const HomeSelectContainer_custom = styled.div({
   display: 'flex',
-  justifyContent: 'space-between',
   alignItems: 'center',
-  textAlign: 'left',
-  width: '33rem',
+
   height: '6rem',
-  padding: '2.5rem',
+  padding: '1rem',
+
   fontSize: '1.5rem',
   color: '#fff',
   backgroundColor: '#FA625B',
   boxShadow: '0px 0px 24.25px rgba(0, 0, 0, 0.08)',
+  '& div': {
+    width: '16rem',
+  },
 });
 
 const RandomRestaurantsContainer = styled.div({
@@ -108,9 +112,10 @@ export default function HomePage({ restaurants }) {
       <HomeSelectContainer>
         <Link to='/'>
           <HomeSelectContainer_situation>
-            Today is...
-            <br />
-            놀러 가는 목적부터 선택
+            <div>
+              <span>Today is...</span>
+              <p>놀러 가는 목적부터 선택</p>
+            </div>
             <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M17.0361 45.5158L39.6695 24.4991L17.0361 3.48242" stroke="white" strokeWidth="4.04167" strokeLinecap="square" />
             </svg>
@@ -118,9 +123,10 @@ export default function HomePage({ restaurants }) {
         </Link>
         <Link to='/custom'>
           <HomeSelectContainer_custom>
-            Selector
-            <br />
-            메뉴와 장소부터 선택
+            <div>
+              <span>Selector</span>
+              <p>메뉴와 장소부터 선택</p>
+            </div>
             <svg width="50" height="49" viewBox="0 0 50 49" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M17.0361 45.5158L39.6695 24.4991L17.0361 3.48242" stroke="white" strokeWidth="4.04167" strokeLinecap="square" />
             </svg>

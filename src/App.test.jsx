@@ -52,19 +52,13 @@ describe('App', () => {
   it('renders home page path to "/home"', () => {
     const { container } = renderApp({ path: '/home' });
 
-    expect(container).toHaveTextContent('선호도를 반영한 취향 저격 음식점');
+    expect(container).toHaveTextContent('어디 갈지 모르겠나요?');
   });
 
   it('renders board page path to "/custom"', () => {
     const { container } = renderApp({ path: '/custom' });
 
     expect(container).toHaveTextContent('선택해주세요 !');
-  });
-
-  it('renders board page path to "/post"', () => {
-    const { container } = renderApp({ path: '/post' });
-
-    expect(container).toHaveTextContent('나만 알던 맛집을 소개해주세요!');
   });
 
   // ToDo 테스트 구현

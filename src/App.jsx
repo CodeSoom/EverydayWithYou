@@ -1,5 +1,3 @@
-import styled from '@emotion/styled';
-
 import {
   Routes,
   Route,
@@ -20,20 +18,9 @@ import SearchPage from './pages/SearchPage';
 
 import restaurants from '../assets/json/restaurants.json';
 
-const AppLayout = styled.div({
-})
-
-const WebPagesLayout = styled.div({
-  marginLeft: '300px',
-});
-
-const MobilePagesLayout = styled.div({
-  marginLeft: '60px',
-});
-
 export default function App() {
   const isPc = useMediaQuery({
-    query: "(min-width:768px)",
+    query: "(min-width:1024px)",
   });
 
   const callMenu = useSelector((state) => (
@@ -41,9 +28,9 @@ export default function App() {
   ))
 
   return (
-    <AppLayout>
+    <>
       {isPc ? <WebSideBar /> : <MobileSideBar callMenu={callMenu} />}
-      {isPc ? <WebPagesLayout>
+      {isPc ?
         <Routes>
           <Route path="/home" element={
             <WebHomePage
@@ -72,40 +59,37 @@ export default function App() {
             />}
           />
         </Routes>
-      </WebPagesLayout>
         :
-        <MobilePagesLayout>
-          <Routes>
-            <Route path="/home" element={
-              <MobileHomePage
-                restaurants={restaurants}
-                callMenu={callMenu}
-              />
-            }
+        <Routes>
+          <Route path="/home" element={
+            <MobileHomePage
+              restaurants={restaurants}
+              callMenu={callMenu}
             />
-            <Route path="/" element={
-              <SituationSelectPage
-                restaurants={restaurants}
-              />}
-            />
-            <Route path="/custom" element={
-              <CustomPage
-                restaurants={restaurants}
-              />}
-            />
-            <Route path="/restaurants/:name" element={
-              <RestaurantsPage
-                restaurants={restaurants}
-              />}
-            />
-            <Route path="/search" element={
-              <SearchPage
-                restaurants={restaurants}
-              />}
-            />
-          </Routes>
-        </MobilePagesLayout>
+          }
+          />
+          <Route path="/" element={
+            <SituationSelectPage
+              restaurants={restaurants}
+            />}
+          />
+          <Route path="/custom" element={
+            <CustomPage
+              restaurants={restaurants}
+            />}
+          />
+          <Route path="/restaurants/:name" element={
+            <RestaurantsPage
+              restaurants={restaurants}
+            />}
+          />
+          <Route path="/search" element={
+            <SearchPage
+              restaurants={restaurants}
+            />}
+          />
+        </Routes>
       }
-    </AppLayout>
+    </>
   )
 }

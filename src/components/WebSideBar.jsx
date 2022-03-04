@@ -3,27 +3,29 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 const WebSideBarContainer = styled.div({
-  width: '300px',
+  backgroundColor: '#fff',
   maxWidth: '100%',
   height: '100vh',
-  display: 'flex',
-  flexFlow: 'column nowrap',
-  backgroundColor: '#fff',
+  padding: '0 3.75rem',
   position: 'fixed',
   top: 0,
+
+  display: 'flex',
+  flexFlow: 'column nowrap',
+  alignItems: 'center',
 })
 
 const WebSideBarContainer_logo = styled.div({
   marginTop: '2.875rem',
-  textAlign: 'center',
+  height: '10%',
 })
 
 const WebSideBarContainer_menu = styled.ul({
   display: 'flex',
-  height: '100vh',
-  flexDirection: 'column',
+  flexFlow: 'column nowrap',
   justifyContent: 'center',
   alignItems: 'center',
+  height: '90%',
 })
 
 const WebSideBarContainer_menu_category = styled.li({
@@ -36,7 +38,6 @@ const WebSideBarContainer_menu_information = styled.div({
   display: 'flex',
   alignItems: 'center',
   '& button': {
-    backgroundColor: 'transparent',
     color: '#828282',
     fontSize: '1.25rem',
     marginRight: '0.5rem',
@@ -44,10 +45,11 @@ const WebSideBarContainer_menu_information = styled.div({
 })
 
 const WebSideBarContainer_copyright = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '10%',
   borderTop: '1px solid #DADADA',
-  padding: '2rem 0',
-  margin: '0 1rem',
-  textAlign: 'center',
   '& span': {
     fontSize: '0.7rem',
     color: '#7D3200',

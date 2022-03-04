@@ -4,25 +4,25 @@ import {
   MemoryRouter,
 } from 'react-router-dom';
 
-import HomePage from './HomePage';
+import WebHomePage from './WebHomePage';
 
 jest.mock('react-redux');
 
-describe('HomePage', () => {
+describe('WebHomePage', () => {
   const dispatch = jest.fn();
 
   beforeEach(() => {
     dispatch.mockClear();
   });
 
-  const renderHomePage = () => render((
+  const renderWebHomePage = () => render((
     <MemoryRouter>
-      <HomePage />
+      <WebHomePage />
     </MemoryRouter>
   ));
 
   it('renders text', () => {
-    const { container } = renderHomePage();
+    const { container } = renderWebHomePage();
 
     expect(container).toHaveTextContent('고객님이 좋아할 음식점 추천');
   });

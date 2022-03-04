@@ -3,36 +3,31 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 const MobileSideBarMenuContainer = styled.div({
-  width: '270px',
+  backgroundColor: '#fff',
   maxWidth: '100%',
   height: '100vh',
-  backgroundColor: '#fff',
+  padding: '0 3.3rem',
   position: 'fixed',
   top: 0,
   zIndex: '1',
 
   display: 'flex',
-  flexDirection: 'column',
+  flexFlow: 'column nowrap',
   alignItems: 'center',
 })
 
-const MobileSideBarMenuContainer_close = styled.div({
-  display: 'flex',
-  justifyContent: 'flex-start',
-  width: '270px',
-  '& button': {
-    backgroundColor: 'transparent',
-    marginTop: '1rem',
-    marginLeft: '1rem',
-  },
+const MobileSideBarMenuContainer_close = styled.button({
+  position: 'absolute',
+  top: '1rem',
+  left: '1rem',
 })
 
 const MobileSideBarMenuContainer_menu = styled.ul({
   display: 'flex',
-  height: '100vh',
-  flexDirection: 'column',
+  flexFlow: 'column nowrap',
   justifyContent: 'center',
   alignItems: 'center',
+  height: '90%',
 })
 const MobileSideBarMenuContainer_menu_category = styled.li({
   color: '#828282',
@@ -43,7 +38,6 @@ const MobileSideBarMenuContainer_menu_information = styled.div({
   display: 'flex',
   alignItems: 'center',
   '& button': {
-    backgroundColor: 'transparent',
     color: '#828282',
     fontSize: '1rem',
     marginRight: '0.5rem',
@@ -51,6 +45,7 @@ const MobileSideBarMenuContainer_menu_information = styled.div({
 })
 
 const MobileSideBarMenuContainer_logo = styled.div({
+  flexFlow: 'nowrap',
   paddingTop: '1rem',
   borderTop: 'solid 1px #828282',
 })
@@ -68,15 +63,13 @@ export default function MoblieSideBarMenu({ onClickClose }) {
   return (
     <>
       <MobileSideBarMenuContainer>
-        <MobileSideBarMenuContainer_close>
-          <button
-            type='button'
-            onClick={() => onClickClose()}
-          >
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10.3999 10.4004L29.5999 29.6004M10.3999 29.6004L29.5999 10.4004" stroke="#FA625B" strokeWidth="2" />
-            </svg>
-          </button>
+        <MobileSideBarMenuContainer_close
+          type='button'
+          onClick={() => onClickClose()}
+        >
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.3999 10.4004L29.5999 29.6004M10.3999 29.6004L29.5999 10.4004" stroke="#FA625B" strokeWidth="2" />
+          </svg>
         </MobileSideBarMenuContainer_close>
 
         <MobileSideBarMenuContainer_menu>
