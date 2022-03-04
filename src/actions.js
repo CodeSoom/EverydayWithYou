@@ -18,6 +18,18 @@ import {
   fetchRecommendCourse,
 } from './services/api';
 
+export function setSideBarMenu() {
+  return {
+    type: 'setSideBarMenu',
+  }
+}
+
+export function removeSideBarMenu() {
+  return {
+    type: 'removeSideBarMenu',
+  }
+}
+
 // SituationSelectPage: 최초 레스토랑 JSON데이터 셋!
 export function setRestaurants(restaurants) {
   return {

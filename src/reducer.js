@@ -34,9 +34,25 @@ const initialState = {
   moodRestaurantsData: {},
   randomSituationPlaceRestaurants: [],
   randomAgeCategoryRestaurants: [],
+
+  callMenu: '',
 };
 
 const reducers = {
+  setSideBarMenu(state) {
+    return {
+      ...state,
+      callMenu: 'okay',
+    }
+  },
+
+  removeSideBarMenu(state) {
+    return {
+      ...state,
+      callMenu: '',
+    }
+  },
+
   // SituationSelectPage: 레스토랑 JSON데이터 셋!
   setRestaurants(state, { payload: { restaurants } }) {
     return {

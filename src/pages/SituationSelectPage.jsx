@@ -69,7 +69,7 @@ export default function SituationSelectPage({ restaurants }) {
     <SituationSelectPageLayout>
       <DecorateCircle></DecorateCircle>
       <TitleBox>
-        <h2>놀러 가는 목적이 무엇인지 알려주세요 . 💕</h2>
+        <h2>오늘은 무슨 날인가요? 놀러 가는 목적이 무엇인지 알려주세요.</h2>
         <h4>코스를 알려드리는 여정이 시작됩니다 !</h4>
       </TitleBox>
       <SelectBox>

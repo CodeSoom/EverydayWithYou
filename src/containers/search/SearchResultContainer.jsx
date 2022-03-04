@@ -6,10 +6,6 @@ import SearchResultRestaurants from '../../components/SearchResultRestaurants';
 import RandomSituationPlaceRestaurants from '../../components/RandomSituationPlaceRestaurants';
 import RandomAgeCategoryRestaurants from '../../components/RandomAgeCategoryRestaurants';
 
-const SearchPageLayout = styled.div({
-  backgroundColor: '#E5E5E5',
-})
-
 const InformationContainer = styled.div({
   fontSize: '1.5rem',
   fontWeight: '700',
@@ -39,7 +35,7 @@ export default function SearchResultContainer() {
   ));
 
   return (
-    <SearchPageLayout>
+    <>
       {searchResultRestaurants.length !== 0 ?
         <SearchResultRestaurants
           searchKeyword={searchKeyword}
@@ -56,6 +52,6 @@ export default function SearchResultContainer() {
           </RandomRestaurantsContainer>
         </>
       }
-    </SearchPageLayout>
+    </>
   )
 }
