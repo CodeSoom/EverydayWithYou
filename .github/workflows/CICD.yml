@@ -43,16 +43,6 @@ jobs:
         run: |
           mkdir -p dist/assets/css
           cp assets/css/* dist/assets/css/
-          
-      - name: Copy icon
-        run: |
-          mkdir -p dist/assets/icon
-          cp assets/icon/* dist/assets/icon/
-          
-      - name: Copy img
-        run: |
-          mkdir -p dist/assets/img
-          cp assets/img/* dist/assets/img/
         
       - name : Deploy 🚀 
         uses : JamesIves/github-pages-deploy-action@v4.2.3 
