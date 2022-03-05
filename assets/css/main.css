@@ -1,6 +1,10 @@
-/* 구글폰트 폰트 */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
-
+/* 눈누 프리텐다드 폰트 */
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
 
 /* reset */
 * {
@@ -8,6 +12,7 @@
   padding: 0;
   border:none;
   box-sizing: border-box;
+  line-height: 1.5;
 }
 
 li, ol, ul {
@@ -30,10 +35,9 @@ button {
 }
 
 body {
-  font-family: 'Noto Sans KR', sans-serif;
-  background-color: #F4F4F4;
-  background-size: cover;
-  height: 100vh;
+  font-family: 'Pretendard-Regular';
+  font-size: 16px;
+  word-break: keep-all;
 }
 
 .select {
@@ -43,6 +47,6 @@ body {
 
 .black-filter {
   filter: brightness(50%);
-  margin-left: 270px;
-  z-index: -1;
+  margin-left: 73vw;
+  z-index: 1;
 }
