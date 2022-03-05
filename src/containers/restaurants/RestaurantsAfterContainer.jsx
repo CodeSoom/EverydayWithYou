@@ -6,10 +6,10 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { loadItem } from '../../services/storage';
 
-import AfterRestaurants from '../../components/AfterRestaurants';
-import AfterCafes from '../../components/AfterCafes';
-import AfterBars from '../../components/AfterBars';
-import AfterRecommendation from '../../components/AfterRecommendation';
+import RestaurantsAfterRestaurant from '../../components/restaurants/RestaurantsAfterRestaurant';
+import RestaurantsAfterCafe from '../../components/restaurants/RestaurantsAfterCafe';
+import RestaurantsAfterBar from '../../components/restaurants/RestaurantsAfterBar';
+import RestaurantsAfterRecommendation from '../../components/restaurants/RestaurantsAfterRecommendation';
 
 import {
   loadAfterCourse,
@@ -36,10 +36,10 @@ export default function RestaurantsAfterContainer() {
 
   return (
     <RestaurantAfterContainer>
-      <AfterRestaurants />
-      <AfterCafes />
-      <AfterBars />
-      <AfterRecommendation />
+      <RestaurantsAfterRestaurant />
+      <RestaurantsAfterCafe />
+      <RestaurantsAfterBar />
+      <RestaurantsAfterRecommendation />
     </RestaurantAfterContainer>
   )
 }

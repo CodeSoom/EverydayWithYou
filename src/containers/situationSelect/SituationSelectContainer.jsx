@@ -119,8 +119,8 @@ export default function SituationSelectContainer() {
           <LazyLoadImage
             width='250px'
             height='250px'
-            src='assets/img/1.jpg'
-            placeholderSrc='assets/img/grey.jpg'
+            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/relationship-img/1.jpg'
+            placeholderSrc='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/loading-img/grey.jpg'
           />
           <p>알아가는 그대와 : 소개팅, 썸</p>
         </div>
@@ -137,8 +137,8 @@ export default function SituationSelectContainer() {
           <LazyLoadImage
             width='250px'
             height='250px'
-            src='assets/img/2.jpg'
-            placeholderSrc='assets/img/grey.jpg'
+            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/relationship-img/2.jpg'
+            placeholderSrc='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/loading-img/grey.jpg'
           />
           <p>일상 : 데이트</p>
         </div>
@@ -155,8 +155,8 @@ export default function SituationSelectContainer() {
           <LazyLoadImage
             width='250px'
             height='250px'
-            src='assets/img/3.jpg'
-            placeholderSrc='assets/img/grey.jpg'
+            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/relationship-img/3.jpg'
+            placeholderSrc='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/loading-img/grey.jpg'
           />
           <p>특별한 날 : 생일, 기념일, 프로포즈</p>
         </div>

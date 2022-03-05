@@ -72,7 +72,7 @@ describe('App', () => {
   it('renders search page path to "/search"', () => {
     const { container } = renderApp({ path: '/search' });
 
-    expect(container).toHaveTextContent('지역, 식당 또는 음식을 검색해 보세요.');
+    expect(container).toHaveTextContent('지역, 음식 또는 가게이름을 검색해 보세요.');
   });
 
   */
