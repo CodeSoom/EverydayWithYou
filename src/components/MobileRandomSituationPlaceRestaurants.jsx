@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const HorizontalRestaurantsListContainer = styled.h4({
-  padding: '4rem 3rem',
-  borderTop: 'solid 4px #C4C4C4',
+  padding: '10% 7.5%',
+  borderTop: 'solid 2px #C4C4C4',
 })
 
 const Title = styled.h4({
-  fontSize: '2.75rem',
+  fontSize: '3.25vw',
   fontWeight: '400',
   color: '#828282',
-  marginBottom: '2rem',
+  marginBottom: '5%',
 })
 
 const HorizontalRestaurantsList = styled.div({
@@ -22,27 +22,21 @@ const HorizontalRestaurantsList = styled.div({
 })
 const HorizontalRestaurantsList_restaurant = styled.li({
   backgroundColor: '#fff',
-  padding: '1rem',
-  marginRight: '2rem',
-  marginBottom: '1rem',
   boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.04)',
-  height: '22rem',
+  padding: '2vw',
+  marginRight: '2vw',
   '& img': {
-    width: '300px',
-    height: '250px',
+    width: '27vw',
+    height: '10vh',
     objectFit: 'cover',
-    marginBottom: '1rem',
+    marginBottom: '0.5vh',
   },
 });
 const HorizontalRestaurantsList_restaurant_contents = styled.div({
-  display: 'flex',
-  alignItems: 'center',
-  color: '#828282',
-  fontSize: '2rem',
   '& h4': {
-    fontSize: '2rem',
+    fontSize: '2.5vw',
+    color: '#828282',
     fontWeight: '700',
-    marginRight: '0.75rem',
   },
 });
 

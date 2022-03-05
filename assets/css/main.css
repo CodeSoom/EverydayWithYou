@@ -8,6 +8,7 @@
   padding: 0;
   border:none;
   box-sizing: border-box;
+  -webkit-appearance: none;
 }
 
 li, ol, ul {
@@ -30,10 +31,9 @@ button {
 }
 
 body {
+  /* font-size: 16px; */
   font-family: 'Noto Sans KR', sans-serif;
-  background-color: #F4F4F4;
-  background-size: cover;
-  height: 100vh;
+  word-break: keep-all;
 }
 
 .select {
@@ -43,6 +43,6 @@ body {
 
 .black-filter {
   filter: brightness(50%);
-  margin-left: 270px;
-  z-index: -1;
+  margin-left: 73vw;
+  z-index: 1;
 }
