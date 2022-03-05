@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import MobileHomeCarouselContainer from '../containers/home/MobileHomeCarouselContainer';
-import MobileRandomSituationPlaceRestaurants from '../components/MobileRandomSituationPlaceRestaurants';
-import MobileRandomAgeCategoryRestaurants from '../components/MobileRandomAgeCategoryRestaurants';
+import MobileRandomSituationPlaceRestaurants from '../components/random/MobileRandomSituationPlaceRestaurants';
+import MobileRandomAgeCategoryRestaurants from '../components/random/MobileRandomAgeCategoryRestaurants';
 
 import {
   setRandomFilter,
@@ -29,11 +29,11 @@ const MobileHomeTopSearchContainer = styled.div({
     paddingTop: '6%',
     paddingRight: '6%',
   },
-  '& svg': {
+  '& img': {
     width: '10vw',
     height: '10vw',
   },
-  '& span': {
+  '& p': {
     fontSize: '4.6vw',
     marginRight: '4.6vw',
     color: '#828282',
@@ -61,7 +61,7 @@ const MobileHomeSelectContainer_situation = styled.div({
     fontSize: '3.75vw',
     color: '#fff',
   },
-  '& svg': {
+  '& img': {
     width: '10%',
   },
 });
@@ -78,7 +78,7 @@ const MobileHomeSelectContainer_custom = styled.div({
     fontSize: '3.75vw',
     color: '#fff',
   },
-  '& svg': {
+  '& img': {
     width: '10%',
   },
 });
@@ -100,11 +100,8 @@ export default function MobileHomePage({ restaurants, callMenu }) {
       <Link to='/search'>
         <MobileHomeTopSearchContainer>
           <div>
-            <span>지역, 식당 또는 음식</span>
-            <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="69.0361" height="69.0361" fill="#FA625B" />
-              <path d="M53.8487 53.8487L42.8029 42.8029M31.7571 48.3258C22.6065 48.3258 15.1885 40.9078 15.1885 31.7571C15.1885 22.6065 22.6065 15.1885 31.7571 15.1885C40.9078 15.1885 48.3258 22.6065 48.3258 31.7571C48.3258 40.9078 40.9078 48.3258 31.7571 48.3258Z" stroke="white" strokeWidth="3.45181" />
-            </svg>
+            <p>지역, 음식 또는 가게이름</p>
+            <img src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-search-icon.svg' />
           </div>
         </MobileHomeTopSearchContainer>
       </Link>
@@ -115,17 +112,13 @@ export default function MobileHomePage({ restaurants, callMenu }) {
         <Link to='/'>
           <MobileHomeSelectContainer_situation>
             <p>놀러 가는 목적부터 선택</p>
-            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 56L48 30L20 4" stroke="white" strokeWidth="6" strokeLinecap="square" />
-            </svg>
+            <img src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-right-arrow-icon.svg' />
           </MobileHomeSelectContainer_situation>
         </Link>
         <Link to='/custom'>
           <MobileHomeSelectContainer_custom>
             <p>메뉴와 장소부터 선택</p>
-            <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 56L48 30L20 4" stroke="white" strokeWidth="6" strokeLinecap="square" />
-            </svg>
+            <img src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-right-arrow-icon.svg' />
           </MobileHomeSelectContainer_custom>
         </Link>
       </MobileHomeSelectContainer>

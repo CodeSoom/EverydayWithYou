@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 
 import { useSelector } from 'react-redux';
 
-import SearchResultRestaurants from '../../components/SearchResultRestaurants';
-import RandomSituationPlaceRestaurants from '../../components/RandomSituationPlaceRestaurants';
-import RandomAgeCategoryRestaurants from '../../components/RandomAgeCategoryRestaurants';
+import SearchResultRestaurants from '../../components/search/SearchResultRestaurants';
+import RandomSituationPlaceRestaurants from '../../components/random/RandomSituationPlaceRestaurants';
+import RandomAgeCategoryRestaurants from '../../components/random/RandomAgeCategoryRestaurants';
 
 const InformationContainer = styled.div({
   fontSize: '1.5rem',

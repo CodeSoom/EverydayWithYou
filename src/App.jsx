@@ -7,8 +7,9 @@ import { useSelector } from 'react-redux';
 
 import { useMediaQuery } from "react-responsive"
 
-import SideBar from './components/SideBar';
-import MobileSideBar from './components/MobileSideBar';
+import SideBar from './components/sidebar/SideBar';
+import MobileSideBar from './components/sidebar/MobileSideBar';
+
 import SituationSelectPage from './pages/SituationSelectPage';
 import HomePage from './pages/HomePage';
 import MobileHomePage from './pages/MobileHomePage';

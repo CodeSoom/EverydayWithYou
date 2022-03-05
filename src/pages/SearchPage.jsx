@@ -6,8 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import SearchContainer from '../containers/search/SearchContainer';
 import SearchResultContainer from '../containers/search/SearchResultContainer';
-import RandomSituationPlaceRestaurants from '../components/RandomSituationPlaceRestaurants';
-import RandomAgeCategoryRestaurants from '../components/RandomAgeCategoryRestaurants';
+import RandomSituationPlaceRestaurants from '../components/random/RandomSituationPlaceRestaurants';
+import RandomAgeCategoryRestaurants from '../components/random/RandomAgeCategoryRestaurants';
 
 import { removeItem } from '../services/storage';
 
@@ -60,7 +60,7 @@ export default function SearchPage({ restaurants }) {
       {!searchResultRestaurants ?
         <>
           <InformationContainer>
-            <p>지역, 식당 또는 음식을 검색해 보세요.</p>
+            <p>지역, 음식 또는 가게이름을 검색해 보세요.</p>
           </InformationContainer>
           <RandomRestaurantsContainer>
             <RandomSituationPlaceRestaurants />

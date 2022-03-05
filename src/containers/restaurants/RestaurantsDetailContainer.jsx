@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 
 import { useSelector } from 'react-redux';
 
-import KakaoShareBtn from '../../components/KakaoShareBtn';
-import KakaoMapBtn from '../../components/KakaoMapBtn';
+import KakaoShareBtn from '../../components/kakao/KakaoShareBtn';
+import KakaoMapBtn from '../../components/kakao/KakaoMapBtn';
 
 import { loadItem } from "../../services/storage";
 

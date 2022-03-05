@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import SearchForm from '../../components/SearchForm';
+import SearchForm from '../../components/search/SearchForm';
 
 import {
   changeSearchField,
