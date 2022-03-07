@@ -20,7 +20,7 @@ const HomePageLayout = styled.div({
   marginLeft: '18.75rem',
 });
 
-const HomeTopSearchContainer = styled.div({
+const TopSearchContainer = styled.div({
   height: '3.75rem',
   position: 'relative',
   '& p': {
@@ -96,14 +96,14 @@ export default function HomePage({ restaurants }) {
   return (
     <HomePageLayout>
       <Link to='/search'>
-        <HomeTopSearchContainer>
+        <TopSearchContainer>
           <p>지역, 음식 또는 가게이름</p>
           <div>
             <img
               src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/web-icon/search-icon.svg'
             />
           </div>
-        </HomeTopSearchContainer>
+        </TopSearchContainer>
       </Link>
       {/* Todo 리액트 라이브러리로 대체하기*/}
       <HomeCarouselContainer />

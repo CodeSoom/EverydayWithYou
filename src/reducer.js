@@ -8,7 +8,6 @@ const initialState = {
   filteredRestaurantsData: [], // 정상적으로 솔팅된 레스토랑 저장
 
   sortNumber: '',
-  color: '',
 
   selectedCategory: '',
   selectedPlace: '',
@@ -170,14 +169,12 @@ const reducers = {
         ...state,
         situationRestaurantsData: [],
         sortNumber: '',
-        color: '',
       }
     } else {
       return {
         ...state,
         situationRestaurantsData: filteredRestaurantsBySituation,
         sortNumber,
-        color: 'select',
       }
     }
   },
