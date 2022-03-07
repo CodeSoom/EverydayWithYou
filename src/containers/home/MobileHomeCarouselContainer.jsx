@@ -10,6 +10,7 @@ import {
 
 const Carousel_slide = styled.div({
   position: 'relative',
+  height: '53.5vh',
   '& img': {
     width: '100%',
     height: '53.5vh',
@@ -20,7 +21,7 @@ const Carousel_slide = styled.div({
   '& p': {
     zIndex: '1',
     width: '41vw',
-    fontSize: '3.125vw',
+    fontSize: '3.25vw',
     fontWeight: '700',
     lineHeight: '167.8%',
     position: 'absolute',

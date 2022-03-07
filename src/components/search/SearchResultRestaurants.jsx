@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const HorizontalRestaurantsListContainer = styled.div({
   padding: '3rem',
-  height: '100vh',
+  height: '90vh',
 })
 
 const Title = styled.h4({

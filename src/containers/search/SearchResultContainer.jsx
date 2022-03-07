@@ -26,7 +26,7 @@ export default function SearchResultContainer({ searchResultRestaurants, searchK
         <>
           <InformationContainer>
             결과가 없어요 ㅠㅠ
-            <p>다시 지역, 식당 또는 음식을 검색해 볼까요?</p>
+            <p>다시 지역, 음식 또는 가게이름을 검색해 볼까요?</p>
           </InformationContainer>
           <RandomSituationPlaceRestaurants />
           <RandomAgeCategoryRestaurants />

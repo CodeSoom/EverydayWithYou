@@ -16,7 +16,7 @@ const InformationContainer = styled.div({
   color: '#828282',
   width: '100%',
   height: '40vh',
-  padding: '0 10%',
+  padding: '0 5%',
   '& p': {
     fontWeight: '400',
   },
@@ -29,7 +29,7 @@ export default function MobileSearchResultContainer({ searchResultRestaurants, s
         <>
           <InformationContainer>
             결과가 없어요 ㅠㅠ
-            <p>다시 지역, 식당 또는 음식을 검색해 볼까요?</p>
+            <p>다시 지역, 음식 또는 가게이름을 검색해 볼까요?</p>
           </InformationContainer>
           <MobileRandomSituationPlaceRestaurants />
           <MobileRandomAgeCategoryRestaurants />

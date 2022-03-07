@@ -8,19 +8,23 @@ import {
   setSituationRestaurants,
 } from '../../actions';
 
-const Container = styled.div({
+const SelectBtnContainer = styled.div({
   display: 'flex',
+  justifyContent: 'center',
+  textAlign: 'center',
+  paddingBottom: '5.625rem',
 });
 
 const SelectButton = styled.button({
   ':hover, :focus': {
-    backgroundColor: 'rgba(250, 98, 91, 0.5)',
-    color: '#fff',
+    backgroundColor: '#FA625B',
   },
-  padding: '8px 20px',
-  margin: '4px',
-  borderRadius: '24px',
-  fontSize: '18px',
+  color: '#fff',
+  backgroundColor: '#828282',
+  fontSize: '1.5rem',
+  padding: '10px 20px',
+  borderRadius: '28px',
+  marginRight: '0.7rem',
 });
 
 export default function SituationSelectStartBtnContainer({ sortNumber }) {
@@ -35,7 +39,7 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
   }
 
   return (
-    <Container>
+    <SelectBtnContainer>
       <Link to={sortNumber ? '/home' : '/'}>
         <SelectButton
           type='button'
@@ -57,6 +61,6 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
           건너뛰기
         </SelectButton>
       </Link>
-    </Container>
+    </SelectBtnContainer>
   )
 }
