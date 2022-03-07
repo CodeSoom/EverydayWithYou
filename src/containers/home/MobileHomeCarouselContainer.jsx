@@ -22,7 +22,7 @@ const Carousel_slide = styled.div({
     width: '41vw',
     fontSize: '3.125vw',
     fontWeight: '700',
-    lineHeight: '2',
+    lineHeight: '167.8%',
     position: 'absolute',
     top: '5vh',
     left: '8vw',

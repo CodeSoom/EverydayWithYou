@@ -6,13 +6,13 @@ import { useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import MobileHomeCarouselContainer from '../containers/home/MobileHomeCarouselContainer';
-import MobileRandomSituationPlaceRestaurants from '../components/random/MobileRandomSituationPlaceRestaurants';
-import MobileRandomAgeCategoryRestaurants from '../components/random/MobileRandomAgeCategoryRestaurants';
+import MobileHomeCarouselContainer from '../../containers/home/MobileHomeCarouselContainer';
+import MobileRandomSituationPlaceRestaurants from '../../components/random/MobileRandomSituationPlaceRestaurants';
+import MobileRandomAgeCategoryRestaurants from '../../components/random/MobileRandomAgeCategoryRestaurants';
 
 import {
   setRandomFilter,
-} from '../actions';
+} from '../../actions';
 
 const MobileHomePageLayout = styled.div({
   backgroundColor: '#F4F4F4',
@@ -31,6 +31,7 @@ const MobileHomeTopSearchContainer = styled.div({
   },
   '& img': {
     width: '10vw',
+    height: '10vw',
   },
   '& p': {
     fontSize: '4.6vw',
@@ -100,9 +101,7 @@ export default function MobileHomePage({ restaurants, callMenu }) {
         <MobileHomeTopSearchContainer>
           <div>
             <p>지역, 음식 또는 가게이름</p>
-            <img
-              src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-search-icon.svg'
-            />
+            <img src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-search-icon.svg' />
           </div>
         </MobileHomeTopSearchContainer>
       </Link>
@@ -113,17 +112,13 @@ export default function MobileHomePage({ restaurants, callMenu }) {
         <Link to='/'>
           <MobileHomeSelectContainer_situation>
             <p>놀러 가는 목적부터 선택</p>
-            <img
-              src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-right-arrow-icon.svg'
-            />
+            <img src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-right-arrow-icon.svg' />
           </MobileHomeSelectContainer_situation>
         </Link>
         <Link to='/custom'>
           <MobileHomeSelectContainer_custom>
             <p>메뉴와 장소부터 선택</p>
-            <img
-              src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-right-arrow-icon.svg'
-            />
+            <img src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-right-arrow-icon.svg' />
           </MobileHomeSelectContainer_custom>
         </Link>
       </MobileHomeSelectContainer>

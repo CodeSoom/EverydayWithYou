@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 
-const HorizontalRestaurantsListContainer = styled.h4({
+const HorizontalRestaurantsListContainer = styled.div({
   padding: '3rem',
   borderTop: 'solid 2px #C4C4C4',
 })
@@ -12,7 +12,7 @@ const HorizontalRestaurantsListContainer = styled.h4({
 const Title = styled.h4({
   fontSize: '1.5rem',
   fontWeight: '400',
-  color: '#828282',
+  color: '#4F4F4F',
   marginBottom: '1rem',
 })
 
@@ -22,7 +22,6 @@ const HorizontalRestaurantsList = styled.ul({
 })
 const HorizontalRestaurantsList_restaurant = styled.li({
   backgroundColor: '#fff',
-  height: '17rem',
   padding: '1rem',
   marginRight: '2rem',
   marginBottom: '1rem',
@@ -40,9 +39,14 @@ const HorizontalRestaurantsList_restaurant_contents = styled.div({
   color: '#828282',
   fontSize: '1rem',
   '& h4': {
+    color: '#4F4F4F',
     fontSize: '1.25rem',
     fontWeight: '700',
     marginBottom: '0.25rem',
+  },
+  '& span': {
+    fontSize: '1rem',
+    color: '#fff',
   },
 });
 
@@ -98,7 +102,7 @@ export default function RandomSituationPlaceRestaurants() {
                 {`${restaurant.category} · ${restaurant.place}`}
                 <br />
                 {restaurant.mood === null ?
-                  '' : `#${restaurant.mood}`
+                  <span>결과없음</span> : `#${restaurant.mood}`
                 }
               </HorizontalRestaurantsList_restaurant_contents>
             </HorizontalRestaurantsList_restaurant>

@@ -373,33 +373,28 @@ export function findRestaurants({ restaurantsData }) {
           }
         });
       if (searchResultRestaurants) {
-        setSearchResult(searchKeyword, searchResultRestaurants)
+        dispatch(setSearchResultRestaurants(searchKeyword, searchResultRestaurants))
         setMoodFilter(searchResultRestaurants)
       }
     }
 
-    function setSearchResult(searchKeyword, searchResultRestaurants) {
-      dispatch(setSearchResultRestaurants(searchKeyword, searchResultRestaurants));
-    }
-
+    // ToDo 화면에 구현하기
     function setMoodFilter(searchResultRestaurants) {
       const uniqMoods = uniqBy(searchResultRestaurants, 'mood');
 
       for (const obj of uniqMoods) {
         const newArr = filter(searchResultRestaurants,
           function (restaurant) {
-            if (restaurant.mood && restaurant.mood.includes(obj.mood)) {
-              return restaurant.mood
-            } else if (!obj.mood) {
-              return restaurant
+            if (obj.mood !== 'null') {
+              if (restaurant.mood && restaurant.mood.includes(obj.mood)) {
+                return restaurant.mood
+              }
             }
           })
-        setMood(obj.mood, newArr)
+        if (newArr.length !== 0) {
+          dispatch(setMoodRestaurants(obj.mood, newArr));
+        }
       }
-    }
-
-    function setMood(moodName, moodRestaurantsData) {
-      dispatch(setMoodRestaurants(moodName, moodRestaurantsData));
     }
   }
 }

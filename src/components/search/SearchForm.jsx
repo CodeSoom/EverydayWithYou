@@ -12,7 +12,7 @@ const TopSearchContainer_input = styled.input({
   width: '50%',
   height: '5rem',
   fontSize: '1.75rem',
-  color: '#828282',
+  color: '#4F4F4F',
   textAlign: 'right',
   padding: '0 2rem',
 })
@@ -42,7 +42,11 @@ export default function SearchForm({ searchField, onClickSearch, onChangeKeyword
       />
       <TopSearchContainer_button
         type='button'
-        onClick={() => onClickSearch()}
+        onClick={() => {
+          searchKeyword ?
+            onClickSearch()
+            : alert('검색어를 입력해주세요!')
+        }}
       >
         <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M24.1998 24.1998L17.7998 17.7998M11.3998 20.9998C6.09787 20.9998 1.7998 16.7017 1.7998 11.3998C1.7998 6.09787 6.09787 1.7998 11.3998 1.7998C16.7017 1.7998 20.9998 6.09787 20.9998 11.3998C20.9998 16.7017 16.7017 20.9998 11.3998 20.9998Z" stroke="white" strokeWidth="2" />

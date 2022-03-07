@@ -1,25 +1,28 @@
 import styled from '@emotion/styled';
 
-import RandomSituationPlaceRestaurants from '../../components/random/RandomSituationPlaceRestaurants';
-import RandomAgeCategoryRestaurants from '../../components/random/RandomAgeCategoryRestaurants';
+import MobileRandomSituationPlaceRestaurants from '../../components/random/MobileRandomSituationPlaceRestaurants';
+import MobileRandomAgeCategoryRestaurants from '../../components/random/MobileRandomAgeCategoryRestaurants';
 
-import SearchResultRestaurants from '../../components/search/SearchResultRestaurants';
+import MobileSearchResultRestaurants from '../../components/search/MobileSearchResultRestaurants';
 
 const InformationContainer = styled.div({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  fontSize: '1.5rem',
+  fontSize: '3.75vw',
   fontWeight: '700',
+  textAlign: 'center',
   color: '#828282',
-  height: '23.75rem',
+  width: '100%',
+  height: '40vh',
+  padding: '0 10%',
   '& p': {
     fontWeight: '400',
   },
 })
 
-export default function SearchResultContainer({ searchResultRestaurants, searchKeyword }) {
+export default function MobileSearchResultContainer({ searchResultRestaurants, searchKeyword }) {
   return (
     <>
       {searchResultRestaurants.length === 0 ?
@@ -28,11 +31,11 @@ export default function SearchResultContainer({ searchResultRestaurants, searchK
             결과가 없어요 ㅠㅠ
             <p>다시 지역, 식당 또는 음식을 검색해 볼까요?</p>
           </InformationContainer>
-          <RandomSituationPlaceRestaurants />
-          <RandomAgeCategoryRestaurants />
+          <MobileRandomSituationPlaceRestaurants />
+          <MobileRandomAgeCategoryRestaurants />
         </>
         :
-        <SearchResultRestaurants
+        <MobileSearchResultRestaurants
           searchResultRestaurants={searchResultRestaurants}
           searchKeyword={searchKeyword}
         />
