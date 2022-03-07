@@ -4,11 +4,12 @@ import { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import SearchContainer from '../containers/search/SearchContainer';
-import SearchResultContainer from '../containers/search/SearchResultContainer';
+import MobileSearchContainer from '../containers/search/MobileSearchContainer';
 
-import RandomSituationPlaceRestaurants from '../components/random/RandomSituationPlaceRestaurants';
-import RandomAgeCategoryRestaurants from '../components/random/RandomAgeCategoryRestaurants';
+import MobileSearchResultContainer from '../containers/search/MobileSearchResultContainer';
+
+import MobileRandomSituationPlaceRestaurants from '../components/random/MobileRandomSituationPlaceRestaurants';
+import MobileRandomAgeCategoryRestaurants from '../components/random/MobileRandomAgeCategoryRestaurants';
 
 import {
   setRandomFilter,
@@ -17,20 +18,24 @@ import {
 const SearchPageLayout = styled.div({
   backgroundColor: '#F4F4F4',
   backgroundSize: 'cover',
-  marginLeft: '18.75rem',
+  marginLeft: '15.5vw',
+  zIndex: '-1',
 })
 
 const InformationContainer = styled.div({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  fontSize: '1.5rem',
+  fontSize: '3.75vw',
   fontWeight: '700',
+  textAlign: 'center',
   color: '#828282',
-  height: '23.75rem',
+  width: '100%',
+  height: '40vh',
+  padding: '0 10%',
 })
 
-export default function SearchPage({ restaurants }) {
+export default function MobileSearchPage({ restaurants, callMenu }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -45,8 +50,13 @@ export default function SearchPage({ restaurants }) {
   ));
 
   return (
-    <SearchPageLayout>
-      <SearchContainer
+    <SearchPageLayout
+      className={
+        callMenu == 'okay' ?
+          'black-filter' : ''
+      }
+    >
+      <MobileSearchContainer
         restaurantsData={restaurants}
       />
       {!searchResultRestaurants ?
@@ -54,10 +64,10 @@ export default function SearchPage({ restaurants }) {
           <InformationContainer>
             <p>지역, 음식 또는 가게이름을 검색해 보세요.</p>
           </InformationContainer>
-          <RandomSituationPlaceRestaurants />
-          <RandomAgeCategoryRestaurants />
+          <MobileRandomSituationPlaceRestaurants />
+          <MobileRandomAgeCategoryRestaurants />
         </>
-        : <SearchResultContainer
+        : <MobileSearchResultContainer
           searchResultRestaurants={searchResultRestaurants}
           searchKeyword={searchKeyword}
         />

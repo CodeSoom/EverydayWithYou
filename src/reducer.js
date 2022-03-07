@@ -77,7 +77,7 @@ const reducers = {
     }
   },
 
-  // SearchPage: 분위기별 솔팅 => 필터링된 레스토랑 셋!
+  // ToDo 화면에 구현하기 SearchPage: 분위기별 솔팅 => 필터링된 레스토랑 셋!
   setMoodRestaurants(state, { payload: { moodName, moodRestaurantsData } }) {
     return {
       ...state,

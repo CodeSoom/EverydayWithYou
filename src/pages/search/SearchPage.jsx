@@ -4,15 +4,14 @@ import { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 
-import SearchContainer from '../containers/search/SearchContainer';
-import SearchResultContainer from '../containers/search/SearchResultContainer';
-
-import RandomSituationPlaceRestaurants from '../components/random/RandomSituationPlaceRestaurants';
-import RandomAgeCategoryRestaurants from '../components/random/RandomAgeCategoryRestaurants';
+import SearchContainer from '../../containers/search/SearchContainer';
+import SearchResultContainer from '../../containers/search/SearchResultContainer';
+import RandomSituationPlaceRestaurants from '../../components/random/RandomSituationPlaceRestaurants';
+import RandomAgeCategoryRestaurants from '../../components/random/RandomAgeCategoryRestaurants';
 
 import {
   setRandomFilter,
-} from '../actions';
+} from '../../actions';
 
 const SearchPageLayout = styled.div({
   backgroundColor: '#F4F4F4',
@@ -24,25 +23,22 @@ const InformationContainer = styled.div({
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  height: '23.75rem',
   fontSize: '1.5rem',
   fontWeight: '700',
   color: '#828282',
-  height: '23.75rem',
 })
 
 export default function SearchPage({ restaurants }) {
+  const searchResultRestaurants = useSelector((state) => (
+    state.searchResultRestaurants
+  ));
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setRandomFilter(restaurants))
   }, []);
-
-  const searchResultRestaurants = useSelector((state) => (
-    state.searchResultRestaurants
-  ));
-  const searchKeyword = useSelector((state) => (
-    state.searchKeyword
-  ));
 
   return (
     <SearchPageLayout>
@@ -59,7 +55,6 @@ export default function SearchPage({ restaurants }) {
         </>
         : <SearchResultContainer
           searchResultRestaurants={searchResultRestaurants}
-          searchKeyword={searchKeyword}
         />
       }
     </SearchPageLayout>

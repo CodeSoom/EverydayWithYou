@@ -2,18 +2,16 @@ import styled from '@emotion/styled';
 
 import { Link } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
-
 const HorizontalRestaurantsListContainer = styled.div({
-  padding: '0 3rem',
-  paddingBottom: '3rem',
+  padding: '10% 7.5%',
+  height: '100vh',
 })
 
 const Title = styled.h4({
-  fontSize: '1.5rem',
+  fontSize: '3.25vw',
   fontWeight: '400',
   color: '#4F4F4F',
-  marginBottom: '1rem',
+  marginBottom: '5%',
 })
 
 const HorizontalRestaurantsList = styled.ul({
@@ -22,67 +20,41 @@ const HorizontalRestaurantsList = styled.ul({
 })
 const HorizontalRestaurantsList_restaurant = styled.li({
   backgroundColor: '#fff',
-  padding: '1rem',
-  marginRight: '2rem',
-  marginBottom: '1rem',
   boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.04)',
+  padding: '1.5vw',
+  marginRight: '3.75vw',
+  marginBottom: '1vh',
   '& img': {
-    width: '250px',
-    height: '150px',
+    width: '26vw',
+    height: '10.5vh',
     objectFit: 'cover',
-    paddingBottom: '1rem',
+    paddingBottom: '1vh',
   },
 });
 const HorizontalRestaurantsList_restaurant_contents = styled.div({
   display: 'flex',
   flexDirection: 'column',
   color: '#828282',
-  fontSize: '1rem',
+  fontSize: '2vw',
   '& h4': {
     color: '#4F4F4F',
-    fontSize: '1.25rem',
-    fontWeight: '700',
-    marginBottom: '0.25rem',
+    fontSize: '2.5vw',
+    marginBottom: '0.5vh',
   },
   '& span': {
-    fontSize: '1rem',
+    fontSize: '2vw',
     color: '#fff',
   },
 });
 
-export default function RandomAgeCategoryRestaurants() {
-  const randomAgeCategoryRestaurants = useSelector((state) => (
-    state.randomAgeCategoryRestaurants
-  ));
-  const age = useSelector((state) => (
-    state.age
-  ));
-  const category = useSelector((state) => (
-    state.category
-  ));
-
-  function condition(category) {
-    if (
-      category == '이탈리안' ||
-      category == '스테이크'
-    ) {
-      return `${age}가 좋아하는 ${category} 음식점`
-    } else if (category == '인도음식') {
-      return `${age}가 좋아하는 ${category}점`
-    } else {
-      return `${age}가 좋아하는 ${category}`
-    }
-  }
-
-  const titleCondition = condition(category)
-
+export default function MobileSearchResultRestaurants({ searchResultRestaurants, searchKeyword }) {
   return (
     <HorizontalRestaurantsListContainer>
       <Title>
-        {titleCondition}
+        {`"${searchKeyword}"의 모든 결과`}
       </Title>
       <HorizontalRestaurantsList>
-        {randomAgeCategoryRestaurants.map(restaurant => (
+        {searchResultRestaurants.map(restaurant => (
           <Link
             to={`/restaurants/${restaurant.name}`}
             key={restaurant.id}

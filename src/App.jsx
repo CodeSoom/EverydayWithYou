@@ -10,12 +10,16 @@ import { useMediaQuery } from "react-responsive"
 import SideBar from './components/sidebar/SideBar';
 import MobileSideBar from './components/sidebar/MobileSideBar';
 
-import SituationSelectPage from './pages/SituationSelectPage';
 import HomePage from './pages/HomePage';
 import MobileHomePage from './pages/MobileHomePage';
+
+import SearchPage from './pages/SearchPage';
+import MobileSearchPage from './pages/MobileSearchPage';
+
+import SituationSelectPage from './pages/SituationSelectPage';
+
 import CustomPage from './pages/CustomPage';
 import RestaurantsPage from './pages/RestaurantsPage';
-import SearchPage from './pages/SearchPage';
 
 import restaurants from '../assets/json/restaurants.json';
 
@@ -39,6 +43,11 @@ export default function App() {
             />
           }
           />
+          <Route path="/search" element={
+            <SearchPage
+              restaurants={restaurants}
+            />}
+          />
           <Route path="/" element={
             <SituationSelectPage
               restaurants={restaurants}
@@ -51,11 +60,6 @@ export default function App() {
           />
           <Route path="/restaurants/:name" element={
             <RestaurantsPage
-              restaurants={restaurants}
-            />}
-          />
-          <Route path="/search" element={
-            <SearchPage
               restaurants={restaurants}
             />}
           />
@@ -69,6 +73,12 @@ export default function App() {
             />
           }
           />
+          <Route path="/search" element={
+            <MobileSearchPage
+              restaurants={restaurants}
+              callMenu={callMenu}
+            />}
+          />
           <Route path="/" element={
             <SituationSelectPage
               restaurants={restaurants}
@@ -81,11 +91,6 @@ export default function App() {
           />
           <Route path="/restaurants/:name" element={
             <RestaurantsPage
-              restaurants={restaurants}
-            />}
-          />
-          <Route path="/search" element={
-            <SearchPage
               restaurants={restaurants}
             />}
           />

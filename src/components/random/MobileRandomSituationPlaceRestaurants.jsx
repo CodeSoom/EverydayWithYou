@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 
-const HorizontalRestaurantsListContainer = styled.h4({
+const HorizontalRestaurantsListContainer = styled.div({
   padding: '10% 7.5%',
   borderTop: 'solid 2px #C4C4C4',
 })
@@ -12,7 +12,7 @@ const HorizontalRestaurantsListContainer = styled.h4({
 const Title = styled.h4({
   fontSize: '3.25vw',
   fontWeight: '400',
-  color: '#828282',
+  color: '#4F4F4F',
   marginBottom: '5%',
 })
 
@@ -23,21 +23,29 @@ const HorizontalRestaurantsList = styled.ul({
 const HorizontalRestaurantsList_restaurant = styled.li({
   backgroundColor: '#fff',
   boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.04)',
-  padding: '2vw',
-  marginRight: '2vw',
-  marginBottom: '1.65vh',
+  padding: '1.5vw',
+  marginRight: '3.75vw',
+  marginBottom: '1vh',
   '& img': {
-    width: '27vw',
-    height: '10vh',
+    width: '26vw',
+    height: '10.5vh',
     objectFit: 'cover',
-    marginBottom: '0.5vh',
+    paddingBottom: '1vh',
   },
 });
 const HorizontalRestaurantsList_restaurant_contents = styled.div({
+  display: 'flex',
+  flexDirection: 'column',
+  color: '#828282',
+  fontSize: '2vw',
   '& h4': {
+    color: '#4F4F4F',
     fontSize: '2.5vw',
-    color: '#828282',
-    fontWeight: '700',
+    marginBottom: '0.5vh',
+  },
+  '& span': {
+    fontSize: '2vw',
+    color: '#fff',
   },
 });
 
@@ -90,6 +98,11 @@ export default function MobileRandomSituationPlaceRestaurants() {
               <img src={`${restaurant.img}`} />
               <HorizontalRestaurantsList_restaurant_contents>
                 <h4>{restaurant.name}</h4>
+                {`${restaurant.category} · ${restaurant.place}`}
+                <br />
+                {restaurant.mood === null ?
+                  <span>결과없음</span> : `#${restaurant.mood}`
+                }
               </HorizontalRestaurantsList_restaurant_contents>
             </HorizontalRestaurantsList_restaurant>
           </Link>

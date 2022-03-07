@@ -33,7 +33,6 @@ const Contents = styled.div({
 export default function RestaurantsAfterRecommendation() {
   const recommendation = useSelector((state) => state.recommendation);
   // ToDo recommendation있는데 undefined들어오는거 해결하기
-  console.log(recommendation)
 
   return (
     <>{

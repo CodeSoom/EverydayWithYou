@@ -6,6 +6,13 @@
   font-style: normal;
 }
 
+@font-face {
+    font-family: 'Pretendard-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
 /* reset */
 * {
   margin: 0;
@@ -35,7 +42,6 @@ button {
 }
 
 body {
-  font-family: 'Pretendard-Regular';
   font-size: 16px;
   word-break: keep-all;
 }
