@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import facepaint from 'facepaint'
+
 import { Link } from 'react-router-dom';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,24 +10,29 @@ import {
   setSituationRestaurants,
 } from '../../actions';
 
-const SelectBtnContainer = styled.div({
-  display: 'flex',
-  justifyContent: 'center',
-  textAlign: 'center',
-  paddingBottom: '5.625rem',
-});
+const mq = facepaint([
+  '@media (min-width: 1024px)',
+  '@media (min-width: 1440px)',
+])
 
-const SelectButton = styled.button({
-  ':hover, :focus': {
+const SelectBtnContainer = styled.div(() => mq({
+  padding: ['7vh 0', '5.625rem 0', '5.625rem 0'],
+  width: ['53.57vw', '15rem', '15rem'],
+  display: 'flex',
+  justifyContent: 'space-between',
+}));
+
+const SelectButton = styled.button(() => mq({
+  ':hover, :active': {
     backgroundColor: '#FA625B',
   },
   color: '#fff',
   backgroundColor: '#828282',
-  fontSize: '1.5rem',
-  padding: '10px 20px',
-  borderRadius: '28px',
-  marginRight: '0.7rem',
-});
+  fontSize: ['5vw', '1.5rem', '1.5rem'],
+  fontWeight: '700',
+  padding: ['2vh 6.25vw', '10px 20px', '10px 20px'],
+  borderRadius: ['8.75vw', '28px', '28px'],
+}));
 
 export default function SituationSelectStartBtnContainer({ sortNumber }) {
   const dispatch = useDispatch();
