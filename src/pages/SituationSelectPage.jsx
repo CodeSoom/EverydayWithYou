@@ -23,19 +23,18 @@ const mq = facepaint([
 ])
 
 const SituationSelectPageLayout = styled.div(() => mq({
+  marginLeft: ['15.5vw', '18.75rem', '18.75rem'],
   backgroundColor: '#F4F4F4',
   backgroundSize: 'cover',
-  marginLeft: ['15.5vw', '18.75rem', '18.75rem'],
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: ['center', 'space-between', 'space-between'],
   alignItems: 'center',
   zIndex: '-1',
 }));
 
 const Top = styled.div(() => mq({
-  position: 'fixed',
   marginLeft: ['15.5vw', '18.75rem', '18.75rem'],
+  position: 'fixed',
   left: 0,
   right: 0,
   top: 0,
@@ -86,8 +85,8 @@ const Title = styled.div({
   alignItems: 'center',
   textAlign: 'center',
   fontSize: '1.5rem',
-  marginTop: '8.5rem',
-  padding: '5.625rem',
+  marginTop: '13.5rem',
+  padding: '0 5.625rem',
   color: '#828282',
   '& h2': {
     color: '#4F4F4F',
@@ -155,7 +154,9 @@ export default function SituationSelectPage({ restaurants, callMenu }) {
         :
         null
       }
-      <SituationSelectContainer />
+      <SituationSelectContainer
+        sortNumber={sortNumber}
+      />
       <SituationSelectStartBtnContainer
         sortNumber={sortNumber}
       />
