@@ -56,3 +56,22 @@ body {
   margin-left: 73vw;
   z-index: 1;
 }
+
+.select-img-effect1 {
+  filter: none;
+  transform: scale(1.0, 1.0) rotate(5deg) !important;
+}
+
+.select-img-effect2 {
+  filter: none;
+  transform: scale(1.0, 1.0) rotate(-5deg) !important;
+}
+
+.select-img-effect3 {
+  filter: none;
+  transform: scale(1.0, 1.0) rotate(4deg) !important;
+}
+
+.select-button-effect {
+  background-color: #FA625B;
+}

@@ -23,7 +23,7 @@ const SelectBtnContainer = styled.div(() => mq({
 }));
 
 const SelectButton = styled.button(() => mq({
-  ':hover, :active': {
+  ':hover': {
     backgroundColor: '#FA625B',
   },
   color: '#fff',
@@ -42,7 +42,11 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
   ))
 
   function handleClickUpdate(situationRestaurantsData) {
-    dispatch(setSituationRestaurants(situationRestaurantsData));
+    {
+      situationRestaurantsData ?
+        dispatch(setSituationRestaurants(situationRestaurantsData))
+        : window.location.reload()
+    }
   }
 
   return (
@@ -54,6 +58,10 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
             sortNumber ?
               situationRestaurantsData :
               alert('한 가지 이상 선택해주세요!'))}
+          className={
+            sortNumber ?
+              'select-button-effect' : ''
+          }
         >
           시작
         </SelectButton>
@@ -64,6 +72,10 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
         <SelectButton
           type='button'
           onClick={() => handleClickUpdate([])}
+          className={
+            sortNumber ?
+              'select-button-effect' : ''
+          }
         >
           건너뛰기
         </SelectButton>
