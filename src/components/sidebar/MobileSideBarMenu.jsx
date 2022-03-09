@@ -9,7 +9,7 @@ const MobileSideBarMenuContainer = styled.div({
   width: '73vw',
   position: 'fixed',
   top: 0,
-  zIndex: '1',
+  zIndex: 3,
   padding: '3%',
 
   display: 'flex',

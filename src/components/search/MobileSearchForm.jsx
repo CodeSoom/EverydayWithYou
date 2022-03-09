@@ -16,7 +16,6 @@ const TopSearchContainer_input = styled.input({
   textAlign: 'right',
   fontSize: '4.6vw',
   marginRight: '4.6vw',
-  marginBottom: 0,
 })
 
 const TopSearchContainer_button = styled.button({

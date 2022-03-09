@@ -5,7 +5,7 @@ import {
 
 import { useSelector } from 'react-redux';
 
-import { useMediaQuery } from "react-responsive"
+import { useMediaQuery } from "react-responsive" // ToDoDelete
 
 import SideBar from './components/sidebar/SideBar';
 import MobileSideBar from './components/sidebar/MobileSideBar';
@@ -24,6 +24,7 @@ import RestaurantsPage from './pages/RestaurantsPage';
 import restaurants from '../assets/json/restaurants.json';
 
 export default function App() {
+  // ToDoDelete
   const isPc = useMediaQuery({
     query: "(min-width:1024px)",
   });
@@ -82,6 +83,7 @@ export default function App() {
           <Route path="/" element={
             <SituationSelectPage
               restaurants={restaurants}
+              callMenu={callMenu}
             />}
           />
           <Route path="/custom" element={

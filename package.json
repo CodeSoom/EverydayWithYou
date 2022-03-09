@@ -49,6 +49,7 @@
     "@emotion/styled": "^11.6.0",
     "@jamesives/github-pages-deploy-action": "^4.2.3",
     "bootstrap": "^5.1.3",
+    "facepaint": "^1.2.1",
     "jest-plugin-context": "^2.7.0",
     "lodash.filter": "^4.6.0",
     "lodash.uniqby": "^4.7.0",

@@ -9,6 +9,7 @@ const WebSideBarContainer = styled.div({
   width: '18.75rem',
   position: 'fixed',
   top: 0,
+  zIndex: 3,
 
   display: 'flex',
   flexFlow: 'column nowrap',
@@ -62,7 +63,7 @@ export default function SideBar() {
       <Link to='/home'>
         <WebSideBarContainer_logo>
           <img
-            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/web-icon/logo.svg'
+            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/logo.svg'
           />
         </WebSideBarContainer_logo>
       </Link>
@@ -97,10 +98,10 @@ export default function SideBar() {
             About
           </span>
           <img
-            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/web-icon/right-arrow-grey.svg'
+            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/right-arrow-grey.svg'
           />
           {/* <img
-            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/web-icon/bottom-arrow-grey.svg'
+            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/bottom-arrow-grey.svg'
           /> */}
         </WebSideBarContainer_menu_information>
       </WebSideBarContainer_menu>

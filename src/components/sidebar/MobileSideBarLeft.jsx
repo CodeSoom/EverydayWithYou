@@ -7,6 +7,7 @@ const MobileSideBarLeftContainer = styled.div({
   height: '100vh',
   width: '15.5vw',
   padding: '3% 0',
+  zIndex: 3,
 
   position: 'fixed',
   top: 0,
