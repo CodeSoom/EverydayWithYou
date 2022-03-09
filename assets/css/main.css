@@ -71,3 +71,7 @@ body {
   filter: none;
   transform: scale(1.0, 1.0) rotate(4deg) !important;
 }
+
+.select-button-effect {
+  background-color: #FA625B;
+}
