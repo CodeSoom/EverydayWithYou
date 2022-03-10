@@ -8,31 +8,37 @@ import {
   setCategoryFilter,
 } from '../../actions';
 
-const Container = styled.div({
-  height: '50%',
+const CustomCategoryFilter = styled.div({
+  marginBottom: '8.5rem',
 });
 
-const TitleBox = styled.div({
-  marginBottom: '1rem',
-})
+const CustomCategoryFilter_title = styled.p({
+  marginBottom: '1.25rem',
+  paddingBottom: '0.5rem',
+  fontSize: '1.25rem',
+  color: '#828282',
+  borderBottom: '1px solid #DADADA',
+});
 
-const Alert = styled.div({
-  height: '1rem',
+const CustomCategoryFilter_alert = styled.div({
+  paddingBottom: '1rem',
   '& span': {
-    fontWeight: 'bold',
     background: 'hsl(200 100% 90%)',
+    fontSize: '1rem',
   },
 });
 
-const SelectButton = styled.button({
-  ':hover, :focus': {
-    backgroundColor: 'rgba(250, 98, 91, 0.5)',
+const CustomCategoryFilter_selectButton = styled.button({
+  ':hover': {
+    backgroundColor: '#FA625B',
     color: '#fff',
   },
-  padding: '8px 16px',
-  margin: '4px',
+  fontSize: '1rem',
+  fontWeight: '700',
+  padding: '7px 14px',
   borderRadius: '20px',
-
+  marginRight: '0.5rem',
+  marginBottom: '0.5rem',
 });
 
 export default function CustomCategoryFilterContainer() {
@@ -55,29 +61,28 @@ export default function CustomCategoryFilterContainer() {
     (state.alert));
 
   return (
-    <Container>
-      <TitleBox>
-        <p>무엇을 드시고 싶으세요?</p>
-        <hr />
-        <Alert>
-          <span>
-            {alert === '드시고 싶은 것을 다시 선택해주세요 !' ? alert : ''}
-          </span>
-        </Alert>
-      </TitleBox>
+    <CustomCategoryFilter>
+      <CustomCategoryFilter_title>
+        무엇을 드시고 싶으세요?
+      </CustomCategoryFilter_title>
+      <CustomCategoryFilter_alert>
+        <span>
+          {alert === '드시고 싶은 것을 다시 선택해주세요!' ? alert : ''}
+        </span>
+      </ CustomCategoryFilter_alert>
       {uniqCategories.map((category) => (
-        <SelectButton
+        <CustomCategoryFilter_selectButton
           type='button'
           key={category.id}
           onClick={() => handleClickCategory(category.category)}
           className={
-            selectedCategory === category.category ? // 카테고리키워드가 들어왔을때
-              categoryColor : ''
+            selectedCategory === category.category ?
+              categoryColor : 'select-button'
           }
         >
           {category.category}
-        </SelectButton>
+        </CustomCategoryFilter_selectButton>
       ))}
-    </Container>
+    </CustomCategoryFilter>
   )
 }

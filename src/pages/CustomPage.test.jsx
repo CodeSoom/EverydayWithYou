@@ -1,4 +1,3 @@
-// 관심사: 화면 구성과 스토어에서 레스토랑 컨테이너에 뿌려주기
 import { render } from '@testing-library/react';
 
 import { useSelector, useDispatch } from 'react-redux';

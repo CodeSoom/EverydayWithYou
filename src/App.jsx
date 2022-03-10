@@ -89,6 +89,7 @@ export default function App() {
           <Route path="/custom" element={
             <CustomPage
               restaurants={restaurants}
+              callMenu={callMenu}
             />}
           />
           <Route path="/restaurants/:name" element={

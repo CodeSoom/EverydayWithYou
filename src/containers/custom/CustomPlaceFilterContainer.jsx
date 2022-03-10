@@ -8,31 +8,36 @@ import {
   setPlaceFilter,
 } from '../../actions';
 
-const Container = styled.div({
-  height: '50%',
+const CustomPlaceFilter = styled.div({
 });
 
-const TitleBox = styled.div({
-  marginBottom: '1rem',
+const CustomPlaceFilter_title = styled.p({
+  marginBottom: '1.25rem',
+  paddingBottom: '0.5rem',
+  fontSize: '1.25rem',
+  color: '#828282',
+  borderBottom: '1px solid #DADADA',
 })
 
-const Alert = styled.div({
-  height: '1rem',
+const CustomPlaceFilter_alert = styled.div({
+  paddingBottom: '1rem',
   '& span': {
-    fontWeight: 'bold',
     background: 'hsl(200 100% 90%)',
+    fontSize: '1rem',
   },
 });
 
-const SelectButton = styled.button({
-  ':hover, :focus': {
-    backgroundColor: 'rgba(250, 98, 91, 0.5)',
+const CustomPlaceFilter_selectButton = styled.button({
+  ':hover': {
+    backgroundColor: '#FA625B',
     color: '#fff',
   },
-  padding: '8px 16px',
-  margin: '4px',
+  fontSize: '1rem',
+  fontWeight: '700',
+  padding: '7px 14px',
   borderRadius: '20px',
-
+  marginRight: '0.5rem',
+  marginBottom: '0.5rem',
 });
 
 export default function CustomPlaceFilterContainer() {
@@ -55,29 +60,28 @@ export default function CustomPlaceFilterContainer() {
     (state.alert));
 
   return (
-    <Container>
-      <TitleBox>
-        <p>어디로 가고 싶나요?</p>
-        <hr />
-        <Alert>
-          <span>
-            {alert === '가고 싶으신 곳을 다시 선택해주세요 !' ? alert : ''}
-          </span>
-        </Alert>
-      </TitleBox>
+    <CustomPlaceFilter>
+      <CustomPlaceFilter_title>
+        어디로 가고 싶나요?
+      </CustomPlaceFilter_title>
+      <CustomPlaceFilter_alert>
+        <span>
+          {alert === '가고 싶으신 곳을 다시 선택해주세요 !' ? alert : ''}
+        </span>
+      </CustomPlaceFilter_alert>
       {uniqPlaces.map((place) => (
-        <SelectButton
+        <CustomPlaceFilter_selectButton
           type="button"
           key={place.id}
           onClick={() => handleClickPlace(place.place)}
           className={
             selectedPlace === place.place ?
-              placeColor : ''
+              placeColor : 'select-button'
           }
         >
           {place.place}
-        </SelectButton>
+        </CustomPlaceFilter_selectButton>
       ))}
-    </Container>
+    </CustomPlaceFilter>
   )
 }

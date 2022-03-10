@@ -44,7 +44,7 @@ const HomeSelectContainer = styled.div({
   margin: '2rem',
 });
 
-const HomeSelectContainer_situation = styled.div({
+const HomeSelectContainer_situation = styled.button({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -62,7 +62,7 @@ const HomeSelectContainer_situation = styled.div({
   },
 });
 
-const HomeSelectContainer_custom = styled.div({
+const HomeSelectContainer_custom = styled.button({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
@@ -101,7 +101,9 @@ export default function HomePage({ restaurants }) {
       {/* */}
       <HomeSelectContainer>
         <Link to='/'>
-          <HomeSelectContainer_situation>
+          <HomeSelectContainer_situation
+            type='button'
+          >
             <p>놀러 가는 목적부터 선택</p>
             <img
               src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/right-arrow-icon.svg'
@@ -109,7 +111,9 @@ export default function HomePage({ restaurants }) {
           </HomeSelectContainer_situation>
         </Link>
         <Link to='/custom'>
-          <HomeSelectContainer_custom>
+          <HomeSelectContainer_custom
+            type='button'
+          >
             <p>메뉴와 장소부터 선택</p>
             <img
               src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/right-arrow-icon.svg'
