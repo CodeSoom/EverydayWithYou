@@ -38,17 +38,13 @@ a, a:visited {
 
 button {
   cursor: pointer;
-  background-color: transparent;
+  background: transparent;
+  white-space: nowrap;
 }
 
 body {
   font-size: 16px;
   word-break: keep-all;
-}
-
-.select {
-  background-color: rgba(65, 45, 44, 0.5);
-  color: #fff;
 }
 
 .black-filter {
@@ -72,6 +68,15 @@ body {
   transform: scale(1.0, 1.0) rotate(4deg) !important;
 }
 
+.select-button {
+  background-color: #fff;
+  color: #4F4F4F;
+}
 .select-button-effect {
   background-color: #FA625B;
+  color: #fff;
+}
+
+.point-font {
+  color: #FA625B;
 }

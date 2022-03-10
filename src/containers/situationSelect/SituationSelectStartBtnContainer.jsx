@@ -51,7 +51,7 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
 
   return (
     <SelectBtnContainer>
-      <Link to={sortNumber ? '/home' : '/'}>
+      <Link to={sortNumber ? '/custom' : '/'}>
         <SelectButton
           type='button'
           onClick={() => handleClickUpdate(

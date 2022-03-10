@@ -196,7 +196,7 @@ const reducers = {
         categoryRestaurantsData: [],
         filteredRestaurantsData: placeRestaurantsData,
         selectedCategory: categoryValue,
-        categoryColor: '',
+        categoryColor: 'select-button',
         alert: '',
       }
     } else if (
@@ -210,7 +210,7 @@ const reducers = {
           restaurant.category.includes(categoryValue)),
         placeRestaurantsData: [],
         selectedCategory: categoryValue,
-        categoryColor: 'select',
+        categoryColor: 'select-button-effect',
         selectedPlace: '',
         alert: '가고 싶으신 곳을 다시 선택해주세요 !',
       }
@@ -220,7 +220,7 @@ const reducers = {
         categoryRestaurantsData: filteredRestaurantsByCategory,
         filteredRestaurantsData: filteredRestaurantsByCategory,
         selectedCategory: categoryValue,
-        categoryColor: 'select',
+        categoryColor: 'select-button-effect',
         alert: '',
       }
     }
@@ -243,7 +243,7 @@ const reducers = {
         placeRestaurantsData: [],
         filteredRestaurantsData: categoryRestaurantsData,
         selectedPlace: placeValue,
-        placeColor: '',
+        placeColor: 'select-button',
         alert: '',
       }
     } else if (
@@ -257,9 +257,9 @@ const reducers = {
           restaurant.place.includes(placeValue)),
         categoryRestaurantsData: [],
         selectedPlace: placeValue,
-        placeColor: 'select',
+        placeColor: 'select-button-effect',
         selectedCategory: '',
-        alert: '드시고 싶은 것을 다시 선택해주세요 !',
+        alert: '드시고 싶은 것을 다시 선택해주세요!',
       }
     } else { // 위 해당사항이 없을때
       return {
@@ -267,7 +267,7 @@ const reducers = {
         placeRestaurantsData: filteredRestaurantsByPlace,
         filteredRestaurantsData: filteredRestaurantsByPlace,
         selectedPlace: placeValue,
-        placeColor: 'select',
+        placeColor: 'select-button-effect',
         alert: '',
       }
     }
