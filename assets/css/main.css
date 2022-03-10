@@ -1,4 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+/* 눈누 프리텐다드 폰트 */
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
 
 /* reset */
 * {
@@ -25,24 +38,17 @@ a, a:visited {
 
 button {
   cursor: pointer;
-  background-color: transparent;
+  background: transparent;
+  white-space: nowrap;
 }
 
 body {
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
   word-break: keep-all;
 }
 
-.select {
-  background-color: rgba(65, 45, 44, 0.5);
-  color: #fff;
-}
-
 .black-filter {
   filter: brightness(50%);
-  margin-left: 73vw;
-  z-index: 1;
 }
 
 .select-img-effect1 {
@@ -60,6 +66,15 @@ body {
   transform: scale(1.0, 1.0) rotate(4deg) !important;
 }
 
+.select-button {
+  background-color: #fff;
+  color: #4F4F4F;
+}
 .select-button-effect {
   background-color: #FA625B;
+  color: #fff;
+}
+
+.point-font {
+  color: #FA625B;
 }
