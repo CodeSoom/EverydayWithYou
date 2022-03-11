@@ -28,9 +28,9 @@ const SelectButton = styled.button(() => mq({
   },
   color: '#fff',
   backgroundColor: '#828282',
-  fontSize: ['5vw', '1.5rem', '1.5rem'],
   fontWeight: '700',
-  padding: ['2vh 6.25vw', '10px 20px', '10px 20px'],
+  fontSize: ['5vw', '1.5rem', '1.5rem'],
+  padding: ['1.56vw 6.25vw', '10px 20px', '10px 20px'],
   borderRadius: ['8.75vw', '28px', '28px'],
 }));
 

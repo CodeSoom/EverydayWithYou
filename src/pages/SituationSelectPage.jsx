@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-import facepaint from 'facepaint'
+import facepaint from 'facepaint';
 
-import { useMediaQuery } from "react-responsive"
+import { useMediaQuery } from "react-responsive";
 
 import { useEffect } from 'react';
 
@@ -29,7 +29,6 @@ const SituationSelectPageLayout = styled.div(() => mq({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  zIndex: '-1',
 }));
 
 const Title = styled.div({
@@ -63,7 +62,7 @@ export default function SituationSelectPage({ restaurants, callMenu }) {
   const sortNumber = useSelector((state) => (state.sortNumber));
 
   return (
-    <SituationSelectPageLayout
+    <div
       className={
         callMenu == 'okay' ?
           'black-filter' : ''
@@ -72,20 +71,23 @@ export default function SituationSelectPage({ restaurants, callMenu }) {
       <TopNavBar
         pointFont={'today'}
       />
-      {isPc ?
-        <Title>
-          <h2>오늘은 무슨 날인가요? 놀러 가는 목적이 무엇인지 알려주세요.</h2>
-          <p>코스를 알려드리는 여정이 시작됩니다 !</p>
-        </Title>
-        :
-        null
-      }
-      <SituationSelectContainer
-        sortNumber={sortNumber}
-      />
-      <SituationSelectStartBtnContainer
-        sortNumber={sortNumber}
-      />
-    </SituationSelectPageLayout >
+      <SituationSelectPageLayout
+      >
+        {isPc ?
+          <Title>
+            <h2>오늘은 무슨 날인가요? 놀러 가는 목적이 무엇인지 알려주세요.</h2>
+            <p>코스를 알려드리는 여정이 시작됩니다 !</p>
+          </Title>
+          :
+          null
+        }
+        <SituationSelectContainer
+          sortNumber={sortNumber}
+        />
+        <SituationSelectStartBtnContainer
+          sortNumber={sortNumber}
+        />
+      </SituationSelectPageLayout >
+    </div>
   )
 }

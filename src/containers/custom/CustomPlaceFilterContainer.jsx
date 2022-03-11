@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import facepaint from 'facepaint';
+
 import uniqBy from 'lodash.uniqby';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,37 +10,40 @@ import {
   setPlaceFilter,
 } from '../../actions';
 
-const CustomPlaceFilter = styled.div({
-});
+const mq = facepaint([
+  '@media (min-width: 1024px)',
+  '@media (min-width: 1440px)',
+])
 
-const CustomPlaceFilter_title = styled.p({
-  marginBottom: '1.25rem',
-  paddingBottom: '0.5rem',
-  fontSize: '1.25rem',
+const CustomPlaceFilter = styled.div(() => ({
+  marginTop: '20%',
+}));
+
+const CustomPlaceFilter_title = styled.div(() => mq({
   color: '#828282',
+  fontSize: ['4vw', '1.25rem', '1.25rem'],
   borderBottom: '1px solid #DADADA',
-})
-
-const CustomPlaceFilter_alert = styled.div({
-  paddingBottom: '1rem',
+  paddingBottom: ['0.8vh', '0.5rem', '0.5rem'],
+  marginBottom: ['1.65vh', '1rem', '1rem'],
   '& span': {
     background: 'hsl(200 100% 90%)',
-    fontSize: '1rem',
+    fontSize: ['4vw', '1.25rem', '1.25rem'],
+    color: '#4F4F4F',
   },
-});
+}));
 
-const CustomPlaceFilter_selectButton = styled.button({
+const CustomPlaceFilter_selectButton = styled.button(() => mq({
   ':hover': {
     backgroundColor: '#FA625B',
     color: '#fff',
   },
-  fontSize: '1rem',
   fontWeight: '700',
-  padding: '7px 14px',
-  borderRadius: '20px',
-  marginRight: '0.5rem',
-  marginBottom: '0.5rem',
-});
+  fontSize: ['3.5vw', '1rem', '1rem'],
+  padding: ['2.13vw 4.26vw', '7px 14px', '7px 14px'],
+  borderRadius: ['6vw', '20px', '20px'],
+  marginRight: ['1.75vw', '0.5rem', '0.5rem'],
+  marginBottom: ['1.75vw', '0.5rem', '0.5rem'],
+}));
 
 export default function CustomPlaceFilterContainer() {
   const restaurantsData = useSelector((state) =>
@@ -62,13 +67,9 @@ export default function CustomPlaceFilterContainer() {
   return (
     <CustomPlaceFilter>
       <CustomPlaceFilter_title>
-        어디로 가고 싶나요?
+        {alert == '가고 싶으신 곳을 다시 선택해주세요 !' ?
+          <span>{alert}</span> : '어디로 가고 싶나요?'}
       </CustomPlaceFilter_title>
-      <CustomPlaceFilter_alert>
-        <span>
-          {alert === '가고 싶으신 곳을 다시 선택해주세요 !' ? alert : ''}
-        </span>
-      </CustomPlaceFilter_alert>
       {uniqPlaces.map((place) => (
         <CustomPlaceFilter_selectButton
           type="button"

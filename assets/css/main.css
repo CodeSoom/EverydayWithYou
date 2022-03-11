@@ -49,8 +49,6 @@ body {
 
 .black-filter {
   filter: brightness(50%);
-  margin-left: 73vw;
-  z-index: 1;
 }
 
 .select-img-effect1 {
