@@ -17,10 +17,11 @@ const Top = styled.div(() => mq({
   left: 0,
   right: 0,
   top: 0,
-  zIndex: '1',
+  zIndex: 1,
 }));
 
 const Top_SearchContainer = styled.div(() => mq({
+  width: '100%',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
@@ -38,6 +39,7 @@ const Top_SearchContainer = styled.div(() => mq({
 }))
 
 const Top_NavBar = styled.div(() => mq({
+  width: '100%',
   display: 'flex',
   alignItems: 'center',
   justifyContent: ['center', 'flex-start', 'flex-start'],
@@ -60,6 +62,7 @@ export default function TopNavBar({ pointFont }) {
   const isPc = useMediaQuery({
     query: "(min-width:1024px)",
   });
+
   return (
     <Top>
       <Link to='/search'>

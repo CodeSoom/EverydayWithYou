@@ -9,6 +9,8 @@ const WebSideBarContainer = styled.div({
   width: '18.75rem',
   position: 'fixed',
   top: 0,
+  left: 0,
+  bottom: 0,
   zIndex: 3,
 
   display: 'flex',

@@ -25,7 +25,6 @@ const SelectBox1 = styled.button(() => mq({
   transition: 'all 0.35s',
   '& img': {
     width: ['80vw', '400px', '400px'],
-    height: '325px',
   },
 }));
 
@@ -34,7 +33,6 @@ const SelectBox2 = styled.button(() => mq({
   transition: 'all 0.35s',
   '& img': {
     width: ['80vw', '400px', '400px'],
-    height: '325px',
   },
 }));
 
@@ -43,7 +41,6 @@ const SelectBox3 = styled.button(() => mq({
   transition: 'all 0.35s',
   '& img': {
     width: ['80vw', '400px', '400px'],
-    height: '325px',
   },
 }));
 
