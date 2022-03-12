@@ -14,7 +14,7 @@ import CustomCategoryFilterContainer from '../containers/custom/CustomCategoryFi
 import CustomPlaceFilterContainer from '../containers/custom/CustomPlaceFilterContainer';
 import CustomRestaurantsContainer from '../containers/custom/CustomRestaurantsContainer';
 
-import TopNavBar from '../components/navbar/TopNavBar';
+import TopBar from '../components/topbar/TopBar';
 
 import {
   setRestaurantsData,
@@ -131,7 +131,7 @@ export default function CustomPage({ restaurants, callMenu }) {
           'black-filter' : ''
       }
     >
-      <TopNavBar
+      <TopBar
         pointFont={
           categoryRestaurantsData.length == 0 ?
             'menu' :

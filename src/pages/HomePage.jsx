@@ -10,6 +10,8 @@ import HomeCarouselContainer from '../containers/home/HomeCarouselContainer';
 import RandomSituationPlaceRestaurants from '../components/random/RandomSituationPlaceRestaurants';
 import RandomAgeCategoryRestaurants from '../components/random/RandomAgeCategoryRestaurants';
 
+import TopSearchBar from '../components/topbar/TopSearchBar';
+
 import {
   setRandomFilter,
 } from '../actions';
@@ -18,23 +20,6 @@ const HomePageLayout = styled.div({
   backgroundColor: '#F4F4F4',
   backgroundSize: 'cover',
   marginLeft: '18.75rem',
-});
-
-const TopSearchContainer = styled.div({
-  height: '3.75rem',
-  position: 'relative',
-  '& p': {
-    position: 'absolute',
-    right: '5rem',
-    bottom: '0.625rem',
-    fontSize: '0.875rem',
-    color: '#828282',
-  },
-  '& img': {
-    position: 'absolute',
-    right: '1rem',
-    bottom: '0',
-  },
 });
 
 const HomeSelectContainer = styled.div({
@@ -88,14 +73,7 @@ export default function HomePage({ restaurants }) {
 
   return (
     <HomePageLayout>
-      <Link to='/search'>
-        <TopSearchContainer>
-          <p>지역, 음식 또는 가게이름</p>
-          <img
-            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/search-icon.svg'
-          />
-        </TopSearchContainer>
-      </Link>
+      <TopSearchBar />
       {/* Todo 리액트 라이브러리로 대체하기*/}
       <HomeCarouselContainer />
       {/* */}

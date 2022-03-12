@@ -10,7 +10,7 @@ import RestaurantsDetailContainer from '../containers/restaurants/RestaurantsDet
 import RestaurantsMapContainer from '../containers/restaurants/RestaurantsMapContainer';
 import RestaurantsAfterContainer from '../containers/restaurants/RestaurantsAfterContainer';
 
-import TopBar from '../components/topbar/TopBar';
+import SearchForm from '../components/search/SearchForm';
 
 import { createMap } from '../kakao';
 import { nameFilter } from '../utils';
@@ -24,7 +24,7 @@ const RestaurantsPageLayout = styled.div({
   display: 'flex',
 });
 
-export default function RestaurantsPage({ params, restaurants }) {
+export default function SearchResultRestaurantsPage({ params, restaurants }) {
   const { name } = params || useParams();
 
   const dispatch = useDispatch();
@@ -39,11 +39,14 @@ export default function RestaurantsPage({ params, restaurants }) {
   const selectedRestaurant = nameFilter(restaurants, name)
   saveItem('selectedRestaurant', JSON.stringify(selectedRestaurant));
 
+  const searchField = useSelector((state) => (
+    state.searchField
+  ));
 
   return (
     <RestaurantsPageLayout>
-      <TopBar
-        pointFont={'result'}
+      <SearchForm
+        searchField={searchField}
       />
       <RestaurantsDetailContainer />
       <RestaurantsMapContainer />

@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import SituationSelectContainer from '../containers/situationSelect/SituationSelectContainer';
 import SituationSelectStartBtnContainer from '../containers/situationSelect/SituationSelectStartBtnContainer';
 
-import TopNavBar from '../components/navbar/TopNavBar';
+import TopBar from '../components/topbar/TopBar';
 
 import {
   setRestaurants,
@@ -68,7 +68,7 @@ export default function SituationSelectPage({ restaurants, callMenu }) {
           'black-filter' : ''
       }
     >
-      <TopNavBar
+      <TopBar
         pointFont={'today'}
       />
       <SituationSelectPageLayout

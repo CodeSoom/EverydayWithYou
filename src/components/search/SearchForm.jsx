@@ -1,12 +1,24 @@
 import styled from '@emotion/styled';
 
-const TopSearchContainer = styled.div({
+import facepaint from 'facepaint';
+
+const mq = facepaint([
+  '@media (min-width: 1024px)',
+  '@media (min-width: 1440px)',
+])
+
+const TopSearchContainer = styled.div(() => mq({
+  position: 'fixed',
+  left: ['15.5vw', '18.75rem', '18.75rem'],
+  right: 0,
+  top: 0,
+  zIndex: 1,
   height: '8.75rem',
   backgroundColor: '#fff',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'flex-end',
-})
+}));
 
 const TopSearchContainer_input = styled.input({
   width: '50%',
