@@ -5,26 +5,27 @@ import {
 
 import { useSelector } from 'react-redux';
 
-import { useMediaQuery } from "react-responsive" // ToDoDelete
+import { useMediaQuery } from "react-responsive"
 
 import SideBar from './components/sidebar/SideBar';
 import MobileSideBar from './components/sidebar/MobileSideBar';
 
 import HomePage from './pages/HomePage';
-import MobileHomePage from './pages/MobileHomePage';
+import MobileHomePage from './pages/MobileHomePage'; // ToDoDelete
 
 import SearchPage from './pages/SearchPage';
-import MobileSearchPage from './pages/MobileSearchPage';
+import MobileSearchPage from './pages/MobileSearchPage'; // ToDoDelete
 
 import SituationSelectPage from './pages/SituationSelectPage';
 
 import CustomPage from './pages/CustomPage';
+
 import RestaurantsPage from './pages/RestaurantsPage';
+import SearchResultRestaurantsPage from './pages/SearchResultRestaurantsPage';
 
 import restaurants from '../assets/json/restaurants.json';
 
 export default function App() {
-  // ToDoDelete
   const isPc = useMediaQuery({
     query: "(min-width:1024px)",
   });
@@ -64,6 +65,12 @@ export default function App() {
               restaurants={restaurants}
             />}
           />
+          <Route path="/search/restaurants/:name" element={
+            <SearchResultRestaurantsPage
+              restaurants={restaurants}
+              callMenu={callMenu}
+            />}
+          />
         </Routes>
         :
         <Routes>
@@ -95,6 +102,13 @@ export default function App() {
           <Route path="/restaurants/:name" element={
             <RestaurantsPage
               restaurants={restaurants}
+              callMenu={callMenu}
+            />}
+          />
+          <Route path="/search/restaurants/:name" element={
+            <SearchResultRestaurantsPage
+              restaurants={restaurants}
+              callMenu={callMenu}
             />}
           />
         </Routes>

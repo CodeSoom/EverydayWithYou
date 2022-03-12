@@ -57,7 +57,7 @@ export default function SearchResultRestaurants({ searchResultRestaurants, searc
       <HorizontalRestaurantsList>
         {searchResultRestaurants.map(restaurant => (
           <Link
-            to={`/restaurants/${restaurant.name}`}
+            to={`/search/restaurants/${restaurant.name}`}
             key={restaurant.id}
           >
             <HorizontalRestaurantsList_restaurant
