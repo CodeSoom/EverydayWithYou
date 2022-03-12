@@ -5,10 +5,9 @@ import {
 
 import { useSelector } from 'react-redux';
 
-import { useMediaQuery } from "react-responsive"
+import { useMediaQuery } from "react-responsive";
 
-import SideBar from './components/sidebar/SideBar';
-import MobileSideBar from './components/sidebar/MobileSideBar';
+import SideBarContainer from './containers/sidebar/SideBarContainer';
 
 import HomePage from './pages/HomePage';
 import MobileHomePage from './pages/MobileHomePage'; // ToDoDelete
@@ -36,83 +35,86 @@ export default function App() {
 
   return (
     <>
-      {isPc ? <SideBar /> : <MobileSideBar callMenu={callMenu} />}
-      {isPc ?
-        <Routes>
-          <Route path="/home" element={
-            <HomePage
-              restaurants={restaurants}
+      <SideBarContainer
+        isPc={isPc}
+        callMenu={callMenu}
+      />
+      <div
+        className={
+          callMenu == 'okay' ?
+            'black-filter' : ''
+        }
+      >
+        {isPc ?
+          <Routes>
+            <Route path="/home" element={
+              <HomePage
+                restaurants={restaurants}
+              />
+            }
             />
-          }
-          />
-          <Route path="/search" element={
-            <SearchPage
-              restaurants={restaurants}
-            />}
-          />
-          <Route path="/" element={
-            <SituationSelectPage
-              restaurants={restaurants}
-            />}
-          />
-          <Route path="/custom" element={
-            <CustomPage
-              restaurants={restaurants}
-            />}
-          />
-          <Route path="/restaurants/:name" element={
-            <RestaurantsPage
-              restaurants={restaurants}
-            />}
-          />
-          <Route path="/search/restaurants/:name" element={
-            <SearchResultRestaurantsPage
-              restaurants={restaurants}
-              callMenu={callMenu}
-            />}
-          />
-        </Routes>
-        :
-        <Routes>
-          <Route path="/home" element={
-            <MobileHomePage
-              restaurants={restaurants}
-              callMenu={callMenu}
+            <Route path="/search" element={
+              <SearchPage
+                restaurants={restaurants}
+              />}
             />
-          }
-          />
-          <Route path="/search" element={
-            <MobileSearchPage
-              restaurants={restaurants}
-              callMenu={callMenu}
-            />}
-          />
-          <Route path="/" element={
-            <SituationSelectPage
-              restaurants={restaurants}
-              callMenu={callMenu}
-            />}
-          />
-          <Route path="/custom" element={
-            <CustomPage
-              restaurants={restaurants}
-              callMenu={callMenu}
-            />}
-          />
-          <Route path="/restaurants/:name" element={
-            <RestaurantsPage
-              restaurants={restaurants}
-              callMenu={callMenu}
-            />}
-          />
-          <Route path="/search/restaurants/:name" element={
-            <SearchResultRestaurantsPage
-              restaurants={restaurants}
-              callMenu={callMenu}
-            />}
-          />
-        </Routes>
-      }
+            <Route path="/" element={
+              <SituationSelectPage
+                restaurants={restaurants}
+              />}
+            />
+            <Route path="/custom" element={
+              <CustomPage
+                restaurants={restaurants}
+              />}
+            />
+            <Route path="/restaurants/:name" element={
+              <RestaurantsPage
+                restaurants={restaurants}
+              />}
+            />
+            <Route path="/search/restaurants/:name" element={
+              <SearchResultRestaurantsPage
+                restaurants={restaurants}
+              />}
+            />
+          </Routes>
+          :
+          <Routes>
+            <Route path="/home" element={
+              <MobileHomePage
+                restaurants={restaurants}
+              />
+            }
+            />
+            <Route path="/search" element={
+              <MobileSearchPage
+                restaurants={restaurants}
+              />}
+            />
+            <Route path="/" element={
+              <SituationSelectPage
+                restaurants={restaurants}
+              />}
+            />
+            <Route path="/custom" element={
+              <CustomPage
+                restaurants={restaurants}
+              />}
+            />
+            <Route path="/restaurants/:name" element={
+              <RestaurantsPage
+                restaurants={restaurants}
+              />}
+            />
+            <Route path="/search/restaurants/:name" element={
+              <SearchResultRestaurantsPage
+                restaurants={restaurants}
+              />}
+            />
+          </Routes>
+        }
+      </div>
     </>
   )
 }

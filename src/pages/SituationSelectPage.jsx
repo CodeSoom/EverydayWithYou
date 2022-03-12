@@ -48,7 +48,7 @@ const Title = styled.div({
   },
 });
 
-export default function SituationSelectPage({ restaurants, callMenu }) {
+export default function SituationSelectPage({ restaurants }) {
   const isPc = useMediaQuery({
     query: "(min-width:1024px)",
   });
@@ -62,12 +62,7 @@ export default function SituationSelectPage({ restaurants, callMenu }) {
   const sortNumber = useSelector((state) => (state.sortNumber));
 
   return (
-    <div
-      className={
-        callMenu == 'okay' ?
-          'black-filter' : ''
-      }
-    >
+    <>
       <TopBar
         pointFont={'today'}
       />
@@ -88,6 +83,6 @@ export default function SituationSelectPage({ restaurants, callMenu }) {
           sortNumber={sortNumber}
         />
       </SituationSelectPageLayout >
-    </div>
+    </>
   )
 }

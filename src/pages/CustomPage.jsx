@@ -92,7 +92,7 @@ const Information = styled.div(() => mq({
   },
 }));
 
-export default function CustomPage({ restaurants, callMenu }) {
+export default function CustomPage({ restaurants }) {
   const isPc = useMediaQuery({
     query: "(min-width:1024px)",
   });
@@ -125,12 +125,7 @@ export default function CustomPage({ restaurants, callMenu }) {
     (state.placeRestaurantsData));
 
   return (
-    <div
-      className={
-        callMenu == 'okay' ?
-          'black-filter' : ''
-      }
-    >
+    <>
       <TopBar
         pointFont={
           categoryRestaurantsData.length == 0 ?
@@ -284,6 +279,6 @@ export default function CustomPage({ restaurants, callMenu }) {
                 : <CustomRestaurantsContainer />
         }
       </CustomPageLayout >
-    </div>
+    </>
   )
 }

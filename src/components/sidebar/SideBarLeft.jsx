@@ -32,7 +32,7 @@ const MobileSideBarLeftContainer_logo = styled.div({
   },
 })
 
-export default function MoblieSideBarLeft({ onClickHamberger }) {
+export default function SideBarLeft({ onClickHamberger }) {
   return (
     <MobileSideBarLeftContainer>
       <MobileSideBarLeftContainer_hamberger>
