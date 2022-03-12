@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import facepaint from 'facepaint'
+
 import { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -14,21 +16,28 @@ import {
   setRandomFilter,
 } from '../actions';
 
-const SearchPageLayout = styled.div({
-  backgroundColor: '#F4F4F4',
-  backgroundSize: 'cover',
-  marginLeft: '18.75rem',
-})
+const mq = facepaint([
+  '@media (min-width: 1024px)',
+  '@media (min-width: 1440px)',
+])
 
-const InformationContainer = styled.div({
+const SearchPageLayout = styled.div(() => mq({
+  backgroundColor: '#F4F4F4',
+  marginLeft: ['15.5vw', '18.75rem', '18.75rem'],
+}));
+
+const InformationContainer = styled.div(() => mq({
+  marginTop: '7rem',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  fontSize: '1.5rem',
+  textAlign: 'center',
+  fontSize: ['4.5vw', '1.5rem', '1.5rem'],
   fontWeight: '700',
   color: '#828282',
-  height: '23.75rem',
-})
+  height: '40vh',
+  padding: ['0 5%', 0, 0],
+}));
 
 export default function SearchPage({ restaurants }) {
   const dispatch = useDispatch();
@@ -45,23 +54,25 @@ export default function SearchPage({ restaurants }) {
   ));
 
   return (
-    <SearchPageLayout>
+    <>
       <SearchContainer
         restaurantsData={restaurants}
       />
-      {!searchResultRestaurants ?
-        <>
-          <InformationContainer>
-            <p>지역, 음식 또는 가게이름을 검색해 보세요.</p>
-          </InformationContainer>
-          <RandomSituationPlaceRestaurants />
-          <RandomAgeCategoryRestaurants />
-        </>
-        : <SearchResultContainer
-          searchResultRestaurants={searchResultRestaurants}
-          searchKeyword={searchKeyword}
-        />
-      }
-    </SearchPageLayout>
+      <SearchPageLayout>
+        {!searchResultRestaurants ?
+          <>
+            <InformationContainer>
+              <p>지역, 음식 또는 가게이름을 검색해 보세요.</p>
+            </InformationContainer>
+            <RandomSituationPlaceRestaurants />
+            <RandomAgeCategoryRestaurants />
+          </>
+          : <SearchResultContainer
+            searchResultRestaurants={searchResultRestaurants}
+            searchKeyword={searchKeyword}
+          />
+        }
+      </SearchPageLayout>
+    </>
   )
 }

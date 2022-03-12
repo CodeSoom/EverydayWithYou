@@ -17,7 +17,7 @@ const HorizontalRestaurantsListContainer = styled.div(() => mq({
 }));
 
 const Title = styled.h4(() => mq({
-  fontSize: ['3.25vw', '1.5rem', '1.5rem'],
+  fontSize: ['4.5vw', '1.5rem', '1.5rem'],
   fontWeight: '400',
   color: '#4F4F4F',
   marginBottom: ['5%', '1rem', '1rem'],
@@ -28,36 +28,40 @@ const HorizontalRestaurantsList = styled.ul({
   overflowY: 'hidden',
 });
 
-const HorizontalRestaurantsList_restaurant = styled.li({
+const HorizontalRestaurantsList_restaurant = styled.li(() => mq({
   backgroundColor: '#fff',
-  padding: '1rem',
-  marginRight: '2rem',
-  marginBottom: '1rem',
+  padding: ['2vw', '1rem', '1rem'],
+  marginRight: ['2vw', '1rem', '1rem'],
+  marginBottom: ['2vw', '1rem', '1rem'],
   boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.04)',
   '& img': {
-    width: '250px',
-    height: '150px',
+    width: ['40vw', '250px', '250px'],
+    height: ['25vw', '150px', '150px'],
     objectFit: 'cover',
-    paddingBottom: '1rem',
+    marginBottom: ['5%', '1rem', '1rem'],
   },
-});
+}));
 
-const HorizontalRestaurantsList_restaurant_contents = styled.div({
+const HorizontalRestaurantsList_restaurant_contents = styled.div(() => mq({
   display: 'flex',
   flexDirection: 'column',
   color: '#828282',
-  fontSize: '1rem',
+  fontSize: ['3.5vw', '1rem', '1rem'],
   '& h4': {
     color: '#4F4F4F',
-    fontSize: '1.25rem',
+    fontSize: ['4vw', '1.25rem', '1.25rem'],
     fontWeight: '700',
-    marginBottom: '0.25rem',
+    marginBottom: ['2.5%', '0.5rem', '0.5rem'],
+  },
+  '& h5': {
+    fontSize: ['3.5vw', '1rem', '1rem'],
+    fontWeight: '500',
   },
   '& span': {
-    fontSize: '1rem',
+    fontSize: ['3.5vw', '1rem', '1rem'],
     color: '#fff',
   },
-});
+}));
 
 export default function RandomSituationPlaceRestaurants() {
   const randomSituationPlaceRestaurants = useSelector((state) => (
@@ -111,7 +115,8 @@ export default function RandomSituationPlaceRestaurants() {
                 {`${restaurant.category} · ${restaurant.place}`}
                 <br />
                 {restaurant.mood === null ?
-                  <span>결과없음</span> : `#${restaurant.mood}`
+                  <span>결과없음</span> :
+                  <h5>{`#${restaurant.mood}`}</h5>
                 }
               </HorizontalRestaurantsList_restaurant_contents>
             </HorizontalRestaurantsList_restaurant>

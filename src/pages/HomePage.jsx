@@ -55,7 +55,7 @@ const HomeSelectContainer_situation = styled.button(() => mq({
   backgroundColor: '#FA625B',
   boxShadow: '0px 0px 24.25px rgba(0, 0, 0, 0.08)',
   '& p': {
-    fontSize: ['3.75vw', '1.5rem', '1.5rem'],
+    fontSize: ['4.5vw', '1.5rem', '1.5rem'],
     color: '#fff',
   },
   '& img': {
@@ -72,7 +72,7 @@ const HomeSelectContainer_custom = styled.button(() => mq({
   backgroundColor: '#FA625B',
   boxShadow: '0px 0px 24.25px rgba(0, 0, 0, 0.08)',
   '& p': {
-    fontSize: ['3.75vw', '1.5rem', '1.5rem'],
+    fontSize: ['4.5vw', '1.5rem', '1.5rem'],
     color: '#fff',
   },
   '& img': {
