@@ -35,7 +35,7 @@ const InformationContainer = styled.div({
   padding: '0 10%',
 })
 
-export default function MobileSearchPage({ restaurants, callMenu }) {
+export default function MobileSearchPage({ restaurants }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,12 +50,7 @@ export default function MobileSearchPage({ restaurants, callMenu }) {
   ));
 
   return (
-    <SearchPageLayout
-      className={
-        callMenu == 'okay' ?
-          'black-filter' : ''
-      }
-    >
+    <SearchPageLayout>
       <MobileSearchContainer
         restaurantsData={restaurants}
       />

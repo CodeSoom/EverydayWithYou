@@ -82,7 +82,7 @@ const MobileHomeSelectContainer_custom = styled.div({
   },
 });
 
-export default function MobileHomePage({ restaurants, callMenu }) {
+export default function MobileHomePage({ restaurants }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -90,12 +90,7 @@ export default function MobileHomePage({ restaurants, callMenu }) {
   }, []);
 
   return (
-    <MobileHomePageLayout
-      className={
-        callMenu == 'okay' ?
-          'black-filter' : ''
-      }
-    >
+    <MobileHomePageLayout>
       <Link to='/search'>
         <MobileHomeTopSearchContainer>
           <div>
