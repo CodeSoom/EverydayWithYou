@@ -12,7 +12,6 @@ const SideBarLayout = styled.div({
   left: 0,
   bottom: 0,
   zIndex: 3,
-
   display: 'flex',
   flexFlow: 'column nowrap',
   alignItems: 'center',

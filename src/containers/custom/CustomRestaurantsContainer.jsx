@@ -40,9 +40,9 @@ const VerticalRestaurantsList_restaurant = styled.li(() => mq({
   marginBottom: '2.875rem',
   '& img': {
     backgroundColor: '#fff',
-    padding: ['1.875vw', '0.75rem', '0.75rem'],
-    width: ['68.85vw', '250px', '250px'],
-    height: ['40vw', '150px', '150px'],
+    padding: ['2.5vw', '0.75rem', '0.75rem'],
+    width: ['71.25vw', '250px', '250px'],
+    height: ['380px', '150px', '150px'],
     objectFit: 'cover',
     marginRight: [0, '2rem', '2rem'],
     marginBottom: ['4vw', 0, 0],
