@@ -63,7 +63,7 @@ const VerticalRestaurantsList_restaurant_contents = styled.div(() => mq({
   },
   '& span': {
     fontSize: ['4.2vw', '1rem', '1rem'],
-    color: '#fff',
+    color: '#F8F0E9',
   },
   '& button': {
     marginTop: '0.75rem',
