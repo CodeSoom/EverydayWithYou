@@ -33,6 +33,7 @@ const CustomRestaurantsResult_title = styled.h4(() => mq({
 
 const VerticalRestaurantsList = styled.ul({
 });
+
 const VerticalRestaurantsList_restaurant = styled.li(() => mq({
   display: 'flex',
   flexDirection: ['column', 'row', 'row'],
@@ -42,7 +43,7 @@ const VerticalRestaurantsList_restaurant = styled.li(() => mq({
     backgroundColor: '#fff',
     padding: ['2.5vw', '0.75rem', '0.75rem'],
     width: ['71.25vw', '250px', '250px'],
-    height: ['380px', '150px', '150px'],
+    height: ['40vw', '150px', '150px'],
     objectFit: 'cover',
     marginRight: [0, '2rem', '2rem'],
     marginBottom: ['4vw', 0, 0],
@@ -55,11 +56,19 @@ const VerticalRestaurantsList_restaurant_contents = styled.div(() => mq({
   color: '#828282',
   fontSize: ['4.2vw', '1rem', '1rem'],
   width: ['100%', '30%', '30%'],
-  '& h5': {
+  '& div': {
+    marginLeft: ['2.5%', 0, 0],
+    marginBottom: ['2.5%', '0.5rem', '0.5rem'],
+  },
+  '& h4': {
     color: '#4F4F4F',
     fontSize: ['4.2vw', '1rem', '1rem'],
     fontWeight: '700',
-    marginBottom: '0.5rem',
+    marginBottom: ['2.5%', '0.5rem', '0.5rem'],
+  },
+  '& h5': {
+    fontSize: ['4.2vw', '1rem', '1rem'],
+    fontWeight: '500',
   },
   '& span': {
     fontSize: ['4.2vw', '1rem', '1rem'],
@@ -99,12 +108,15 @@ export default function CustomRestaurantsContainer() {
               >
                 <img src={`${restaurant.img}`} />
                 <VerticalRestaurantsList_restaurant_contents>
-                  <h5>{restaurant.name}</h5>
-                  {`${restaurant.category} · ${restaurant.place}`}
-                  <br />
-                  {restaurant.mood === null ?
-                    <span>결과없음</span> : `#${restaurant.mood}`
-                  }
+                  <div>
+                    <h4>{restaurant.name}</h4>
+                    {`${restaurant.category} · ${restaurant.place}`}
+                    <br />
+                    {restaurant.mood === null ?
+                      <span>결과없음</span> :
+                      <h5>{`#${restaurant.mood}`}</h5>
+                    }
+                  </div>
                   <button>
                     상세보기
                   </button>

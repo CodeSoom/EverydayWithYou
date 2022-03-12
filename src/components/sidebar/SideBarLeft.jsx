@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 import { Link } from 'react-router-dom';
 
-const MobileSideBarLeftContainer = styled.div({
+const SideBarLeftContainer = styled.div({
   backgroundColor: '#fff',
   height: '100vh',
   width: '15.5vw',
@@ -18,15 +18,15 @@ const MobileSideBarLeftContainer = styled.div({
   flexDirection: 'column',
   justifyContent: 'space-between',
   alignItems: 'center',
-})
+});
 
-const MobileSideBarLeftContainer_hamberger = styled.div({
+const SideBarLeftContainer_hamberger = styled.div({
   '& img': {
     width: '10vw',
   },
 })
 
-const MobileSideBarLeftContainer_logo = styled.div({
+const SideBarLeftContainer_logo = styled.div({
   '& img': {
     width: '10vw',
   },
@@ -34,8 +34,8 @@ const MobileSideBarLeftContainer_logo = styled.div({
 
 export default function SideBarLeft({ onClickHamberger }) {
   return (
-    <MobileSideBarLeftContainer>
-      <MobileSideBarLeftContainer_hamberger>
+    <SideBarLeftContainer>
+      <SideBarLeftContainer_hamberger>
         <button
           type='button'
           onClick={() => onClickHamberger()}
@@ -44,14 +44,14 @@ export default function SideBarLeft({ onClickHamberger }) {
             src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-hamberger-icon.svg'
           />
         </button>
-      </MobileSideBarLeftContainer_hamberger>
+      </SideBarLeftContainer_hamberger>
       <Link to='/home'>
-        <MobileSideBarLeftContainer_logo>
+        <SideBarLeftContainer_logo>
           <img
             src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-logo-icon.svg'
           />
-        </MobileSideBarLeftContainer_logo>
+        </SideBarLeftContainer_logo>
       </Link>
-    </MobileSideBarLeftContainer>
+    </SideBarLeftContainer>
   )
 }

@@ -1,23 +1,33 @@
 import styled from '@emotion/styled';
 
+import facepaint from 'facepaint'
+
 import RandomSituationPlaceRestaurants from '../../components/random/RandomSituationPlaceRestaurants';
 import RandomAgeCategoryRestaurants from '../../components/random/RandomAgeCategoryRestaurants';
 
 import SearchResultRestaurants from '../../components/search/SearchResultRestaurants';
 
-const InformationContainer = styled.div({
+const mq = facepaint([
+  '@media (min-width: 1024px)',
+  '@media (min-width: 1440px)',
+])
+
+const InformationContainer = styled.div(() => mq({
+  marginTop: '7rem',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  fontSize: '1.5rem',
+  textAlign: 'center',
+  fontSize: ['4.5vw', '1.5rem', '1.5rem'],
   fontWeight: '700',
   color: '#828282',
-  height: '23.75rem',
+  height: '40vh',
+  padding: ['0 10%', 0, 0],
   '& p': {
     fontWeight: '400',
   },
-})
+}));
 
 export default function SearchResultContainer({ searchResultRestaurants, searchKeyword }) {
   return (
