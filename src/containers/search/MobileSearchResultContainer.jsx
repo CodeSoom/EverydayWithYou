@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-
+/*
 import MobileRandomSituationPlaceRestaurants from '../../components/random/MobileRandomSituationPlaceRestaurants';
-import MobileRandomAgeCategoryRestaurants from '../../components/random/MobileRandomAgeCategoryRestaurants';
+import MobileRandomAgeCategoryRestaurants from '../../components/random/MobileRandomAgeCategoryRestaurants'; */
 
 import MobileSearchResultRestaurants from '../../components/search/MobileSearchResultRestaurants';
 

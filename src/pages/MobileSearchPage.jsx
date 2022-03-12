@@ -8,8 +8,8 @@ import MobileSearchContainer from '../containers/search/MobileSearchContainer';
 
 import MobileSearchResultContainer from '../containers/search/MobileSearchResultContainer';
 
-import MobileRandomSituationPlaceRestaurants from '../components/random/MobileRandomSituationPlaceRestaurants';
-import MobileRandomAgeCategoryRestaurants from '../components/random/MobileRandomAgeCategoryRestaurants';
+/* import MobileRandomSituationPlaceRestaurants from '../components/random/MobileRandomSituationPlaceRestaurants';
+import MobileRandomAgeCategoryRestaurants from '../components/random/MobileRandomAgeCategoryRestaurants'; */
 
 import {
   setRandomFilter,

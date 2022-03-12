@@ -10,7 +10,6 @@ import { useMediaQuery } from "react-responsive";
 import SideBarContainer from './containers/sidebar/SideBarContainer';
 
 import HomePage from './pages/HomePage';
-import MobileHomePage from './pages/MobileHomePage'; // ToDoDelete
 
 import SearchPage from './pages/SearchPage';
 import MobileSearchPage from './pages/MobileSearchPage'; // ToDoDelete
@@ -82,7 +81,7 @@ export default function App() {
           :
           <Routes>
             <Route path="/home" element={
-              <MobileHomePage
+              <HomePage
                 restaurants={restaurants}
               />
             }

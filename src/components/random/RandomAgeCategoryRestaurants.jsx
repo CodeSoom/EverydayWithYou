@@ -1,25 +1,33 @@
 import styled from '@emotion/styled';
 
+import facepaint from 'facepaint';
+
 import { Link } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
 
-const HorizontalRestaurantsListContainer = styled.div({
-  padding: '0 3rem',
-  paddingBottom: '3rem',
-})
+const mq = facepaint([
+  '@media (min-width: 1024px)',
+  '@media (min-width: 1440px)',
+])
 
-const Title = styled.h4({
-  fontSize: '1.5rem',
+const HorizontalRestaurantsListContainer = styled.div(() => mq({
+  padding: ['0 7.5%', '0 3rem', '0 3rem'],
+  paddingBottom: ['10%', '3rem', '3rem'],
+}));
+
+const Title = styled.h4(() => mq({
+  fontSize: ['3.25vw', '1.5rem', '1.5rem'],
   fontWeight: '400',
   color: '#4F4F4F',
-  marginBottom: '1rem',
-})
+  marginBottom: ['5%', '1rem', '1rem'],
+}));
 
 const HorizontalRestaurantsList = styled.ul({
   display: 'flex',
   overflowY: 'hidden',
-})
+});
+
 const HorizontalRestaurantsList_restaurant = styled.li({
   backgroundColor: '#fff',
   padding: '1rem',
@@ -33,6 +41,7 @@ const HorizontalRestaurantsList_restaurant = styled.li({
     paddingBottom: '1rem',
   },
 });
+
 const HorizontalRestaurantsList_restaurant_contents = styled.div({
   display: 'flex',
   flexDirection: 'column',
