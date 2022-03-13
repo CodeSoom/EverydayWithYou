@@ -1,8 +1,8 @@
 import { loadItem } from "./services/storage";
 
 export function createKakaoBtn() {
-  const selectedRestaurant = JSON.parse(loadItem(('selectedRestaurant')));
-  const restaurant = selectedRestaurant[0];
+  const resultRestaurant = JSON.parse(loadItem(('resultRestaurant')));
+  const restaurant = resultRestaurant[0];
 
   if (window.Kakao) {
     const kakao = window.Kakao

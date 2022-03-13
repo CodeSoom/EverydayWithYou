@@ -6,8 +6,8 @@ const MapButton = styled.button({
   borderRadius: '22px',
   fontWeight: '700',
   fontSize: '14px',
-  color: '#595959',
-  border: '#595959 solid 1px',
+  color: '#4F4F4F',
+  border: '#4F4F4F solid 1px',
   ':hover, :focus': {
     backgroundColor: '#ffdc00',
     border: '#3496ff solid 1px',

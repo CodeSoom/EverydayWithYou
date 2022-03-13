@@ -26,13 +26,10 @@ const CustomRestaurantsResult_title = styled.h4(() => mq({
   textAlign: 'center',
   marginTop: [0, '3rem', '3rem'],
   marginBottom: ['1.65vh', '1rem', '1rem'],
-  fontSize: ['4.68vw', '1.875rem', '1.875rem'],
+  fontSize: ['4.7vw', '1.875rem', '1.875rem'],
   fontWeight: '900',
   color: '#4F4F4F',
 }));
-
-const VerticalRestaurantsList = styled.ul({
-});
 
 const VerticalRestaurantsList_restaurant = styled.li(() => mq({
   display: 'flex',
@@ -50,6 +47,7 @@ const VerticalRestaurantsList_restaurant = styled.li(() => mq({
     boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.04)',
   },
 }));
+
 const VerticalRestaurantsList_restaurant_contents = styled.div(() => mq({
   display: 'flex',
   flexDirection: 'column',
@@ -96,35 +94,33 @@ export default function CustomRestaurantsContainer() {
       <CustomRestaurantsResult_title>
         선호도를 반영한 취향 저격 음식점 😉
       </CustomRestaurantsResult_title>
-      <VerticalRestaurantsList>
-        {
-          uniqRestaurants.map((restaurant) => (
-            <Link
-              to={`/restaurants/${restaurant.name}`}
+      {
+        uniqRestaurants.map((restaurant) => (
+          <Link
+            to={`/restaurants/${restaurant.name}`}
+            key={restaurant.id}
+          >
+            <VerticalRestaurantsList_restaurant
               key={restaurant.id}
             >
-              <VerticalRestaurantsList_restaurant
-                key={restaurant.id}
-              >
-                <img src={`${restaurant.img}`} />
-                <VerticalRestaurantsList_restaurant_contents>
-                  <div>
-                    <h4>{restaurant.name}</h4>
-                    {`${restaurant.category} · ${restaurant.place}`}
-                    <br />
-                    {restaurant.mood === null ?
-                      <span>결과없음</span> :
-                      <h5>{`#${restaurant.mood}`}</h5>
-                    }
-                  </div>
-                  <button>
-                    상세보기
-                  </button>
-                </VerticalRestaurantsList_restaurant_contents>
-              </VerticalRestaurantsList_restaurant>
-            </Link>
-          ))}
-      </VerticalRestaurantsList>
+              <img src={`${restaurant.img}`} />
+              <VerticalRestaurantsList_restaurant_contents>
+                <div>
+                  <h4>{restaurant.name}</h4>
+                  {`${restaurant.category} · ${restaurant.place}`}
+                  <br />
+                  {restaurant.mood === null ?
+                    <span>결과없음</span> :
+                    <h5>{`#${restaurant.mood}`}</h5>
+                  }
+                </div>
+                <button>
+                  상세보기
+                </button>
+              </VerticalRestaurantsList_restaurant_contents>
+            </VerticalRestaurantsList_restaurant>
+          </Link>
+        ))}
     </CustomRestaurantsResult>
   )
 }

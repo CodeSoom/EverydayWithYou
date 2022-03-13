@@ -12,8 +12,8 @@ import HomePage from './pages/HomePage';
 import SearchPage from './pages/SearchPage';
 import SituationSelectPage from './pages/SituationSelectPage';
 import CustomPage from './pages/CustomPage';
-import RestaurantsPage from './pages/RestaurantsPage';
-import SearchResultRestaurantsPage from './pages/SearchResultRestaurantsPage';
+import RestaurantPage from './pages/RestaurantPage';
+import SearchResultRestaurantPage from './pages/SearchResultRestaurantPage';
 
 import restaurants from '../assets/json/restaurants.json';
 
@@ -61,12 +61,12 @@ export default function App() {
             />}
           />
           <Route path="/restaurants/:name" element={
-            <RestaurantsPage
+            <RestaurantPage
               restaurants={restaurants}
             />}
           />
           <Route path="/search/restaurants/:name" element={
-            <SearchResultRestaurantsPage
+            <SearchResultRestaurantPage
               restaurants={restaurants}
             />}
           />

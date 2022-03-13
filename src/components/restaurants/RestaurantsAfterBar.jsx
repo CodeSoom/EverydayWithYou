@@ -1,64 +1,64 @@
 import styled from '@emotion/styled';
 
-import { useSelector } from 'react-redux';
+import facepaint from 'facepaint';
 
-const Container = styled.div({
-  backgroundColor: '#fff',
-});
+import KakaoMapBtn from '../kakao/KakaoMapBtn';
 
-const Title = styled.div({
-  '& h5': {
-    fontSize: '18px',
-  },
-  '& span': {
-    fontSize: '18px',
-  },
-});
+const mq = facepaint([
+  '@media (min-width: 1024px)',
+  '@media (min-width: 1440px)',
+])
 
-const RestaurantBox = styled.div({
-  display: 'flex',
-  padding: '1rem',
-});
+const VerticalRestaurantsList = styled.div(() => mq({
+  marginBottom: '1.5rem',
+}));
 
-const Contents = styled.div({
+const Title = styled.div(() => mq({
+  borderBottom: 'solid 1px #C4C4C4',
+  textAlign: 'left',
+  fontSize: ['4vw', '1.25rem', '1.25rem'],
+  fontWeight: '700',
+  color: '#4F4F4F',
+}));
+
+const VerticalRestaurantsList_restaurant = styled.li(() => mq({
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'space-between',
-  '& span': {
-    color: '#595959',
+  justifyContent: 'space-evenly',
+  height: '10rem',
+}));
+
+const VerticalRestaurantsList_restaurant_contents = styled.div(() => mq({
+  '& h4': {
+    color: '#4F4F4F',
+    fontSize: ['4.2vw', '1rem', '1rem'],
     fontWeight: '700',
+    marginBottom: ['2.5%', '0.5rem', '0.5rem'],
   },
-});
+  '& span': {
+    color: '#828282',
+  },
+}));
 
-export default function RestaurantsAfterBar() {
-  const afterBars = useSelector((state) => state.afterBars);
-
+export default function RestaurantsAfterBar({ afterBars }) {
   return (
-    <>
-      <Title>
-        <h5>다음 코스 추천</h5>
-        <span>한잔하기 좋은 술집</span>
-      </Title>
-      <Container>
-        {afterBars ?
-          afterBars.map(restaurant => (
-            <ul key={restaurant.id}>
-              <li>
-                <RestaurantBox>
-                  <Contents>
-                    <div>
-                      <span>
-                        {restaurant.place_name}
-                      </span>
-                      {`${restaurant.category_name} · ${restaurant.address_name}`}
-                    </div>
-                  </Contents>
-                </RestaurantBox>
-              </li>
-            </ul>
-          ))
-          : null}
-      </Container>
-    </>
+    <VerticalRestaurantsList>
+      <Title>[한잔하기 좋은 술집]</Title>
+      {afterBars.map((restaurant) => (
+        <VerticalRestaurantsList_restaurant
+          key={restaurant.id}
+        >
+          <VerticalRestaurantsList_restaurant_contents>
+            <h4>{restaurant.place_name}</h4>
+            <span>{restaurant.category_name}</span>
+            <br />
+            <span>{restaurant.address_name}</span>
+          </VerticalRestaurantsList_restaurant_contents>
+          <KakaoMapBtn
+            placeUrl={restaurant.place_url}
+          />
+        </VerticalRestaurantsList_restaurant>
+      ))}
+    </VerticalRestaurantsList>
   )
 }

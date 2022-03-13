@@ -14,7 +14,7 @@ const VerticalRestaurantsList = styled.div(() => mq({
 }));
 
 const Title = styled.div(() => mq({
-  borderBottom: 'solid 1px #828282',
+  borderBottom: 'solid 1px #C4C4C4',
   textAlign: 'left',
   fontSize: ['4vw', '1.25rem', '1.25rem'],
   fontWeight: '700',
@@ -40,11 +40,11 @@ const VerticalRestaurantsList_restaurant_contents = styled.div(() => mq({
   },
 }));
 
-export default function RestaurantsAfterRecommendation({ recommenedCourse }) {
+export default function RestaurantAfterRestaurant({ afterRestaurants }) {
   return (
     <VerticalRestaurantsList>
-      <Title>[여기 좋아요! - 추천가게]</Title>
-      {recommenedCourse.map((restaurant) => (
+      <Title>[4km 이내 음식점]</Title>
+      {afterRestaurants.map((restaurant) => (
         <VerticalRestaurantsList_restaurant
           key={restaurant.id}
         >

@@ -13,7 +13,7 @@ const mq = facepaint([
 
 const HorizontalRestaurantsListContainer = styled.div(() => mq({
   padding: ['10% 7.5%', '3rem', '3rem'],
-  borderTop: 'solid 2px #C4C4C4',
+  borderTop: 'solid 1px #C4C4C4',
 }));
 
 const Title = styled.h4(() => mq({
