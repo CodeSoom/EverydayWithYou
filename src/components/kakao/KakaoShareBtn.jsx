@@ -8,6 +8,8 @@ const ConfirmButton = styled.button({
   display: 'flex',
   alignItems: 'center',
   backgroundColor: '#FA625B',
+  fontSize: '1rem',
+  fontWeight: '700',
   color: '#fff',
   padding: '8px 20px',
   borderRadius: '24px',

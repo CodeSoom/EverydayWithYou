@@ -52,10 +52,10 @@ export async function fetchAfterBars({ x, y }) {
   }
 }
 
-export async function fetchRecommendCourse({ x, y, afterCourse }) {
+export async function fetchRecommendCourse({ x, y, after_course }) {
   if (x && y) {
     const url = 'https://dapi.kakao.com/v2/local/search/keyword.json?'
-      + `y=${y}&x=${x}&query=${afterCourse}&radius=4000&size=1`;
+      + `y=${y}&x=${x}&query=${after_course}&radius=4000&size=1`;
 
     const response = await fetch(url, {
       method: 'GET',

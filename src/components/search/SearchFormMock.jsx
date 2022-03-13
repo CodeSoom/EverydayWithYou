@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 
 import facepaint from 'facepaint';
 
-import { saveItem } from '../../services/storage';
-
 const mq = facepaint([
   '@media (min-width: 1024px)',
   '@media (min-width: 1440px)',
@@ -37,31 +35,15 @@ const TopSearchContainer_button = styled.button(() => mq({
   },
 }));
 
-export default function SearchForm({ searchField, onClickSearch, onChangeKeyword }) {
-  const { searchKeyword } = searchField
-  saveItem('searchKeyword', searchKeyword)
-
-  function handleChange(event) {
-    const { target: { name, value } } = event;
-    onChangeKeyword({ name, value });
-  }
-
+export default function SearchFormMock({ searchKeyword }) {
   return (
 
     <TopSearchContainer>
       <TopSearchContainer_input
-        name='searchKeyword'
-        type='text'
-        onChange={handleChange}
         value={searchKeyword || ''}
       />
       <TopSearchContainer_button
         type='button'
-        onClick={() => {
-          searchKeyword ?
-            onClickSearch()
-            : alert('검색어를 입력해주세요!')
-        }}
       >
         <img
           src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/search-icon.svg'

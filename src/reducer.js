@@ -20,13 +20,13 @@ const initialState = {
     lat: 37.566826,
     lon: 126.9786567,
   },
-  filteredPlaceResult: [],
+  resultRestaurantPlaceInfo: [],
 
   // 애프터코스 저장
   afterRestaurants: [],
   afterCafes: [],
   afterBars: [],
-  recommendation: [],
+  RecommenedCourse: [],
 
   searchField: {},
   searchKeyword: '',
@@ -87,13 +87,13 @@ const reducers = {
     }
   },
 
-  // RestaurantsPage: 검색결과 객체 셋
-  setPlaceResultRestaurants(state, { payload: { filteredPlaceResult } }) {
-    const { y, x } = filteredPlaceResult;
+  // RestaurantPage: 검색결과 객체 셋
+  setResultRestaurantPlaceInfo(state, { payload: { resultRestaurantPlaceInfo } }) {
+    const { y, x } = resultRestaurantPlaceInfo;
 
     return {
       ...state,
-      filteredPlaceResult,
+      resultRestaurantPlaceInfo,
       placePosition: {
         lat: x,
         lon: y,
@@ -101,29 +101,32 @@ const reducers = {
     }
   },
 
-  // RestaurantsAfterContainer
+  // RestaurantAfterContainer
   setAfterRestaurants(state, { payload: { afterRestaurants } }) {
     return {
       ...state,
       afterRestaurants,
     }
   },
+
   setAfterCafes(state, { payload: { afterCafes } }) {
     return {
       ...state,
       afterCafes,
     }
   },
+
   setAfterBars(state, { payload: { afterBars } }) {
     return {
       ...state,
       afterBars,
     }
   },
-  setRecommendCourse(state, { payload: { recommendation } }) {
+
+  setRecommendedCourse(state, { payload: { recommenedCourse } }) {
     return {
       ...state,
-      recommendation,
+      recommenedCourse,
     }
   },
 
