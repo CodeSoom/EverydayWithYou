@@ -20,13 +20,12 @@ const RestaurantAfter = styled.div(() => mq({
   display: 'flex',
   flexDirection: 'column',
   zIndex: 0,
-  padding: ['1.65vh 0', '1rem 7.5rem', '1rem 7.5rem'],
 }));
 
 const Title = styled.h4(() => mq({
   textAlign: 'center',
   marginTop: [0, '3rem', '3rem'],
-  marginBottom: '1.5rem',
+  marginBottom: ['1.65vh', '1rem', '1rem'],
   fontSize: ['4.7vw', '1.875rem', '1.875rem'],
   fontWeight: '900',
   color: '#4F4F4F',
@@ -43,7 +42,7 @@ export default function RestaurantAfterContainer() {
   return (
     <RestaurantAfter>
       <Title>
-        <h4>다음 코스 추천 😉</h4>
+        다음 코스 추천 😉
       </Title>
       {recommenedCourse ?
         <RestaurantsAfterRecommendation

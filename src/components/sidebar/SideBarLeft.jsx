@@ -41,14 +41,14 @@ export default function SideBarLeft({ onClickHamberger }) {
           onClick={() => onClickHamberger()}
         >
           <img
-            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-hamberger-icon.svg'
+            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/mobile-hamberger-icon.svg'
           />
         </button>
       </SideBarLeftContainer_hamberger>
       <Link to='/home'>
         <SideBarLeftContainer_logo>
           <img
-            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-logo-icon.svg'
+            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/mobile-logo-icon.svg'
           />
         </SideBarLeftContainer_logo>
       </Link>
