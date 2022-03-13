@@ -80,7 +80,7 @@ export default function SideBarMenu({ onClickClose }) {
             onClick={() => onClickClose()}
           >
             <img
-              src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-close-icon.svg'
+              src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/mobile-close-icon.svg'
             />
           </button>
         </SideBarMenuContainer_close>
@@ -127,17 +127,17 @@ export default function SideBarMenu({ onClickClose }) {
               About
             </span>
             <img
-              src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-right-arrow-grey.svg'
+              src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/mobile-right-arrow-grey.svg'
             />
             <img
-                src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-bottom-arrow-grey.svg'
+                src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/mobile-bottom-arrow-grey.svg'
               />
           </SideBarMenuContainer_menu_information> */}
         </SideBarMenuContainer_menu>
 
         <SideBarMenuContainer_logoCopyright>
           <Link to='/home'>
-            <img src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/mobile-icon/mobile-logo.svg' />
+            <img src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/mobile-logo.svg' />
           </Link>
           <span>
             © 2022 - Page by Superduper-India

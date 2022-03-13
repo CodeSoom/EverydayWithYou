@@ -19,7 +19,6 @@ import { saveItem } from '../services/storage'
 
 import {
   loadResultRestaurants,
-  loadAfterCourse,
 } from '../actions';
 
 const mq = facepaint([
@@ -32,6 +31,7 @@ const RestaurantPageLayout = styled.div(() => mq({
   paddingTop: ['45%', '8.5rem', '8.5rem'],
   display: 'flex',
   backgroundColor: '#F4F4F4',
+  flexDirection: ['column', 'row', 'row'],
 }));
 
 export default function RestaurantPage({ params, restaurants }) {
@@ -48,7 +48,6 @@ export default function RestaurantPage({ params, restaurants }) {
   useEffect(() => {
     const map = createMap(lat, lon); //맵관련
     dispatch(loadResultRestaurants(name, map)); //로컬스토리지 저장된 정보로 맵이랑 장소정보 업데이트
-    dispatch(loadAfterCourse(lat, lon));
   }, []);
 
   return (

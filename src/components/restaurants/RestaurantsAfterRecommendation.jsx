@@ -11,10 +11,11 @@ const mq = facepaint([
 
 const VerticalRestaurantsList = styled.div(() => mq({
   marginBottom: '1.5rem',
+  padding: '1rem 5rem',
 }));
 
 const Title = styled.div(() => mq({
-  borderBottom: 'solid 1px #828282',
+  borderBottom: 'solid 1px #C4C4C4',
   textAlign: 'left',
   fontSize: ['4vw', '1.25rem', '1.25rem'],
   fontWeight: '700',

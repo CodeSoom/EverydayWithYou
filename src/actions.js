@@ -297,6 +297,7 @@ export function loadResultRestaurants(restaurantName, map) {
             )
             resultMap(newPlacePosition);
             dispatch(setResultRestaurantPlaceInfo(resultRestaurantPlaceInfo))
+            loadAfterCourse(resultRestaurantPlaceInfo)
           }
         }
 
@@ -317,26 +318,24 @@ export function loadResultRestaurants(restaurantName, map) {
         position: newPlacePosition,
       });
     }
-  }
-}
 
-// 애프터코스
-export function loadAfterCourse(x, y) {
-  return async (dispatch) => {
-    const resultRestaurant = JSON.parse(loadItem(('resultRestaurant')));
-    const { after_course } = resultRestaurant[0];
+    async function loadAfterCourse(resultRestaurantPlaceInfo) {
+      const resultRestaurant = JSON.parse(loadItem(('resultRestaurant')));
+      const { after_course } = resultRestaurant[0];
+      const { x, y } = resultRestaurantPlaceInfo;
 
-    const afterRestaurants = await fetchAfterRestaurants({ x, y }); // 애프터코스: 주변맛집
-    const afterCafes = await fetchAfterCafes({ x, y }); // 애프터코스: 주변카페
-    const afterBars = await fetchAfterBars({ x, y }); // 애프터코스: 주변술집
+      const afterRestaurants = await fetchAfterRestaurants({ x, y }); // 애프터코스: 주변맛집
+      const afterCafes = await fetchAfterCafes({ x, y }); // 애프터코스: 주변카페
+      const afterBars = await fetchAfterBars({ x, y }); // 애프터코스: 주변술집
 
-    dispatch(setAfterRestaurants(afterRestaurants));
-    dispatch(setAfterCafes(afterCafes));
-    dispatch(setAfterBars(afterBars));
+      dispatch(setAfterRestaurants(afterRestaurants));
+      dispatch(setAfterCafes(afterCafes));
+      dispatch(setAfterBars(afterBars));
 
-    if (after_course) {
-      const recommenedCourse = await fetchRecommendCourse({ x, y, after_course }); // 애프터코스: 사용자 제공
-      dispatch(setRecommendedCourse(recommenedCourse));
+      if (after_course) {
+        const recommenedCourse = await fetchRecommendCourse({ x, y, after_course }); // 애프터코스: 사용자 제공
+        dispatch(setRecommendedCourse(recommenedCourse));
+      }
     }
   }
 }

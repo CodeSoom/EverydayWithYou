@@ -103,7 +103,7 @@ export default function RestaurantsDetailContents({
           <span>전화번호</span>
           <span>음식 종류</span>
           <span>가격대</span>
-          <span>분위기</span>
+          {mood ? <span>분위기</span> : null}
         </DetailContents_category>
         <DetailContents_info>
           <div>
@@ -116,7 +116,7 @@ export default function RestaurantsDetailContents({
           <span>{phoneNumber}</span>
           <span>{categoryName}</span>
           <span>{priceRange}</span>
-          <span>{mood}</span>
+          {mood ? <span>{mood}</span> : null}
         </DetailContents_info>
       </DetailContents>
     </DetailContentsContainer>
