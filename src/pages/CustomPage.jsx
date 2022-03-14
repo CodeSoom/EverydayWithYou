@@ -142,16 +142,12 @@ export default function CustomPage({ restaurants }) {
             <>
               <FilterContainer>
                 <FilterContainer_back>
-                  <Link to={
-                    situationRestaurantsData.length !== 0 ?
-                      '/' : '/home'
-                  }
-                  >
+                  <Link to='/'>
                     <div>
                       <img
                         src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/back-icon.svg'
                       />
-                      <span>이전</span>
+                      <span>오늘은 다시 선택</span>
                     </div>
                   </Link>
                 </FilterContainer_back>
@@ -194,16 +190,12 @@ export default function CustomPage({ restaurants }) {
               <>
                 <FilterContainer>
                   <FilterContainer_back>
-                    <Link to={
-                      situationRestaurantsData.length !== 0 ?
-                        '/' : '/home'
-                    }
-                    >
+                    <Link to='/'>
                       <div>
                         <img
                           src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/back-icon.svg'
                         />
-                        <span>이전</span>
+                        <span>오늘은 다시 선택</span>
                       </div>
                     </Link>
                   </FilterContainer_back>
@@ -246,16 +238,12 @@ export default function CustomPage({ restaurants }) {
                 <>
                   <FilterContainer>
                     <FilterContainer_back>
-                      <Link to={
-                        situationRestaurantsData.length !== 0 ?
-                          '/' : '/home'
-                      }
-                      >
+                      <Link to='/'>
                         <div>
                           <img
                             src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/back-icon.svg'
                           />
-                          <span>이전</span>
+                          <span>오늘은 다시 선택</span>
                         </div>
                       </Link>
                     </FilterContainer_back>

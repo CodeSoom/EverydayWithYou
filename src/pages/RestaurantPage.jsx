@@ -8,7 +8,8 @@ import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import TopBar from '../components/topbar/TopBar';
+import TopSearchBar from '../components/topbar/TopSearchBar';
+import TopBackBar from '../components/topbar/TopBackBar';
 
 import RestaurantDetailContainer from '../containers/restaurants/RestaurantDetailContainer';
 import RestaurantAfterContainer from '../containers/restaurants/RestaurantAfterContainer';
@@ -25,6 +26,14 @@ const mq = facepaint([
   '@media (min-width: 1024px)',
   '@media (min-width: 1440px)',
 ])
+
+const Top = styled.div(() => mq({
+  position: 'fixed',
+  left: ['15.5vw', '18.75rem', '18.75rem'],
+  right: 0,
+  top: 0,
+  zIndex: 1,
+}));
 
 const RestaurantPageLayout = styled.div(() => mq({
   marginLeft: ['15.5vw', '18.75rem', '18.75rem'],
@@ -52,9 +61,10 @@ export default function RestaurantPage({ params, restaurants }) {
 
   return (
     <>
-      <TopBar
-        pointFont={'result'}
-      />
+      <Top>
+        <TopSearchBar />
+        <TopBackBar />
+      </Top>
       <RestaurantPageLayout>
         <RestaurantDetailContainer />
         <RestaurantAfterContainer />

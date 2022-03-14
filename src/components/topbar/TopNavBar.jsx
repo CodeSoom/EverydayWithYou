@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-import facepaint from 'facepaint'
+import facepaint from 'facepaint';
 
-import { useMediaQuery } from "react-responsive"
+import { useMediaQuery } from "react-responsive";
 
 const mq = facepaint([
   '@media (min-width: 1024px)',
@@ -16,8 +16,6 @@ const Top_NavBar = styled.div(() => mq({
   justifyContent: ['center', 'flex-start', 'flex-start'],
   backgroundColor: '#fff',
   color: '#AEAEAE',
-  fontWeight: '700',
-  fontSize: ['3.5vw', '1.25rem', '1.25rem'],
   boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.04)',
   padding: ['5% 0', '1rem 0', '1rem 0'],
   paddingLeft: [0, '4.5rem', '4.5rem'],
@@ -25,6 +23,7 @@ const Top_NavBar = styled.div(() => mq({
     padding: [0, '0 1.8rem', '0 1.8rem'],
   },
   '& p': {
+    fontWeight: '700',
     fontSize: ['3.5vw', '1.25rem', '1.25rem'],
   },
 }))
