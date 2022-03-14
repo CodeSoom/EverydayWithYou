@@ -9,15 +9,27 @@ const mq = facepaint([
   '@media (min-width: 1440px)',
 ])
 
-const DetailContentsContainer = styled.div({
+const DetailContentsContainer = styled.div(() => mq({
   backgroundColor: '#fff',
+}));
+
+const DetailContents_img = styled.div(() => mq({
+  height: '30vh',
+  position: 'relative',
+  '& button': {
+    position: 'absolute',
+    right: '1rem',
+    bottom: '1rem',
+    color: '#fff',
+    borderColor: '#fff',
+  },
   '& img': {
     width: '100%',
     height: '30vh',
     objectFit: 'cover',
-    boxShadow: '0px 0px 24.25px rgba(0, 0, 0, 0.08)',
+    boxShadow: '0px 24.25px 24.25px rgba(0, 0, 0, 0.05)',
   },
-})
+}));
 
 const DetailContents_name = styled.div(() => mq({
   display: 'flex',
@@ -27,11 +39,6 @@ const DetailContents_name = styled.div(() => mq({
     fontWeight: '400',
     fontSize: '1.5rem',
     color: '#4F4F4F',
-  },
-  '& button': {
-    position: 'absolute',
-    right: '0.5rem',
-    top: '25vh',
   },
 }));
 
@@ -86,14 +93,16 @@ export default function RestaurantsDetailContents({
 }) {
   return (
     <DetailContentsContainer>
-      <img src={`${img}`} />
+      <DetailContents_img>
+        <img src={`${img}`} />
+        <KakaoMapBtn
+          placeUrl={placeUrl}
+        />
+      </DetailContents_img>
       <DetailContents_name>
         <h4>
           {restaurantName}
         </h4>
-        <KakaoMapBtn
-          placeUrl={placeUrl}
-        />
       </DetailContents_name>
       <DetailContents>
         <DetailContents_category>

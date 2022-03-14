@@ -67,7 +67,7 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
         </SelectButton>
       </Link>
       <Link
-        to='/home'
+        to='/custom'
       >
         <SelectButton
           type='button'
