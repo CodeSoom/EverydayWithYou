@@ -21,10 +21,11 @@ const Top_NavBar = styled.div(() => mq({
   paddingLeft: [0, '4.5rem', '4.5rem'],
   '& img': {
     padding: [0, '0 1.8rem', '0 1.8rem'],
+    width: ['6vw', 'auto', 'auto'],
   },
   '& p': {
     fontWeight: '700',
-    fontSize: ['3.5vw', '1.25rem', '1.25rem'],
+    fontSize: ['4vw', '1.25rem', '1.25rem'],
   },
 }))
 

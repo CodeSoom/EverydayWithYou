@@ -15,19 +15,20 @@ const Top_BackBar = styled.div(() => mq({
   width: '100%',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: ['center', 'flex-start', 'flex-start'],
+  justifyContent: 'flex-start',
   backgroundColor: '#fff',
   color: '#828282',
   boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.04)',
   padding: ['5% 0', '1.45rem 0', '1.45rem 0'],
-  paddingLeft: [0, '2rem', '2rem'],
+  paddingLeft: ['5vw', '2rem', '2rem'],
   '& img': {
     marginRight: ['1vw', '0.5rem', '0.5rem'],
+    width: ['6vw', 'auto', 'auto'],
     color: '#828282',
   },
   '& p': {
     fontWeight: '700',
-    fontSize: ['3.5vw', '1.25rem', '1.25rem'],
+    fontSize: ['4vw', '1.25rem', '1.25rem'],
   },
 }))
 

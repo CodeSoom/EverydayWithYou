@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import facepaint from 'facepaint';
 
 import KakaoShareBtn from '../kakao/KakaoShareBtn';
+import KakaoMapBtn from '../kakao/KakaoMapBtn';
 
 const mq = facepaint([
   '@media (min-width: 1024px)',
@@ -32,22 +33,41 @@ const ShareContainer = styled.div(() => mq({
   },
 }));
 
-const Map = styled.div({
+const Map = styled.div(() => mq({
   width: '100%',
   height: '40vh',
-})
+  zIndex: 0,
+}));
 
-export default function RestaurantsMap() {
+const ButtonBottom = styled.div(() => mq({
+  display: 'flex',
+}));
+
+export default function RestaurantsMap({ isPc, placeUrl }) {
   return (
     <>
-      <MapTop>
-        <h4>위치(지도)</h4>
-        <ShareContainer>
-          <span>데이트 상대에게 페이지를 공유해볼까요?</span>
-          <KakaoShareBtn />
-        </ShareContainer>
-      </MapTop>
-      <Map id='map'></Map>
+      {isPc ?
+        <>
+          <MapTop>
+            <h4>위치(지도)</h4>
+            <ShareContainer>
+              <span>데이트 상대에게 페이지를 공유해볼까요?</span>
+              <KakaoShareBtn />
+            </ShareContainer>
+          </MapTop>
+          <Map id='map'></Map>
+        </>
+        :
+        <>
+          <Map id='map'></Map>
+          <ButtonBottom>
+            <KakaoMapBtn
+              placeUrl={placeUrl}
+            />
+            <KakaoShareBtn />
+          </ButtonBottom>
+        </>
+      }
     </>
   )
 }

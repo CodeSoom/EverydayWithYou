@@ -1,20 +1,28 @@
 import styled from '@emotion/styled';
 
-const MapButton = styled.button({
-  backgroundColor: 'transparent',
-  padding: '6px 18px',
-  borderRadius: '22px',
+import facepaint from 'facepaint';
+
+const mq = facepaint([
+  '@media (min-width: 1024px)',
+  '@media (min-width: 1440px)',
+])
+
+const MapButton = styled.button(() => mq({
+  width: ['100%', 'auto', 'auto'],
+  backgroundColor: ['#ffdc00', 'transparent', 'transparent'],
+  color: ['#3496ff', '#4F4F4F', '#4F4F4F'],
+  border: ['none', '#4F4F4F solid 1px', '#4F4F4F solid 1px'],
+  padding: ['1.56vw 6.25vw', '10px 20px', '10px 20px'],
+  borderRadius: ['none', '28px', '28px'],
   fontWeight: '700',
-  fontSize: '14px',
-  color: '#4F4F4F',
-  border: '#4F4F4F solid 1px',
+  fontSize: ['4.2vw', '1rem', '1rem'],
   ':hover, :focus': {
     backgroundColor: '#ffdc00',
-    border: '#3496ff solid 1px',
+    border: ['none', '#3496ff solid 1px', '#3496ff solid 1px'],
     fontWeight: '700',
     color: '#3496ff',
   },
-});
+}));
 
 export default function KakaoMapBtn({ placeUrl }) {
   function handleClick(placeUrl) {

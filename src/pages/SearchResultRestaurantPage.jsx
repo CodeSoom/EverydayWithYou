@@ -28,12 +28,13 @@ const mq = facepaint([
 
 const RestaurantPageLayout = styled.div(() => mq({
   marginLeft: ['15.5vw', '18.75rem', '18.75rem'],
-  marginTop: '7rem',
+  paddingTop: ['25%', '8.5rem', '8.5rem'],
   display: 'flex',
-  backgroundColor: '#F4F4F4',
+  backgroundColor: ['#F8F0E9', '#F4F4F4', '#F4F4F4'],
+  flexDirection: ['column', 'row', 'row'],
 }));
 
-export default function SearchResultRestaurantPage({ params, restaurants }) {
+export default function SearchResultRestaurantPage({ params, restaurants, isPc }) {
   const { name } = params || useParams();
   const resultRestaurant = nameFilter(restaurants, name);
   saveItem('resultRestaurant', JSON.stringify(resultRestaurant)); //클릭해서 들어온 정보 로컬스토리지에 저장
@@ -57,8 +58,12 @@ export default function SearchResultRestaurantPage({ params, restaurants }) {
         searchKeyword={searchKeyword}
       />
       <RestaurantPageLayout>
-        <RestaurantDetailContainer />
-        <RestaurantAfterContainer />
+        <RestaurantDetailContainer
+          isPc={isPc}
+        />
+        <RestaurantAfterContainer
+          isPc={isPc}
+        />
       </RestaurantPageLayout>
     </>
   )
