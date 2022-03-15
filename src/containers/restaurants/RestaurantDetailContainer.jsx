@@ -5,7 +5,6 @@ import facepaint from 'facepaint';
 import { useSelector } from 'react-redux';
 
 import RestaurantsDetailContents from '../../components/restaurants/RestaurantsDetailContents';
-import RestaurantsMap from '../../components/restaurants/RestaurantsMap';
 
 import { loadItem } from "../../services/storage";
 
@@ -22,7 +21,7 @@ const DetailContainer = styled.div(() => mq({
   left: ['15.5vw', '18.75rem', '18.75rem'],
 }));
 
-export default function RestaurantDetailContainer() {
+export default function RestaurantDetailContainer({ isPc }) {
   const {
     place_name, place_url,
     address_name, road_address_name,
@@ -36,6 +35,7 @@ export default function RestaurantDetailContainer() {
   return (
     <DetailContainer>
       <RestaurantsDetailContents
+        isPc={isPc}
         img={img}
         restaurantName={place_name}
         placeUrl={place_url}
@@ -46,7 +46,6 @@ export default function RestaurantDetailContainer() {
         priceRange={priceRange}
         mood={mood}
       />
-      <RestaurantsMap />
     </DetailContainer>
   )
 }

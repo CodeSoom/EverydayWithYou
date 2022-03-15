@@ -63,6 +63,7 @@ export default function App() {
           <Route path="/restaurants/:name" element={
             <RestaurantPage
               restaurants={restaurants}
+              isPc={isPc}
             />}
           />
           <Route path="/search/restaurants/:name" element={

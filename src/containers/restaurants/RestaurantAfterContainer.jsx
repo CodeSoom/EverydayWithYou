@@ -20,6 +20,7 @@ const RestaurantAfter = styled.div(() => mq({
   display: 'flex',
   flexDirection: 'column',
   zIndex: 0,
+  paddingTop: ['9.5vw', 0, 0],
 }));
 
 const Title = styled.h4(() => mq({
@@ -31,7 +32,7 @@ const Title = styled.h4(() => mq({
   color: '#4F4F4F',
 }));
 
-export default function RestaurantAfterContainer() {
+export default function RestaurantAfterContainer({ isPc }) {
   const {
     afterRestaurants,
     afterCafes,
@@ -41,9 +42,12 @@ export default function RestaurantAfterContainer() {
 
   return (
     <RestaurantAfter>
-      <Title>
-        다음 코스 추천 😉
-      </Title>
+      {isPc ?
+        <Title>
+          다음 코스 추천 😉
+        </Title>
+        : null
+      }
       {recommenedCourse ?
         <RestaurantsAfterRecommendation
           recommenedCourse={recommenedCourse}
