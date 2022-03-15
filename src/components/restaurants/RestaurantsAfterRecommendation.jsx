@@ -14,6 +14,11 @@ const VerticalRestaurantsList = styled.div(() => mq({
   borderBottom: ['solid #fff 1vw', 'none', 'none'],
   marginBottom: '1.5rem',
   padding: ['8vw 0', '1rem 5rem', '1rem 5rem'],
+  '& span': {
+    color: '#828282',
+    fontSize: ['3.5vw', '1rem', '1rem'],
+    marginLeft: ['3.75vw', 0, 0],
+  },
 }));
 
 const Title = styled.div(() => mq({
@@ -22,6 +27,7 @@ const Title = styled.div(() => mq({
   fontSize: ['4vw', '1.25rem', '1.25rem'],
   fontWeight: '700',
   color: '#4F4F4F',
+  marginBottom: ['1.75vw', '0.5rem', '0.5rem'],
 }));
 
 const VerticalRestaurantsList_restaurant = styled.li(() => mq({
@@ -40,31 +46,34 @@ const VerticalRestaurantsList_restaurant_contents = styled.div(() => mq({
     fontWeight: '700',
     marginBottom: ['1.75vw', '0.5rem', '0.5rem'],
   },
-  '& span': {
-    color: '#828282',
-    fontSize: ['3.5vw', '1rem', '1rem'],
-  },
 }));
 
 export default function RestaurantsAfterRecommendation({ recommenedCourse }) {
   return (
     <VerticalRestaurantsList>
-      <Title>[여기 좋아요! - 추천가게]</Title>
-      {recommenedCourse.map((restaurant) => (
-        <VerticalRestaurantsList_restaurant
-          key={restaurant.id}
-        >
-          <VerticalRestaurantsList_restaurant_contents>
-            <h4>{restaurant.place_name}</h4>
-            <span>{restaurant.category_name}</span>
-            <br />
-            <span>{restaurant.address_name}</span>
-          </VerticalRestaurantsList_restaurant_contents>
-          <KakaoMapBtn
-            placeUrl={restaurant.place_url}
-          />
-        </VerticalRestaurantsList_restaurant>
-      ))}
+      <Title>[여기 좋아요! - 추천가게 👍]</Title>
+      {recommenedCourse.length !== 0 ?
+        <>
+          {
+            recommenedCourse.map((restaurant) => (
+              <VerticalRestaurantsList_restaurant
+                key={restaurant.id}
+              >
+                <VerticalRestaurantsList_restaurant_contents>
+                  <h4>{restaurant.place_name}</h4>
+                  <span>{restaurant.category_name}</span>
+                  <br />
+                  <span>{restaurant.address_name}</span>
+                </VerticalRestaurantsList_restaurant_contents>
+                <KakaoMapBtn
+                  placeUrl={restaurant.place_url}
+                />
+              </VerticalRestaurantsList_restaurant>
+            ))
+          }
+        </>
+        : <span>추천가게가 아직 없어요.</span>
+      }
     </VerticalRestaurantsList>
   )
 }

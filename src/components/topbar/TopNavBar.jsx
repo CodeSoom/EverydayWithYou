@@ -76,7 +76,7 @@ export default function TopNavBar({ pointFont }) {
               'point-font' : ''
           }
         >
-          {isPc ? '나에게 딱 맞는 맞집 추천!' : '맛집 결과!'}
+          {isPc ? '나에게 딱 맞는 맛집 추천!' : '맛집 결과!'}
         </p>
       </Top_NavBar>
     </>

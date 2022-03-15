@@ -26,7 +26,7 @@ describe('App', () => {
           "name": "더다이닝랩",
           "situation": "소개팅",
           "age": "20대",
-          "place": "마포구/홍대/합정",
+          "place": "마포구/홍대",
           "category": "양식",
           "priceRange": "3만원 이하",
           "mood": null,

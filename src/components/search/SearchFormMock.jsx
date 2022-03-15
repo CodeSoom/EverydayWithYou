@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 
 import facepaint from 'facepaint';
 
+import { Link } from 'react-router-dom';
+
 const mq = facepaint([
   '@media (min-width: 1024px)',
   '@media (min-width: 1440px)',
@@ -37,18 +39,21 @@ const TopSearchContainer_button = styled.button(() => mq({
 
 export default function SearchFormMock({ searchKeyword }) {
   return (
-
-    <TopSearchContainer>
-      <TopSearchContainer_input
-        value={searchKeyword || ''}
-      />
-      <TopSearchContainer_button
-        type='button'
-      >
-        <img
-          src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/search-icon.svg'
+    <Link to="/search">
+      <TopSearchContainer>
+        <TopSearchContainer_input
+          type='text'
+          readOnly
+          value={searchKeyword || ''}
         />
-      </TopSearchContainer_button>
-    </TopSearchContainer>
+        <TopSearchContainer_button
+          type='button'
+        >
+          <img
+            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/search-icon.svg'
+          />
+        </TopSearchContainer_button>
+      </TopSearchContainer>
+    </Link>
   )
 }

@@ -90,7 +90,7 @@ export default function SideBar() {
 
         <Link to="/custom">
           <SideBar_menu_category>
-            맞집 찾기
+            맛집 찾기
           </SideBar_menu_category>
         </Link>
 
