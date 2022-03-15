@@ -118,7 +118,7 @@ export default function SideBarMenu({ onClickClose }) {
             onClick={() => onClickClose()}
           >
             <SideBarMenuContainer_menu_category>
-              맞집 찾기
+              맛집 찾기
             </SideBarMenuContainer_menu_category>
           </Link>
 

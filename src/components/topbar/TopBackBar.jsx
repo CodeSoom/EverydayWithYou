@@ -45,7 +45,7 @@ export default function TopBackBar() {
             src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/back-grey.svg'
           />
           <p>
-            맞집 찾기로 돌아가기
+            맛집 찾기로 돌아가기
           </p>
         </Top_BackBar>
       </Link>

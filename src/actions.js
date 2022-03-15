@@ -163,28 +163,21 @@ export function setSituationFilter(sortNumber) {
       restaurants,
     } = getState();
 
-    // sortNumber에 따라 restuarants 필터링
     function filter(restuarants, sortNumber) {
-      if (sortNumber === 1) {
-        const filter1 = restaurants.filter(restaurant =>
-          restaurant.situation.includes('썸'));
-        const filter2 = restaurants.filter(restaurant =>
-          restaurant.situation.includes('소개팅'));
+      if (sortNumber == 2) {
+        const filter1 = situationFilter(restaurants, '썸');
+        const filter2 = situationFilter(restaurants, '소개팅');
         const result = [...filter1, ...filter2];
         return result
       }
-      if (sortNumber === 2) {
-        const result = restaurants.filter(restaurant =>
-          restaurant.situation.includes('데이트'));
+      if (sortNumber == 1) {
+        const result = situationFilter(restaurants, '데이트');
         return result
       }
-      if (sortNumber === 3) {
-        const filter1 = restaurants.filter(restaurant =>
-          restaurant.situation.includes('생일'));
-        const filter2 = restaurants.filter(restaurant =>
-          restaurant.situation.includes('기념일'));
-        const filter3 = restaurants.filter(restaurant =>
-          restaurant.situation.includes('프로포즈'));
+      if (sortNumber == 3) {
+        const filter1 = situationFilter(restaurants, '생일');
+        const filter2 = situationFilter(restaurants, '기념일');
+        const filter3 = situationFilter(restaurants, '프로포즈');
         const result = [...filter1, ...filter2, ...filter3];
         return result
       } return restaurants
@@ -321,12 +314,13 @@ export function loadResultRestaurants(restaurantName, map) {
 
     async function loadAfterCourse(resultRestaurantPlaceInfo) {
       const resultRestaurant = JSON.parse(loadItem(('resultRestaurant')));
-      const { after_course } = resultRestaurant[0];
+      const { after_course, name } = resultRestaurant[0];
       const { x, y } = resultRestaurantPlaceInfo;
 
-      const afterRestaurants = await fetchAfterRestaurants({ x, y }); // 애프터코스: 주변맛집
+      const afterRestaurants = await fetchAfterRestaurants({ x, y, name }); // 애프터코스: 주변맛집
       const afterCafes = await fetchAfterCafes({ x, y }); // 애프터코스: 주변카페
       const afterBars = await fetchAfterBars({ x, y }); // 애프터코스: 주변술집
+      //ToDo afterRestaurants resultRestaurant의 name과 동일한 obj제외하기
 
       dispatch(setAfterRestaurants(afterRestaurants));
       dispatch(setAfterCafes(afterCafes));
@@ -335,6 +329,8 @@ export function loadResultRestaurants(restaurantName, map) {
       if (after_course) {
         const recommenedCourse = await fetchRecommendCourse({ x, y, after_course }); // 애프터코스: 사용자 제공
         dispatch(setRecommendedCourse(recommenedCourse));
+      } else {
+        dispatch(setRecommendedCourse([]));
       }
     }
   }

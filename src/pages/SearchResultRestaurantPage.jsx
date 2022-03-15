@@ -28,7 +28,7 @@ const mq = facepaint([
 
 const RestaurantPageLayout = styled.div(() => mq({
   marginLeft: ['15.5vw', '18.75rem', '18.75rem'],
-  paddingTop: ['25%', '8.5rem', '8.5rem'],
+  paddingTop: ['25%', '7rem', '7rem'],
   display: 'flex',
   backgroundColor: ['#F8F0E9', '#F4F4F4', '#F4F4F4'],
   flexDirection: ['column', 'row', 'row'],

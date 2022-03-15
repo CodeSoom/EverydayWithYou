@@ -153,7 +153,10 @@ export default function CustomPage({ restaurants }) {
                 </FilterContainer_back>
                 {
                   categoryRestaurantsData.length == 0 ?
-                    <CustomCategoryFilterContainer />
+                    <>
+                      <CustomCategoryFilterContainer />
+                      <CustomPlaceFilterContainer />
+                    </>
                     :
                     placeRestaurantsData.length == 0 ?
                       <>

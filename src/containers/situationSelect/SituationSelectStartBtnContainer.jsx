@@ -39,7 +39,7 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
 
   const situationRestaurantsData = useSelector((state) => (
     state.situationRestaurantsData
-  ))
+  ));
 
   function handleClickUpdate(situationRestaurantsData) {
     {
