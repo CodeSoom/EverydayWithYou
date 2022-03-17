@@ -59,7 +59,7 @@ export default function SituationSelectPage({ restaurants }) {
     dispatch(setRestaurants(restaurants));
   }, []);
 
-  const sortNumber = useSelector((state) => (state.sortNumber));
+  const sortedNumber = useSelector((state) => (state.sortedNumber));
 
   return (
     <>
@@ -77,10 +77,10 @@ export default function SituationSelectPage({ restaurants }) {
           null
         }
         <SituationSelectContainer
-          sortNumber={sortNumber}
+          sortedNumber={sortedNumber}
         />
         <SituationSelectStartBtnContainer
-          sortNumber={sortNumber}
+          sortedNumber={sortedNumber}
         />
       </SituationSelectPageLayout >
     </>

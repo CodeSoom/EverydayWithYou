@@ -44,7 +44,7 @@ const SelectBox3 = styled.button(() => mq({
   },
 }));
 
-export default function SituationSelectContainer({ sortNumber }) {
+export default function SituationSelectContainer({ sortedNumber }) {
   const dispatch = useDispatch();
 
   function handleClickSelection(sortNumber) {
@@ -57,7 +57,7 @@ export default function SituationSelectContainer({ sortNumber }) {
         type='button'
         onClick={() => handleClickSelection(1)}
         className={
-          sortNumber == 1 ?
+          sortedNumber == 1 ?
             'select-img-effect1' : ''
         }
       >
@@ -69,7 +69,7 @@ export default function SituationSelectContainer({ sortNumber }) {
         type='button'
         onClick={() => handleClickSelection(2)}
         className={
-          sortNumber == 2 ?
+          sortedNumber == 2 ?
             'select-img-effect2' : ''
         }
       >
@@ -81,7 +81,7 @@ export default function SituationSelectContainer({ sortNumber }) {
         type='button'
         onClick={() => handleClickSelection(3)}
         className={
-          sortNumber == 3 ?
+          sortedNumber == 3 ?
             'select-img-effect3' : ''
         }
       >
