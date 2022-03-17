@@ -35,7 +35,7 @@ const ShareContainer = styled.div(() => mq({
 
 const Map = styled.div(() => mq({
   width: '100%',
-  height: '40vh',
+  height: ['40vw', '18.625rem', '18.625rem'],
   zIndex: 0,
 }));
 

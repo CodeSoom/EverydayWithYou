@@ -67,7 +67,7 @@ const FilterContainer_back = styled.div(() => mq({
 }));
 
 const Information = styled.div(() => mq({
-  width: ['100%', '40%', '40%'],
+  width: ['100%', '50%', '50%'],
   padding: ['10%', '0 2rem', '0 2rem'],
   backgroundColor: '#F8F0E9',
   display: 'flex',
@@ -155,7 +155,6 @@ export default function CustomPage({ restaurants }) {
                   categoryRestaurantsData.length == 0 ?
                     <>
                       <CustomCategoryFilterContainer />
-                      <CustomPlaceFilterContainer />
                     </>
                     :
                     placeRestaurantsData.length == 0 ?

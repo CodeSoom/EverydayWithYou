@@ -12,7 +12,7 @@ const mq = facepaint([
 const VerticalRestaurantsList = styled.div(() => mq({
   borderTop: ['solid #fff 1vw', 'none', 'none'],
   borderBottom: ['solid #fff 1vw', 'none', 'none'],
-  marginBottom: '1.5rem',
+  // marginBottom: ['8vw', '1rem', '1rem'],
   padding: ['8vw 0', '1rem 5rem', '1rem 5rem'],
   '& span': {
     color: '#828282',
@@ -39,12 +39,12 @@ const VerticalRestaurantsList_restaurant = styled.li(() => mq({
 
 const VerticalRestaurantsList_restaurant_contents = styled.div(() => mq({
   padding: ['3.75vw 0', 0, 0],
-  marginLeft: ['3.75vw', 0, 0],
   '& h4': {
     color: '#4F4F4F',
     fontSize: ['4.2vw', '1rem', '1rem'],
     fontWeight: '700',
     marginBottom: ['1.75vw', '0.5rem', '0.5rem'],
+    marginLeft: ['3.75vw', 0, 0],
   },
 }));
 

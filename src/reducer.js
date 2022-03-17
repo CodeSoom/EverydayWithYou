@@ -7,7 +7,7 @@ const initialState = {
   placeRestaurantsData: [], // 장소 종류별로 솔팅해서 저장된 레스토랑
   filteredRestaurantsData: [], // 정상적으로 솔팅된 레스토랑 저장
 
-  sortNumber: '',
+  sortedNumber: '',
 
   selectedCategory: '',
   selectedPlace: '',
@@ -165,19 +165,22 @@ const reducers = {
 
   // SituationSelecPage: 1. 상황별 솔팅 => 숫자로 필터된 레스토랑으로 업데이트
   filterRestaurantsBySituation(state, { payload: { filteredRestaurantsBySituation, sortNumber } }) {
-    const { situationRestaurantsData } = state;
+    const {
+      situationRestaurantsData, sortedNumber,
+    } = state;
 
-    if (filteredRestaurantsBySituation.length == situationRestaurantsData.length) {
+    if (sortNumber == sortedNumber &&
+      filteredRestaurantsBySituation.length == situationRestaurantsData.length) {
       return {
         ...state,
         situationRestaurantsData: [],
-        sortNumber: '',
+        sortedNumber: '',
       }
     } else {
       return {
         ...state,
         situationRestaurantsData: filteredRestaurantsBySituation,
-        sortNumber,
+        sortedNumber: sortNumber,
       }
     }
   },

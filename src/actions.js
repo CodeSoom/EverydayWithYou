@@ -164,14 +164,14 @@ export function setSituationFilter(sortNumber) {
     } = getState();
 
     function filter(restuarants, sortNumber) {
+      if (sortNumber == 1) {
+        const result = situationFilter(restaurants, '데이트');
+        return result
+      }
       if (sortNumber == 2) {
         const filter1 = situationFilter(restaurants, '썸');
         const filter2 = situationFilter(restaurants, '소개팅');
         const result = [...filter1, ...filter2];
-        return result
-      }
-      if (sortNumber == 1) {
-        const result = situationFilter(restaurants, '데이트');
         return result
       }
       if (sortNumber == 3) {
@@ -199,15 +199,13 @@ export function setCategoryFilter(categoryValue) {
     } = getState();
 
     function filterFromBase(restaurantsData, categoryValue) {
-      const filteredByCategory = restaurantsData.filter(restaurant =>
-        restaurant.category.includes(categoryValue));
+      const filteredByCategory = categoryFilter(restaurantsData, categoryValue);
       const result = [...filteredByCategory];
       return result
     }
 
     function filterFromPlaceSorted(placeRestaurantsData, categoryValue) {
-      const filteredByCategory = placeRestaurantsData.filter(restaurant =>
-        restaurant.category.includes(categoryValue));
+      const filteredByCategory = categoryFilter(placeRestaurantsData, categoryValue);
       const result = [...filteredByCategory];
       return result
     }
@@ -215,7 +213,7 @@ export function setCategoryFilter(categoryValue) {
     function previously(
       restaurantsData, placeRestaurantsData, categoryValue,
     ) {
-      if (placeRestaurantsData.length === 0) { // 기존에 장소기준으로 솔팅된게 없다면?
+      if (placeRestaurantsData.length == 0) { // 기존에 장소기준으로 솔팅된게 없다면?
         return filterFromBase(restaurantsData, categoryValue)
       } else {
         return filterFromPlaceSorted(placeRestaurantsData, categoryValue)
@@ -236,18 +234,17 @@ export function setPlaceFilter(placeValue) {
     const {
       restaurantsData,
       categoryRestaurantsData,
+      placeRestaurantsData,
     } = getState();
 
     function filterFromBase(restaurantsData, placeValue) {
-      const filteredByPlace = restaurantsData.filter(restaurant =>
-        restaurant.place.includes(placeValue));
+      const filteredByPlace = placeFilter(restaurantsData, placeValue);
       const result = [...filteredByPlace];
       return result
     }
 
     function filterFromCategorySorted(categoryRestaurantsData, placeValue) {
-      const filteredByPlace = categoryRestaurantsData.filter(restaurant =>
-        restaurant.place.includes(placeValue));
+      const filteredByPlace = placeFilter(categoryRestaurantsData, placeValue);
       const result = [...filteredByPlace];
       return result
     }
@@ -255,9 +252,10 @@ export function setPlaceFilter(placeValue) {
     function previously(
       restaurantsData, categoryRestaurantsData, placeValue,
     ) {
-      if (categoryRestaurantsData.length === 0) { // 기존에 음식기준으로 솔팅된게 없다면?
+      if (categoryRestaurantsData.length == 0) { // 기존에 음식기준으로 솔팅된게 없다면?
         return filterFromBase(restaurantsData, placeValue)
-      } else {
+      } else if (placeRestaurantsData.length !== 0 ||
+        categoryRestaurantsData.length !== 0) {
         return filterFromCategorySorted(categoryRestaurantsData, placeValue)
       }
     }

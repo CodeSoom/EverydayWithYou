@@ -34,7 +34,7 @@ const SelectButton = styled.button(() => mq({
   borderRadius: ['8.75vw', '28px', '28px'],
 }));
 
-export default function SituationSelectStartBtnContainer({ sortNumber }) {
+export default function SituationSelectStartBtnContainer({ sortedNumber }) {
   const dispatch = useDispatch();
 
   const situationRestaurantsData = useSelector((state) => (
@@ -51,15 +51,15 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
 
   return (
     <SelectBtnContainer>
-      <Link to={sortNumber ? '/custom' : '/'}>
+      <Link to={sortedNumber ? '/custom' : '/'}>
         <SelectButton
           type='button'
           onClick={() => handleClickUpdate(
-            sortNumber ?
+            sortedNumber ?
               situationRestaurantsData :
               alert('한 가지 이상 선택해주세요!'))}
           className={
-            sortNumber ?
+            sortedNumber ?
               'select-button-effect' : ''
           }
         >
@@ -73,7 +73,7 @@ export default function SituationSelectStartBtnContainer({ sortNumber }) {
           type='button'
           onClick={() => handleClickUpdate([])}
           className={
-            sortNumber ?
+            sortedNumber ?
               'select-button-effect' : ''
           }
         >

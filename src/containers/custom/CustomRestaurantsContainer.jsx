@@ -14,18 +14,17 @@ const mq = facepaint([
 ])
 
 const CustomRestaurantsResult = styled.div(() => mq({
-  width: ['100%', '40%', '40%'],
+  width: ['100%', '50%', '50%'],
   paddingTop: ['45%', '8.5rem', '8.5rem'],
   backgroundColor: '#F8F0E9',
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
 }));
 
 const CustomRestaurantsResult_title = styled.h4(() => mq({
   textAlign: 'center',
   marginTop: [0, '3rem', '3rem'],
-  marginBottom: ['1.65vh', '1rem', '1rem'],
+  marginBottom: ['7vw', '2rem', '2rem'],
   fontSize: ['4.7vw', '1.875rem', '1.875rem'],
   fontWeight: '900',
   color: '#4F4F4F',
@@ -34,8 +33,9 @@ const CustomRestaurantsResult_title = styled.h4(() => mq({
 const VerticalRestaurantsList_restaurant = styled.li(() => mq({
   display: 'flex',
   flexDirection: ['column', 'row', 'row'],
-  alignItems: ['flex-start', 'center', 'center'],
   marginBottom: '2.875rem',
+  marginLeft: [0, '10%', '10%'],
+  padding: ['0 7.5%', 0, 0],
   '& img': {
     backgroundColor: '#fff',
     padding: ['2.5vw', '0.75rem', '0.75rem'],
@@ -53,7 +53,6 @@ const VerticalRestaurantsList_restaurant_contents = styled.div(() => mq({
   flexDirection: 'column',
   color: '#828282',
   fontSize: ['4.2vw', '1rem', '1rem'],
-  width: ['100%', '30%', '30%'],
   '& div': {
     marginLeft: ['2.5%', 0, 0],
     marginBottom: ['2.5%', '0.5rem', '0.5rem'],
@@ -80,6 +79,7 @@ const VerticalRestaurantsList_restaurant_contents = styled.div(() => mq({
     fontWeight: '700',
     padding: ['1.56vw 6.25vw', '10px 20px', '10px 20px'],
     borderRadius: ['8.75vw', '28px', '28px'],
+    width: ['auto', '7rem', '7rem'],
   },
 }));
 

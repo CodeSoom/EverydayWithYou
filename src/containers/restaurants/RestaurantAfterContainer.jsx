@@ -26,7 +26,7 @@ const RestaurantAfter = styled.div(() => mq({
 const Title = styled.h4(() => mq({
   textAlign: 'center',
   marginTop: [0, '3rem', '3rem'],
-  marginBottom: ['1.65vh', '1rem', '1rem'],
+  marginBottom: ['7vw', '2rem', '2rem'],
   fontSize: ['4.7vw', '1.875rem', '1.875rem'],
   fontWeight: '900',
   color: '#4F4F4F',
