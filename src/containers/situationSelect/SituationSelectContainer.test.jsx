@@ -31,11 +31,14 @@ describe('SituationSelectContainer', () => {
     </MemoryRouter>
   ));
 
+  // ToDo 테스트코드 구현
   context('when clicks selection', () => {
     it('calls dispatch with action: setSituationFilter', () => {
-      const { getByText } = renderSituationSelectContainer();
+      const { getByAltText } = renderSituationSelectContainer();
 
-      fireEvent.click(getByText('알아가는 그대와 : 소개팅, 썸'));
+      fireEvent.click(getByAltText('img1'));
+      fireEvent.click(getByAltText('img2'));
+      fireEvent.click(getByAltText('img3'));
 
       expect(dispatch).toBeCalled();
     });

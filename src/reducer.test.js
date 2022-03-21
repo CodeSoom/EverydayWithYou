@@ -96,7 +96,6 @@ describe('reducer', () => {
       const state = reducer(initialState, filterRestaurantsBySituation(filteredRestaurants));
 
       expect(state.situationRestaurantsData).toHaveLength(1);
-      expect(state.color).toBe('select');
       expect(state.sortNumber).not.toBeNull();
     });
   });
@@ -151,7 +150,7 @@ describe('reducer', () => {
 
       expect(state.categoryRestaurantsData).toHaveLength(1);
       expect(state.filteredRestaurantsData).toHaveLength(1);
-      expect(state.categoryColor).toBe('select');
+      expect(state.categoryColor).toBe('select-button-effect');
     });
   });
 
@@ -205,7 +204,7 @@ describe('reducer', () => {
 
       expect(state.placeRestaurantsData).toHaveLength(1);
       expect(state.filteredRestaurantsData).toHaveLength(1);
-      expect(state.placeColor).toBe('select');
+      expect(state.placeColor).toBe('select-button-effect');
     });
   });
 });
