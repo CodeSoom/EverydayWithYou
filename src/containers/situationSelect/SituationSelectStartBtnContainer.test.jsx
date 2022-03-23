@@ -13,11 +13,24 @@ import SituationSelectStartBtnContainer from './SituationSelectStartBtnContainer
 jest.mock('react-redux');
 
 describe('SituationSelectStartBtnContainer', () => {
-  const sortNumber = 1;
+  const original = window.location;
+
+  const reloadFn = () => {
+    window.location.reload(true);
+  };
+
+  const sortedNumber = 1;
 
   const dispatch = jest.fn();
 
   beforeEach(() => {
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: { reload: jest.fn() },
+    });
+
+    jest.spyOn(window, 'alert').mockImplementation(() => { }); // ToDo 이게 맞나?
+
     dispatch.mockClear();
 
     useDispatch.mockImplementation(() => dispatch);
@@ -39,10 +52,30 @@ describe('SituationSelectStartBtnContainer', () => {
     ));
   });
 
+  beforeAll(() => {
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: { reload: jest.fn() },
+    });
+  });
+
+  afterAll(() => {
+    Object.defineProperty(window, 'location', { configurable: true, value: original });
+  });
+
+  it('mocks reload function', () => {
+    expect(jest.isMockFunction(window.location.reload)).toBe(true);
+  });
+
+  it('calls reload function', () => {
+    reloadFn();
+    expect(window.location.reload).toHaveBeenCalled();
+  });
+
   const renderSituationSelectStartBtnContainer = () => render((
     <MemoryRouter>
       <SituationSelectStartBtnContainer
-        sortNumber={sortNumber}
+        sortedNumber={sortedNumber}
       />
     </MemoryRouter>
   ));

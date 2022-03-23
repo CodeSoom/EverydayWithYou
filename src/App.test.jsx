@@ -45,8 +45,7 @@ describe('App', () => {
   it('renders home page path to "/"', () => {
     const { container } = renderApp({ path: '/' });
 
-    expect(container).toHaveTextContent('오늘은 무슨 날인가요? 놀러 가는 목적이 무엇인지 알려주세요.');
-    expect(container).toHaveTextContent('코스를 알려드리는 여정이 시작됩니다 !');
+    expect(container).toHaveTextContent('오늘은');
   });
 
   it('renders home page path to "/home"', () => {
@@ -58,7 +57,7 @@ describe('App', () => {
   it('renders board page path to "/custom"', () => {
     const { container } = renderApp({ path: '/custom' });
 
-    expect(container).toHaveTextContent('선택해주세요 !');
+    expect(container).toHaveTextContent('뭐 먹지?');
   });
 
   // ToDo 테스트 구현

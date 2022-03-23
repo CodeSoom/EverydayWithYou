@@ -63,6 +63,7 @@ export default function SituationSelectContainer({ sortedNumber }) {
       >
         <img
           src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/relationship-img/1.svg'
+          alt='img1'
         />
       </SelectBox1>
       <SelectBox2
@@ -75,6 +76,7 @@ export default function SituationSelectContainer({ sortedNumber }) {
       >
         <img
           src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/relationship-img/2.svg'
+          alt='img2'
         />
       </SelectBox2>
       <SelectBox3
@@ -87,6 +89,7 @@ export default function SituationSelectContainer({ sortedNumber }) {
       >
         <img
           src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/relationship-img/3.svg'
+          alt='img3'
         />
       </SelectBox3>
     </SelectImgContainer>
