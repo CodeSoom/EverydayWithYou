@@ -85,8 +85,8 @@ describe('SituationSelectPage', () => {
       expect(container).toHaveTextContent('건너뛰기');
 
       expect(dispatch).toBeCalledWith({
-        type: 'setRestaurants',
-        payload: { restaurants },
+        type: 'application/setRestaurants',
+        payload: restaurants,
       })
     });
   });

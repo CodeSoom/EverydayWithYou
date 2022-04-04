@@ -5,7 +5,7 @@ import SearchForm from '../../components/search/SearchForm';
 import {
   changeSearchField,
   findRestaurants,
-} from '../../actions';
+} from '../../slice';
 
 export default function SearchContainer({ restaurantsData }) {
   const dispatch = useDispatch();
