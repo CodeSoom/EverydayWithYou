@@ -1,4 +1,4 @@
-# ❤️ 매일 그대와 | Everyday With You
+# ![mobile-logo-icon](https://user-images.githubusercontent.com/89244209/167781607-28ab1d3a-ca43-4f3e-892e-b0059f6359d1.svg) 매일 그대와 | Everyday With You
 사랑하는 혹은 호감이 가고 알아가고 싶은 상대와 어디 갈지 고민되시나요? 🤔💭
 <br />
 더 이상 결정장애는 Naver! 소중한 그대와의 데이트코스를 추천받는 여정이 시작됩니다!
