@@ -7,7 +7,7 @@ import SideBarMenu from '../../components/sidebar/SideBarMenu';
 import {
   setSideBarMenu,
   removeSideBarMenu,
-} from '../../actions';
+} from '../../slice';
 
 export default function SideBarContainer({ isPc, callMenu }) {
   const dispatch = useDispatch();

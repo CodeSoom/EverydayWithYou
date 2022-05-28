@@ -14,7 +14,7 @@ import RandomAgeCategoryRestaurants from '../components/random/RandomAgeCategory
 
 import {
   setRandomFilter,
-} from '../actions';
+} from '../slice';
 
 const mq = facepaint([
   '@media (min-width: 1024px)',

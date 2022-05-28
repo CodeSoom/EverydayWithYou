@@ -16,7 +16,7 @@ import TopSearchBar from '../components/topbar/TopSearchBar';
 
 import {
   setRandomFilter,
-} from '../actions';
+} from '../slice';
 
 const mq = facepaint([
   '@media (min-width: 1024px)',

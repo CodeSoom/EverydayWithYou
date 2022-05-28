@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import {
   setSituationRestaurants,
-} from '../../actions';
+} from '../../slice';
 
 const mq = facepaint([
   '@media (min-width: 1024px)',

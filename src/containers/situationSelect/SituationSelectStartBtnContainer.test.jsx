@@ -101,8 +101,8 @@ describe('SituationSelectStartBtnContainer', () => {
       fireEvent.click(getByText('시작'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'setSituationRestaurants',
-        payload: { situationRestaurantsData },
+        type: 'application/setSituationRestaurants',
+        payload: situationRestaurantsData,
       });
     });
   });
@@ -116,8 +116,8 @@ describe('SituationSelectStartBtnContainer', () => {
       fireEvent.click(getByText('건너뛰기'));
 
       expect(dispatch).toBeCalledWith({
-        type: 'setSituationRestaurants',
-        payload: { situationRestaurantsData },
+        type: 'application/setSituationRestaurants',
+        payload: situationRestaurantsData,
       });
     });
   });

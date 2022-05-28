@@ -20,7 +20,7 @@ import { saveItem } from '../services/storage'
 
 import {
   loadResultRestaurants,
-} from '../actions';
+} from '../slice';
 
 const mq = facepaint([
   '@media (min-width: 1024px)',

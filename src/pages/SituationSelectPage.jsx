@@ -15,7 +15,7 @@ import TopBar from '../components/topbar/TopBar';
 
 import {
   setRestaurants,
-} from '../actions';
+} from '../slice';
 
 const mq = facepaint([
   '@media (min-width: 1024px)',

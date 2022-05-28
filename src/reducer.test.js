@@ -1,11 +1,9 @@
-import reducer from './reducer';
-
-import {
+import reducer, {
   setRestaurants,
   filterRestaurantsBySituation,
   filterRestaurantsByCategory,
   filterRestaurantsByPlace,
-} from './actions';
+} from './slice';
 
 jest.mock('react-redux');
 
@@ -76,10 +74,12 @@ describe('reducer', () => {
         ],
         situationRestaurantsData: [],
         color: '',
-        sortNumber: '',
+        sortedNumber: '',
       };
 
-      const filteredRestaurants = [
+
+      const sortNumber = 1;
+      const filteredRestaurantsBySituation = [
         {
           "id": "36",
           "name": "보이어",
@@ -93,10 +93,12 @@ describe('reducer', () => {
         },
       ];
 
-      const state = reducer(initialState, filterRestaurantsBySituation(filteredRestaurants));
+      const state = reducer(initialState, filterRestaurantsBySituation({
+        filteredRestaurantsBySituation, sortNumber,
+      }));
 
       expect(state.situationRestaurantsData).toHaveLength(1);
-      expect(state.sortNumber).not.toBeNull();
+      expect(state.sortedNumber).not.toBeNull();
     });
   });
 
@@ -132,6 +134,7 @@ describe('reducer', () => {
         categoryColor: '',
       };
 
+      const categoryValue = '양식';
       const filteredRestaurantsByCategory = [
         {
           "id": "36",
@@ -146,7 +149,9 @@ describe('reducer', () => {
         },
       ];
 
-      const state = reducer(initialState, filterRestaurantsByCategory(filteredRestaurantsByCategory));
+      const state = reducer(initialState, filterRestaurantsByCategory({
+        filteredRestaurantsByCategory, categoryValue,
+      }));
 
       expect(state.categoryRestaurantsData).toHaveLength(1);
       expect(state.filteredRestaurantsData).toHaveLength(1);
@@ -186,6 +191,7 @@ describe('reducer', () => {
         placeColor: '',
       };
 
+      const placeValue = '왕십리/성동';
       const filteredRestaurantsByPlace = [
         {
           "id": "36",
@@ -200,7 +206,9 @@ describe('reducer', () => {
         },
       ];
 
-      const state = reducer(initialState, filterRestaurantsByPlace(filteredRestaurantsByPlace));
+      const state = reducer(initialState, filterRestaurantsByPlace({
+        filteredRestaurantsByPlace, placeValue,
+      }));
 
       expect(state.placeRestaurantsData).toHaveLength(1);
       expect(state.filteredRestaurantsData).toHaveLength(1);
