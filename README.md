@@ -20,9 +20,7 @@
  https://superduper-india.codesoom.com
 
 ## 미리보기
-
-https://user-images.githubusercontent.com/89244209/171098427-55d5bd72-f2f2-47ed-875a-58c9332e7a53.mov
-
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/89244209/171101126-e56852ce-8e12-44bc-b18e-293c954cc019.gif)
 
 ## 설치하기 Installing
 ```
