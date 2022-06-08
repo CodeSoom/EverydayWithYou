@@ -56,6 +56,18 @@
  ┗ 📜 utils.js
 ```
 
+## ✨ 개발기간
+- 2022.01.24 ~ 2022.03.16 (약 2개월)
+
+## 🗓 주차 별 계획 및 회고
+
+|➡️ 주차|계획|회고|
+|:---:|:---:|:---:|
+|1주 차|[:link:](https://github.com/CodeSoom/EverydayWithYou/issues/1)|[:link:](https://velog.io/@sunyoung1542/%EC%BD%94%EB%93%9C%EC%88%A8-%EB%A6%AC%EC%95%A1%ED%8A%B8-6%EA%B8%B0-9%EC%A3%BC%EC%B0%A8-%EC%A3%BC%EA%B0%84%ED%9A%8C%EA%B3%A0)|
+|2주 차|[:link:](https://github.com/CodeSoom/EverydayWithYou/issues/20)|[:link:](https://velog.io/@sunyoung1542/%EC%BD%94%EB%93%9C%EC%88%A8-%EB%A6%AC%EC%95%A1%ED%8A%B8-6%EA%B8%B0-10%EC%A3%BC%EC%B0%A8-%EC%A3%BC%EA%B0%84%ED%9A%8C%EA%B3%A0)|
+|3주 차|[:link:](https://github.com/CodeSoom/EverydayWithYou/issues/29)|[:link:](https://velog.io/@sunyoung1542/%EC%BD%94%EB%93%9C%EC%88%A8-%EB%A6%AC%EC%95%A1%ED%8A%B8-6%EA%B8%B0-11%EC%A3%BC%EC%B0%A8-%EC%A3%BC%EA%B0%84%ED%9A%8C%EA%B3%A0)|
+|~6주 차|[:link:](https://github.com/CodeSoom/EverydayWithYou/issues/29)|[:link:](https://velog.io/@sunyoung1542/%EC%BD%94%EB%93%9C%EC%88%A8-%EB%A6%AC%EC%95%A1%ED%8A%B8-6%EA%B8%B0-12%EC%A3%BC%EC%B0%A8-%EC%A3%BC%EA%B0%84%ED%9A%8C%EA%B3%A0)|
+
 ## ⚙️ 프로젝트 세팅 Project Settings
 ### 설치하기 Installing
 ```
