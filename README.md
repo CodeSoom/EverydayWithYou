@@ -104,7 +104,7 @@ npm run deploy
 - React Router Dom
 - Emotion, facepaint, react-responsive
 - Jest, React Testing Library
-- Webpack, Eslint, Babel,
+- Webpack, Eslint, Babel
 - Lodash
 - GitHub Actions, gh-pages
 
