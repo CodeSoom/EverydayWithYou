@@ -1,9 +1,14 @@
-# ❤️ 매일 그대와 | Everyday With You
+# <img src="https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/logo-265px.svg" width="30px" height="30px"> 매일 그대와 | Everyday With You
 사랑하는 혹은 호감이 가고 알아가고 싶은 상대와 어디 갈지 고민되시나요? 🤔💭
 <br />
 더 이상 결정장애는 Naver! 소중한 그대와의 데이트코스를 추천받는 여정이 시작됩니다!
+<br />
 
-## 사용법 How to use
+## 🔗 배포 링크 Hosting URL
+ https://superduper-india.codesoom.com
+<br />
+
+## 📑 사용법 How to use
 * 앱 시작화면에서 오늘이 어떤 날인지 선택해주세요. 소개팅이라구요? 👀(띠용) 거기에 적절한 가게로 향하는 여정이 시작됩니다.
 
 * 혹시 오늘 드시고 싶으신 게 있나요? 그리고 어디로 가고 싶으신가요? 선택해주시면 음식점 리스트를 보여드려요!
@@ -16,28 +21,58 @@
 
 * 로고나 홈을 누르시면 홈에서 한눈에 메뉴들을 살필 수 있어요! 랜덤추천 가게목록도 살펴봐 주세요.
 
-## 프로젝트 링크
- https://superduper-india.codesoom.com
+## 💾 프로젝트 구조 Project Structure
+```
+📦 src
+ ┣ 📂 components
+ ┃ ┣ 📂 home
+ ┃ ┣ 📂 kakao
+ ┃ ┣ 📂 random
+ ┃ ┣ 📂 restaurants
+ ┃ ┣ 📂 search
+ ┃ ┣ 📂 sidebar
+ ┃ ┗ 📂 topbar
+ ┣ 📂 containers
+ ┃ ┣ 📂 custom
+ ┃ ┣ 📂 home
+ ┃ ┣ 📂 restaurants
+ ┃ ┣ 📂 search
+ ┃ ┣ 📂 sidebar
+ ┃ ┗ 📂 situationSelect
+ ┣ 📂 pages
+ ┣ 📂 services
+ ┃ ┣ 📂 __mocks__
+ ┃ ┣ 📜 api.js
+ ┃ ┣ 📜 storage.js
+ ┃ ┗ 📜 storage.test.js
+ ┣ 📜 App.jsx
+ ┣ 📜 App.test.jsx
+ ┣ 📜 index.jsx
+ ┣ 📜 kakao.js
+ ┣ 📜 reducer.js
+ ┣ 📜 reducer.test.js
+ ┣ 📜 slice.js
+ ┣ 📜 store.js
+ ┗ 📜 utils.js
+```
 
-## 미리보기
-![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/89244209/171101126-e56852ce-8e12-44bc-b18e-293c954cc019.gif)
-
-## 설치하기 Installing
+## ⚙️ 프로젝트 세팅 Project Settings
+### 설치하기 Installing
 ```
 npm install
 ```
 
-## 실행하기 Running the server
+### 실행하기 Running the server
 ```
 npm start
 ```
 
-## 린트 실행하기 Running the lint
+### 린트 실행하기 Running the lint
 ```
 npm run lint
 ```
 
-## 테스트 실행하기 Running the tests
+### 테스트 실행하기 Running the tests
 ```
 # 전체 테스트 실행하기
 npm test
@@ -46,7 +81,24 @@ npm test
 npm run test -- --watch-all
 ```
 
-## 배포하기 Deployment
+### 배포하기 Deployment
 ```
 npm run deploy
 ```
+
+## 🛠 기술 스택 Project Stack
+- React
+- Redux, Redux-Toolkit, Redux-Thunk
+- React Router Dom
+- Emotion, facepaint, react-responsive
+- Jest, React Testing Library
+- Webpack, Eslint, Babel,
+- Lodash
+- GitHub Actions, gh-pages
+
+## 🎞 미리보기 Preview
+### 🖥 DeskTop
+![웹 움짤](https://user-images.githubusercontent.com/89244209/172533898-753f23ad-9c3a-4b5f-b668-3e5ed57d9644.gif)
+
+### 📱 Mobile
+![모바일 움짤](https://user-images.githubusercontent.com/89244209/172533912-29ca0ff8-351b-44ed-aec1-fe3c41342cae.gif)
