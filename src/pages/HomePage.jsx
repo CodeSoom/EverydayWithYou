@@ -8,11 +8,10 @@ import { useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
 
-import HomeCarousel from '../components/home/HomeCarousel';
+import TopSearchBar from '../components/topbar/TopSearchBar';
+import Banner from '../components/banner/Banner';
 import RandomSituationPlaceRestaurants from '../components/random/RandomSituationPlaceRestaurants';
 import RandomAgeCategoryRestaurants from '../components/random/RandomAgeCategoryRestaurants';
-
-import TopSearchBar from '../components/topbar/TopSearchBar';
 
 import {
   setRandomFilter,
@@ -92,9 +91,7 @@ export default function HomePage({ restaurants }) {
       <Top>
         <TopSearchBar />
       </Top>
-      {/* Todo 리액트 라이브러리로 대체하기*/}
-      <HomeCarousel />
-      {/* */}
+      <Banner />
       <HomeSelectContainer>
         <Link to='/'>
           <HomeSelectContainer_situation

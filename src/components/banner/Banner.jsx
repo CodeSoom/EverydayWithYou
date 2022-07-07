@@ -1,13 +1,8 @@
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-
 import styled from '@emotion/styled';
 
-import facepaint from 'facepaint'
+import facepaint from 'facepaint';
 
 import { Link } from 'react-router-dom';
-
-// import { Carousel } from 'react-responsive-carousel';
-// Todo 슬라이드 구현하기 ㅜㅜ
 
 const mq = facepaint([
   '@media (min-width: 768px)',
@@ -34,13 +29,12 @@ const Carousel_slide = styled.div(() => mq({
   },
 }));
 
-export default function HomeCarousel() {
+export default function Banner() {
   return (
     <Link to='/custom'>
       <Carousel_slide>
-        <LazyLoadImage
+        <img
           width='100%'
-          placeholderSrc='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/loading-img/grey.jpg'
           src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/main-food-img/steak.jpg'
         />
         <p>
