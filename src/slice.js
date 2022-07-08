@@ -64,7 +64,7 @@ const { actions, reducer } = createSlice({
     setSideBarMenu(state) {
       return {
         ...state,
-        callSideBarMenu: 'okay',
+        callSideBarMenu: 'true',
       }
     },
 

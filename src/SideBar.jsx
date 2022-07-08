@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 
 import WebSideBarMenu from './components/sidebar/WebSideBarMenu';
-import MobileSideBar from './components/sidebar/MobileSideBar';
+import MobileSlimSideBar from './components/sidebar/MobileSlimSideBar';
 import MobileSideBarMenu from './components/sidebar/MobileSideBarMenu';
 
 import {
@@ -24,11 +24,11 @@ export default function SideBarMenu({ isPc, callSideBarMenu }) {
     <>
       {isPc ?
         <WebSideBarMenu /> :
-        callSideBarMenu == 'okay' ?
+        callSideBarMenu == 'true' ?
           <MobileSideBarMenu
             onClickClose={handleClickClose}
           />
-          : <MobileSideBar
+          : <MobileSlimSideBar
             onClickHamberger={handleClickHamberger}
           />
       }
