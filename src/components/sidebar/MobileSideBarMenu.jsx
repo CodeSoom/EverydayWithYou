@@ -1,122 +1,72 @@
 import { Link } from 'react-router-dom';
 
-import styled from '@emotion/styled';
-
-const SideBarMenu = styled.div({
-  backgroundColor: '#fff',
-  maxWidth: '100%',
-  height: '100vh',
-  width: '73vw',
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  bottom: 0,
-  zIndex: 3,
-  padding: '3%',
-  display: 'flex',
-  flexFlow: 'column nowrap',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-})
-
-const SideBarMenuContainer_close = styled.div({
-  width: '100%',
-  '& img': {
-    width: '10vw',
-  },
-})
-
-const SideBarMenuContainer_menu = styled.ul({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-})
-const SideBarMenuContainer_menu_category = styled.li({
-  color: '#828282',
-  fontSize: '3.75vw',
-  marginBottom: '6vh',
-})
-
-const SideBarMenuContainer_logoCopyright = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'flex-end',
-  alignItems: 'center',
-  borderTop: 'solid 1px #828282',
-  width: '60%',
-  '& img': {
-    width: '44vw',
-  },
-  '& span': {
-    fontSize: '2vw',
-    paddingBottom: '2vh',
-    color: '#7D3200',
-  },
-})
+import {
+  MobileSideBarMenuStyle,
+} from '../../styles/MobileSideBarMenuStyle';
 
 export default function MobileSideBarMenu({ onClickClose }) {
   return (
     <>
-      <SideBarMenu>
-        <SideBarMenuContainer_close>
-          <button
-            type='button'
-            onClick={() => onClickClose()}
-          >
-            <img
-              src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/mobile-close-icon.svg'
-            />
-          </button>
-        </SideBarMenuContainer_close>
+      <MobileSideBarMenuStyle>
+        <button
+          type='button'
+          onClick={() => onClickClose()}
+        >
+          <img
+            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/mobile-close-icon.svg'
+          />
+        </button>
 
-        <SideBarMenuContainer_menu>
+        <ul>
           <Link
-            to="/home"
+            to='/'
             onClick={() => onClickClose()}
           >
-            <SideBarMenuContainer_menu_category>
+            <li>
               홈
-            </SideBarMenuContainer_menu_category>
+            </li>
           </Link>
 
           <Link
-            to="/search"
+            to='/search'
             onClick={() => onClickClose()}
           >
-            <SideBarMenuContainer_menu_category>
+            <li>
               검색
-            </SideBarMenuContainer_menu_category>
+            </li>
           </Link>
 
           <Link
-            to="/"
+            to='/select'
             onClick={() => onClickClose()}
           >
-            <SideBarMenuContainer_menu_category>
+            <li>
               오늘은
-            </SideBarMenuContainer_menu_category>
+            </li>
           </Link>
 
           <Link
-            to="/custom"
+            to='/custom'
             onClick={() => onClickClose()}
           >
-            <SideBarMenuContainer_menu_category>
+            <li>
               맛집 찾기
-            </SideBarMenuContainer_menu_category>
+            </li>
           </Link>
-        </SideBarMenuContainer_menu>
+        </ul>
 
-        <SideBarMenuContainer_logoCopyright>
-          <Link to='/home'>
+        <div>
+          <Link
+            to='/'
+            onClick={() => onClickClose()}
+          >
             <img src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/mobile-logo.svg' />
           </Link>
           <span>
             © 2022 - Page by Superduper-India
           </span>
-        </SideBarMenuContainer_logoCopyright>
-      </SideBarMenu>
+        </div>
+      </MobileSideBarMenuStyle>
     </>
   )
 }

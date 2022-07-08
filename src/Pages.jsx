@@ -16,11 +16,11 @@ export default function Pages({ isPc, callSideBarMenu }) {
   return (
     <div
       className={
-        !isPc && callSideBarMenu == 'okay' ?
+        !isPc && callSideBarMenu == 'true' ?
           'darker-background' : ''}
     >
       <Routes>
-        <Route path="/home" element={
+        <Route path="/" element={
           <HomePage
             restaurants={restaurants}
           />
@@ -31,7 +31,7 @@ export default function Pages({ isPc, callSideBarMenu }) {
             restaurants={restaurants}
           />}
         />
-        <Route path="/" element={
+        <Route path="/select" element={
           <SituationSelectPage
             restaurants={restaurants}
           />}
