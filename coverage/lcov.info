@@ -1249,13 +1249,13 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/containers/sidebar/SideBarContainer.jsx
-FN:12,SideBarContainer
+SF:src/containers/sidebar/SideBarMenu.jsx
+FN:12,SideBarMenu
 FN:15,handleClickHamberger
 FN:19,handleClickClose
 FNF:3
 FNH:1
-FNDA:3,SideBarContainer
+FNDA:3,SideBarMenu
 FNDA:0,handleClickHamberger
 FNDA:0,handleClickClose
 DA:13,3

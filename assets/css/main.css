@@ -39,7 +39,7 @@ body {
   word-break: keep-all;
 }
 
-.black-filter {
+.darker-background {
   filter: brightness(50%);
 }
 

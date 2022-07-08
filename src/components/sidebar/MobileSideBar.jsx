@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
-
 import { Link } from 'react-router-dom';
+
+import styled from '@emotion/styled';
 
 const SideBarLeftContainer = styled.div({
   backgroundColor: '#fff',
@@ -32,7 +32,7 @@ const SideBarLeftContainer_logo = styled.div({
   },
 })
 
-export default function SideBarLeft({ onClickHamberger }) {
+export default function MobileSideBar({ onClickHamberger }) {
   return (
     <SideBarLeftContainer>
       <SideBarLeftContainer_hamberger>

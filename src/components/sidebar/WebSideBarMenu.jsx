@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
-
 import { Link } from 'react-router-dom';
+
+import styled from '@emotion/styled';
 
 const SideBarLayout = styled.div({
   backgroundColor: '#fff',
@@ -36,16 +36,6 @@ const SideBar_menu_category = styled.li({
   marginBottom: '2.5rem',
 })
 
-/* const SideBar_menu_information = styled.button({
-  display: 'flex',
-  alignItems: 'center',
-  '& span': {
-    color: '#828282',
-    fontSize: '1.25rem',
-    marginRight: '1rem',
-  },
-}) */
-
 const SideBar_copyright = styled.div({
   display: 'flex',
   alignItems: 'center',
@@ -58,7 +48,7 @@ const SideBar_copyright = styled.div({
   },
 })
 
-export default function SideBar() {
+export default function WebSideBarMenu() {
   return (
     <SideBarLayout>
       <Link to='/home'>
@@ -93,18 +83,6 @@ export default function SideBar() {
             맛집 찾기
           </SideBar_menu_category>
         </Link>
-
-        {/* <SideBar_menu_information>
-          <span>
-            About
-          </span>
-          <img
-            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/right-arrow-grey.svg'
-          />
-          <img
-            src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/bottom-arrow-grey.svg'
-          />
-        </SideBar_menu_information> */}
       </SideBar_menu>
 
       <SideBar_copyright>

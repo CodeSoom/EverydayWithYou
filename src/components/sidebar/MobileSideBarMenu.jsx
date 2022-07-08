@@ -1,8 +1,8 @@
-import styled from '@emotion/styled';
-
 import { Link } from 'react-router-dom';
 
-const SideBarMenuContainer = styled.div({
+import styled from '@emotion/styled';
+
+const SideBarMenu = styled.div({
   backgroundColor: '#fff',
   maxWidth: '100%',
   height: '100vh',
@@ -13,7 +13,6 @@ const SideBarMenuContainer = styled.div({
   bottom: 0,
   zIndex: 3,
   padding: '3%',
-
   display: 'flex',
   flexFlow: 'column nowrap',
   justifyContent: 'space-between',
@@ -39,20 +38,6 @@ const SideBarMenuContainer_menu_category = styled.li({
   marginBottom: '6vh',
 })
 
-/* const SideBarMenuContainer_menu_information = styled.button({
-  display: 'flex',
-  alignItems: 'center',
-  marginBottom: '6vh',
-  '& span': {
-    color: '#828282',
-    fontSize: '3.75vw',
-    marginRight: '2.5vw',
-  },
-  '& img': {
-    width: '3vw',
-  },
-}) */
-
 const SideBarMenuContainer_logoCopyright = styled.div({
   display: 'flex',
   flexDirection: 'column',
@@ -70,10 +55,10 @@ const SideBarMenuContainer_logoCopyright = styled.div({
   },
 })
 
-export default function SideBarMenu({ onClickClose }) {
+export default function MobileSideBarMenu({ onClickClose }) {
   return (
     <>
-      <SideBarMenuContainer>
+      <SideBarMenu>
         <SideBarMenuContainer_close>
           <button
             type='button'
@@ -121,18 +106,6 @@ export default function SideBarMenu({ onClickClose }) {
               맛집 찾기
             </SideBarMenuContainer_menu_category>
           </Link>
-
-          {/* <SideBarMenuContainer_menu_information>
-            <span>
-              About
-            </span>
-            <img
-              src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/mobile-right-arrow-grey.svg'
-            />
-            <img
-                src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/mobile-bottom-arrow-grey.svg'
-              />
-          </SideBarMenuContainer_menu_information> */}
         </SideBarMenuContainer_menu>
 
         <SideBarMenuContainer_logoCopyright>
@@ -143,7 +116,7 @@ export default function SideBarMenu({ onClickClose }) {
             © 2022 - Page by Superduper-India
           </span>
         </SideBarMenuContainer_logoCopyright>
-      </SideBarMenuContainer>
+      </SideBarMenu>
     </>
   )
 }

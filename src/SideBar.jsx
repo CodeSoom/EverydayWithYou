@@ -1,15 +1,15 @@
 import { useDispatch } from 'react-redux';
 
-import SideBar from '../../components/sidebar/SideBar';
-import SideBarLeft from '../../components/sidebar/SideBarLeft';
-import SideBarMenu from '../../components/sidebar/SideBarMenu';
+import WebSideBarMenu from './components/sidebar/WebSideBarMenu';
+import MobileSideBar from './components/sidebar/MobileSideBar';
+import MobileSideBarMenu from './components/sidebar/MobileSideBarMenu';
 
 import {
   setSideBarMenu,
   removeSideBarMenu,
-} from '../../slice';
+} from './slice';
 
-export default function SideBarContainer({ isPc, callMenu }) {
+export default function SideBarMenu({ isPc, callSideBarMenu }) {
   const dispatch = useDispatch();
 
   function handleClickHamberger() {
@@ -23,12 +23,12 @@ export default function SideBarContainer({ isPc, callMenu }) {
   return (
     <>
       {isPc ?
-        <SideBar /> :
-        callMenu == 'okay' ?
-          <SideBarMenu
+        <WebSideBarMenu /> :
+        callSideBarMenu == 'okay' ?
+          <MobileSideBarMenu
             onClickClose={handleClickClose}
           />
-          : <SideBarLeft
+          : <MobileSideBar
             onClickHamberger={handleClickHamberger}
           />
       }
