@@ -538,7 +538,7 @@
     </package>
     <package name="src.containers.sidebar">
       <metrics statements="4" coveredstatements="2" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="1"/>
-      <file name="SideBarContainer.jsx" path="/Users/seon-yeong/work/react-week9-project/src/containers/sidebar/SideBarContainer.jsx">
+      <file name="SideBarMenu.jsx" path="/Users/seon-yeong/work/react-week9-project/src/containers/sidebar/SideBarMenu.jsx">
         <metrics statements="4" coveredstatements="2" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="1"/>
         <line num="13" count="3" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
