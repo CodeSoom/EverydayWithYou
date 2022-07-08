@@ -24,7 +24,7 @@ export default function SideBarMenu({ isPc, callSideBarMenu }) {
     <>
       {isPc ?
         <WebSideBarMenu /> :
-        callSideBarMenu == 'true' ?
+        callSideBarMenu ?
           <MobileSideBarMenu
             onClickClose={handleClickClose}
           />

@@ -58,20 +58,20 @@ const { actions, reducer } = createSlice({
     randomSituationPlaceRestaurants: [],
     randomAgeCategoryRestaurants: [],
 
-    callSideBarMenu: '',
+    callSideBarMenu: false,
   },
   reducers: {
     setSideBarMenu(state) {
       return {
         ...state,
-        callSideBarMenu: 'true',
+        callSideBarMenu: true,
       }
     },
 
     removeSideBarMenu(state) {
       return {
         ...state,
-        callSideBarMenu: '',
+        callSideBarMenu: false,
       }
     },
 
