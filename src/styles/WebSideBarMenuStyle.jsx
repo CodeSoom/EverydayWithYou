@@ -10,6 +10,7 @@ export const WebSideBarMenuStyle = styled.div({
   height: '100vh',
   width: '18.75rem',
   position: 'fixed',
+  top: 0,
   left: 0,
   zIndex: 1,
   display: 'flex',

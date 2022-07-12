@@ -6,6 +6,7 @@ export const MobileSlimSideBarStyle = styled.div({
   height: '100vh',
   width: '15.5vw',
   position: 'fixed',
+  top: 0,
   left: 0,
   zIndex: 1,
   display: 'flex',

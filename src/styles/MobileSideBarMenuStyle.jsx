@@ -6,6 +6,7 @@ export const MobileSideBarMenuStyle = styled.div({
   height: '100vh',
   width: '73vw',
   position: 'fixed',
+  top: 0,
   left: 0,
   zIndex: 1,
   display: 'flex',
