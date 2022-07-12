@@ -1,15 +1,10 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint';
+import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
+import styled from '@emotion/styled';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const HorizontalRestaurantsListContainer = styled.div(() => mq({
   padding: ['10% 7.5%', '3rem', '3rem'],
@@ -80,20 +75,20 @@ export default function RandomSituationPlaceRestaurants() {
       situation == '데이트' ||
       situation == '프로프즈'
     ) {
-      return `${situation}하기 좋은 ${place}의 음식점`
+      return `${situation}하기 좋은 ${place}의 음식점`;
     } else if (
       situation == '썸'
     ) {
-      return `${situation}탈 때 가기 좋은 ${place}의 음식점`
+      return `${situation}탈 때 가기 좋은 ${place}의 음식점`;
     } else if (
       situation == '생일' ||
       situation == '기념일'
     ) {
-      return `${situation}에 가기 좋은 ${place}의 음식점`
+      return `${situation}에 가기 좋은 ${place}의 음식점`;
     }
   }
 
-  const titleCondition = condition(situation)
+  const titleCondition = condition(situation);
 
   return (
     <HorizontalRestaurantsListContainer>
@@ -124,5 +119,5 @@ export default function RandomSituationPlaceRestaurants() {
         ))}
       </HorizontalRestaurantsList>
     </HorizontalRestaurantsListContainer>
-  )
+  );
 }

@@ -1,15 +1,10 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint';
-
 import { Link } from 'react-router-dom';
+
+import styled from '@emotion/styled';
 
 import { removeItem } from '../../services/storage';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const Top_BackBar = styled.div(() => mq({
   width: '100%',
@@ -30,7 +25,7 @@ const Top_BackBar = styled.div(() => mq({
     fontWeight: '700',
     fontSize: ['4vw', '1.25rem', '1.25rem'],
   },
-}))
+}));
 
 export default function TopBackBar() {
   function handleClickBack() {
@@ -50,5 +45,5 @@ export default function TopBackBar() {
         </Top_BackBar>
       </Link>
     </>
-  )
+  );
 }

@@ -1,9 +1,8 @@
-// 관심사: 필터레스토랑 정보 베이스로 필터추가
+import { useSelector, useDispatch } from 'react-redux';
+
 import styled from '@emotion/styled';
 
 import uniqBy from 'lodash.uniqby';
-
-import { useSelector, useDispatch } from 'react-redux';
 
 import {
   setCategoryFilter,
@@ -23,13 +22,10 @@ const Buttons = styled.button({
 export default function CustomFilterContainer() {
   const dispatch = useDispatch();
 
-
-  // 클릭한 음식종류 이름 받아서 솔팅
   function handleClickCategory(categoryValue) {
     dispatch(setCategoryFilter(categoryValue));
   }
 
-  // 클릭한 장소 이름 받아서 솔팅
   function handleClickPlace(placeValue) {
     dispatch(setPlaceFilter(placeValue));
   }
@@ -38,12 +34,7 @@ export default function CustomFilterContainer() {
   const color = useSelector((state) => (state.color));
   const selectedCategory = useSelector((state) => (state.selectedCategory));
   const selectedPlace = useSelector((state) => (state.selectedPlace));
-  const filteredRestaurantsData1 = useSelector((state) => (state.filteredRestaurantsData1));
-  const filteredRestaurantsData2 = useSelector((state) => (state.filteredRestaurantsData2));
-  const categoryRestaurantsData = useSelector((state) => (state.categoryRestaurantsData));
-  const placeRestaurantsData = useSelector((state) => (state.placeRestaurantsData));
 
-  // 그려주기용
   const restaurantsData = useSelector((state) => (state.restaurantsData));
 
   const uniqCategories = uniqBy(restaurantsData, 'category'); // 상황별로 솔팅된(혹은 기존) 레스토랑 카테고리기준으로 고유값 솔팅
@@ -84,5 +75,5 @@ export default function CustomFilterContainer() {
         ))}
       </Container>
     </>
-  )
+  );
 }

@@ -1,17 +1,12 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint';
-
 import { useSelector } from 'react-redux';
+
+import styled from '@emotion/styled';
 
 import RestaurantsDetailContents from '../../components/restaurants/RestaurantsDetailContents';
 
 import { loadItem } from "../../services/storage";
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const DetailContainer = styled.div(() => mq({
   height: ['auto', '100%', '100%'],
@@ -47,5 +42,5 @@ export default function RestaurantDetailContainer({ isPc }) {
         mood={mood}
       />
     </DetailContainer>
-  )
+  );
 }

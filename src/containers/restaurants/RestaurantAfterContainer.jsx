@@ -1,18 +1,13 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint';
-
 import { useSelector } from 'react-redux';
+
+import styled from '@emotion/styled';
 
 import RestaurantAfterRestaurant from '../../components/restaurants/RestaurantAfterRestaurant';
 import RestaurantAfterCafe from '../../components/restaurants/RestaurantAfterCafe';
 import RestaurantsAfterBar from '../../components/restaurants/RestaurantsAfterBar';
 import RestaurantsAfterRecommendation from '../../components/restaurants/RestaurantsAfterRecommendation';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const RestaurantAfter = styled.div(() => mq({
   width: ['100%', '40%', '40%'],
@@ -38,7 +33,7 @@ export default function RestaurantAfterContainer({ isPc }) {
     afterCafes,
     afterBars,
     recommenedCourse,
-  } = useSelector((state) => state)
+  } = useSelector((state) => state);
 
   return (
     <RestaurantAfter>
@@ -64,5 +59,5 @@ export default function RestaurantAfterContainer({ isPc }) {
         afterBars={afterBars}
       />
     </RestaurantAfter>
-  )
+  );
 }

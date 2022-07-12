@@ -1,17 +1,10 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint'
-
 import { useDispatch } from 'react-redux';
 
-import {
-  setSituationFilter,
-} from '../../slice';
+import styled from '@emotion/styled';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import { setSituationFilter } from '../../slice';
+
+import mq from '../../shared/media-query';
 
 const SelectImgContainer = styled.div(() => mq({
   display: 'flex',
@@ -93,5 +86,5 @@ export default function SituationSelectContainer({ sortedNumber }) {
         />
       </SelectBox3>
     </SelectImgContainer>
-  )
+  );
 }

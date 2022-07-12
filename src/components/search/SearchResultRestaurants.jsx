@@ -1,13 +1,8 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint'
-
 import { Link } from 'react-router-dom';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import styled from '@emotion/styled';
+
+import mq from '../../shared/media-query';
 
 const HorizontalRestaurantsListContainer = styled.div(() => mq({
   padding: ['0 10%', '0 3rem', '0 3rem'],
@@ -27,7 +22,7 @@ const Title = styled.h4(() => mq({
 const HorizontalRestaurantsList = styled.ul({
   display: 'flex',
   overflowY: 'hidden',
-})
+});
 
 const HorizontalRestaurantsList_restaurant = styled.li(() => mq({
   backgroundColor: '#fff',
@@ -94,5 +89,5 @@ export default function SearchResultRestaurants({ searchResultRestaurants, searc
         ))}
       </HorizontalRestaurantsList>
     </HorizontalRestaurantsListContainer>
-  )
+  );
 }

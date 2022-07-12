@@ -1,14 +1,12 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint';
-
-import { useMediaQuery } from "react-responsive";
-
-import { Link } from 'react-router-dom';
-
 import { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
+
+import { Link } from 'react-router-dom';
+
+import styled from '@emotion/styled';
+
+import { useMediaQuery } from "react-responsive";
 
 import CustomCategoryFilterContainer from '../containers/custom/CustomCategoryFilterContainer';
 import CustomPlaceFilterContainer from '../containers/custom/CustomPlaceFilterContainer';
@@ -16,14 +14,9 @@ import CustomRestaurantsContainer from '../containers/custom/CustomRestaurantsCo
 
 import TopBar from '../components/topbar/TopBar';
 
-import {
-  setRestaurantsData,
-} from '../slice';
+import { setRestaurantsData } from '../slice';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../shared/media-query';
 
 const CustomPageLayout = styled.div(() => mq({
   marginLeft: ['15.5vw', '18.75rem', '18.75rem'],
@@ -46,7 +39,7 @@ const FilterContainer = styled.div(() => mq({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
-}))
+}));
 
 const FilterContainer_back = styled.div(() => mq({
   marginBottom: ['2.5vh', '1.5rem', '1.5rem'],
@@ -101,17 +94,17 @@ export default function CustomPage({ restaurants }) {
 
   const situationRestaurantsData = useSelector((state) => (
     state.situationRestaurantsData
-  ))
+  ));
 
   function filter(restaurants, situationRestaurantsData) {
     if (situationRestaurantsData.length === 0) {
-      return restaurants
+      return restaurants;
     }
 
-    return situationRestaurantsData
+    return situationRestaurantsData;
   }
 
-  const restaurantsData = filter(restaurants, situationRestaurantsData)
+  const restaurantsData = filter(restaurants, situationRestaurantsData);
 
   useEffect(() => {
     dispatch(setRestaurantsData(restaurantsData));
@@ -270,5 +263,5 @@ export default function CustomPage({ restaurants }) {
         }
       </CustomPageLayout >
     </>
-  )
+  );
 }

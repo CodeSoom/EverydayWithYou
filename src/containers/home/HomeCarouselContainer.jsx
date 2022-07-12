@@ -1,6 +1,4 @@
-import {
-  Link,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import '../../../assets/js/bootstrap.bundle.min.js';
 
@@ -59,5 +57,5 @@ export default function MainHeaderContainer() {
         <span className="visually-hidden">Next</span>
       </button>
     </div >
-  )
+  );
 }

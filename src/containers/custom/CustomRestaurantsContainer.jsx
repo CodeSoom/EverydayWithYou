@@ -1,17 +1,12 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint';
-
-import uniqBy from 'lodash.uniqby';
+import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
+import styled from '@emotion/styled';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import uniqBy from 'lodash.uniqby';
+
+import mq from '../../shared/media-query';
 
 const CustomRestaurantsResult = styled.div(() => mq({
   width: ['100%', '50%', '50%'],
@@ -122,5 +117,5 @@ export default function CustomRestaurantsContainer() {
           </Link>
         ))}
     </CustomRestaurantsResult>
-  )
+  );
 }

@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import {
-  MobileSideBarMenuStyle,
-} from '../../styles/MobileSideBarMenuStyle';
+import { MobileSideBarMenuStyle } from '../../styles/MobileSideBarMenuStyle';
 
 export default function MobileSideBarMenu({ onClickClose }) {
   return (
@@ -68,5 +66,5 @@ export default function MobileSideBarMenu({ onClickClose }) {
         </div>
       </MobileSideBarMenuStyle>
     </>
-  )
+  );
 }

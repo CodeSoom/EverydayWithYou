@@ -52,7 +52,9 @@ const { actions, reducer } = createSlice({
     afterBars: [],
     RecommenedCourse: [],
 
-    searchField: {},
+    searchField: {
+      searchKeyword: '',
+    },
     searchKeyword: '',
     moodRestaurantsData: {},
     randomSituationPlaceRestaurants: [],

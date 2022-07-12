@@ -8,20 +8,20 @@ const BannerImg = styled.div(() => mq({
   position: 'relative',
   img: {
     width: '100%',
-    height: ['90vw', '90vw', '18.75rem'],
+    height: ['90vw', '18.75rem', '18.75rem'],
     objectFit: 'cover',
     border: '0.25px solid #000',
     filter: 'brightness(50%) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
   },
   p: {
-    width: ['45vw', '45vw', 'auto'],
-    fontSize: ['3.75vw', '3.75vw', '1.2rem'],
-    lineHeight: ['167.8%', '167.8%', '2.5rem'],
+    width: ['45vw', 'auto', 'auto'],
+    fontSize: ['3.75vw', '1.2rem', '1.2rem'],
+    lineHeight: ['167.8%', '2.5rem', '2.5rem'],
     fontWeight: '700',
     position: 'absolute',
-    top: ['25vw', '25vw', 'auto'],
-    bottom: ['auto', 'auto', '2rem'],
-    left: ['10vw', '10vw', '2.5rem'],
+    top: ['25vw', 'auto', 'auto'],
+    bottom: ['auto', '2rem', '2rem'],
+    left: ['10vw', '2.5rem', '2.5rem'],
   },
 }));
 
@@ -41,5 +41,5 @@ export default function Banner() {
         </p>
       </BannerImg>
     </Link>
-  )
+  );
 }

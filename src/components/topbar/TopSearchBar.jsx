@@ -1,13 +1,8 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint'
-
 import { Link } from 'react-router-dom';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import styled from '@emotion/styled';
+
+import mq from '../../shared/media-query';
 
 const Top_SearchContainer = styled.div(() => mq({
   width: '100%',
@@ -25,7 +20,7 @@ const Top_SearchContainer = styled.div(() => mq({
   '& img': {
     width: ['10vw', '2.5rem', '2.5rem'],
   },
-}))
+}));
 
 export default function TopSearchBar() {
   return (
@@ -39,5 +34,5 @@ export default function TopSearchBar() {
         </Top_SearchContainer>
       </Link>
     </>
-  )
+  );
 }

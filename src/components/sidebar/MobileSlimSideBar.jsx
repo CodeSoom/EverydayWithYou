@@ -1,6 +1,4 @@
-import {
-  MobileSlimSideBarStyle,
-} from '../../styles/MobileSlimSideBarStyle';
+import { MobileSlimSideBarStyle } from '../../styles/MobileSlimSideBarStyle';
 
 export default function MobileSlimSideBar({ onClickHamberger }) {
   return (
@@ -18,5 +16,5 @@ export default function MobileSlimSideBar({ onClickHamberger }) {
         />
       </a>
     </MobileSlimSideBarStyle>
-  )
+  );
 }

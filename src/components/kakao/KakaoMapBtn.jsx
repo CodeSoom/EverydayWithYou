@@ -1,11 +1,6 @@
 import styled from '@emotion/styled';
 
-import facepaint from 'facepaint';
-
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const MapButton = styled.button(() => mq({
   width: ['100%', 'auto', 'auto'],
@@ -35,5 +30,5 @@ export default function KakaoMapBtn({ placeUrl }) {
       onClick={() => handleClick(placeUrl)}>
       카카오맵에서 보기
     </MapButton>
-  )
+  );
 }

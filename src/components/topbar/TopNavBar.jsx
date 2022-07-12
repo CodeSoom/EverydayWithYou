@@ -1,13 +1,8 @@
 import styled from '@emotion/styled';
 
-import facepaint from 'facepaint';
-
 import { useMediaQuery } from "react-responsive";
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const Top_NavBar = styled.div(() => mq({
   width: '100%',
@@ -27,7 +22,7 @@ const Top_NavBar = styled.div(() => mq({
     fontWeight: '700',
     fontSize: ['4vw', '1.25rem', '1.25rem'],
   },
-}))
+}));
 
 export default function TopNavBar({ pointFont }) {
   const isPc = useMediaQuery({
@@ -80,5 +75,5 @@ export default function TopNavBar({ pointFont }) {
         </p>
       </Top_NavBar>
     </>
-  )
+  );
 }
