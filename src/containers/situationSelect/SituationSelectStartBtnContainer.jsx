@@ -1,19 +1,12 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint'
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
-import { useSelector, useDispatch } from 'react-redux';
+import styled from '@emotion/styled';
 
-import {
-  setSituationRestaurants,
-} from '../../slice';
+import { setSituationRestaurants } from '../../slice';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const SelectBtnContainer = styled.div(() => mq({
   padding: ['7vh 0', '5.625rem 0', '5.625rem 0'],
@@ -45,7 +38,7 @@ export default function SituationSelectStartBtnContainer({ sortedNumber }) {
     {
       situationRestaurantsData ?
         dispatch(setSituationRestaurants(situationRestaurantsData))
-        : window.location.reload()
+        : window.location.reload();
     }
   }
 
@@ -81,5 +74,5 @@ export default function SituationSelectStartBtnContainer({ sortedNumber }) {
         </SelectButton>
       </Link>
     </SelectBtnContainer>
-  )
+  );
 }

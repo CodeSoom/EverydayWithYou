@@ -1,10 +1,8 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint'
-
 import { useEffect } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
+
+import styled from '@emotion/styled';
 
 import SearchContainer from '../containers/search/SearchContainer';
 import SearchResultContainer from '../containers/search/SearchResultContainer';
@@ -12,14 +10,9 @@ import SearchResultContainer from '../containers/search/SearchResultContainer';
 import RandomSituationPlaceRestaurants from '../components/random/RandomSituationPlaceRestaurants';
 import RandomAgeCategoryRestaurants from '../components/random/RandomAgeCategoryRestaurants';
 
-import {
-  setRandomFilter,
-} from '../slice';
+import { setRandomFilter } from '../slice';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../shared/media-query';
 
 const SearchPageLayout = styled.div(() => mq({
   backgroundColor: '#F4F4F4',
@@ -43,7 +36,7 @@ export default function SearchPage({ restaurants }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setRandomFilter(restaurants))
+    dispatch(setRandomFilter(restaurants));
   }, []);
 
   const searchResultRestaurants = useSelector((state) => (
@@ -74,5 +67,5 @@ export default function SearchPage({ restaurants }) {
         }
       </SearchPageLayout>
     </>
-  )
+  );
 }

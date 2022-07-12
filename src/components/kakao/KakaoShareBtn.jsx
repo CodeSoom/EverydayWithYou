@@ -1,15 +1,10 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint';
-
 import { useEffect } from 'react';
+
+import styled from '@emotion/styled';
 
 import { createKakaoBtn } from '../../kakao';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const ConfirmButton = styled.button(() => mq({
   width: ['100%', 'auto', 'auto'],
@@ -30,8 +25,8 @@ const ConfirmButton = styled.button(() => mq({
 
 export default function KakaoShareBtn() {
   useEffect(() => {
-    createKakaoBtn()
-  }, [])
+    createKakaoBtn();
+  }, []);
 
   return (
     <>
@@ -42,5 +37,5 @@ export default function KakaoShareBtn() {
         공유하기
       </ConfirmButton>
     </>
-  )
+  );
 }

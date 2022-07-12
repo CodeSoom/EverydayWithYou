@@ -1,14 +1,9 @@
 import styled from '@emotion/styled';
 
-import facepaint from 'facepaint'
-
 import TopSearchBar from './TopSearchBar';
 import TopNavBar from './TopNavBar';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const Top = styled.div(() => mq({
   position: 'fixed',
@@ -26,5 +21,5 @@ export default function TopBar({ pointFont }) {
         pointFont={pointFont}
       />
     </Top>
-  )
+  );
 }

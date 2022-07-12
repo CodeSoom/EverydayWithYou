@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-import facepaint from 'facepaint'
-
 import { Link } from 'react-router-dom';
 
 import { useEffect } from 'react';
@@ -13,14 +11,9 @@ import Banner from '../components/banner/Banner';
 import RandomSituationPlaceRestaurants from '../components/random/RandomSituationPlaceRestaurants';
 import RandomAgeCategoryRestaurants from '../components/random/RandomAgeCategoryRestaurants';
 
-import {
-  setRandomFilter,
-} from '../slice';
+import { setRandomFilter } from '../slice';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../shared/media-query';
 
 const Top = styled.div(() => mq({
   position: 'fixed',
@@ -83,7 +76,7 @@ export default function HomePage({ restaurants }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setRandomFilter(restaurants))
+    dispatch(setRandomFilter(restaurants));
   }, []);
 
   return (
@@ -93,7 +86,7 @@ export default function HomePage({ restaurants }) {
       </Top>
       <Banner />
       <HomeSelectContainer>
-        <Link to='/'>
+        <Link to='/select'>
           <HomeSelectContainer_situation
             type='button'
           >
@@ -114,9 +107,8 @@ export default function HomePage({ restaurants }) {
           </HomeSelectContainer_custom>
         </Link>
       </HomeSelectContainer>
-      {/* ToDo 어디로 가시나요? ~ 가격대별 Pick 테마로 변경하기*/}
       <RandomSituationPlaceRestaurants />
       <RandomAgeCategoryRestaurants />
     </HomePageLayout>
-  )
+  );
 }

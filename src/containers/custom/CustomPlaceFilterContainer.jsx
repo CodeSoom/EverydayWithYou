@@ -1,19 +1,12 @@
-import styled from '@emotion/styled';
+import { useSelector, useDispatch } from 'react-redux';
 
-import facepaint from 'facepaint';
+import styled from '@emotion/styled';
 
 import uniqBy from 'lodash.uniqby';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { setPlaceFilter } from '../../slice';
 
-import {
-  setPlaceFilter,
-} from '../../slice';
-
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const CustomPlaceFilter = styled.div(() => ({
   marginTop: '20%',
@@ -84,5 +77,5 @@ export default function CustomPlaceFilterContainer() {
         </CustomPlaceFilter_selectButton>
       ))}
     </CustomPlaceFilter>
-  )
+  );
 }

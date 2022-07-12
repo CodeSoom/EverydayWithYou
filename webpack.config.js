@@ -1,5 +1,4 @@
 const path = require('path');
-const dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
@@ -27,6 +26,5 @@ module.exports = {
     port: 8080,
   },
   plugins: [
-    new dotenv(),
   ],
 };

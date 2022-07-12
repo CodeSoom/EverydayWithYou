@@ -1,15 +1,10 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint';
+import { useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
+import styled from '@emotion/styled';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const HorizontalRestaurantsListContainer = styled.div(() => mq({
   padding: ['0 7.5%', '0 3rem', '0 3rem'],
@@ -79,15 +74,15 @@ export default function RandomAgeCategoryRestaurants() {
       category == '이탈리안' ||
       category == '스테이크'
     ) {
-      return `${age}가 좋아하는 ${category} 음식점`
+      return `${age}가 좋아하는 ${category} 음식점`;
     } else if (category == '인도음식') {
-      return `${age}가 좋아하는 ${category}점`
+      return `${age}가 좋아하는 ${category}점`;
     } else {
-      return `${age}가 좋아하는 ${category}`
+      return `${age}가 좋아하는 ${category}`;
     }
   }
 
-  const titleCondition = condition(category)
+  const titleCondition = condition(category);
 
   return (
     <HorizontalRestaurantsListContainer>
@@ -118,5 +113,5 @@ export default function RandomAgeCategoryRestaurants() {
         ))}
       </HorizontalRestaurantsList>
     </HorizontalRestaurantsListContainer>
-  )
+  );
 }

@@ -1,26 +1,19 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint';
-
-import { useMediaQuery } from "react-responsive";
-
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+import styled from '@emotion/styled';
+
+import { useMediaQuery } from "react-responsive";
 
 import SituationSelectContainer from '../containers/situationSelect/SituationSelectContainer';
 import SituationSelectStartBtnContainer from '../containers/situationSelect/SituationSelectStartBtnContainer';
 
 import TopBar from '../components/topbar/TopBar';
 
-import {
-  setRestaurants,
-} from '../slice';
+import { setRestaurants } from '../slice';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../shared/media-query';
 
 const SituationSelectPageLayout = styled.div(() => mq({
   marginLeft: ['15.5vw', '18.75rem', '18.75rem'],
@@ -84,5 +77,5 @@ export default function SituationSelectPage({ restaurants }) {
         />
       </SituationSelectPageLayout >
     </>
-  )
+  );
 }

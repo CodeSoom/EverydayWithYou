@@ -1,14 +1,9 @@
 import styled from '@emotion/styled';
 
-import facepaint from 'facepaint';
-
 import RestaurantsMap from './RestaurantsMap';
 import KakaoMapBtn from '../kakao/KakaoMapBtn';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const DetailContentsContainer = styled.div(() => mq({
   backgroundColor: ['auto', '#fff', '#fff'],
@@ -140,5 +135,5 @@ export default function RestaurantsDetailContents({
         placeUrl={placeUrl}
       />
     </>
-  )
+  );
 }

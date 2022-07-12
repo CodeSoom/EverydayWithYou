@@ -1,12 +1,10 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint';
-
-import { useParams } from 'react-router-dom';
-
 import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+
+import { useParams } from 'react-router-dom';
+
+import styled from '@emotion/styled';
 
 import SearchFormMock from '../components/search/SearchFormMock';
 
@@ -15,16 +13,11 @@ import RestaurantAfterContainer from '../containers/restaurants/RestaurantAfterC
 
 import { createMap } from '../kakao';
 import { nameFilter } from '../utils';
-import { saveItem, loadItem } from '../services/storage'
+import { saveItem, loadItem } from '../services/storage';
 
-import {
-  loadResultRestaurants,
-} from '../slice';
+import { loadResultRestaurants } from '../slice';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../shared/media-query';
 
 const RestaurantPageLayout = styled.div(() => mq({
   marginLeft: ['15.5vw', '18.75rem', '18.75rem'],
@@ -66,5 +59,5 @@ export default function SearchResultRestaurantPage({ params, restaurants, isPc }
         />
       </RestaurantPageLayout>
     </>
-  )
+  );
 }

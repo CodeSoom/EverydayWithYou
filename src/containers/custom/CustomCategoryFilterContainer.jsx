@@ -1,22 +1,12 @@
-import styled from '@emotion/styled';
+import { useSelector, useDispatch } from 'react-redux';
 
-import facepaint from 'facepaint';
+import styled from '@emotion/styled';
 
 import uniqBy from 'lodash.uniqby';
 
-import { useSelector, useDispatch } from 'react-redux';
+import { setCategoryFilter } from '../../slice';
 
-import {
-  setCategoryFilter,
-} from '../../slice';
-
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
-
-const CustomCategoryFilter = styled.div(() => mq({
-}));
+import mq from '../../shared/media-query';
 
 const CustomCategoryFilter_title = styled.div(() => mq({
   color: '#828282',
@@ -64,7 +54,7 @@ export default function CustomCategoryFilterContainer() {
     (state.alert));
 
   return (
-    <CustomCategoryFilter>
+    <div>
       <CustomCategoryFilter_title>
         {alert == '드시고 싶은 것을 다시 선택해주세요!' ?
           <span>{alert}</span> : '무엇을 드시고 싶으세요?'}
@@ -82,6 +72,6 @@ export default function CustomCategoryFilterContainer() {
           {category.category}
         </CustomCategoryFilter_selectButton>
       ))}
-    </CustomCategoryFilter>
-  )
+    </div>
+  );
 }

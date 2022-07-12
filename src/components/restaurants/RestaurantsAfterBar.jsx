@@ -1,13 +1,8 @@
 import styled from '@emotion/styled';
 
-import facepaint from 'facepaint';
-
 import KakaoMapBtn from '../kakao/KakaoMapBtn';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import mq from '../../shared/media-query';
 
 const VerticalRestaurantsList = styled.div(() => mq({
   borderBottom: ['solid #fff 1vw', 'none', 'none'],
@@ -65,5 +60,5 @@ export default function RestaurantsAfterBar({ afterBars }) {
         </VerticalRestaurantsList_restaurant>
       ))}
     </VerticalRestaurantsList>
-  )
+  );
 }

@@ -1,13 +1,8 @@
-import styled from '@emotion/styled';
-
-import facepaint from 'facepaint';
-
 import { Link } from 'react-router-dom';
 
-const mq = facepaint([
-  '@media (min-width: 1024px)',
-  '@media (min-width: 1440px)',
-])
+import styled from '@emotion/styled';
+
+import mq from '../../shared/media-query';
 
 const TopSearchContainer = styled.div(() => mq({
   position: 'fixed',
@@ -55,5 +50,5 @@ export default function SearchFormMock({ searchKeyword }) {
         </TopSearchContainer_button>
       </TopSearchContainer>
     </Link>
-  )
+  );
 }

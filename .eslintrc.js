@@ -35,6 +35,7 @@ module.exports = {
     'comma-style': ['error', 'last'],
     'comma-dangle': ['error', 'always-multiline'],
     'space-in-parens': ['error', 'never'],
+    'semi': [2, 'always'],
     'block-spacing': 'error',
     'array-bracket-spacing': ['error', 'never'],
     'object-curly-spacing': ['error', 'always'],
@@ -51,4 +52,4 @@ module.exports = {
     },
   },
   "ignorePatterns": ["main.js", "node_modules/", "bootstrap.bundle.min.js", "assets/js/"],
-}
+};
