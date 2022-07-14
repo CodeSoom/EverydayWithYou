@@ -1,18 +1,17 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+import { useSelector, useDispatch } from 'react-redux';
 
 import { useMediaQuery } from 'react-responsive';
 
 import SideBar from './SideBar';
 import Pages from './Pages';
 
-import {
-  getReviews,
-  setReviews,
-} from './reviews';
-
-import { useEffect } from 'react';
+import { loadReviews } from './slice';
 
 export default function App() {
+  const dispatch = useDispatch();
+
   const isPc = useMediaQuery({
     query: '(min-width:1024px)',
   });
@@ -21,9 +20,17 @@ export default function App() {
     state.callSideBarMenu
   ));
 
+  const reviews = useSelector((state) => (
+    state.reviews
+  ));
+  console.log(reviews);
+
+  const reviewFields = useSelector((state) => (
+    state.reviewFields
+  ));
+
   useEffect(() => {
-    getReviews();
-    setReviews({});
+    dispatch(loadReviews());
   }, []);
 
   return (
@@ -36,6 +43,7 @@ export default function App() {
       <Pages
         isPc={isPc}
         callSideBarMenu={callSideBarMenu}
+        reviewFields={reviewFields}
       />
     </>
   );

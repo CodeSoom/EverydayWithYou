@@ -37,7 +37,6 @@ export default function SearchForm({
   onClickSearch,
   onChangeKeyword,
 }) {
-  console.log(searchKeyword);
   function handleChange(event) {
     const { target: { name, value } } = event;
     onChangeKeyword({ name, value });
