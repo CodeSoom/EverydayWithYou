@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+
 import {
   Routes,
   Route,
@@ -9,10 +11,27 @@ import SituationSelectPage from './pages/SituationSelectPage';
 import CustomPage from './pages/CustomPage';
 import RestaurantPage from './pages/RestaurantPage';
 import SearchResultRestaurantPage from './pages/SearchResultRestaurantPage';
+import PostReviewPage from './pages/PostReviewPage';
 
 import restaurants from '../assets/json/restaurants.json';
 
-export default function Pages({ isPc, callSideBarMenu }) {
+import { addReview } from './slice';
+
+import { postReview } from './reviews';
+
+export default function Pages({
+  isPc, callSideBarMenu, reviewFields,
+}) {
+  const dispatch = useDispatch();
+
+  function handleChangeReviewField({ name, value }) {
+    dispatch(addReview({ name, value }));
+  }
+
+  function handleClickConfirmButton(reviewFields) {
+    postReview(reviewFields);
+  }
+
   return (
     <div
       className={
@@ -53,7 +72,14 @@ export default function Pages({ isPc, callSideBarMenu }) {
             isPc={isPc}
           />}
         />
+        <Route path="/post/new" element={
+          <PostReviewPage
+            onChangeReviewField={handleChangeReviewField}
+            onClickConfirmButton={handleClickConfirmButton}
+            reviewFields={reviewFields}
+          />}
+        />
       </Routes>
     </div>
-  )
+  );
 }

@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import {
+  fetchReviews,
+} from './reviews';
+
+import {
   fetchAfterRestaurants,
   fetchAfterCafes,
   fetchAfterBars,
@@ -20,9 +24,20 @@ import { loadItem } from './services/storage';
 import uniqBy from 'lodash.uniqby';
 import filter from 'lodash.filter';
 
+const initialReviewFields = {
+  name: '',
+  situation: '',
+  category: '',
+  place: '',
+  age: '',
+  mood: '',
+  afterCourse: '',
+};
+
 const { actions, reducer } = createSlice({
   name: 'application',
   initialState: {
+    reviews: [],
     restaurants: [], // JSON에서 받아온 최초의 데이터
     situationRestaurantsData: [], // 상황별로 솔팅해서 저장된 레스토랑
     restaurantsData: [], // situationRestaurantsData가 공란일 경우 restaurants로 저장
@@ -61,20 +76,23 @@ const { actions, reducer } = createSlice({
     randomAgeCategoryRestaurants: [],
 
     callSideBarMenu: false,
+    reviewFields: {
+      ...initialReviewFields,
+    },
   },
   reducers: {
     setSideBarMenu(state) {
       return {
         ...state,
         callSideBarMenu: true,
-      }
+      };
     },
 
     removeSideBarMenu(state) {
       return {
         ...state,
         callSideBarMenu: false,
-      }
+      };
     },
 
     // SituationSelectPage: 레스토랑 JSON데이터 셋!
@@ -82,7 +100,24 @@ const { actions, reducer } = createSlice({
       return {
         ...state,
         restaurants,
-      }
+      };
+    },
+
+    setReviews(state, { payload: reviews }) {
+      return {
+        ...state,
+        reviews,
+      };
+    },
+
+    addReview(state, { payload: { name, value } }) {
+      return {
+        ...state,
+        reviewFields: {
+          ...state.reviewFields,
+          [name]: value,
+        },
+      };
     },
 
     // CustomPage: 최초 레스토랑 혹은 상황별로 솔팅된 레스토랑으로 업데이트
@@ -90,7 +125,7 @@ const { actions, reducer } = createSlice({
       return {
         ...state,
         restaurantsData,
-      }
+      };
     },
 
     // SituationSelecPage: 2. 상황별 솔팅 => 필터링된 레스토랑 셋!
@@ -98,7 +133,7 @@ const { actions, reducer } = createSlice({
       return {
         ...state,
         situationRestaurantsData,
-      }
+      };
     },
 
     // ToDo 화면에 구현하기 SearchPage: 분위기별 솔팅 => 필터링된 레스토랑 셋!
@@ -109,7 +144,7 @@ const { actions, reducer } = createSlice({
           ...state.moodRestaurantsData,
           [moodName]: moodRestaurantsData,
         },
-      }
+      };
     },
 
     // RestaurantPage: 검색결과 객체 셋
@@ -123,7 +158,7 @@ const { actions, reducer } = createSlice({
           lat: x,
           lon: y,
         },
-      }
+      };
     },
 
     // RestaurantAfterContainer
@@ -131,28 +166,28 @@ const { actions, reducer } = createSlice({
       return {
         ...state,
         afterRestaurants,
-      }
+      };
     },
 
     setAfterCafes(state, { payload: afterCafes }) {
       return {
         ...state,
         afterCafes,
-      }
+      };
     },
 
     setAfterBars(state, { payload: afterBars }) {
       return {
         ...state,
         afterBars,
-      }
+      };
     },
 
     setRecommendedCourse(state, { payload: recommenedCourse }) {
       return {
         ...state,
         recommenedCourse,
-      }
+      };
     },
 
     // 검색결과 셋
@@ -162,7 +197,7 @@ const { actions, reducer } = createSlice({
         searchResultRestaurants,
         searchKeyword,
         moodRestaurantsData: {},
-      }
+      };
     },
 
     // 추천레스토랑 셋
@@ -174,7 +209,7 @@ const { actions, reducer } = createSlice({
           ...filteredTwice,
         ],
         situation, place,
-      }
+      };
     },
 
     setRandomRecommendedRestaurants2(state, { payload: { filteredTwice, age, category } }) {
@@ -185,7 +220,7 @@ const { actions, reducer } = createSlice({
           ...filteredTwice,
         ],
         age, category,
-      }
+      };
     },
 
     // SituationSelecPage: 1. 상황별 솔팅 => 숫자로 필터된 레스토랑으로 업데이트
@@ -200,13 +235,13 @@ const { actions, reducer } = createSlice({
           ...state,
           situationRestaurantsData: [],
           sortedNumber: '',
-        }
+        };
       } else {
         return {
           ...state,
           situationRestaurantsData: filteredRestaurantsBySituation,
           sortedNumber: sortNumber,
-        }
+        };
       }
     },
 
@@ -229,7 +264,7 @@ const { actions, reducer } = createSlice({
           selectedCategory: categoryValue,
           categoryColor: 'select-button',
           alert: '',
-        }
+        };
       } else if (
         selectedCategory !== categoryValue &&
         filteredRestaurantsByCategory.length === 0) { // 선택한게 빈배열일때
@@ -244,7 +279,7 @@ const { actions, reducer } = createSlice({
           categoryColor: 'select-button-effect',
           selectedPlace: '',
           alert: '가고 싶으신 곳을 다시 선택해주세요 !',
-        }
+        };
       } else { // 위 해당사항이 없을때
         return {
           ...state,
@@ -253,7 +288,7 @@ const { actions, reducer } = createSlice({
           selectedCategory: categoryValue,
           categoryColor: 'select-button-effect',
           alert: '',
-        }
+        };
       }
     },
 
@@ -276,7 +311,7 @@ const { actions, reducer } = createSlice({
           selectedPlace: placeValue,
           placeColor: 'select-button',
           alert: '',
-        }
+        };
       } else if (
         selectedPlace !== placeValue &&
         filteredRestaurantsByPlace.length === 0) { // 선택한게 빈배열일때
@@ -291,7 +326,7 @@ const { actions, reducer } = createSlice({
           placeColor: 'select-button-effect',
           selectedCategory: '',
           alert: '드시고 싶은 것을 다시 선택해주세요!',
-        }
+        };
       } else { // 위 해당사항이 없을때
         return {
           ...state,
@@ -300,7 +335,7 @@ const { actions, reducer } = createSlice({
           selectedPlace: placeValue,
           placeColor: 'select-button-effect',
           alert: '',
-        }
+        };
       }
     },
 
@@ -311,7 +346,7 @@ const { actions, reducer } = createSlice({
           ...state.searchField,
           [name]: value,
         },
-      }
+      };
     },
   },
 });
@@ -319,6 +354,8 @@ const { actions, reducer } = createSlice({
 export const {
   setSideBarMenu,
   removeSideBarMenu,
+  setReviews,
+  addReview,
   setRestaurants,
   setRestaurantsData,
   setSituationRestaurants,
@@ -339,6 +376,13 @@ export const {
 
 // <--- Redux Thunk --->
 
+export function loadReviews() {
+  return async (dispatch) => {
+    const reviews = await fetchReviews();
+    dispatch(setReviews(reviews));
+  };
+}
+
 // 상황별 필터
 export function setSituationFilter(sortNumber) {
   return (dispatch, getState) => {
@@ -349,21 +393,21 @@ export function setSituationFilter(sortNumber) {
     function filter(restuarants, sortNumber) {
       if (sortNumber == 1) {
         const result = situationFilter(restaurants, '데이트');
-        return result
+        return result;
       }
       if (sortNumber == 2) {
         const filter1 = situationFilter(restaurants, '썸');
         const filter2 = situationFilter(restaurants, '소개팅');
         const result = [...filter1, ...filter2];
-        return result
+        return result;
       }
       if (sortNumber == 3) {
         const filter1 = situationFilter(restaurants, '생일');
         const filter2 = situationFilter(restaurants, '기념일');
         const filter3 = situationFilter(restaurants, '프로포즈');
         const result = [...filter1, ...filter2, ...filter3];
-        return result
-      } return restaurants
+        return result;
+      } return restaurants;
     }
 
     const filteredRestaurantsBySituation = filter(restaurants, sortNumber);
@@ -386,22 +430,22 @@ export function setCategoryFilter(categoryValue) {
     function filterFromBase(restaurantsData, categoryValue) {
       const filteredByCategory = categoryFilter(restaurantsData, categoryValue);
       const result = [...filteredByCategory];
-      return result
+      return result;
     }
 
     function filterFromPlaceSorted(placeRestaurantsData, categoryValue) {
       const filteredByCategory = categoryFilter(placeRestaurantsData, categoryValue);
       const result = [...filteredByCategory];
-      return result
+      return result;
     }
 
     function previously(
       restaurantsData, placeRestaurantsData, categoryValue,
     ) {
       if (placeRestaurantsData.length == 0) { // 기존에 장소기준으로 솔팅된게 없다면?
-        return filterFromBase(restaurantsData, categoryValue)
+        return filterFromBase(restaurantsData, categoryValue);
       } else {
-        return filterFromPlaceSorted(placeRestaurantsData, categoryValue)
+        return filterFromPlaceSorted(placeRestaurantsData, categoryValue);
       }
     }
 
@@ -412,7 +456,7 @@ export function setCategoryFilter(categoryValue) {
     dispatch(filterRestaurantsByCategory({
       filteredRestaurantsByCategory, categoryValue,
     }));
-  }
+  };
 }
 
 // 장소별 필터
@@ -427,23 +471,23 @@ export function setPlaceFilter(placeValue) {
     function filterFromBase(restaurantsData, placeValue) {
       const filteredByPlace = placeFilter(restaurantsData, placeValue);
       const result = [...filteredByPlace];
-      return result
+      return result;
     }
 
     function filterFromCategorySorted(categoryRestaurantsData, placeValue) {
       const filteredByPlace = placeFilter(categoryRestaurantsData, placeValue);
       const result = [...filteredByPlace];
-      return result
+      return result;
     }
 
     function previously(
       restaurantsData, categoryRestaurantsData, placeValue,
     ) {
       if (categoryRestaurantsData.length == 0) { // 기존에 음식기준으로 솔팅된게 없다면?
-        return filterFromBase(restaurantsData, placeValue)
+        return filterFromBase(restaurantsData, placeValue);
       } else if (placeRestaurantsData.length !== 0 ||
         categoryRestaurantsData.length !== 0) {
-        return filterFromCategorySorted(categoryRestaurantsData, placeValue)
+        return filterFromCategorySorted(categoryRestaurantsData, placeValue);
       }
     }
 
@@ -454,7 +498,7 @@ export function setPlaceFilter(placeValue) {
     dispatch(filterRestaurantsByPlace({
       filteredRestaurantsByPlace, placeValue,
     }));
-  }
+  };
 }
 
 // 결과 레스토랑 목록
@@ -474,10 +518,10 @@ export function loadResultRestaurants(restaurantName, map) {
           if (resultRestaurantPlaceInfo) {
             const newPlacePosition = new window.kakao.maps.LatLng(
               resultRestaurantPlaceInfo.y, resultRestaurantPlaceInfo.x,
-            )
+            );
             resultMap(newPlacePosition);
-            dispatch(setResultRestaurantPlaceInfo(resultRestaurantPlaceInfo))
-            loadAfterCourse(resultRestaurantPlaceInfo)
+            dispatch(setResultRestaurantPlaceInfo(resultRestaurantPlaceInfo));
+            loadAfterCourse(resultRestaurantPlaceInfo);
           }
         }
 
@@ -520,7 +564,7 @@ export function loadResultRestaurants(restaurantName, map) {
         dispatch(setRecommendedCourse([]));
       }
     }
-  }
+  };
 }
 
 // 검색창에서 지역, 식당, 음식 검색
@@ -536,18 +580,18 @@ export function findRestaurants({ restaurantsData }) {
       const searchResultRestaurants = filter(restaurantsData,
         function (restaurant) {
           if (restaurant.name.includes(word)) {
-            return restaurant.name
+            return restaurant.name;
           } else if (restaurant.place.includes(word)) {
-            return restaurant.place
+            return restaurant.place;
           } else if (restaurant.category.includes(word)) {
-            return restaurant.category
+            return restaurant.category;
           }
         });
       if (searchResultRestaurants) {
         dispatch(setSearchResultRestaurants({
           searchKeyword, searchResultRestaurants,
         }));
-        setMoodFilter(searchResultRestaurants)
+        setMoodFilter(searchResultRestaurants);
       }
     }
 
@@ -560,16 +604,16 @@ export function findRestaurants({ restaurantsData }) {
           function (restaurant) {
             if (obj.mood !== 'null') {
               if (restaurant.mood && restaurant.mood.includes(obj.mood)) {
-                return restaurant.mood
+                return restaurant.mood;
               }
             }
-          })
+          });
         if (newArr.length !== 0) {
           dispatch(setMoodRestaurants(obj.mood, newArr));
         }
       }
     }
-  }
+  };
 }
 
 // 랜덤 식당 추천 액션 생성하기
@@ -580,38 +624,38 @@ export function setRandomFilter(restaurants) {
       const situation = randomRestaurant(restaurants).situation;
       const filteredOnce = situationFilter(
         restaurants, situation,
-      )
+      );
 
       const place = randomRestaurant(filteredOnce).place;
       const filteredTwice = placeFilter(
         filteredOnce, place,
-      )
+      );
 
       dispatch(setRandomRecommendedRestaurants1({
         filteredTwice, situation, place,
-      }))
-    }
+      }));
+    };
 
     const filter2 = (restaurants) => {
       const age = randomRestaurant(restaurants).age;
       const filteredOnce = ageFilter(
         restaurants, age,
-      )
+      );
 
       const category = randomRestaurant(filteredOnce).category;
       const filteredTwice = categoryFilter(
         filteredOnce, category,
-      )
+      );
 
       dispatch(setRandomRecommendedRestaurants2({
         filteredTwice, age, category,
-      }))
-    }
+      }));
+    };
 
-    filter2(restaurants)
+    filter2(restaurants);
 
-    filter1(restaurants)
-  }
+    filter1(restaurants);
+  };
 }
 
 export default reducer;

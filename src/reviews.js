@@ -21,23 +21,11 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-export const setReviews = async () => {
-  await addDoc(collection(db, "reviews"), {
-    // name: `${}`,
-    // age: `${}`,
-    // situation: `${}`,
-    // place: `${}`,
-    // category: `${}`,
-    // mood: `${}`,
-    // afterCourse: `${}`,
-  });
+export const fetchReviews = async () => {
+  const querySnapshot = await getDocs(collection(db, "reviews"));
+  return querySnapshot.docs.map((it) => it.data());
 };
 
-export const getReviews = async () => {
-  const querySnapshot = await getDocs(collection(db, "reviews"));
-  const reviews = querySnapshot.docs.map((it) => it.data());
-  console.log(reviews);
-  // querySnapshot.forEach((doc) => {
-  //   console.log(`${doc.id} => ${JSON.stringify(doc.data())}`);
-  // });
+export const postReview = async (reviewFields) => {
+  await addDoc(collection(db, "reviews"), reviewFields);
 };

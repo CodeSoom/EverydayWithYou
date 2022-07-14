@@ -61,7 +61,7 @@ describe('RandomAgeCategoryRestaurants', () => {
     ];
 
     it('calls its argument with a non-null argument', () => {
-      randomAgeCategoryRestaurants.map(restaurant => mock(restaurant))
+      randomAgeCategoryRestaurants.map(restaurant => mock(restaurant));
       expect(mock).toBeCalled();
     });
   });
