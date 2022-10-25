@@ -8,7 +8,7 @@ export const MobileSideBarMenuStyle = styled.div({
   position: 'fixed',
   top: 0,
   left: 0,
-  zIndex: 1,
+  zIndex: 3,
   display: 'flex',
   flexFlow: 'column nowrap',
   justifyContent: 'space-between',
