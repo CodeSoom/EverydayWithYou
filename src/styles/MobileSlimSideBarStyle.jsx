@@ -8,7 +8,7 @@ export const MobileSlimSideBarStyle = styled.div({
   position: 'fixed',
   top: 0,
   left: 0,
-  zIndex: 1,
+  zIndex: 3,
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
