@@ -30,7 +30,6 @@ export default function App() {
 
   return (
     <>
-      <input type="text" />
       <SideBar
         isPc={isPc}
         callSideBarMenu={callSideBarMenu}
