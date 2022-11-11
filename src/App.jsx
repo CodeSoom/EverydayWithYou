@@ -20,11 +20,6 @@ export default function App() {
     state.callSideBarMenu
   ));
 
-  const reviews = useSelector((state) => (
-    state.reviews
-  ));
-  console.log(reviews);
-
   const reviewFields = useSelector((state) => (
     state.reviewFields
   ));
@@ -35,7 +30,6 @@ export default function App() {
 
   return (
     <>
-      <input type="text" />
       <SideBar
         isPc={isPc}
         callSideBarMenu={callSideBarMenu}

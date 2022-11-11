@@ -46,5 +46,5 @@ export default function WebSideBarMenu() {
         </span>
       </div>
     </WebSideBarMenuStyle>
-  )
+  );
 }

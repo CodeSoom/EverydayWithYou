@@ -25,12 +25,12 @@ import uniqBy from 'lodash.uniqby';
 import filter from 'lodash.filter';
 
 const initialReviewFields = {
-  name: '',
-  situation: '',
-  category: '',
-  place: '',
-  age: '',
-  mood: '',
+  restaurantName: '',
+  writerAge: '',
+  dateSituation: '',
+  dateCategory: '',
+  datePlace: '',
+  restaurantMood: '',
   afterCourse: '',
 };
 
@@ -379,6 +379,7 @@ export const {
 export function loadReviews() {
   return async (dispatch) => {
     const reviews = await fetchReviews();
+    console.log(reviews);
     dispatch(setReviews(reviews));
   };
 }

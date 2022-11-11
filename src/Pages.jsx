@@ -11,7 +11,7 @@ import SituationSelectPage from './pages/SituationSelectPage';
 import CustomPage from './pages/CustomPage';
 import RestaurantPage from './pages/RestaurantPage';
 import SearchResultRestaurantPage from './pages/SearchResultRestaurantPage';
-import PostReviewPage from './pages/PostReviewPage';
+import ReviewPage from './pages/ReviewPage';
 
 import restaurants from '../assets/json/restaurants.json';
 
@@ -35,7 +35,7 @@ export default function Pages({
   return (
     <div
       className={
-        !isPc && callSideBarMenu == 'true' ?
+        !isPc && callSideBarMenu === true ?
           'darker-background' : ''}
     >
       <Routes>
@@ -72,8 +72,8 @@ export default function Pages({
             isPc={isPc}
           />}
         />
-        <Route path="/post/new" element={
-          <PostReviewPage
+        <Route path="/review/new" element={
+          <ReviewPage
             onChangeReviewField={handleChangeReviewField}
             onClickConfirmButton={handleClickConfirmButton}
             reviewFields={reviewFields}
