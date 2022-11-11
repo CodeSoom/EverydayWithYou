@@ -1,18 +1,19 @@
 import styled from '@emotion/styled';
 
-export const MobileSideBarMenuStyle = styled.div({
+export const MobileSideBarMenuStyle = styled.nav({
   backgroundColor: '#fff',
   padding: '3%',
   height: '100vh',
   width: '73vw',
   position: 'fixed',
   top: 0,
-  left: 0,
-  zIndex: 3,
+  left: '-73vw',
+  zIndex: 999,
   display: 'flex',
   flexFlow: 'column nowrap',
   justifyContent: 'space-between',
   alignItems: 'center',
+  transiton: 'all 0.3s',
   '& button': {
     textAlign: 'left',
     width: '100%',
@@ -47,4 +48,8 @@ export const MobileSideBarMenuStyle = styled.div({
       paddingBottom: '2vh',
     },
   },
+});
+
+export const MobileSideBarMenu = styled.nav({
+  left: 0,
 });

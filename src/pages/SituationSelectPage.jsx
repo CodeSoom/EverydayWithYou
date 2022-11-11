@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import styled from '@emotion/styled';
 
-import { useMediaQuery } from "react-responsive";
-
 import SituationSelectContainer from '../containers/situationSelect/SituationSelectContainer';
 import SituationSelectStartBtnContainer from '../containers/situationSelect/SituationSelectStartBtnContainer';
 
@@ -41,11 +39,9 @@ const Title = styled.div({
   },
 });
 
-export default function SituationSelectPage({ restaurants }) {
-  const isPc = useMediaQuery({
-    query: "(min-width:1024px)",
-  });
-
+export default function SituationSelectPage({
+  restaurants, isPc, callSideBarMenu,
+}) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -57,9 +53,14 @@ export default function SituationSelectPage({ restaurants }) {
   return (
     <>
       <TopBar
+        isPc={isPc}
+        callSideBarMenu={callSideBarMenu}
         pointFont={'today'}
       />
       <SituationSelectPageLayout
+        className={
+          !isPc && callSideBarMenu === true ?
+            'darker-background' : ''}
       >
         {isPc ?
           <Title>

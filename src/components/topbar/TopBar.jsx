@@ -13,9 +13,15 @@ const Top = styled.div(() => mq({
   zIndex: 1,
 }));
 
-export default function TopBar({ pointFont }) {
+export default function TopBar({
+  pointFont, isPc, callSideBarMenu,
+}) {
   return (
-    <Top>
+    <Top
+      className={
+        !isPc && callSideBarMenu === true ?
+          'darker-background' : ''}
+    >
       <TopSearchBar />
       <TopNavBar
         pointFont={pointFont}

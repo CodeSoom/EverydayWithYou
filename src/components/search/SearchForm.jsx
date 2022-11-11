@@ -36,6 +36,8 @@ export default function SearchForm({
   searchKeyword,
   onClickSearch,
   onChangeKeyword,
+  isPc,
+  callSideBarMenu,
 }) {
   function handleChange(event) {
     const { target: { name, value } } = event;
@@ -52,7 +54,11 @@ export default function SearchForm({
   }
 
   return (
-    <Container>
+    <Container
+      className={
+        !isPc && callSideBarMenu === true ?
+          'darker-background' : ''}
+    >
       <Input
         name='searchKeyword'
         type='text'

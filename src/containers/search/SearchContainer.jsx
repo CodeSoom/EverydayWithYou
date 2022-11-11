@@ -11,7 +11,9 @@ import {
   findRestaurants,
 } from '../../slice';
 
-export default function SearchContainer({ restaurantsData }) {
+export default function SearchContainer({
+  restaurantsData, isPc, callSideBarMenu,
+}) {
   const dispatch = useDispatch();
 
   function handleClickSearch() {
@@ -32,6 +34,8 @@ export default function SearchContainer({ restaurantsData }) {
 
   return (
     <SearchForm
+      isPc={isPc}
+      callSideBarMenu={callSideBarMenu}
       searchKeyword={searchField.searchKeyword}
       onClickSearch={handleClickSearch}
       onChangeKeyword={handleChangeKeyword}

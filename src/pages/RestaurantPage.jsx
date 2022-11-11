@@ -36,7 +36,9 @@ const RestaurantPageLayout = styled.div(() => mq({
   flexDirection: ['column', 'row', 'row'],
 }));
 
-export default function RestaurantPage({ params, restaurants, isPc }) {
+export default function RestaurantPage({
+  params, restaurants, isPc, callSideBarMenu,
+}) {
   const { name } = params || useParams();
   const resultRestaurant = nameFilter(restaurants, name);
   saveItem('resultRestaurant', JSON.stringify(resultRestaurant)); //클릭해서 들어온 정보 로컬스토리지에 저장
@@ -54,11 +56,19 @@ export default function RestaurantPage({ params, restaurants, isPc }) {
 
   return (
     <>
-      <Top>
+      <Top
+        className={
+          !isPc && callSideBarMenu === true ?
+            'darker-background' : ''}
+      >
         <TopSearchBar />
         <TopBackBar />
       </Top>
-      <RestaurantPageLayout>
+      <RestaurantPageLayout
+        className={
+          !isPc && callSideBarMenu === true ?
+            'darker-background' : ''}
+      >
         <RestaurantDetailContainer
           isPc={isPc}
         />
