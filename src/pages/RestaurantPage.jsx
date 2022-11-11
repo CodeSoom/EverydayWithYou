@@ -37,7 +37,7 @@ const RestaurantPageLayout = styled.div(() => mq({
 }));
 
 export default function RestaurantPage({
-  params, restaurants, isPc, callSideBarMenu,
+  isPc, modalEffect, restaurants, params,
 }) {
   const { name } = params || useParams();
   const resultRestaurant = nameFilter(restaurants, name);
@@ -56,19 +56,11 @@ export default function RestaurantPage({
 
   return (
     <>
-      <Top
-        className={
-          !isPc && callSideBarMenu === true ?
-            'darker-background' : ''}
-      >
+      <Top className={modalEffect}>
         <TopSearchBar />
         <TopBackBar />
       </Top>
-      <RestaurantPageLayout
-        className={
-          !isPc && callSideBarMenu === true ?
-            'darker-background' : ''}
-      >
+      <RestaurantPageLayout className={modalEffect}>
         <RestaurantDetailContainer
           isPc={isPc}
         />

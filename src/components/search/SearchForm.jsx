@@ -23,6 +23,7 @@ const Input = styled.input(() => mq({
   color: '#4F4F4F',
   textAlign: 'right',
   marginRight: ['4.6vw', '0.875rem', '0.875rem'],
+  border: 'none',
 }));
 
 const Button = styled.button(() => mq({
@@ -33,11 +34,10 @@ const Button = styled.button(() => mq({
 }));
 
 export default function SearchForm({
+  modalEffect,
   searchKeyword,
   onClickSearch,
   onChangeKeyword,
-  isPc,
-  callSideBarMenu,
 }) {
   function handleChange(event) {
     const { target: { name, value } } = event;
@@ -53,17 +53,20 @@ export default function SearchForm({
     onClickSearch();
   }
 
+  function handleEnterKey() {
+    if (window.event.keyCode == 13) {
+      onClickSearch();
+    }
+  }
+
   return (
-    <Container
-      className={
-        !isPc && callSideBarMenu === true ?
-          'darker-background' : ''}
-    >
+    <Container className={modalEffect}>
       <Input
         name='searchKeyword'
-        type='text'
+        type='search'
         onChange={handleChange}
-        value={searchKeyword}
+        value={searchKeyword || ''}
+        onKeyUp={handleEnterKey}
       />
       <Button
         type='button'

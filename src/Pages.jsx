@@ -20,7 +20,7 @@ import { addReview } from './slice';
 import { postReview } from './reviews';
 
 export default function Pages({
-  isPc, callSideBarMenu, reviewFields,
+  isPc, modalEffect, reviewFields,
 }) {
   const dispatch = useDispatch();
 
@@ -36,44 +36,42 @@ export default function Pages({
     <Routes>
       <Route path="/" element={
         <HomePage
-          isPc={isPc}
-          callSideBarMenu={callSideBarMenu}
+          modalEffect={modalEffect}
           restaurants={restaurants}
         />
       }
       />
       <Route path="/search" element={
         <SearchPage
-          isPc={isPc}
-          callSideBarMenu={callSideBarMenu}
+          modalEffect={modalEffect}
           restaurants={restaurants}
         />}
       />
       <Route path="/select" element={
         <SituationSelectPage
           isPc={isPc}
-          callSideBarMenu={callSideBarMenu}
+          modalEffect={modalEffect}
           restaurants={restaurants}
         />}
       />
       <Route path="/custom" element={
         <CustomPage
           isPc={isPc}
-          callSideBarMenu={callSideBarMenu}
+          modalEffect={modalEffect}
           restaurants={restaurants}
         />}
       />
       <Route path="/restaurants/:name" element={
         <RestaurantPage
           isPc={isPc}
-          callSideBarMenu={callSideBarMenu}
+          modalEffect={modalEffect}
           restaurants={restaurants}
         />}
       />
       <Route path="/search/restaurants/:name" element={
         <SearchResultRestaurantPage
           isPc={isPc}
-          callSideBarMenu={callSideBarMenu}
+          modalEffect={modalEffect}
           restaurants={restaurants}
         />}
       />

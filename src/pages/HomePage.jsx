@@ -72,9 +72,7 @@ const HomeSelectContainer_custom = styled.button(() => mq({
   },
 }));
 
-export default function HomePage({
-  restaurants, isPc, callSideBarMenu,
-}) {
+export default function HomePage({ modalEffect, restaurants }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -83,18 +81,10 @@ export default function HomePage({
 
   return (
     <>
-      <Top
-        className={
-          !isPc && callSideBarMenu === true ?
-            'darker-background' : ''}
-      >
+      <Top className={modalEffect}>
         <TopSearchBar />
       </Top>
-      <HomePageLayout
-        className={
-          !isPc && callSideBarMenu === true ?
-            'darker-background' : ''}
-      >
+      <HomePageLayout className={modalEffect}>
         <Banner />
         <HomeSelectContainer>
           <Link to='/select'>

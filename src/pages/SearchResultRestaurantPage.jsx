@@ -28,7 +28,7 @@ const RestaurantPageLayout = styled.div(() => mq({
 }));
 
 export default function SearchResultRestaurantPage({
-  params, restaurants, isPc, callSideBarMenu,
+  isPc, modalEffect, restaurants, params,
 }) {
   const { name } = params || useParams();
   const resultRestaurant = nameFilter(restaurants, name);
@@ -50,15 +50,10 @@ export default function SearchResultRestaurantPage({
   return (
     <>
       <SearchFormMock
-        isPc={isPc}
-        callSideBarMenu={callSideBarMenu}
+        modalEffect={modalEffect}
         searchKeyword={searchKeyword}
       />
-      <RestaurantPageLayout
-        className={
-          !isPc && callSideBarMenu === true ?
-            'darker-background' : ''}
-      >
+      <RestaurantPageLayout className={modalEffect}>
         <RestaurantDetailContainer
           isPc={isPc}
         />

@@ -11,9 +11,7 @@ import {
   findRestaurants,
 } from '../../slice';
 
-export default function SearchContainer({
-  restaurantsData, isPc, callSideBarMenu,
-}) {
+export default function SearchContainer({ modalEffect, restaurantsData }) {
   const dispatch = useDispatch();
 
   function handleClickSearch() {
@@ -34,8 +32,7 @@ export default function SearchContainer({
 
   return (
     <SearchForm
-      isPc={isPc}
-      callSideBarMenu={callSideBarMenu}
+      modalEffect={modalEffect}
       searchKeyword={searchField.searchKeyword}
       onClickSearch={handleClickSearch}
       onChangeKeyword={handleChangeKeyword}

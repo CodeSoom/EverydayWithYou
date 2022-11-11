@@ -28,7 +28,7 @@ export const WebSideBarMenuStyle = styled.div({
       fontSize: '1.25rem',
       marginBottom: '2.5rem',
       ': hover': {
-        color: '#000',
+        color: '#4F4F4F',
         transition: 'color 200ms ease',
       },
       ':hover:before': {
@@ -39,7 +39,7 @@ export const WebSideBarMenuStyle = styled.div({
         bottom: 0,
         width: '100%',
         height: '2px',
-        background: '#000',
+        background: '#4F4F4F',
         transform: 'scaleX(0)',
         content: '""',
         position: 'absolute',

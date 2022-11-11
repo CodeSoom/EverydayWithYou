@@ -84,7 +84,7 @@ const Information = styled.div(() => mq({
 }));
 
 export default function CustomPage({
-  restaurants, isPc, callSideBarMenu,
+  isPc, modalEffect, restaurants,
 }) {
   const dispatch = useDispatch();
 
@@ -116,8 +116,7 @@ export default function CustomPage({
   return (
     <>
       <TopBar
-        isPc={isPc}
-        callSideBarMenu={callSideBarMenu}
+        modalEffect={modalEffect}
         pointFont={
           categoryRestaurantsData.length == 0 ?
             'menu' :
@@ -127,11 +126,7 @@ export default function CustomPage({
                 'result' : ''
         }
       />
-      <CustomPageLayout
-        className={
-          !isPc && callSideBarMenu === true ?
-            'darker-background' : ''}
-      >
+      <CustomPageLayout className={modalEffect}>
         {
           categoryRestaurantsData.length == 0 ?
             <>

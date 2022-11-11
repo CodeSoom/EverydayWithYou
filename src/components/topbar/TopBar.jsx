@@ -14,18 +14,12 @@ const Top = styled.div(() => mq({
 }));
 
 export default function TopBar({
-  pointFont, isPc, callSideBarMenu,
+  modalEffect, pointFont,
 }) {
   return (
-    <Top
-      className={
-        !isPc && callSideBarMenu === true ?
-          'darker-background' : ''}
-    >
+    <Top className={modalEffect}>
       <TopSearchBar />
-      <TopNavBar
-        pointFont={pointFont}
-      />
+      <TopNavBar pointFont={pointFont} />
     </Top>
   );
 }

@@ -40,7 +40,7 @@ const Title = styled.div({
 });
 
 export default function SituationSelectPage({
-  restaurants, isPc, callSideBarMenu,
+  isPc, modalEffect, restaurants,
 }) {
   const dispatch = useDispatch();
 
@@ -53,15 +53,10 @@ export default function SituationSelectPage({
   return (
     <>
       <TopBar
-        isPc={isPc}
-        callSideBarMenu={callSideBarMenu}
+        modalEffect={modalEffect}
         pointFont={'today'}
       />
-      <SituationSelectPageLayout
-        className={
-          !isPc && callSideBarMenu === true ?
-            'darker-background' : ''}
-      >
+      <SituationSelectPageLayout className={modalEffect}>
         {isPc ?
           <Title>
             <h2>오늘은 무슨 날인가요? 놀러 가는 목적이 무엇인지 알려주세요.</h2>
