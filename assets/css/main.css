@@ -5,12 +5,14 @@
 * {
   margin: 0;
   padding: 0;
-  border:none;
+  border: none;
   box-sizing: border-box;
   line-height: 1.5;
 }
 
-li, ol, ul {
+li,
+ol,
+ul {
   list-style: none;
 }
 
@@ -18,7 +20,8 @@ input:focus {
   outline: none;
 }
 
-a, a:visited {
+a,
+a:visited {
   text-decoration: none;
   color: #fff;
   cursor: pointer;
@@ -36,7 +39,7 @@ body {
   word-break: keep-all;
 }
 
-.black-filter {
+.darker-background {
   filter: brightness(50%);
 }
 
@@ -59,6 +62,7 @@ body {
   background-color: #fff;
   color: #4F4F4F;
 }
+
 .select-button-effect {
   background-color: #FA625B;
   color: #fff;
