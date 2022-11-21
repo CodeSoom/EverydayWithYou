@@ -23,9 +23,28 @@ export const WebSideBarMenuStyle = styled.div({
     justifyContent: 'center',
     alignItems: 'center',
     '& li': {
+      position: 'relative',
       color: '#828282',
       fontSize: '1.25rem',
       marginBottom: '2.5rem',
+      ': hover': {
+        color: '#4F4F4F',
+        transition: 'color 200ms ease',
+      },
+      ':hover:before': {
+        transform: 'scaleX(1)',
+      },
+      '&:before': {
+        left: 0,
+        bottom: 0,
+        width: '100%',
+        height: '2px',
+        background: '#4F4F4F',
+        transform: 'scaleX(0)',
+        content: '""',
+        position: 'absolute',
+        transition: 'transform .3s ease',
+      },
     },
   },
   '& div': {

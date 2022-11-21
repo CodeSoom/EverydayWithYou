@@ -32,10 +32,12 @@ const TopSearchContainer_button = styled.button(() => mq({
   },
 }));
 
-export default function SearchFormMock({ searchKeyword }) {
+export default function SearchFormMock({ modalEffect, searchKeyword }) {
   return (
     <Link to="/search">
-      <TopSearchContainer>
+      <TopSearchContainer
+        className={modalEffect}
+      >
         <TopSearchContainer_input
           type='text'
           readOnly

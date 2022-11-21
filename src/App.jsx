@@ -9,6 +9,8 @@ import Pages from './Pages';
 
 import { loadReviews } from './slice';
 
+import condition from '../fixtures/condition';
+
 export default function App() {
   const dispatch = useDispatch();
 
@@ -24,6 +26,8 @@ export default function App() {
     state.reviewFields
   ));
 
+  const modalEffect = condition(isPc, callSideBarMenu);
+
   useEffect(() => {
     dispatch(loadReviews());
   }, []);
@@ -36,7 +40,7 @@ export default function App() {
       />
       <Pages
         isPc={isPc}
-        callSideBarMenu={callSideBarMenu}
+        modalEffect={modalEffect}
         reviewFields={reviewFields}
       />
     </>

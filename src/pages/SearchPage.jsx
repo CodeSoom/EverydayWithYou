@@ -32,7 +32,7 @@ const InformationContainer = styled.div(() => mq({
   padding: ['0 5%', 0, 0],
 }));
 
-export default function SearchPage({ restaurants }) {
+export default function SearchPage({ modalEffect, restaurants }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -49,9 +49,10 @@ export default function SearchPage({ restaurants }) {
   return (
     <>
       <SearchContainer
+        modalEffect={modalEffect}
         restaurantsData={restaurants}
       />
-      <SearchPageLayout>
+      <SearchPageLayout className={modalEffect}>
         {!searchResultRestaurants ?
           <>
             <InformationContainer>

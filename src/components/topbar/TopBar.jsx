@@ -13,13 +13,13 @@ const Top = styled.div(() => mq({
   zIndex: 1,
 }));
 
-export default function TopBar({ pointFont }) {
+export default function TopBar({
+  modalEffect, pointFont,
+}) {
   return (
-    <Top>
+    <Top className={modalEffect}>
       <TopSearchBar />
-      <TopNavBar
-        pointFont={pointFont}
-      />
+      <TopNavBar pointFont={pointFont} />
     </Top>
   );
 }

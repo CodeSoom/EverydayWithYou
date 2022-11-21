@@ -72,7 +72,7 @@ const HomeSelectContainer_custom = styled.button(() => mq({
   },
 }));
 
-export default function HomePage({ restaurants }) {
+export default function HomePage({ modalEffect, restaurants }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -80,35 +80,37 @@ export default function HomePage({ restaurants }) {
   }, []);
 
   return (
-    <HomePageLayout>
-      <Top>
+    <>
+      <Top className={modalEffect}>
         <TopSearchBar />
       </Top>
-      <Banner />
-      <HomeSelectContainer>
-        <Link to='/select'>
-          <HomeSelectContainer_situation
-            type='button'
-          >
-            <p>놀러 가는 목적부터 선택</p>
-            <img
-              src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/right-arrow-icon.svg'
-            />
-          </HomeSelectContainer_situation>
-        </Link>
-        <Link to='/custom'>
-          <HomeSelectContainer_custom
-            type='button'
-          >
-            <p>메뉴와 장소부터 선택</p>
-            <img
-              src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/right-arrow-icon.svg'
-            />
-          </HomeSelectContainer_custom>
-        </Link>
-      </HomeSelectContainer>
-      <RandomSituationPlaceRestaurants />
-      <RandomAgeCategoryRestaurants />
-    </HomePageLayout>
+      <HomePageLayout className={modalEffect}>
+        <Banner />
+        <HomeSelectContainer>
+          <Link to='/select'>
+            <HomeSelectContainer_situation
+              type='button'
+            >
+              <p>놀러 가는 목적부터 선택</p>
+              <img
+                src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/right-arrow-icon.svg'
+              />
+            </HomeSelectContainer_situation>
+          </Link>
+          <Link to='/custom'>
+            <HomeSelectContainer_custom
+              type='button'
+            >
+              <p>메뉴와 장소부터 선택</p>
+              <img
+                src='https://img-s3-bucket.s3.ap-northeast-2.amazonaws.com/icon/right-arrow-icon.svg'
+              />
+            </HomeSelectContainer_custom>
+          </Link>
+        </HomeSelectContainer>
+        <RandomSituationPlaceRestaurants />
+        <RandomAgeCategoryRestaurants />
+      </HomePageLayout>
+    </>
   );
 }

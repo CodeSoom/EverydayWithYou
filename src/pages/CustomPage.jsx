@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 
 import styled from '@emotion/styled';
 
-import { useMediaQuery } from "react-responsive";
-
 import CustomCategoryFilterContainer from '../containers/custom/CustomCategoryFilterContainer';
 import CustomPlaceFilterContainer from '../containers/custom/CustomPlaceFilterContainer';
 import CustomRestaurantsContainer from '../containers/custom/CustomRestaurantsContainer';
@@ -85,11 +83,9 @@ const Information = styled.div(() => mq({
   },
 }));
 
-export default function CustomPage({ restaurants }) {
-  const isPc = useMediaQuery({
-    query: "(min-width:1024px)",
-  });
-
+export default function CustomPage({
+  isPc, modalEffect, restaurants,
+}) {
   const dispatch = useDispatch();
 
   const situationRestaurantsData = useSelector((state) => (
@@ -120,6 +116,7 @@ export default function CustomPage({ restaurants }) {
   return (
     <>
       <TopBar
+        modalEffect={modalEffect}
         pointFont={
           categoryRestaurantsData.length == 0 ?
             'menu' :
@@ -129,7 +126,7 @@ export default function CustomPage({ restaurants }) {
                 'result' : ''
         }
       />
-      <CustomPageLayout>
+      <CustomPageLayout className={modalEffect}>
         {
           categoryRestaurantsData.length == 0 ?
             <>

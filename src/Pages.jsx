@@ -20,7 +20,7 @@ import { addReview } from './slice';
 import { postReview } from './reviews';
 
 export default function Pages({
-  isPc, callSideBarMenu, reviewFields,
+  isPc, modalEffect, reviewFields,
 }) {
   const dispatch = useDispatch();
 
@@ -33,53 +33,55 @@ export default function Pages({
   }
 
   return (
-    <div
-      className={
-        !isPc && callSideBarMenu === true ?
-          'darker-background' : ''}
-    >
-      <Routes>
-        <Route path="/" element={
-          <HomePage
-            restaurants={restaurants}
-          />
-        }
+    <Routes>
+      <Route path="/" element={
+        <HomePage
+          modalEffect={modalEffect}
+          restaurants={restaurants}
         />
-        <Route path="/search" element={
-          <SearchPage
-            restaurants={restaurants}
-          />}
-        />
-        <Route path="/select" element={
-          <SituationSelectPage
-            restaurants={restaurants}
-          />}
-        />
-        <Route path="/custom" element={
-          <CustomPage
-            restaurants={restaurants}
-          />}
-        />
-        <Route path="/restaurants/:name" element={
-          <RestaurantPage
-            restaurants={restaurants}
-            isPc={isPc}
-          />}
-        />
-        <Route path="/search/restaurants/:name" element={
-          <SearchResultRestaurantPage
-            restaurants={restaurants}
-            isPc={isPc}
-          />}
-        />
-        <Route path="/review/new" element={
-          <ReviewPage
-            onChangeReviewField={handleChangeReviewField}
-            onClickConfirmButton={handleClickConfirmButton}
-            reviewFields={reviewFields}
-          />}
-        />
-      </Routes>
-    </div>
+      }
+      />
+      <Route path="/search" element={
+        <SearchPage
+          modalEffect={modalEffect}
+          restaurants={restaurants}
+        />}
+      />
+      <Route path="/select" element={
+        <SituationSelectPage
+          isPc={isPc}
+          modalEffect={modalEffect}
+          restaurants={restaurants}
+        />}
+      />
+      <Route path="/custom" element={
+        <CustomPage
+          isPc={isPc}
+          modalEffect={modalEffect}
+          restaurants={restaurants}
+        />}
+      />
+      <Route path="/restaurants/:name" element={
+        <RestaurantPage
+          isPc={isPc}
+          modalEffect={modalEffect}
+          restaurants={restaurants}
+        />}
+      />
+      <Route path="/search/restaurants/:name" element={
+        <SearchResultRestaurantPage
+          isPc={isPc}
+          modalEffect={modalEffect}
+          restaurants={restaurants}
+        />}
+      />
+      <Route path="/review/new" element={
+        <ReviewPage
+          onChangeReviewField={handleChangeReviewField}
+          onClickConfirmButton={handleClickConfirmButton}
+          reviewFields={reviewFields}
+        />}
+      />
+    </Routes>
   );
 }

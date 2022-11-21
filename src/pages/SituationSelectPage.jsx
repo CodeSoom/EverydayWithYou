@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import styled from '@emotion/styled';
 
-import { useMediaQuery } from "react-responsive";
-
 import SituationSelectContainer from '../containers/situationSelect/SituationSelectContainer';
 import SituationSelectStartBtnContainer from '../containers/situationSelect/SituationSelectStartBtnContainer';
 
@@ -41,11 +39,9 @@ const Title = styled.div({
   },
 });
 
-export default function SituationSelectPage({ restaurants }) {
-  const isPc = useMediaQuery({
-    query: "(min-width:1024px)",
-  });
-
+export default function SituationSelectPage({
+  isPc, modalEffect, restaurants,
+}) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -57,10 +53,10 @@ export default function SituationSelectPage({ restaurants }) {
   return (
     <>
       <TopBar
+        modalEffect={modalEffect}
         pointFont={'today'}
       />
-      <SituationSelectPageLayout
-      >
+      <SituationSelectPageLayout className={modalEffect}>
         {isPc ?
           <Title>
             <h2>오늘은 무슨 날인가요? 놀러 가는 목적이 무엇인지 알려주세요.</h2>
