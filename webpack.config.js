@@ -1,19 +1,20 @@
-const path = require('path');
+import path from 'path';
+const __dirname = path.resolve();
 
-module.exports = {
+export default {
   mode: 'development',
-  entry: path.resolve(__dirname, 'src/index.jsx'),
+  entry: path.resolve(__dirname, 'src/index.tsx'),
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
-        use: 'babel-loader',
+        use: 'ts-loader',
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   devServer: {
     static: {
@@ -25,6 +26,4 @@ module.exports = {
     compress: true,
     port: 8080,
   },
-  plugins: [
-  ],
 };
