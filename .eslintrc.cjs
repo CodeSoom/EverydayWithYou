@@ -1,28 +1,31 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "jest": true,
-    "es2021": true,
-    "node": true,
+  'env': {
+    'browser': true,
+    'jest': true,
+    'es2021': true,
+    'node': true,
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
+  'extends': [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
+  'parser': '@typescript-eslint/parser',
+  'parserOptions': {
+    'ecmaVersion': 'latest',
+    'sourceType': 'module',
+    'ecmaFeatures': {
+      'jsx': true,
     },
   },
-  "plugins": [
-    "react",
+  'plugins': [
+    'react',
+    '@typescript-eslint',
   ],
-  "rules": {
-    indent: ['error', 2],
+  'rules': {
+    'indent': ['error', 2],
     'no-trailing-spaces': 'error',
-    curly: 'error',
+    'curly': 'error',
     'brace-style': 'error',
     'no-multi-spaces': 'error',
     'space-infix-ops': 'error',
@@ -44,12 +47,13 @@ module.exports = {
     'jsx-a11y/label-has-associated-control': 'off',
     'linebreak-style': 'off',
     'react/react-in-jsx-scope': 'off',
-    "react/prop-types": "off",
+    'react/prop-types': 'off',
   },
-  "settings": {
-    "react": {
-      "version": 'detect',
+  'root': true,
+  'settings': {
+    'react': {
+      'version': 'detect',
     },
   },
-  "ignorePatterns": ["main.js", "node_modules/", "bootstrap.bundle.min.js", "assets/js/"],
+  'ignorePatterns': ['main.js', 'node_modules/', 'bootstrap.bundle.min.js', 'assets/js/'],
 };
